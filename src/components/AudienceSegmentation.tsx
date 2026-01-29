@@ -1,4 +1,5 @@
 import { Armchair, BookOpen, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const audiences = [
   {
@@ -7,6 +8,7 @@ const audiences = [
     description: "Créditos diseñados para tu tranquilidad",
     icon: Armchair,
     color: "from-primary to-primary/80",
+    href: "/pensionado",
   },
   {
     id: "docente",
@@ -14,6 +16,7 @@ const audiences = [
     description: "Beneficios exclusivos para educadores",
     icon: BookOpen,
     color: "from-primary/90 to-primary/70",
+    href: "/docente",
   },
   {
     id: "fuerza-publica",
@@ -21,6 +24,7 @@ const audiences = [
     description: "Condiciones especiales para héroes",
     icon: Shield,
     color: "from-primary/80 to-primary/60",
+    href: "/fuerza-publica",
   },
 ];
 
@@ -41,8 +45,9 @@ const AudienceSegmentation = () => {
         {/* Audience Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {audiences.map((audience) => (
-            <button
+            <Link
               key={audience.id}
+              to={audience.href}
               className="group relative bg-card border-2 border-border hover:border-primary rounded-2xl p-6 md:p-8 transition-all duration-300 hover:shadow-elevated hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-primary/30 text-left min-h-[180px] md:min-h-[200px]"
               aria-label={`Seleccionar ${audience.title}`}
             >
@@ -79,7 +84,7 @@ const AudienceSegmentation = () => {
                   </svg>
                 </div>
               </div>
-            </button>
+            </Link>
           ))}
         </div>
       </div>
