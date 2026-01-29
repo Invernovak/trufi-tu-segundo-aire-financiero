@@ -1,165 +1,79 @@
-import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import AccessibilityToggle from "@/components/AccessibilityToggle";
-import trufiLogo from "@/assets/trufi_logo.png";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  return <header className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
-      <div className="container flex items-center justify-between h-16 md:h-20 bg-primary text-primary-foreground">
-        {/* Logo */}
-        <Link to="/" className="flex items-center">
-          <img alt="TRUFI - Confianza Inmediata" className="h-10 md:h-12 w-auto object-cover shadow-2xl rounded border-0 border-none" src="/lovable-uploads/4f4d1595-1fcf-4b4e-b604-ec7d158cb34a.png" />
-        </Link>
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // Importante para navegar sin recargar
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
-          <Link to="/" className="transition-colors font-medium text-sm text-primary-foreground">
+const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-archive ${
+        scrolled ? "bg-white/90 backdrop-blur-md border-b border-gray-100 py-3 shadow-sm" : "bg-transparent py-5"
+      }`}
+    >
+      <div className="container mx-auto px-6 flex items-center justify-between">
+        {/* LOGO GRANDE */}
+        <div className="flex items-center gap-2">
+          <Link to="/" className="flex-shrink-0 transition-transform hover:scale-105">
+            <img
+              src="/lovable-uploads/4f4d1595-1fcf-4b4e-b604-ec7d158cb34a.png"
+              alt="Trufi Logo"
+              className="h-12 w-auto object-contain"
+            />
+          </Link>
+        </div>
+
+        {/* MENÚ ESTILO NU (Limpio y Espaciado) */}
+        <nav className="hidden md:flex items-center gap-10">
+          <Link to="/" className="text-base font-medium text-gray-600 hover:text-[#820AD1] transition-colors">
             Inicio
           </Link>
-
-          {/* Quiénes Somos Dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors font-medium text-sm">
-              Quiénes Somos
-              <ChevronDown className="w-4 h-4 text-primary-foreground" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="w-56">
-              <DropdownMenuItem asChild>
-                <Link to="/quienes-somos" className="w-full cursor-pointer">
-                  Sobre TRUFI
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/quienes-somos?tab=mision" className="w-full cursor-pointer">
-                  Misión y Visión
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/quienes-somos?tab=estructura" className="w-full cursor-pointer">
-                  Estructura Organizacional
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/quienes-somos?tab=politicas" className="w-full cursor-pointer">
-                  Políticas
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          {/* Servicios Dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors font-medium text-sm">
-              Servicios
-              <ChevronDown className="w-4 h-4 text-primary-foreground" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="w-56">
-              <DropdownMenuItem asChild>
-                <Link to="/servicios" className="w-full cursor-pointer">
-                  Todos los Servicios
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/servicios/trufi-plus" className="w-full cursor-pointer">
-                  Crédito Trufi Plus
-                </Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link to="/servicios/trufi-flex" className="w-full cursor-pointer">
-                  Crédito Trufi Flex
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          <Link to="/blog" className="transition-colors font-medium text-sm text-primary-foreground">
+          <Link to="/blog" className="text-base font-medium text-gray-600 hover:text-[#820AD1] transition-colors">
             Blog Financiero
           </Link>
-
-          <Link to="/zona-pagos" className="transition-colors font-medium text-sm text-primary-foreground">
+          <Link
+            to="/zona-pagos"
+            className="text-base font-medium text-[#820AD1] hover:text-[#6a08a8] transition-colors"
+          >
             Zona de Pagos
           </Link>
         </nav>
 
-        {/* Right side: Accessibility + CTA */}
-        <div className="hidden lg:flex items-center gap-4">
-          <AccessibilityToggle />
-          <Link to="/servicios">
-            <Button variant="hero" size="lg">
-              Solicitar Crédito
-            </Button>
+        {/* BOTÓN SOLICITAR (Redondo y Moderno) */}
+        <div className="hidden md:flex items-center gap-4">
+          <Link
+            to="/solicitar"
+            className="bg-[#820AD1] text-white px-6 py-2.5 rounded-full font-medium hover:bg-[#6a08a8] transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+          >
+            Solicitar Crédito
           </Link>
         </div>
 
-        {/* Mobile: Accessibility + Menu Button */}
-        <div className="lg:hidden flex items-center gap-2">
-          <AccessibilityToggle />
-          <button className="p-2 text-foreground" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        {/* MENÚ MÓVIL (Hamburguesa simple) */}
+        <div className="md:hidden">
+          <button className="text-gray-700 p-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-8 h-8"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
           </button>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isMenuOpen && <div className="lg:hidden bg-card border-b border-border animate-fade-in max-h-[80vh] overflow-y-auto">
-          <nav className="container py-4 flex flex-col gap-2">
-            <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors font-medium py-3 text-base border-b border-border" onClick={() => setIsMenuOpen(false)}>
-              Inicio
-            </Link>
-
-            {/* Quiénes Somos Section */}
-            <div className="border-b border-border pb-2">
-              <p className="text-foreground font-semibold py-2 text-sm">Quiénes Somos</p>
-              <div className="pl-4 flex flex-col gap-1">
-                <Link to="/quienes-somos" className="text-muted-foreground hover:text-foreground transition-colors py-2 text-sm" onClick={() => setIsMenuOpen(false)}>
-                  Sobre TRUFI
-                </Link>
-                <Link to="/quienes-somos?tab=mision" className="text-muted-foreground hover:text-foreground transition-colors py-2 text-sm" onClick={() => setIsMenuOpen(false)}>
-                  Misión y Visión
-                </Link>
-                <Link to="/quienes-somos?tab=estructura" className="text-muted-foreground hover:text-foreground transition-colors py-2 text-sm" onClick={() => setIsMenuOpen(false)}>
-                  Estructura Organizacional
-                </Link>
-                <Link to="/quienes-somos?tab=politicas" className="text-muted-foreground hover:text-foreground transition-colors py-2 text-sm" onClick={() => setIsMenuOpen(false)}>
-                  Políticas
-                </Link>
-              </div>
-            </div>
-
-            {/* Servicios Section */}
-            <div className="border-b border-border pb-2">
-              <p className="text-foreground font-semibold py-2 text-sm">Servicios</p>
-              <div className="pl-4 flex flex-col gap-1">
-                <Link to="/servicios" className="text-muted-foreground hover:text-foreground transition-colors py-2 text-sm" onClick={() => setIsMenuOpen(false)}>
-                  Todos los Servicios
-                </Link>
-                <Link to="/servicios/trufi-plus" className="text-muted-foreground hover:text-foreground transition-colors py-2 text-sm" onClick={() => setIsMenuOpen(false)}>
-                  Crédito Trufi Plus
-                </Link>
-                <Link to="/servicios/trufi-flex" className="text-muted-foreground hover:text-foreground transition-colors py-2 text-sm" onClick={() => setIsMenuOpen(false)}>
-                  Crédito Trufi Flex
-                </Link>
-              </div>
-            </div>
-
-            <Link to="/blog" className="text-muted-foreground hover:text-foreground transition-colors font-medium py-3 text-base border-b border-border" onClick={() => setIsMenuOpen(false)}>
-              Blog Financiero
-            </Link>
-
-            <Link to="/zona-pagos" className="text-muted-foreground hover:text-foreground transition-colors font-medium py-3 text-base border-b border-border" onClick={() => setIsMenuOpen(false)}>
-              Zona de Pagos
-            </Link>
-
-            <Link to="/servicios" onClick={() => setIsMenuOpen(false)}>
-              <Button variant="hero" className="w-full mt-4">
-                Solicitar Crédito
-              </Button>
-            </Link>
-          </nav>
-        </div>}
-    </header>;
+    </header>
+  );
 };
+
 export default Header;
