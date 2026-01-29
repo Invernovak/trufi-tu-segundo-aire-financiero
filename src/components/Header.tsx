@@ -8,7 +8,7 @@ const Header = () => {
       <div className="container flex items-center justify-between h-16 md:h-20">
         {/* Logo */}
         <a href="#" className="flex items-center">
-          <img alt="TRUFI - Confianza Inmediata" className="h-10 md:h-12 w-auto object-contain" src="/lovable-uploads/e448eedb-a038-42da-a540-05176f5fded3.png" />
+          <img alt="TRUFI - Confianza Inmediata" className="h-10 md:h-12 w-auto object-fill" src="/lovable-uploads/e448eedb-a038-42da-a540-05176f5fded3.png" />
         </a>
 
         {/* Desktop Navigation */}
