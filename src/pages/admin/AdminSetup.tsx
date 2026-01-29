@@ -32,7 +32,9 @@ const AdminSetup = () => {
         if (error) throw error;
         setHasAdmin((count || 0) > 0);
       } catch (err) {
-        console.error('Error checking admin:', err);
+        if (import.meta.env.DEV) {
+          console.error('Error checking admin:', err);
+        }
       } finally {
         setChecking(false);
       }
@@ -93,7 +95,9 @@ const AdminSetup = () => {
         });
 
       if (roleError) {
-        console.error('Role assignment error:', roleError);
+        if (import.meta.env.DEV) {
+          console.error('Role assignment error:', roleError);
+        }
         // If RLS blocks this, we'll handle it differently
         toast({
           variant: 'destructive',
@@ -114,7 +118,9 @@ const AdminSetup = () => {
       
       navigate('/admin');
     } catch (err: unknown) {
-      console.error('Setup error:', err);
+      if (import.meta.env.DEV) {
+        console.error('Setup error:', err);
+      }
       const errorMessage = err instanceof Error ? err.message : 'Error desconocido';
       toast({
         variant: 'destructive',
