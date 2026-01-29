@@ -54,7 +54,7 @@ const Header = () => {
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors font-medium text-sm">
               Servicios
-              <ChevronDown className="w-4 h-4" />
+              <ChevronDown className="w-4 h-4 text-primary-foreground" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-56">
               <DropdownMenuItem asChild>
