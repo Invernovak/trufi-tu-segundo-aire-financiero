@@ -77,7 +77,9 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({
         description: 'La imagen se ha subido correctamente.',
       });
     } catch (error) {
-      console.error('Upload error:', error);
+      if (import.meta.env.DEV) {
+        console.error('Upload error:', error);
+      }
       toast({
         variant: 'destructive',
         title: 'Error al subir',
