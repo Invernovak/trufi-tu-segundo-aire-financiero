@@ -1,32 +1,25 @@
 import { UserPlus, Building2, Wallet, ArrowRight } from "lucide-react";
-
-const steps = [
-  {
-    number: "01",
-    icon: UserPlus,
-    title: "Tú solicitas",
-    description: "Completa tu solicitud 100% en línea en menos de 5 minutos. Sin filas, sin papeleos.",
-    label: "Tu solicitud",
-  },
-  {
-    number: "02",
-    icon: Building2,
-    title: "Fiduciaria administra recursos",
-    description: "Tu dinero está protegido en un Patrimonio Autónomo administrado por una fiduciaria vigilada.",
-    label: "Seguridad garantizada",
-  },
-  {
-    number: "03",
-    icon: Wallet,
-    title: "Desembolso seguro",
-    description: "Una vez aprobado, el dinero llega directamente a tu cuenta. Rápido y transparente.",
-    label: "Dinero en tu cuenta",
-  },
-];
-
+const steps = [{
+  number: "01",
+  icon: UserPlus,
+  title: "Tú solicitas",
+  description: "Completa tu solicitud 100% en línea en menos de 5 minutos. Sin filas, sin papeleos.",
+  label: "Tu solicitud"
+}, {
+  number: "02",
+  icon: Building2,
+  title: "Fiduciaria administra recursos",
+  description: "Tu dinero está protegido en un Patrimonio Autónomo administrado por una fiduciaria vigilada.",
+  label: "Seguridad garantizada"
+}, {
+  number: "03",
+  icon: Wallet,
+  title: "Desembolso seguro",
+  description: "Una vez aprobado, el dinero llega directamente a tu cuenta. Rápido y transparente.",
+  label: "Dinero en tu cuenta"
+}];
 const HowItWorks = () => {
-  return (
-    <section id="como-funciona" className="py-16 md:py-24 bg-muted/30 relative overflow-hidden">
+  return <section id="como-funciona" className="py-16 md:py-24 bg-muted/30 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
       
@@ -53,26 +46,23 @@ const HowItWorks = () => {
             {/* Connection Line */}
             <div className="absolute top-16 left-[15%] right-[15%] h-1 bg-gradient-to-r from-primary via-primary/60 to-primary rounded-full" />
             
-            {steps.map((step, index) => (
-              <div key={index} className="relative flex flex-col items-center text-center w-1/3 px-4">
+            {steps.map((step, index) => <div key={index} className="relative flex flex-col items-center text-center w-1/3 px-4">
                 {/* Icon Circle */}
                 <div className="relative z-10 w-32 h-32 rounded-full bg-gradient-hero flex items-center justify-center shadow-elevated mb-6 group hover:scale-105 transition-transform duration-300">
                   <step.icon className="w-14 h-14 text-primary-foreground" />
                   
                   {/* Step number badge */}
-                  <div className="absolute -top-2 -right-2 w-10 h-10 rounded-full bg-secondary text-secondary-foreground flex items-center justify-center font-bold text-sm shadow-trufi">
+                  <div className="absolute -top-2 -right-2 w-10 h-10 rounded-full bg-secondary flex items-center justify-center font-bold text-sm shadow-trufi text-primary-foreground">
                     {step.number}
                   </div>
                 </div>
 
                 {/* Arrow between steps */}
-                {index < steps.length - 1 && (
-                  <div className="absolute top-16 left-[calc(100%-1rem)] z-20">
+                {index < steps.length - 1 && <div className="absolute top-16 left-[calc(100%-1rem)] z-20">
                     <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center">
                       <ArrowRight className="w-4 h-4 text-primary" />
                     </div>
-                  </div>
-                )}
+                  </div>}
 
                 {/* Content */}
                 <div className="space-y-2">
@@ -86,14 +76,12 @@ const HowItWorks = () => {
                     {step.description}
                   </p>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
 
           {/* Mobile: Vertical Flow */}
           <div className="md:hidden space-y-6">
-            {steps.map((step, index) => (
-              <div key={index} className="relative">
+            {steps.map((step, index) => <div key={index} className="relative">
                 <div className="flex items-start gap-4 bg-card rounded-2xl p-6 border border-border shadow-trufi">
                   {/* Icon */}
                   <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-hero flex items-center justify-center shadow-trufi">
@@ -115,15 +103,12 @@ const HowItWorks = () => {
                 </div>
 
                 {/* Connector arrow */}
-                {index < steps.length - 1 && (
-                  <div className="flex justify-center py-2">
+                {index < steps.length - 1 && <div className="flex justify-center py-2">
                     <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center rotate-90">
                       <ArrowRight className="w-4 h-4 text-primary" />
                     </div>
-                  </div>
-                )}
-              </div>
-            ))}
+                  </div>}
+              </div>)}
           </div>
         </div>
 
@@ -137,8 +122,6 @@ const HowItWorks = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HowItWorks;

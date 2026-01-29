@@ -1,14 +1,12 @@
 import { MapPin, Phone, Mail } from "lucide-react";
 import trufiLogo from "@/assets/trufi_logo.png";
-
 const Footer = () => {
-  return (
-    <footer className="bg-trufi-purple-dark text-primary-foreground">
+  return <footer className="bg-trufi-purple-dark text-primary-foreground">
       <div className="container py-12 md:py-16">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-2 space-y-4">
-            <img src={trufiLogo} alt="TRUFI - Confianza Inmediata" className="h-12 w-auto" />
+            <img alt="TRUFI - Confianza Inmediata" className="h-12 w-auto" src="/lovable-uploads/bcf8b1fe-8a56-4642-87a2-2351e8245a8f.png" />
             <p className="text-primary-foreground/70 max-w-sm text-sm leading-relaxed">
               Reincorporamos personas al sistema financiero con créditos de libranza 
               seguros, transparentes y con tecnología de punta.
@@ -65,8 +63,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;

@@ -39,12 +39,12 @@ const CTASection = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6 border-t border-border rounded-none shadow-lg">
               <p className="text-sm text-secondary">¿Prefieres que te contactemos?</p>
               <div className="flex gap-4">
-                <a href="tel:+573001234567" className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
+                <a href="tel:+573001234567" className="inline-flex items-center gap-2 text-sm font-medium transition-colors text-secondary">
                   <Phone className="w-4 h-4" />
                   Llámanos
                 </a>
-                <a href="#" className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
-                  <MessageCircle className="w-4 h-4" />
+                <a href="#" className="inline-flex items-center gap-2 text-sm font-medium transition-colors text-secondary">
+                  <MessageCircle className="w-4 h-4 text-primary-foreground" />
                   WhatsApp
                 </a>
               </div>
