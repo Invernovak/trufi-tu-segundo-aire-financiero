@@ -1,16 +1,14 @@
 import { Shield, Clock, CheckCircle2 } from "lucide-react";
 import CreditSimulator from "@/components/CreditSimulator";
-
 const HeroSection = () => {
-  return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+  return <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-br from-trufi-purple-light via-background to-trufi-gold-light opacity-60" />
       <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-3xl" />
       
       <div className="container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center text-primary-foreground">
           {/* Content */}
           <div className="space-y-6 lg:space-y-8">
             {/* Badge */}
@@ -61,8 +59,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
