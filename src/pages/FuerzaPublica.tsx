@@ -3,13 +3,18 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CreditSimulator from "@/components/CreditSimulator";
 import { Button } from "@/components/ui/button";
-import { Check, Shield, Award, Clock, Users } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Check, Shield, Award, Clock, Users, ArrowLeft, Send } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { toast } from "sonner";
 
 const benefits = [
   {
     icon: Award,
     title: "Reconocemos tu servicio",
-    description: "Tasas preferenciales como agradecimiento a tu labor por Colombia",
+    description: "Condiciones especiales como agradecimiento a tu labor por Colombia",
   },
   {
     icon: Clock,
@@ -45,10 +50,45 @@ const institutions = [
 ];
 
 const FuerzaPublica = () => {
+  const [formData, setFormData] = useState({
+    nombre: "",
+    telefono: "",
+    email: "",
+    institucion: "",
+    mensaje: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast.success("¡Solicitud enviada! Un asesor te contactará pronto.");
+    setFormData({ nombre: "", telefono: "", email: "", institucion: "", mensaje: "" });
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-20">
+      <main className="pt-24 md:pt-28">
+        {/* Navegación rápida */}
+        <div className="container py-4">
+          <div className="flex items-center gap-4 flex-wrap">
+            <Link to="/">
+              <Button variant="ghost" size="sm" className="gap-2">
+                <ArrowLeft className="w-4 h-4" />
+                Volver al inicio
+              </Button>
+            </Link>
+            <div className="h-4 w-px bg-border hidden sm:block" />
+            <div className="flex gap-2 flex-wrap">
+              <Link to="/pensionado">
+                <Button variant="outline" size="sm">Zona Pensionados</Button>
+              </Link>
+              <Link to="/docente">
+                <Button variant="outline" size="sm">Zona Docentes</Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+
         {/* Hero Section */}
         <section className="py-12 md:py-20 bg-gradient-to-br from-primary/5 to-background">
           <div className="container">
@@ -65,7 +105,7 @@ const FuerzaPublica = () => {
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground">
                   Tu compromiso con la patria merece condiciones financieras especiales. 
-                  Créditos diseñados exclusivamente para héroes como tú.
+                  Créditos diseñados para personal activo y retirado de las Fuerzas Armadas y Policía Nacional.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button variant="hero" size="xl">
@@ -83,17 +123,17 @@ const FuerzaPublica = () => {
           </div>
         </section>
 
-        {/* Institutions Section */}
-        <section className="py-8 bg-muted/30">
+        {/* Institutions Section - Unificada */}
+        <section className="py-8 bg-primary">
           <div className="container">
-            <p className="text-center text-muted-foreground mb-4 text-sm">
-              Convenios activos con:
+            <p className="text-center text-primary-foreground/80 mb-4 text-sm">
+              Convenios activos para personal activo y retirado:
             </p>
-            <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
               {institutions.map((inst, index) => (
                 <div
                   key={index}
-                  className="px-4 py-2 bg-card border border-border rounded-lg text-sm font-medium text-foreground"
+                  className="px-5 py-2.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium text-white"
                 >
                   {inst}
                 </div>
@@ -106,7 +146,7 @@ const FuerzaPublica = () => {
         <section className="py-12 md:py-16">
           <div className="container">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">
-              Beneficios Exclusivos para la Fuerza Pública
+              Beneficios para toda la Fuerza Pública
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {benefits.map((benefit, index) => (
@@ -125,13 +165,16 @@ const FuerzaPublica = () => {
           </div>
         </section>
 
-        {/* Requirements Section */}
+        {/* Requirements Section - Unificada para Activos y Retirados */}
         <section className="py-12 md:py-16 bg-muted/50">
           <div className="container">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
                 Requisitos para Miembros de la Fuerza Pública
               </h2>
+              <p className="text-center text-muted-foreground mb-8">
+                Aplica tanto para personal activo como retirado
+              </p>
               <div className="bg-card border border-border rounded-2xl p-6 md:p-8">
                 <ul className="space-y-4">
                   {requirements.map((req, index) => (
@@ -148,40 +191,75 @@ const FuerzaPublica = () => {
           </div>
         </section>
 
-        {/* Special Programs Section */}
+        {/* Formulario de Asistencia */}
         <section className="py-12 md:py-16">
           <div className="container">
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <div className="bg-card border border-border rounded-2xl p-6 md:p-8">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                  <Shield className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">
-                  Programa para Activos
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  Créditos con descuento directo de nómina y las mejores tasas del mercado 
-                  para personal en servicio activo.
+            <div className="max-w-2xl mx-auto">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                  Solicita Asistencia Personalizada
+                </h2>
+                <p className="text-muted-foreground">
+                  Déjanos tus datos y un asesor especializado te contactará
                 </p>
-                <Button variant="outline" className="w-full">
-                  Más Información
-                </Button>
               </div>
-              <div className="bg-card border border-border rounded-2xl p-6 md:p-8">
-                <div className="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center mb-4">
-                  <Award className="w-6 h-6 text-secondary-foreground" />
+              
+              <form onSubmit={handleSubmit} className="bg-card border border-border rounded-2xl p-6 md:p-8 space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground">Nombre completo</label>
+                    <Input 
+                      placeholder="Tu nombre"
+                      value={formData.nombre}
+                      onChange={(e) => setFormData({...formData, nombre: e.target.value})}
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground">Teléfono</label>
+                    <Input 
+                      placeholder="Tu teléfono"
+                      type="tel"
+                      value={formData.telefono}
+                      onChange={(e) => setFormData({...formData, telefono: e.target.value})}
+                      required
+                    />
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">
-                  Programa para Retirados
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  Condiciones especiales para quienes ya cumplieron su servicio. 
-                  Tu asignación de retiro es tu mejor respaldo.
-                </p>
-                <Button variant="outline" className="w-full">
-                  Más Información
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground">Correo electrónico</label>
+                    <Input 
+                      placeholder="tu@email.com"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground">Institución</label>
+                    <Input 
+                      placeholder="Ej: Ejército Nacional"
+                      value={formData.institucion}
+                      onChange={(e) => setFormData({...formData, institucion: e.target.value})}
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-foreground">Mensaje (opcional)</label>
+                  <Textarea 
+                    placeholder="Cuéntanos cómo podemos ayudarte..."
+                    value={formData.mensaje}
+                    onChange={(e) => setFormData({...formData, mensaje: e.target.value})}
+                    rows={4}
+                  />
+                </div>
+                <Button type="submit" variant="cta" size="lg" className="w-full gap-2">
+                  <Send className="w-4 h-4" />
+                  Solicitar Asistencia
                 </Button>
-              </div>
+              </form>
             </div>
           </div>
         </section>

@@ -3,7 +3,12 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CreditSimulator from "@/components/CreditSimulator";
 import { Button } from "@/components/ui/button";
-import { Check, Heart, Clock, Shield, Phone } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Check, Heart, Clock, Shield, Phone, ArrowLeft, Send } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { toast } from "sonner";
 
 const benefits = [
   {
@@ -13,8 +18,8 @@ const benefits = [
   },
   {
     icon: Heart,
-    title: "Tasas preferenciales",
-    description: "Las mejores condiciones del mercado para pensionados",
+    title: "Oportunidad para reportados",
+    description: "Creemos en tu segundo aire financiero",
   },
   {
     icon: Shield,
@@ -36,10 +41,44 @@ const requirements = [
 ];
 
 const Pensionado = () => {
+  const [formData, setFormData] = useState({
+    nombre: "",
+    telefono: "",
+    email: "",
+    mensaje: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast.success("¡Solicitud enviada! Un asesor te contactará pronto.");
+    setFormData({ nombre: "", telefono: "", email: "", mensaje: "" });
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-20">
+      <main className="pt-24 md:pt-28">
+        {/* Navegación rápida */}
+        <div className="container py-4">
+          <div className="flex items-center gap-4 flex-wrap">
+            <Link to="/">
+              <Button variant="ghost" size="sm" className="gap-2">
+                <ArrowLeft className="w-4 h-4" />
+                Volver al inicio
+              </Button>
+            </Link>
+            <div className="h-4 w-px bg-border hidden sm:block" />
+            <div className="flex gap-2 flex-wrap">
+              <Link to="/docente">
+                <Button variant="outline" size="sm">Zona Docentes</Button>
+              </Link>
+              <Link to="/fuerza-publica">
+                <Button variant="outline" size="sm">Zona Fuerza Pública</Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+
         {/* Hero Section */}
         <section className="py-12 md:py-20 bg-gradient-to-br from-primary/5 to-background">
           <div className="container">
@@ -56,7 +95,7 @@ const Pensionado = () => {
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground">
                   Después de años de trabajo, mereces disfrutar sin preocupaciones.
-                  Nuestros créditos están diseñados pensando en ti.
+                  En TRUFI creemos en tu segundo aire financiero, incluso si estás reportado.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button variant="hero" size="xl">
@@ -120,11 +159,74 @@ const Pensionado = () => {
           </div>
         </section>
 
+        {/* Formulario de Asistencia */}
+        <section className="py-12 md:py-16">
+          <div className="container">
+            <div className="max-w-2xl mx-auto">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                  Solicita Asistencia Personalizada
+                </h2>
+                <p className="text-muted-foreground">
+                  Déjanos tus datos y un asesor especializado te contactará
+                </p>
+              </div>
+              
+              <form onSubmit={handleSubmit} className="bg-card border border-border rounded-2xl p-6 md:p-8 space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground">Nombre completo</label>
+                    <Input 
+                      placeholder="Tu nombre"
+                      value={formData.nombre}
+                      onChange={(e) => setFormData({...formData, nombre: e.target.value})}
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground">Teléfono</label>
+                    <Input 
+                      placeholder="Tu teléfono"
+                      type="tel"
+                      value={formData.telefono}
+                      onChange={(e) => setFormData({...formData, telefono: e.target.value})}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-foreground">Correo electrónico</label>
+                  <Input 
+                    placeholder="tu@email.com"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-foreground">Mensaje (opcional)</label>
+                  <Textarea 
+                    placeholder="Cuéntanos cómo podemos ayudarte..."
+                    value={formData.mensaje}
+                    onChange={(e) => setFormData({...formData, mensaje: e.target.value})}
+                    rows={4}
+                  />
+                </div>
+                <Button type="submit" variant="cta" size="lg" className="w-full gap-2">
+                  <Send className="w-4 h-4" />
+                  Solicitar Asistencia
+                </Button>
+              </form>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-gradient-to-br from-primary to-primary/80">
           <div className="container text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
-              ¿Listo para empezar?
+              ¿Listo para tu segundo aire financiero?
             </h2>
             <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
               Nuestros asesores están disponibles para ayudarte en cada paso del proceso.

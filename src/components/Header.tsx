@@ -14,7 +14,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Efecto para detectar scroll y mejorar la visibilidad
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -26,20 +25,20 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/10 ${
-        scrolled ? "bg-primary/95 backdrop-blur-md shadow-md py-2" : "bg-primary py-4"
+        scrolled ? "bg-primary/95 backdrop-blur-md shadow-md py-2" : "bg-primary py-3"
       }`}
     >
       <div className="container flex items-center justify-between h-auto">
-        {/* LOGO: Más grande, limpio y sin sombras raras */}
+        {/* LOGO: Significativamente más grande */}
         <Link to="/" className="flex items-center">
           <img
             alt="TRUFI - Confianza Inmediata"
-            className="h-14 md:h-20 w-auto object-contain transition-transform hover:scale-105"
+            className="h-20 md:h-28 w-auto object-contain transition-transform hover:scale-105"
             src="/lovable-uploads/4f4d1595-1fcf-4b4e-b604-ec7d158cb34a.png"
           />
         </Link>
 
-        {/* NAVEGACIÓN ESCRITORIO (Letras Blancas) */}
+        {/* NAVEGACIÓN ESCRITORIO */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           <Link to="/" className="text-white hover:text-white/80 transition-colors font-medium text-base">
             Inicio
@@ -81,52 +80,55 @@ const Header = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {/* Servicios Dropdown */}
+          {/* Productos Dropdown (antes "Servicios") */}
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1 text-white hover:text-white/80 transition-colors font-medium text-base outline-none">
-              Servicios
+              Productos
               <ChevronDown className="w-4 h-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-56 bg-white border-gray-100">
               <DropdownMenuItem asChild>
-                <Link to="/servicios" className="w-full cursor-pointer text-gray-700 hover:text-primary">
-                  Todos los Servicios
+                <Link to="/pensionado" className="w-full cursor-pointer text-gray-700 hover:text-primary">
+                  Pensionados
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/servicios/trufi-plus" className="w-full cursor-pointer text-gray-700 hover:text-primary">
-                  Crédito Trufi Plus
+                <Link to="/docente" className="w-full cursor-pointer text-gray-700 hover:text-primary">
+                  Docentes
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link to="/servicios/trufi-flex" className="w-full cursor-pointer text-gray-700 hover:text-primary">
-                  Crédito Trufi Flex
+                <Link to="/fuerza-publica" className="w-full cursor-pointer text-gray-700 hover:text-primary">
+                  Fuerza Pública
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
+          {/* Zona de Aprendizaje (antes "Blog Financiero") */}
           <Link to="/blog" className="text-white hover:text-white/80 transition-colors font-medium text-base">
-            Blog Financiero
-          </Link>
-
-          <Link to="/zona-pagos" className="text-white hover:text-white/80 transition-colors font-medium text-base">
-            Zona de Pagos
+            Zona de Aprendizaje
           </Link>
         </nav>
 
-        {/* LADO DERECHO: Accesibilidad + BOTÓN BLANCO */}
-        <div className="hidden lg:flex items-center gap-6">
+        {/* LADO DERECHO: Accesibilidad + Botones Portal y Zona Clientes */}
+        <div className="hidden lg:flex items-center gap-4">
           <div className="text-white">
             <AccessibilityToggle />
           </div>
 
-          <Link to="/servicios">
-            {/* Botón blanco con sombra oscura */}
-            <Button className="bg-white text-primary font-bold text-base px-8 py-6 rounded-full shadow-[0_4px_14px_0_rgba(0,0,0,0.39)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.23)] hover:bg-gray-50 hover:-translate-y-1 transition-all">
-              Solicitar Crédito
-            </Button>
-          </Link>
+          {/* Portal Comercial */}
+          <Button 
+            variant="outline" 
+            className="border-white/30 text-white hover:bg-white/10 hover:text-white font-semibold px-5 py-2"
+          >
+            Portal Comercial
+          </Button>
+
+          {/* Zona Clientes */}
+          <Button className="bg-white text-primary font-bold text-base px-6 py-2 rounded-full shadow-[0_4px_14px_0_rgba(0,0,0,0.39)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.23)] hover:bg-gray-50 hover:-translate-y-1 transition-all">
+            Zona Clientes
+          </Button>
         </div>
 
         {/* MENÚ MÓVIL */}
@@ -184,30 +186,30 @@ const Header = () => {
               </div>
             </div>
 
-            {/* Servicios Móvil */}
+            {/* Productos Móvil (antes "Servicios") */}
             <div className="border-b border-white/10 pb-2">
-              <p className="text-white/60 font-semibold py-2 text-sm uppercase tracking-wider">Servicios</p>
+              <p className="text-white/60 font-semibold py-2 text-sm uppercase tracking-wider">Productos</p>
               <div className="pl-4 flex flex-col gap-2">
                 <Link
-                  to="/servicios"
+                  to="/pensionado"
                   className="text-white hover:text-white/80 py-1"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Todos los Servicios
+                  Pensionados
                 </Link>
                 <Link
-                  to="/servicios/trufi-plus"
+                  to="/docente"
                   className="text-white hover:text-white/80 py-1"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Crédito Trufi Plus
+                  Docentes
                 </Link>
                 <Link
-                  to="/servicios/trufi-flex"
+                  to="/fuerza-publica"
                   className="text-white hover:text-white/80 py-1"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Crédito Trufi Flex
+                  Fuerza Pública
                 </Link>
               </div>
             </div>
@@ -217,22 +219,24 @@ const Header = () => {
               className="text-white text-lg font-medium py-2 border-b border-white/10"
               onClick={() => setIsMenuOpen(false)}
             >
-              Blog Financiero
+              Zona de Aprendizaje
             </Link>
 
-            <Link
-              to="/zona-pagos"
-              className="text-white text-lg font-medium py-2 border-b border-white/10"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Zona de Pagos
-            </Link>
-
-            <Link to="/servicios" onClick={() => setIsMenuOpen(false)} className="mt-4">
-              <Button className="w-full bg-white text-primary font-bold py-6 rounded-full shadow-lg">
-                Solicitar Crédito
+            <div className="flex flex-col gap-3 mt-4">
+              <Button 
+                variant="outline" 
+                className="w-full border-white/30 text-white hover:bg-white/10 font-semibold py-5"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Portal Comercial
               </Button>
-            </Link>
+              <Button 
+                className="w-full bg-white text-primary font-bold py-5 rounded-full shadow-lg"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Zona Clientes
+              </Button>
+            </div>
           </nav>
         </div>
       )}
