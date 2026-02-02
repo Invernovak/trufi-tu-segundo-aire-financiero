@@ -2,11 +2,11 @@ import { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Card, CardContent } from "@/components/ui/card";
-import { Shield, Eye } from "lucide-react";
+import { Shield, Eye, ArrowRight } from "lucide-react";
 
 const CreditSimulator = () => {
-  const [amount, setAmount] = useState([10000000]);
-  const [term, setTerm] = useState([36]);
+  const [amount, setAmount] = useState([30000000]);
+  const [term, setTerm] = useState([60]);
 
   const formatCurrency = useCallback((value: number) => {
     return new Intl.NumberFormat("es-CO", {
@@ -17,19 +17,22 @@ const CreditSimulator = () => {
     }).format(value);
   }, []);
 
-  // Simple monthly payment calculation (approximate)
-  const monthlyRate = 0.012; // 1.2% monthly
+  // Cálculo de cuota mensual aproximado (tasa de referencia del mercado)
+  const monthlyRate = 0.015; // 1.5% mensual aproximado
   const monthlyPayment =
     (amount[0] * monthlyRate * Math.pow(1 + monthlyRate, term[0])) /
     (Math.pow(1 + monthlyRate, term[0]) - 1);
 
   return (
-    <Card className="bg-card/95 backdrop-blur-md border-2 border-primary/20 shadow-elevated rounded-3xl overflow-hidden">
+    <Card 
+      id="simulador" 
+      className="bg-card/95 backdrop-blur-md border-2 border-primary/20 shadow-elevated rounded-3xl overflow-hidden"
+    >
       <CardContent className="p-6 md:p-8 space-y-6">
         {/* Header */}
         <div className="text-center space-y-2">
           <h3 className="text-xl md:text-2xl font-bold text-foreground">
-            Simula tu Crédito
+            Simula tu Crédito de Libranza
           </h3>
           <p className="text-muted-foreground text-sm md:text-base">
             Descubre cuánto puedes obtener hoy
@@ -50,13 +53,13 @@ const CreditSimulator = () => {
             value={amount}
             onValueChange={setAmount}
             min={1000000}
-            max={50000000}
-            step={500000}
+            max={150000000}
+            step={1000000}
             className="w-full"
           />
           <div className="flex justify-between text-xs text-muted-foreground">
             <span>$1.000.000</span>
-            <span>$50.000.000</span>
+            <span>$150.000.000</span>
           </div>
         </div>
 
@@ -74,13 +77,13 @@ const CreditSimulator = () => {
             value={term}
             onValueChange={setTerm}
             min={12}
-            max={84}
-            step={6}
+            max={144}
+            step={12}
             className="w-full"
           />
           <div className="flex justify-between text-xs text-muted-foreground">
             <span>12 meses</span>
-            <span>84 meses</span>
+            <span>144 meses</span>
           </div>
         </div>
 
@@ -93,7 +96,7 @@ const CreditSimulator = () => {
             {formatCurrency(monthlyPayment)}
           </p>
           <p className="text-xs text-muted-foreground mt-1">
-            *Tasa de referencia 1.2% M.V.
+            *Tasa de referencia del mercado
           </p>
         </div>
 
@@ -101,16 +104,17 @@ const CreditSimulator = () => {
         <Button
           variant="cta"
           size="xl"
-          className="w-full text-lg py-6 font-bold"
+          className="w-full text-lg py-6 font-bold group"
         >
           ¡Lo quiero! Solicitar Ahora
+          <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
         </Button>
 
         {/* Trust Badges */}
         <div className="flex items-center justify-center gap-6 pt-2 pb-1 border-t border-border">
           <div className="flex items-center gap-2 text-muted-foreground">
             <Shield className="w-5 h-5" />
-            <span className="text-xs font-medium">Truora Verificado</span>
+            <span className="text-xs font-medium">Proceso Seguro</span>
           </div>
           <div className="h-4 w-px bg-border" />
           <div className="flex items-center gap-2 text-muted-foreground">
