@@ -22,11 +22,11 @@ const AccessibilityToggle = () => {
       localStorage.setItem("trufi-large-text", "false");
     }
   };
-  return <Button variant="ghost" size="sm" onClick={toggleLargeText} className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground" aria-label={isLargeText ? "Reducir tamaño de letra" : "Aumentar tamaño de letra"} title={isLargeText ? "Letra Normal" : "Letra Grande"}>
-      {isLargeText ? <Type className="w-4 h-4" /> : <ZoomIn className="w-4 h-4 text-primary-foreground" />}
-      <span className="hidden sm:inline text-xs font-medium text-primary-foreground">
-        {isLargeText ? "Aa" : "A+"}
-      </span>
-    </Button>;
+  return <Button variant="ghost" size="sm" onClick={toggleLargeText} className="flex items-center gap-1.5 text-white hover:bg-white hover:text-primary transition-colors" aria-label={isLargeText ? "Reducir tamaño de letra" : "Aumentar tamaño de letra"} title={isLargeText ? "Letra Normal" : "Letra Grande"}>
+    {isLargeText ? <Type className="w-4 h-4" /> : <ZoomIn className="w-4 h-4" />}
+    <span className="hidden sm:inline text-xs font-medium">
+      {isLargeText ? "Aa" : "A+"}
+    </span>
+  </Button>;
 };
 export default AccessibilityToggle;

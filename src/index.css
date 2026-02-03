@@ -143,11 +143,11 @@
   .bg-segment-pensionado {
     background-color: hsl(var(--segment-pensionado));
   }
-  
+
   .bg-segment-docente {
     background-color: hsl(var(--segment-docente));
   }
-  
+
   .bg-segment-fuerza {
     background-color: hsl(var(--segment-fuerza));
   }
@@ -155,11 +155,11 @@
   .text-segment-pensionado {
     color: hsl(var(--segment-pensionado));
   }
-  
+
   .text-segment-docente {
     color: hsl(var(--segment-docente));
   }
-  
+
   .text-segment-fuerza {
     color: hsl(var(--segment-fuerza));
   }
@@ -167,20 +167,24 @@
 
 /* Custom animations */
 @keyframes float {
+
   0%,
   100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
 }
 
 @keyframes pulse-soft {
+
   0%,
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.7;
   }
@@ -191,6 +195,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -201,8 +206,23 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
+
+  50% {
+    transform: translateX(-25%) translateZ(0) scaleY(0.85);
+  }
+
+  100% {
+    transform: translateX(-50%) translateZ(0) scaleY(1);
   }
 }
 
@@ -211,7 +231,7 @@
 }
 
 .animate-pulse-soft {
-  animation: pulse-soft 3s ease-in-out infinite;
+  animation: pulse-soft 2s ease-in-out infinite;
 }
 
 .animate-slide-up {
@@ -220,6 +240,12 @@
 
 .animate-fade-in {
   animation: fade-in 0.3s ease-out forwards;
+}
+
+.animate-wave {
+  animation: wave 10s linear infinite;
+  transform-origin: bottom;
+  will-change: transform;
 }
 
 /* Accessibility: Large Text Mode */

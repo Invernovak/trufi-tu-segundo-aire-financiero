@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Briefcase, User } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import AccessibilityToggle from "@/components/AccessibilityToggle";
@@ -35,42 +35,41 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/10 ${
-        scrolled ? "bg-primary/95 backdrop-blur-md shadow-md py-2" : "bg-primary py-3"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-white/10 ${scrolled ? "bg-primary/95 backdrop-blur-md shadow-md py-2" : "bg-primary py-1"
+        }`}
     >
       <div className="container flex items-center justify-between h-auto">
         {/* LOGO: Significativamente más grande */}
         <Link to="/" className="flex items-center">
           <img
             alt="TRUFI - Confianza Inmediata"
-            className="h-16 md:h-20 w-auto object-contain transition-transform hover:scale-105"
-            src="/lovable-uploads/4f4d1595-1fcf-4b4e-b604-ec7d158cb34a.png"
+            className="h-10 md:h-14 w-auto object-contain transition-transform hover:scale-105"
+            src="/lovable-uploads/Logo-trufi-menu.png"
           />
         </Link>
 
         {/* NAVEGACIÓN ESCRITORIO - Simplificada */}
         <nav className="hidden lg:flex items-center gap-5 xl:gap-6">
-          <Link 
-            to="/" 
-            className="text-white/90 hover:text-white transition-colors font-medium text-sm"
+          <Link
+            to="/"
+            className="text-white/90 hover:text-emerald-400 transition-colors font-medium text-base"
           >
             Inicio
           </Link>
 
           {/* Quiénes Somos */}
-          <Link 
-            to="/quienes-somos" 
-            className="text-white/90 hover:text-white transition-colors font-medium text-sm"
+          <Link
+            to="/quienes-somos"
+            className="text-white/90 hover:text-emerald-400 transition-colors font-medium text-base"
           >
             Quiénes Somos
           </Link>
 
           {/* Productos Dropdown */}
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-white/90 hover:text-white transition-colors font-medium text-sm outline-none">
+            <DropdownMenuTrigger className="flex items-center gap-1 text-white/90 hover:text-emerald-400 transition-colors font-medium text-base outline-none">
               Productos
-              <ChevronDown className="w-3.5 h-3.5" />
+              <ChevronDown className="w-4 h-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-48 bg-white border-border">
               <DropdownMenuItem asChild>
@@ -92,9 +91,9 @@ const Header = () => {
           </DropdownMenu>
 
           {/* Zona de Aprendizaje - Oculto si no hay contenido */}
-          <Link 
-            to="/blog" 
-            className="text-white/90 hover:text-white transition-colors font-medium text-sm"
+          <Link
+            to="/blog"
+            className="text-white/90 hover:text-emerald-400 transition-colors font-medium text-base"
           >
             Blog
           </Link>
@@ -106,17 +105,23 @@ const Header = () => {
             <AccessibilityToggle />
           </div>
 
-          {/* Portal Comercial - Ahora como enlace de texto secundario */}
-          <Link 
-            to="#" 
-            className="text-white/70 hover:text-white text-sm font-medium transition-colors"
+          {/* Portal Comercial - Ahora botón Blanco/Morado */}
+          <Button
+            className="bg-white text-primary hover:bg-white/90 font-bold text-sm px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+            asChild
           >
-            Portal Comercial
-          </Link>
+            <a href="https://sales.trufi.com.co/formCredits" target="_blank" rel="noopener noreferrer">
+              <Briefcase className="w-4 h-4 mr-2" />
+              Portal Comercial
+            </a>
+          </Button>
 
-          {/* Zona Clientes - CTA Principal destacado */}
-          <Button className="bg-secondary text-primary font-bold text-sm px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl hover:bg-secondary/90 hover:-translate-y-0.5 transition-all">
-            Zona Clientes
+          {/* Zona Clientes - CTA Principal destacado con ícono */}
+          <Button className="bg-[#78c0b3] text-white font-bold text-sm px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl hover:bg-[#78c0b3]/90 hover:-translate-y-0.5 transition-all" asChild>
+            <a href="https://app.trufi.com.co/" target="_blank" rel="noopener noreferrer">
+              <User className="w-4 h-4 mr-2" />
+              Zona Clientes
+            </a>
           </Button>
         </div>
 
@@ -193,20 +198,27 @@ const Header = () => {
 
             <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-white/20">
               {/* Portal Comercial - Texto secundario en móvil */}
-              <Link 
-                to="#"
-                className="text-center text-white/70 text-sm font-medium py-2"
+              <a
+                href="https://sales.trufi.com.co/formCredits"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-center text-white/70 text-sm font-medium py-2 flex items-center justify-center gap-2"
                 onClick={() => setIsMenuOpen(false)}
               >
+                <Briefcase className="w-4 h-4" />
                 Portal Comercial
-              </Link>
-              
+              </a>
+
               {/* Zona Clientes - CTA Principal */}
-              <Button 
-                className="w-full bg-secondary text-primary font-bold py-5 rounded-full shadow-lg"
+              <Button
+                className="w-full bg-[#78c0b3] text-white font-bold py-5 rounded-full shadow-lg hover:bg-[#78c0b3]/90"
                 onClick={() => setIsMenuOpen(false)}
+                asChild
               >
-                Zona Clientes
+                <a href="https://app.trufi.com.co/" target="_blank" rel="noopener noreferrer">
+                  <User className="w-4 h-4 mr-2" />
+                  Zona Clientes
+                </a>
               </Button>
             </div>
           </nav>
