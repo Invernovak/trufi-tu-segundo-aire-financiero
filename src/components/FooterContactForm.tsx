@@ -47,82 +47,82 @@ const FooterContactForm = () => {
     };
 
     return (
-        <div className="bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-sm">
-            <div className="mb-6">
-                <h3 className="text-xl font-bold text-white mb-2">Contáctanos</h3>
-                <p className="text-white/70 text-sm">
-                    Déjanos tus datos y un asesor se comunicará contigo para brindarte toda la información que necesitas.
+        <div className="bg-white/5 p-4 rounded-xl border border-white/10 backdrop-blur-sm">
+            <div className="mb-3">
+                <h3 className="text-base font-bold text-white mb-1">Contáctanos</h3>
+                <p className="text-white/70 text-xs leading-tight">
+                    Déjanos tus datos y un asesor te contactará pronto.
                 </p>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                <div className="space-y-1">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-2.5">
+                <div className="space-y-0.5">
                     <Input
                         {...register("nombre")}
                         placeholder="Nombre completo"
-                        className={`bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:bg-white/20 focus:border-white/40 mb-1 ${errors.nombre ? "border-red-400 focus:border-red-400" : ""
+                        className={`h-8 text-xs bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:bg-white/20 focus:border-white/40 ${errors.nombre ? "border-red-400 focus:border-red-400" : ""
                             }`}
                     />
                     {errors.nombre && (
-                        <p className="text-xs text-red-300 ml-1">{errors.nombre.message}</p>
+                        <p className="text-[10px] text-red-300 ml-1">{errors.nombre.message}</p>
                     )}
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-1">
+                <div className="grid grid-cols-2 gap-2">
+                    <div className="space-y-0.5">
                         <Input
                             {...register("telefono")}
-                            placeholder="Teléfono / Celular"
-                            className={`bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:bg-white/20 focus:border-white/40 mb-1 ${errors.telefono ? "border-red-400 focus:border-red-400" : ""
+                            placeholder="Teléfono"
+                            className={`h-8 text-xs bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:bg-white/20 focus:border-white/40 ${errors.telefono ? "border-red-400 focus:border-red-400" : ""
                                 }`}
                         />
                         {errors.telefono && (
-                            <p className="text-xs text-red-300 ml-1">{errors.telefono.message}</p>
+                            <p className="text-[10px] text-red-300 ml-1">{errors.telefono.message}</p>
                         )}
                     </div>
-                    <div className="space-y-1">
+                    <div className="space-y-0.5">
                         <Input
                             {...register("email")}
-                            placeholder="Correo electrónico"
+                            placeholder="Email"
                             type="email"
-                            className={`bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:bg-white/20 focus:border-white/40 mb-1 ${errors.email ? "border-red-400 focus:border-red-400" : ""
+                            className={`h-8 text-xs bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:bg-white/20 focus:border-white/40 ${errors.email ? "border-red-400 focus:border-red-400" : ""
                                 }`}
                         />
                         {errors.email && (
-                            <p className="text-xs text-red-300 ml-1">{errors.email.message}</p>
+                            <p className="text-[10px] text-red-300 ml-1">{errors.email.message}</p>
                         )}
                     </div>
                 </div>
 
-                <div className="space-y-1">
+                <div className="space-y-0.5">
                     <Textarea
                         {...register("mensaje")}
-                        placeholder="¿En qué podemos ayudarte? (Opcional)"
-                        rows={3}
-                        className={`bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:bg-white/20 focus:border-white/40 resize-none mb-1 ${errors.mensaje ? "border-red-400 focus:border-red-400" : ""
+                        placeholder="¿En qué podemos ayudarte?"
+                        rows={2}
+                        className={`min-h-[60px] text-xs bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:bg-white/20 focus:border-white/40 resize-none ${errors.mensaje ? "border-red-400 focus:border-red-400" : ""
                             }`}
                     />
                     {errors.mensaje && (
-                        <p className="text-xs text-red-300 ml-1">{errors.mensaje.message}</p>
+                        <p className="text-[10px] text-red-300 ml-1">{errors.mensaje.message}</p>
                     )}
                 </div>
 
-                <div className="flex items-start gap-2 pt-2">
+                <div className="flex items-start gap-2 pt-1">
                     <Checkbox
                         id="marketing"
-                        className="mt-1 border-white/50 data-[state=checked]:bg-trufi-cyan data-[state=checked]:border-trufi-cyan"
+                        className="mt-0.5 h-3 w-3 border-white/50 data-[state=checked]:bg-trufi-cyan data-[state=checked]:border-trufi-cyan"
                         onCheckedChange={(checked) => setValue("aceptaTerminos", checked === true)}
                         checked={watch("aceptaTerminos")}
                     />
-                    <div className="grid gap-1.5 leading-none">
+                    <div className="grid gap-0.5 leading-none">
                         <label
                             htmlFor="marketing"
-                            className="text-xs text-white/70 font-light cursor-pointer hover:text-white/90 transition-colors"
+                            className="text-[10px] text-white/60 font-light cursor-pointer hover:text-white/90 transition-colors leading-tight"
                         >
-                            Acepto la <a href="#" className="underline decoration-white/30 hover:decoration-white/80 transition-all">Política de Tratamiento de Datos</a> y autorizo el contacto por parte de TRUFI.
+                            Acepto política de datos y contacto.
                         </label>
                         {errors.aceptaTerminos && (
-                            <p className="text-xs text-red-300">{errors.aceptaTerminos.message}</p>
+                            <p className="text-[10px] text-red-300">{errors.aceptaTerminos.message}</p>
                         )}
                     </div>
                 </div>
@@ -130,17 +130,17 @@ const FooterContactForm = () => {
                 <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-white text-trufi-purple-dark hover:bg-white/90 font-bold mt-2"
+                    className="w-full h-8 text-xs bg-white text-trufi-purple-dark hover:bg-white/90 font-bold mt-1"
                 >
                     {isSubmitting ? (
                         <>
-                            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                            <Loader2 className="mr-2 h-3 w-3 animate-spin" />
                             Enviando...
                         </>
                     ) : (
                         <>
-                            <Send className="mr-2 h-4 w-4" />
-                            Enviar Mensaje
+                            <Send className="mr-2 h-3 w-3" />
+                            Enviar
                         </>
                     )}
                 </Button>
