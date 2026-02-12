@@ -26,6 +26,9 @@ export const contactFormPensionadoSchema = z.object({
     .max(1000, { message: "El mensaje no puede exceder 1000 caracteres" })
     .optional()
     .or(z.literal('')),
+  aceptaTerminos: z.boolean().refine(val => val === true, {
+    message: "Debes aceptar la política de tratamiento de datos",
+  }),
 });
 
 // Contact form validation schema for Docente page (includes institucion field)
@@ -60,6 +63,9 @@ export const contactFormDocenteSchema = z.object({
     .max(1000, { message: "El mensaje no puede exceder 1000 caracteres" })
     .optional()
     .or(z.literal('')),
+  aceptaTerminos: z.boolean().refine(val => val === true, {
+    message: "Debes aceptar la política de tratamiento de datos",
+  }),
 });
 
 // Contact form validation schema for FuerzaPublica page (includes institucion field)

@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { Send, Loader2 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const FooterContactForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,18 +33,37 @@ const FooterContactForm = () => {
 
     const onSubmit = async (data: FooterContactForm) => {
         setIsSubmitting(true);
-        // Simulate network delay
-        await new Promise((resolve) => setTimeout(resolve, 1500));
 
-        console.log("Form Data Submitted:", data);
+        try {
+            const { error } = await supabase
+                .from('leads')
+                .insert([
+                    {
+                        nombre: data.nombre,
+                        email: data.email,
+                        telefono: data.telefono,
+                        mensaje: data.mensaje,
+                        segmento: 'General - Footer',
+                        acepta_terminos: data.aceptaTerminos
+                    }
+                ]);
 
-        toast.success("¡Hemos recibido tus datos con éxito!", {
-            description: "Uno de nuestros asesores comerciales te contactará muy pronto.",
-            duration: 5000,
-        });
+            if (error) throw error;
 
-        reset();
-        setIsSubmitting(false);
+            toast.success("¡Hemos recibido tus datos con éxito!", {
+                description: "Uno de nuestros asesores comerciales te contactará muy pronto.",
+                duration: 5000,
+            });
+
+            reset();
+        } catch (error: any) {
+            console.error('Error submitting form:', error);
+            toast.error("Hubo un error al enviar tus datos", {
+                description: "Por favor intenta nuevamente.",
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (

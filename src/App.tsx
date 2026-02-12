@@ -20,6 +20,7 @@ import Blog from "./pages/Blog";
 import ZonaPagos from "./pages/ZonaPagos";
 import PortalComercial from "./pages/PortalComercial";
 import BeneficiosExclusivos from "./pages/BeneficiosExclusivos";
+import PQR from "./pages/PQR";
 
 // Admin Pages
 import AdminLogin from "./pages/admin/AdminLogin";
@@ -60,6 +61,7 @@ const App = () => {
               <Route path="/blog" element={<Blog />} />
               <Route path="/zona-pagos" element={<ZonaPagos />} />
               <Route path="/portal-comercial" element={<PortalComercial />} />
+              <Route path="/pqr" element={<PQR />} />
 
               {/* Admin Routes (Public) */}
               <Route path="/admin/login" element={<AdminLogin />} />

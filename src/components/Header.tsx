@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Briefcase, User, CreditCard } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import AccessibilityToggle from "@/components/AccessibilityToggle";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -81,7 +80,7 @@ const Header = () => {
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link to="/fuerza-publica" className="w-full cursor-pointer text-foreground hover:text-primary text-xs">
-                  Fuerza Pública
+                  Pensionados Fuerza Pública
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -106,15 +105,20 @@ const Header = () => {
             to="/zona-pagos"
             className="text-white/90 hover:text-emerald-400 transition-colors font-medium text-[11px] flex items-center gap-1 text-shadow-sm whitespace-nowrap"
           >
-            Ponte al día con Trufi
+            Ponte Al Día
+          </Link>
+
+          <Link
+            to="/pqr"
+            className="text-white/90 hover:text-emerald-400 transition-colors font-medium text-[11px] flex items-center gap-1 text-shadow-sm whitespace-nowrap"
+          >
+            PQRs
           </Link>
         </nav>
 
         {/* LADO DERECHO: Botones */}
         <div className="hidden lg:flex items-center gap-3">
-          <div className="text-white">
-            <AccessibilityToggle />
-          </div>
+
 
           {/* 1. Zona Clientes (Ahora primero) */}
           <Button
@@ -140,9 +144,7 @@ const Header = () => {
 
         {/* MENÚ MÓVIL */}
         <div className="lg:hidden flex items-center gap-3">
-          <div className="text-white">
-            <AccessibilityToggle />
-          </div>
+
           <button
             className="p-2 text-white hover:bg-white/10 rounded-full transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -214,7 +216,15 @@ const Header = () => {
               className="text-white text-sm font-medium py-3 border-b border-white/10"
               onClick={() => setIsMenuOpen(false)}
             >
-              Ponte al día con Trufi
+              Ponte Al Día
+            </Link>
+
+            <Link
+              to="/pqr"
+              className="text-white text-sm font-medium py-3 border-b border-white/10"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              PQRs
             </Link>
 
             <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-white/20">

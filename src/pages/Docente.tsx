@@ -5,6 +5,7 @@ import CreditSimulator from "@/components/CreditSimulator";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Check, BookOpen, GraduationCap, Laptop, Sparkles, ArrowLeft, Send, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -13,6 +14,7 @@ import { contactFormDocenteSchema, type ContactFormDocente } from "@/lib/validat
 import segmentImage from "@/assets/segment-docente.jpg";
 import ProductShowcase from "@/components/ProductShowcase";
 import Pagadurias from "@/components/Pagadurias";
+import { supabase } from "@/integrations/supabase/client";
 
 const benefits = [
   {
@@ -52,10 +54,11 @@ const Docente = () => {
     email: "",
     institucion: "",
     mensaje: "",
+    aceptaTerminos: false,
   });
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormDocente, string>>>({});
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const result = contactFormDocenteSchema.safeParse(formData);
@@ -71,9 +74,32 @@ const Docente = () => {
       return;
     }
 
-    setErrors({});
-    toast.success("¡Solicitud enviada! Un asesor te contactará pronto.");
-    setFormData({ nombre: "", telefono: "", email: "", institucion: "", mensaje: "" });
+    try {
+      const { error } = await supabase
+        .from('leads')
+        .insert([
+          {
+            nombre: formData.nombre,
+            email: formData.email,
+            telefono: formData.telefono,
+            mensaje: formData.mensaje,
+            segmento: 'Docente',
+            acepta_terminos: true
+          }
+        ]);
+
+      if (error) throw error;
+
+      setErrors({});
+      toast.success("¡Solicitud enviada! Un asesor te contactará pronto.");
+      setFormData({ nombre: "", telefono: "", email: "", institucion: "", mensaje: "" });
+
+    } catch (error: any) {
+      console.error('Error submitting form:', error);
+      toast.error("Hubo un error al enviar tus datos", {
+        description: "Por favor intenta nuevamente.",
+      });
+    }
   };
 
   // Color de acento para Docentes: Azul educativo
@@ -244,7 +270,52 @@ const Docente = () => {
 
         {/* Product Showcase */}
         <div className="py-4">
-          <ProductShowcase />
+          <ProductShowcase
+            data={{
+              credito: {
+                title: "Inversión en tu",
+                highlight: "Futuro",
+                description: "¿Doctorado, maestría o cursos de ascenso? Invierte en tu educación y crecimiento profesional sin aplazar tus sueños.",
+                features: ["Financiación de matrícula y sostenimiento", "Aprobación rápida en temporada de matrículas", "Compra de cartera educativa", "Plazos ajustados a tu capacidad"],
+                image: "/lovable-uploads/happy_client_credit.png",
+                badge: "Superación Personal",
+                badgeColor: "bg-blue-50 text-blue-600",
+                badgeDotColor: "bg-blue-600",
+                titleColor: "text-blue-600",
+                checkColor: "text-blue-500 fill-blue-50",
+                buttonColor: "bg-blue-600 hover:bg-blue-700",
+                buttonShadow: "shadow-blue-600/25 hover:shadow-blue-600/40",
+              },
+              vivienda: {
+                title: "Vivienda para",
+                highlight: "Maestros",
+                description: "El espacio ideal para preparar tus clases y disfrutar en familia. Aprovecha los convenios especiales.",
+                features: ["Crédito para VIS y NO VIS", "Remodelación y adecuación de estudio", "Tasas preferenciales por convenio", "Soporte en trámite notarial"],
+                image: "/lovable-uploads/happy_client_house.png",
+                badge: "Tu Espacio Ideal",
+                badgeColor: "bg-emerald-50 text-emerald-600",
+                badgeDotColor: "bg-emerald-600",
+                titleColor: "text-emerald-600",
+                checkColor: "text-emerald-500 fill-emerald-50",
+                buttonColor: "bg-emerald-600 hover:bg-emerald-700",
+                buttonShadow: "shadow-emerald-600/25 hover:shadow-emerald-600/40",
+              },
+              vehiculo: {
+                title: "Llega fácil a",
+                highlight: "Clase",
+                description: "Olvídate del transporte público. Adquiere tu vehículo y muévete con comodidad entre instituciones.",
+                features: ["Vehículos nuevos o usados", "Planes de financiación flexibles", "Póliza de vehículo financiada", "Aprobación 100% digital"],
+                image: "/lovable-uploads/happy_client_car.png",
+                badge: "Movilidad Docente",
+                badgeColor: "bg-violet-50 text-violet-600",
+                badgeDotColor: "bg-violet-600",
+                titleColor: "text-violet-600",
+                checkColor: "text-violet-500 fill-violet-50",
+                buttonColor: "bg-violet-600 hover:bg-violet-700",
+                buttonShadow: "shadow-violet-600/25 hover:shadow-violet-600/40",
+              },
+            }}
+          />
         </div>
 
         {/* Pagadurias */}
@@ -343,6 +414,28 @@ const Docente = () => {
                   />
                   {errors.mensaje && <p className="text-xs text-destructive">{errors.mensaje}</p>}
                 </div>
+
+                <div className="flex items-start gap-2">
+                  <Checkbox
+                    id="terminos"
+                    checked={formData.aceptaTerminos}
+                    onCheckedChange={(checked) => {
+                      setFormData({ ...formData, aceptaTerminos: checked === true });
+                      if (errors.aceptaTerminos) setErrors({ ...errors, aceptaTerminos: undefined });
+                    }}
+                    className="mt-1"
+                  />
+                  <div className="grid gap-1.5 leading-none">
+                    <label
+                      htmlFor="terminos"
+                      className="text-xs text-muted-foreground font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                    >
+                      Acepto la política de tratamiento de datos personales
+                    </label>
+                    {errors.aceptaTerminos && <p className="text-xs text-destructive">{errors.aceptaTerminos}</p>}
+                  </div>
+                </div>
+
                 <Button type="submit" variant="outline" size="sm" className="w-full gap-2 py-5">
                   <Send className="w-4 h-4" />
                   Solicitar Asistencia

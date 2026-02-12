@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { usePublishedPosts } from "@/hooks/usePosts";
-import { Play, BookOpen, Headphones, Calendar, Clock, ArrowRight, Loader2, ArrowUpRight } from "lucide-react";
+import { Play, BookOpen, Headphones, Calendar, Clock, ArrowRight, Loader2, ArrowUpRight, LayoutGrid, Newspaper, GraduationCap, CreditCard, TrendingUp, Heart } from "lucide-react";
 import { useState } from "react";
 import segmentImage from "@/assets/segment-pensionado.jpg";
 
@@ -101,24 +101,45 @@ const Blog = () => {
           </div>
         </section>
 
-        {/* Categories Filter */}
-        <section className="py-8 md:py-12 bg-white sticky top-16 md:top-20 z-20 border-b border-gray-100 shadow-sm">
-          <div className="container overflow-x-auto pb-2 md:pb-0">
-            <div className="flex flex-nowrap md:flex-wrap justify-start md:justify-center gap-2 md:gap-3 min-w-max px-2">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap
-                                ${selectedCategory === category
-                      ? "bg-gray-500 text-white shadow-md transform scale-105"
-                      : "bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900"
-                    }
-                            `}
-                >
-                  {category}
-                </button>
-              ))}
+        {/* Categories Filter - Revamped for "Ganas de Estudiar" */}
+        <section className="py-8 md:py-10 bg-white sticky top-16 md:top-20 z-20 border-b border-gray-100 shadow-sm/50 backdrop-blur-md bg-white/90 supports-[backdrop-filter]:bg-white/60">
+          <div className="container overflow-x-auto pb-4 md:pb-0 scrollbar-hide">
+            <div className="flex flex-nowrap md:flex-wrap justify-start md:justify-center gap-3 md:gap-4 min-w-max px-2 p-1">
+              {[
+                { id: "Todos", label: "Ver todo", icon: LayoutGrid },
+                { id: "Noticias", label: "Noticias", icon: Newspaper },
+                { id: "Educación Financiera", label: "Aprende Finanzas", icon: GraduationCap },
+                { id: "Productos Y Servicios", label: "Productos", icon: CreditCard },
+                { id: "Aumentos 2026", label: "Aumentos 2026", icon: TrendingUp },
+                { id: "Bienestar Y Estilo De Vida", label: "Bienestar", icon: Heart },
+              ].map((cat) => {
+                const isActive = selectedCategory === cat.id;
+                const Icon = cat.icon;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => setSelectedCategory(cat.id)}
+                    className={`
+                      group relative px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-500 ease-out flex items-center gap-2.5 overflow-hidden
+                      ${isActive
+                        ? "bg-primary text-white shadow-lg shadow-primary/30 scale-105 ring-offset-2 ring-2 ring-primary/20"
+                        : "bg-gray-50 text-gray-500 hover:bg-primary/5 hover:text-primary hover:shadow-md border border-gray-100"
+                      }
+                    `}
+                  >
+                    {/* Background Animation for Active State */}
+                    {isActive && (
+                      <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    )}
+
+                    <Icon className={`w-4 h-4 transition-transform duration-300 ${isActive ? "scale-110" : "group-hover:scale-110 group-hover:-rotate-12"}`} />
+                    <span className="relative z-10">{cat.label}</span>
+
+                    {/* Active Dot Indicator */}
+                    {isActive && <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse ml-1" />}
+                  </button>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -127,7 +148,7 @@ const Blog = () => {
         {isLoading && (
           <section className="py-20">
             <div className="container flex justify-center">
-              <Loader2 className="w-10 h-10 animate-spin text-primary" />
+              <Loader2 className="w-12 h-12 animate-spin text-primary" />
             </div>
           </section>
         )}
@@ -135,28 +156,34 @@ const Blog = () => {
         {/* Error State */}
         {error && (
           <section className="py-20">
-            <div className="container text-center">
-              <p className="text-muted-foreground">No se pudieron cargar los artículos por el momento.</p>
+            <div className="container text-center max-w-md mx-auto">
+              <div className="bg-red-50 text-red-600 p-6 rounded-2xl border border-red-100">
+                <p>No se pudieron cargar los artículos por el momento.</p>
+                <Button variant="outline" className="mt-4 border-red-200 text-red-700 hover:bg-red-100" onClick={() => window.location.reload()}>Reintentar</Button>
+              </div>
             </div>
           </section>
         )}
 
         {/* Articles Grid */}
         {!isLoading && !error && (
-          <section className="py-12 md:py-20">
+          <section className="py-12 md:py-20 bg-gray-50/50">
             <div className="container px-4 md:px-6">
               {filteredPosts.length > 0 ? (
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 row-gap-12">
                   {filteredPosts.map((article: any, index) => (
                     <article
                       key={index}
-                      className="group flex flex-col bg-white rounded-3xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                      className="group flex flex-col bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 h-full"
                     >
                       {/* Image Container */}
-                      <div className="relative h-60 overflow-hidden">
-                        {/* Category Badge overlaying the image */}
-                        <div className="absolute top-4 right-4 z-10">
-                          <span className="px-3 py-1 bg-orange-500 text-white text-xs font-bold uppercase tracking-wider rounded-lg shadow-sm">
+                      <div className="relative h-64 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+
+                        {/* Category Badge */}
+                        <div className="absolute top-4 right-4 z-20">
+                          <span className="px-3 py-1.5 bg-white/90 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-wider rounded-full shadow-lg flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
                             {article.category || "General"}
                           </span>
                         </div>
@@ -165,50 +192,63 @@ const Blog = () => {
                           <img
                             src={article.cover_image_url}
                             alt={article.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
                           />
                         ) : (
-                          <div className="w-full h-full bg-gray-100 flex items-center justify-center">
-                            <BookOpen className="w-12 h-12 text-gray-300" />
+                          <div className="w-full h-full bg-gray-100 flex items-center justify-center group-hover:bg-gray-200 transition-colors">
+                            <BookOpen className="w-12 h-12 text-gray-300 group-hover:text-primary/50 transition-colors duration-500" />
                           </div>
                         )}
                       </div>
 
                       {/* Content */}
-                      <div className="p-6 md:p-8 flex flex-col flex-1">
-                        <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 leading-tight group-hover:text-primary transition-colors">
-                          {article.title}
-                        </h3>
-                        <p className="text-gray-600 mb-6 line-clamp-3 text-sm leading-relaxed flex-1">
-                          {article.excerpt || (typeof article.content === 'string' ? article.content.substring(0, 120) + '...' : 'Leer artículo completo...')}
-                        </p>
+                      <div className="p-6 md:p-8 flex flex-col flex-1 relative">
+                        {/* Decorative background accent */}
+                        <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-[4rem] -z-0 transition-all duration-500 group-hover:bg-primary/10" />
 
-                        {/* Footer: Date & Read Time */}
-                        <div className="flex items-center justify-between text-xs text-gray-400 border-t border-gray-100 pt-4 mt-auto">
-                          <span className="flex items-center gap-1.5">
+                        <div className="relative z-10 flex flex-col h-full">
+                          <div className="flex items-center gap-2 mb-3 text-xs font-medium text-gray-400">
                             <Calendar className="w-3.5 h-3.5" />
-                            {new Date(article.created_at).toLocaleDateString('es-CO', {
-                              month: 'short',
-                              day: 'numeric',
-                              year: 'numeric'
-                            })}
-                          </span>
-                          <span className="flex items-center gap-1.5">
-                            <Clock className="w-3.5 h-3.5" />
-                            {article.readTime || "5 min"}
-                          </span>
+                            {new Date(article.created_at).toLocaleDateString('es-CO', { month: 'short', day: 'numeric', year: 'numeric' })}
+                          </div>
+
+                          <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 leading-tight group-hover:text-primary transition-colors duration-300">
+                            {article.title}
+                          </h3>
+
+                          <p className="text-gray-600 mb-6 line-clamp-3 text-sm leading-relaxed flex-1 group-hover:text-gray-700">
+                            {article.excerpt || (typeof article.content === 'string' ? article.content.substring(0, 120) + '...' : 'Leer artículo completo...')}
+                          </p>
+
+                          <div className="pt-4 border-t border-gray-100 mt-auto flex items-center justify-between">
+                            <div className="flex items-center gap-1.5 text-xs text-secondary font-semibold">
+                              <Clock className="w-3.5 h-3.5" />
+                              {article.readTime || "5 min"} de lectura
+                            </div>
+                            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 transform group-hover:rotate-[-45deg]">
+                              <ArrowRight className="w-4 h-4" />
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </article>
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-20">
-                  <div className="inline-flex justify-center items-center w-16 h-16 rounded-full bg-gray-100 mb-4">
-                    <BookOpen className="w-8 h-8 text-gray-400" />
+                <div className="text-center py-20 flex flex-col items-center animate-in fade-in zoom-in duration-500">
+                  <div className="w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center mb-6 relative">
+                    <div className="absolute inset-0 bg-primary/10 rounded-full animate-ping opacity-20"></div>
+                    <BookOpen className="w-10 h-10 text-primary/40" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900">No hay artículos en esta categoría</h3>
-                  <p className="text-gray-500 mt-2">Intenta seleccionar otra categoría.</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Explora otras categorías</h3>
+                  <p className="text-gray-500 max-w-xs mx-auto">No encontramos artículos en esta sección por ahora, pero hay mucho más por descubrir.</p>
+                  <Button
+                    variant="ghost"
+                    className="mt-6 text-primary hover:text-primary/80 hover:bg-primary/5"
+                    onClick={() => setSelectedCategory("Todos")}
+                  >
+                    Ver todos los artículos
+                  </Button>
                 </div>
               )}
             </div>
