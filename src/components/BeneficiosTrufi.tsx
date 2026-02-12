@@ -46,7 +46,7 @@ const BeneficiosTrufi = () => {
             <span className="text-primary">una protección completa</span>
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            Al adquirir tu libre inversión con TRUFI, accedes automáticamente a un paquete de protección premium
+            Al adquirir un crédito con TRUFI, accedes automáticamente a un paquete de protección premium
             <span className="font-semibold text-foreground"> sin costo adicional</span>.
           </p>
         </div>
@@ -79,15 +79,28 @@ const BeneficiosTrufi = () => {
               </Card>
             ))}
 
-            {/* Tarjeta Resumen Valor */}
-            <Card className="flex flex-col justify-center items-center text-center p-8 bg-gradient-to-br from-primary/5 to-secondary/5 border-dashed border-2 border-primary/20 rounded-[2rem]">
-              <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-sm mb-4">
-                <CheckCircle2 className="w-8 h-8 text-primary" />
+            {/* Tarjeta Resumen Asistencias */}
+            <Card className="group border-0 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 bg-white rounded-[2rem] p-8 overflow-hidden relative">
+              <div className="absolute top-0 right-0 p-4 opacity-50">
+                <Home className="w-24 h-24 text-secondary/5 -rotate-12" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Todo Incluido</h3>
-              <p className="text-sm text-muted-foreground">
-                Sin letra pequeña ni costos ocultos. Tu tranquilidad es parte del servicio.
-              </p>
+
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                  <Home className="w-7 h-7 text-primary" />
+                </div>
+
+                <Badge className="mb-4 bg-secondary/10 text-secondary-foreground hover:bg-secondary/20 border-0 font-medium">
+                  Cobertura 24/7
+                </Badge>
+
+                <h3 className="text-2xl font-bold text-foreground mb-3">
+                  Asistencias Hogar
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Cerrajería, Electricidad, Plomería y Línea Blanca.
+                </p>
+              </div>
             </Card>
           </div>
 
@@ -105,7 +118,7 @@ const BeneficiosTrufi = () => {
 
                 <h3 className="text-3xl font-bold mb-4">Asistencias Hogar</h3>
                 <p className="text-primary-foreground/90 text-lg mb-10 leading-relaxed">
-                  Porque tu hogar es tu refugio, lo protegemos ante cualquier imprevisto.
+                  Esto incluirá tu paquete de asistencia al hogar.
                 </p>
 
                 <div className="space-y-4 mt-auto">

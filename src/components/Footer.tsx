@@ -27,7 +27,7 @@ const Footer = () => {
             <div className="space-y-2 py-2">
               <div className="flex items-center gap-2.5 text-xs text-primary-foreground/80">
                 <MapPin className="w-3.5 h-3.5 text-trufi-cyan flex-shrink-0" />
-                <span>Bogotá, Colombia</span>
+                <span>Cra 100 # 16 - 321, Oficina 608 Edificio Jardin Central, Cali - Colombia</span>
               </div>
               <div className="flex items-center gap-2.5 text-xs text-primary-foreground/80">
                 <Phone className="w-3.5 h-3.5 text-trufi-cyan flex-shrink-0" />
@@ -35,7 +35,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-2.5 text-xs text-primary-foreground/80">
                 <Mail className="w-3.5 h-3.5 text-trufi-cyan flex-shrink-0" />
-                <span>contacto@trufi.co</span>
+                <span>Notificaciones@trufi.com.co</span>
               </div>
             </div>
 
@@ -92,7 +92,7 @@ const Footer = () => {
             TRUFI S.A.S. cumple con la Ley 1527 de 2012. Tasas y condiciones sujetas a estudio.
             Nunca solicitamos dinero por adelantado.
           </p>
-          <p>© 2024 TRUFI S.A.S. | NIT: 900.XXX.XXX-X | Vigilado Superfinanciera</p>
+          <p>© 2026 Trufi S.A.S. | Vigilado por La Super sociedades</p>
         </div>
       </div>
     </footer>

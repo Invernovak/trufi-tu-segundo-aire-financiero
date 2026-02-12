@@ -32,37 +32,37 @@ const FinancialAcademySection = () => {
 
                         <div className="relative z-10 space-y-8">
                             {/* Badger pulsing */}
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 w-fit backdrop-blur-md animate-pulse shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-                                <BookOpen className="w-4 h-4 text-emerald-400" />
-                                <span className="text-xs font-bold text-emerald-400 tracking-wider uppercase">
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/30 w-fit backdrop-blur-md animate-pulse shadow-[0_0_15px_hsl(var(--secondary)/0.3)]">
+                                <BookOpen className="w-4 h-4 text-secondary" />
+                                <span className="text-xs font-bold text-secondary tracking-wider uppercase">
                                     Zona de Aprendizaje
                                 </span>
                             </div>
 
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/70">
-                                Tu Futuro Financiero <br />
-                                <span className="text-emerald-400 drop-shadow-[0_0_20px_rgba(52,211,153,0.4)]">Comienza Aquí</span>
+                                Aprendizaje para <br />
+                                <span className="text-secondary drop-shadow-[0_0_20px_hsl(var(--secondary)/0.4)]">la Vida Real</span>
                             </h2>
 
                             <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl font-light">
-                                Más que crédito, te damos el conocimiento. Accede a herramientas exclusivas que transformarán tu relación con el dinero.
+                                No solo hablamos de finanzas. Domina la IA, crece profesionalmente y adquiere habilidades para el mundo de hoy. Contenido 100% gratuito.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-5 pt-2">
                                 <Link to="/blog">
                                     <Button
                                         size="lg"
-                                        className="relative overflow-hidden bg-emerald-500 hover:bg-emerald-400 text-white border-0 font-bold text-lg h-14 px-10 rounded-2xl shadow-[0_0_30px_rgba(16,185,129,0.4)] transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(16,185,129,0.6)] group/btn"
+                                        className="relative overflow-hidden bg-secondary hover:bg-secondary/90 text-primary-foreground border-0 font-bold text-lg h-14 px-10 rounded-2xl shadow-[0_0_30px_hsl(var(--secondary)/0.4)] transition-all hover:scale-105 hover:shadow-[0_0_50px_hsl(var(--secondary)/0.6)] group/btn"
                                     >
                                         <span className="relative z-10 flex items-center">
-                                            Explorar Academy
+                                            Aprender de expertos
                                             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/btn:translate-x-1" />
                                         </span>
                                     </Button>
                                 </Link>
 
                                 <div className="flex items-center gap-3 px-4 py-2 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm">
-                                    <TrendingUp className="w-5 h-5 text-emerald-400" />
+                                    <TrendingUp className="w-5 h-5 text-secondary" />
                                     <span className="text-sm font-medium text-white/90">Acceso Gratuito</span>
                                 </div>
                             </div>
@@ -74,15 +74,15 @@ const FinancialAcademySection = () => {
                                 </p>
                                 <div className="grid sm:grid-cols-2 gap-4">
                                     {/* Resource 1 */}
-                                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-white/5 to-transparent border border-white/5 hover:border-emerald-500/30 transition-all hover:bg-white/10 cursor-pointer group/item">
+                                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-white/5 to-transparent border border-white/5 hover:border-secondary/30 transition-all hover:bg-white/10 cursor-pointer group/item">
                                         <div className="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center shadow-inner">
                                             <Headphones className="w-5 h-5 text-orange-300" />
                                         </div>
                                         <div>
-                                            <p className="text-sm font-bold text-white group-hover/item:text-emerald-300 transition-colors">
-                                                Inversiones Simples
+                                            <p className="text-sm font-bold text-white group-hover/item:text-secondary transition-colors">
+                                                IA para Todos
                                             </p>
-                                            <p className="text-[10px] text-white/50 uppercase tracking-wide">Podcast • Ep. 12</p>
+                                            <p className="text-[10px] text-white/50 uppercase tracking-wide">Curso • Nivel Básico</p>
                                         </div>
                                     </div>
 
@@ -92,8 +92,8 @@ const FinancialAcademySection = () => {
                                             <BookOpen className="w-5 h-5 text-blue-300" />
                                         </div>
                                         <div>
-                                            <p className="text-sm font-bold text-white group-hover/item:text-emerald-300 transition-colors">
-                                                Mitos de Crédito
+                                            <p className="text-sm font-bold text-white group-hover/item:text-secondary transition-colors">
+                                                Productividad Real
                                             </p>
                                             <p className="text-[10px] text-white/50 uppercase tracking-wide">Blog • 3 min</p>
                                         </div>

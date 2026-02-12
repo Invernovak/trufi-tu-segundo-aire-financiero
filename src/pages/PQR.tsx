@@ -85,26 +85,35 @@ const PQR = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 font-sans">
+        <div className="min-h-screen relative font-sans">
             <Header />
+
+            <div className="absolute inset-0 z-0 h-[60vh] lg:h-[70vh]">
+                <img
+                    src="/pqr_support.png"
+                    alt="Atención al cliente"
+                    className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-slate-50" />
+            </div>
 
             <main className="pt-28 pb-16 md:pt-36">
                 <div className="container px-4 md:px-6 max-w-4xl mx-auto">
 
-                    <div className="text-center mb-12">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 rounded-full mb-6">
-                            <FileText className="w-4 h-4 text-primary" />
-                            <span className="text-primary font-semibold text-sm tracking-wide">Centro de Ayuda</span>
+                    <div className="text-center mb-12 relative z-10">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full mb-6 border border-white/20">
+                            <FileText className="w-4 h-4 text-emerald-400" />
+                            <span className="text-emerald-100 font-semibold text-sm tracking-wide">Centro de Ayuda</span>
                         </div>
-                        <h1 className="text-3xl md:text-5xl font-bold text-slate-800 mb-6">
+                        <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-sm">
                             Peticiones, Quejas y Reclamos
                         </h1>
-                        <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                        <p className="text-lg text-slate-100 max-w-2xl mx-auto drop-shadow-sm font-medium">
                             Tu opinión es fundamental para nosotros. Utiliza este formulario para radicar tus solicitudes y daremos respuesta en los tiempos establecidos por la ley.
                         </p>
                     </div>
 
-                    <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 p-8 md:p-12">
+                    <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 p-8 md:p-12 relative z-10">
                         <form onSubmit={handleSubmit} className="space-y-6">
 
                             <div className="grid md:grid-cols-2 gap-6">

@@ -16,43 +16,8 @@ const categories = [
   "Bienestar Y Estilo De Vida",
 ];
 
-// Mock data to supplement real posts for demonstration of specific categories if needed
-// or to be used if no posts are returned.
-const MOCK_POSTS = [
-  {
-    id: 101,
-    title: "Score Crediticio y Datacrédito: lo que todo pensionado debe saber",
-    excerpt: "Conoce cómo funciona tu historial en Datacrédito y descubre alternativas de crédito incluso si estás reportado.",
-    category: "Educación Financiera",
-    cover_image_url: "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?auto=format&fit=crop&q=80&w=800",
-    created_at: new Date().toISOString(),
-    content: "...",
-    readTime: "5 min",
-    spotify_url: null
-  },
-  {
-    id: 102,
-    title: "Tu Respaldo Seguro en el Duatlón POWERMAN 2026",
-    excerpt: "Como patrocinadores del Duatlón POWERMAN 2026, promovemos el bienestar físico y financiero ofreciendo un 40% de descuento.",
-    category: "Bienestar Y Estilo De Vida",
-    cover_image_url: "https://images.unsplash.com/photo-1517649763965-4d37a2a1ebf3?auto=format&fit=crop&q=80&w=800",
-    created_at: new Date().toISOString(),
-    content: "...",
-    readTime: "3 min",
-    spotify_url: null
-  },
-  {
-    id: 103,
-    title: "Términos y Condiciones de la Estrategia Comercial “Aumentos 2026”",
-    excerpt: "Lineamientos, alcances y reglas de la estrategia “Aumentos 2026”, para el anticipo de solicitudes de crédito basadas en...",
-    category: "Aumentos 2026",
-    cover_image_url: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=800",
-    created_at: new Date().toISOString(),
-    content: "...",
-    readTime: "7 min",
-    spotify_url: null
-  }
-];
+import { blogPosts } from "@/data/blogPosts";
+import { Link } from "react-router-dom";
 
 
 const Blog = () => {
@@ -61,7 +26,9 @@ const Blog = () => {
 
   // Merge real posts with mock posts for visual completeness during dev
   // In production, you might only want realPosts.
-  const posts = [...(realPosts || []), ...MOCK_POSTS];
+  // Merge real posts with shared posts data
+  // In production, you might only want realPosts.
+  const posts = [...(realPosts || []), ...blogPosts];
 
   const filteredPosts = selectedCategory === "Todos"
     ? posts
@@ -172,66 +139,67 @@ const Blog = () => {
               {filteredPosts.length > 0 ? (
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 row-gap-12">
                   {filteredPosts.map((article: any, index) => (
-                    <article
-                      key={index}
-                      className="group flex flex-col bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 h-full"
-                    >
-                      {/* Image Container */}
-                      <div className="relative h-64 overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+                    <Link to={`/blog/${article.id}`} key={index} className="block h-full">
+                      <article
+                        className="group flex flex-col bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 h-full"
+                      >
+                        {/* Image Container */}
+                        <div className="relative h-64 overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
 
-                        {/* Category Badge */}
-                        <div className="absolute top-4 right-4 z-20">
-                          <span className="px-3 py-1.5 bg-white/90 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-wider rounded-full shadow-lg flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
-                            {article.category || "General"}
-                          </span>
-                        </div>
-
-                        {article.cover_image_url ? (
-                          <img
-                            src={article.cover_image_url}
-                            alt={article.title}
-                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
-                          />
-                        ) : (
-                          <div className="w-full h-full bg-gray-100 flex items-center justify-center group-hover:bg-gray-200 transition-colors">
-                            <BookOpen className="w-12 h-12 text-gray-300 group-hover:text-primary/50 transition-colors duration-500" />
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Content */}
-                      <div className="p-6 md:p-8 flex flex-col flex-1 relative">
-                        {/* Decorative background accent */}
-                        <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-[4rem] -z-0 transition-all duration-500 group-hover:bg-primary/10" />
-
-                        <div className="relative z-10 flex flex-col h-full">
-                          <div className="flex items-center gap-2 mb-3 text-xs font-medium text-gray-400">
-                            <Calendar className="w-3.5 h-3.5" />
-                            {new Date(article.created_at).toLocaleDateString('es-CO', { month: 'short', day: 'numeric', year: 'numeric' })}
-                          </div>
-
-                          <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 leading-tight group-hover:text-primary transition-colors duration-300">
-                            {article.title}
-                          </h3>
-
-                          <p className="text-gray-600 mb-6 line-clamp-3 text-sm leading-relaxed flex-1 group-hover:text-gray-700">
-                            {article.excerpt || (typeof article.content === 'string' ? article.content.substring(0, 120) + '...' : 'Leer artículo completo...')}
-                          </p>
-
-                          <div className="pt-4 border-t border-gray-100 mt-auto flex items-center justify-between">
-                            <div className="flex items-center gap-1.5 text-xs text-secondary font-semibold">
-                              <Clock className="w-3.5 h-3.5" />
-                              {article.readTime || "5 min"} de lectura
-                            </div>
-                            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 transform group-hover:rotate-[-45deg]">
-                              <ArrowRight className="w-4 h-4" />
+                          {/* Category Badge */}
+                          <div className="absolute top-4 right-4 z-20">
+                            <span className="px-3 py-1.5 bg-white/90 backdrop-blur-md text-primary text-xs font-bold uppercase tracking-wider rounded-full shadow-lg flex items-center gap-1.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                              {article.category || "General"}
                             </span>
                           </div>
+
+                          {article.cover_image_url ? (
+                            <img
+                              src={article.cover_image_url}
+                              alt={article.title}
+                              className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-gray-100 flex items-center justify-center group-hover:bg-gray-200 transition-colors">
+                              <BookOpen className="w-12 h-12 text-gray-300 group-hover:text-primary/50 transition-colors duration-500" />
+                            </div>
+                          )}
                         </div>
-                      </div>
-                    </article>
+
+                        {/* Content */}
+                        <div className="p-6 md:p-8 flex flex-col flex-1 relative">
+                          {/* Decorative background accent */}
+                          <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-[4rem] -z-0 transition-all duration-500 group-hover:bg-primary/10" />
+
+                          <div className="relative z-10 flex flex-col h-full">
+                            <div className="flex items-center gap-2 mb-3 text-xs font-medium text-gray-400">
+                              <Calendar className="w-3.5 h-3.5" />
+                              {new Date(article.created_at).toLocaleDateString('es-CO', { month: 'short', day: 'numeric', year: 'numeric' })}
+                            </div>
+
+                            <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 leading-tight group-hover:text-primary transition-colors duration-300">
+                              {article.title}
+                            </h3>
+
+                            <p className="text-gray-600 mb-6 line-clamp-3 text-sm leading-relaxed flex-1 group-hover:text-gray-700">
+                              {article.excerpt || (typeof article.content === 'string' ? article.content.substring(0, 120) + '...' : 'Leer artículo completo...')}
+                            </p>
+
+                            <div className="pt-4 border-t border-gray-100 mt-auto flex items-center justify-between">
+                              <div className="flex items-center gap-1.5 text-xs text-secondary font-semibold">
+                                <Clock className="w-3.5 h-3.5" />
+                                {article.readTime || "5 min"} de lectura
+                              </div>
+                              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 transform group-hover:rotate-[-45deg]">
+                                <ArrowRight className="w-4 h-4" />
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                    </Link>
                   ))}
                 </div>
               ) : (

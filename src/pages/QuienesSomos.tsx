@@ -73,7 +73,7 @@ const QuienesSomos = () => {
                 <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-medium transition-all duration-300 group-hover:text-foreground">
                   Si la banca tradicional te cerró la puerta, nosotros te damos la mano.
                   Nacimos para combatir la exclusión, no solo para hacer negocios.
-                  Queremos llegar a ayudar a más de <span className="text-primary font-bold inline-block hover:scale-110 transition-transform duration-300 mx-2">5,000</span> colombianos a limpiar su historial crediticio.
+                  Queremos llegar a ayudar a más colombianos a limpiar su historial crediticio.
                 </p>
                 <div className="absolute -right-2 -bottom-2 text-6xl text-primary/10 select-none transform rotate-180 group-hover:text-primary/20 transition-colors duration-500">"</div>
               </div>

@@ -172,11 +172,27 @@ const ProductShowcase = ({ defaultTab = "credito", data = defaultData, accentCol
                                                 </ul>
 
                                                 <div className="flex flex-col sm:flex-row gap-4">
-                                                    <Button size="lg" className={cn("rounded-xl px-8 h-12 text-base transition-all duration-300", item.buttonColor, item.buttonShadow)}>
-                                                        Solicita tu crédito
-                                                        <ArrowRight className="ml-2 w-4 h-4" />
+                                                    <Button
+                                                        size="lg"
+                                                        className={cn("rounded-xl px-8 h-12 text-base transition-all duration-300", item.buttonColor, item.buttonShadow)}
+                                                        asChild
+                                                    >
+                                                        <a href="https://app.trufi.com.co/" target="_blank" rel="noopener noreferrer">
+                                                            Solicita tu crédito
+                                                            <ArrowRight className="ml-2 w-4 h-4" />
+                                                        </a>
                                                     </Button>
-                                                    <Button variant="outline" size="lg" className="rounded-xl px-8 h-12 text-base border-gray-200 hover:bg-gray-50 transition-colors">
+                                                    <Button
+                                                        variant="outline"
+                                                        size="lg"
+                                                        className="rounded-xl px-8 h-12 text-base border-gray-200 hover:bg-gray-50 transition-colors"
+                                                        onClick={() => {
+                                                            const simulator = document.getElementById('credit-simulator');
+                                                            if (simulator) {
+                                                                simulator.scrollIntoView({ behavior: 'smooth' });
+                                                            }
+                                                        }}
+                                                    >
                                                         Simular cuotas
                                                     </Button>
                                                 </div>

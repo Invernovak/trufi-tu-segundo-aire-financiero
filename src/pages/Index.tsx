@@ -26,7 +26,7 @@ const Index = () => {
         <BeneficiosTrufi />
 
         {/* 4. Trufi Adelanta y Gana - Nueva sección de fidelización */}
-        <TrufiAdelantaYGana />
+        {/* <TrufiAdelantaYGana /> */}
 
 
 

@@ -39,7 +39,7 @@ const BeneficiosExclusivos = () => {
                 {/* Reusing existing benefits components */}
                 <BeneficiosTrufi />
 
-                <TrufiAdelantaYGana />
+                {/* <TrufiAdelantaYGana /> */}
 
                 <CTASection />
             </main>

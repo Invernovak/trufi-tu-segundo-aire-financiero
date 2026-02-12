@@ -195,7 +195,7 @@ const FuerzaPublica = () => {
                   </Button>
                 </div>
               </div>
-              <div className="lg:justify-self-end w-full max-w-md mx-auto lg:mx-0 scale-90 md:scale-100 origin-top">
+              <div id="credit-simulator" className="lg:justify-self-end w-full max-w-md mx-auto lg:mx-0 scale-90 md:scale-100 origin-top">
                 <CreditSimulator />
               </div>
             </div>

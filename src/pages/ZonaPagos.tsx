@@ -46,13 +46,13 @@ const ZonaPagos = () => {
       <Header />
 
       {/* Peaceful Background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 h-[70vh] lg:h-[80vh]">
         <img
-          src="/peaceful_bg.png"
-          alt="Fondo tranquilo"
-          className="w-full h-full object-cover opacity-60"
+          src="/happy_customer_payment.png"
+          alt="Cliente feliz al día"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/50 to-slate-50/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-slate-50" />
       </div>
 
       <main className="relative z-10 pt-28 pb-16 md:pt-36">
@@ -60,14 +60,14 @@ const ZonaPagos = () => {
 
           {/* Header Section */}
           <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 backdrop-blur-sm rounded-full mb-6 border border-primary/10 shadow-sm animate-fade-in">
-              <CreditCard className="w-4 h-4 text-primary" />
-              <span className="text-primary font-semibold text-sm tracking-wide">Zona de Pagos</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full mb-6 border border-white/20 shadow-lg animate-fade-in">
+              <CreditCard className="w-4 h-4 text-emerald-400" />
+              <span className="text-white font-semibold text-sm tracking-wide">Zona de Pagos</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 mb-6 tracking-tight leading-tight">
-              Tranquilidad en tus <span className="text-primary">Pagos</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
+              Tranquilidad en tus <span className="text-emerald-400">Pagos</span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed">
               Gestiona tus cuotas de manera sencilla y segura. Elige la opción que mejor se adapte a ti y vive sin preocupaciones.
             </p>
           </div>
@@ -116,7 +116,14 @@ const ZonaPagos = () => {
             {/* 2. Auto-Debit Card */}
             <div className="bg-gradient-to-br from-[#F5F3FF] to-white border border-primary/10 rounded-[2.5rem] p-8 md:p-10 shadow-xl shadow-primary/5 hover:transform hover:scale-[1.01] transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
               {/* Decorative background circle */}
-              <div className="absolute -top-10 -right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+              {/* Decorative background image */}
+              <div className="absolute -bottom-10 -right-10 w-64 h-64 md:w-72 md:h-72 opacity-20 md:opacity-100 mix-blend-multiply pointer-events-none">
+                <img
+                  src="/asesora_pagos.png"
+                  alt="Asesora de servicio"
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
 
               <div>
                 <h3 className="text-2xl font-bold text-slate-800 mb-4 tracking-tight leading-8">
@@ -138,7 +145,7 @@ const ZonaPagos = () => {
                 </ul>
               </div>
 
-              <div className="mt-auto">
+              <div className="mt-auto relative z-10">
                 <Button
                   size="lg"
                   className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-14 rounded-2xl shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all text-base"
