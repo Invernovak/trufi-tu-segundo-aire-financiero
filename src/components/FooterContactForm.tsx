@@ -139,7 +139,7 @@ const FooterContactForm = () => {
                             htmlFor="marketing"
                             className="text-[10px] text-white/60 font-light cursor-pointer hover:text-white/90 transition-colors leading-tight"
                         >
-                            Acepto política de datos y contacto.
+                            Acepto el manejo de datos y términos y condiciones
                         </label>
                         {errors.aceptaTerminos && (
                             <p className="text-[10px] text-red-300">{errors.aceptaTerminos.message}</p>

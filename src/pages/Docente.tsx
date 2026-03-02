@@ -84,7 +84,7 @@ const Docente = () => {
             telefono: formData.telefono,
             mensaje: formData.mensaje,
             segmento: 'Docente',
-            acepta_terminos: true
+            acepta_terminos: formData.aceptaTerminos
           }
         ]);
 
@@ -430,7 +430,7 @@ const Docente = () => {
                       htmlFor="terminos"
                       className="text-xs text-muted-foreground font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                     >
-                      Acepto la política de tratamiento de datos personales
+                      Acepto el manejo de datos y términos y condiciones
                     </label>
                     {errors.aceptaTerminos && <p className="text-xs text-destructive">{errors.aceptaTerminos}</p>}
                   </div>
