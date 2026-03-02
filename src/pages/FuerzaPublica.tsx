@@ -158,7 +158,7 @@ const FuerzaPublica = () => {
               <div className="space-y-6 max-w-xl">
                 {/* Badge con color distintivo */}
                 <div className={`inline-flex items-center gap-2 px-4 py-1.5 bg-[#5D6532]/20 backdrop-blur-md border border-[#5D6532]/30 rounded-full`}>
-                  <Shield className={`w-4 h-4 text-[#5D6532] text-white`} />
+                  <Shield className={`w-4 h-4 text-white`} />
                   <span className={`text-white font-semibold text-sm tracking-wide`}>
                     Pensionados Fuerza Pública
                   </span>
