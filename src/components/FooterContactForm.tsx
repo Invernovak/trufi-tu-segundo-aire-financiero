@@ -9,6 +9,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { Send, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { Link } from "react-router-dom";
 
 const FooterContactForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -28,6 +29,7 @@ const FooterContactForm = () => {
             email: "",
             mensaje: "",
             aceptaTerminos: false,
+            aceptaTratamientoDatos: false,
         },
     });
 
@@ -127,23 +129,45 @@ const FooterContactForm = () => {
                     )}
                 </div>
 
-                <div className="flex items-start gap-2 pt-1">
-                    <Checkbox
-                        id="marketing"
-                        className="mt-0.5 h-3 w-3 border-white/50 data-[state=checked]:bg-trufi-cyan data-[state=checked]:border-trufi-cyan"
-                        onCheckedChange={(checked) => setValue("aceptaTerminos", checked === true)}
-                        checked={watch("aceptaTerminos")}
-                    />
-                    <div className="grid gap-0.5 leading-none">
-                        <label
-                            htmlFor="marketing"
-                            className="text-[10px] text-white/60 font-light cursor-pointer hover:text-white/90 transition-colors leading-tight"
-                        >
-                            Acepto el manejo de datos y términos y condiciones
-                        </label>
-                        {errors.aceptaTerminos && (
-                            <p className="text-[10px] text-red-300">{errors.aceptaTerminos.message}</p>
-                        )}
+                <div className="space-y-2 pt-1">
+                    <div className="flex items-start gap-2">
+                        <Checkbox
+                            id="terminos-f"
+                            className="mt-0.5 h-3 w-3 border-white/50 data-[state=checked]:bg-trufi-cyan data-[state=checked]:border-trufi-cyan"
+                            onCheckedChange={(checked) => setValue("aceptaTerminos", checked === true)}
+                            checked={watch("aceptaTerminos")}
+                        />
+                        <div className="grid gap-0.5 leading-none">
+                            <label
+                                htmlFor="terminos-f"
+                                className="text-[10px] text-white/60 font-light cursor-pointer hover:text-white/90 transition-colors leading-tight"
+                            >
+                                Acepto los <Link to="#" className="text-white hover:underline">Términos y Condiciones</Link>
+                            </label>
+                            {errors.aceptaTerminos && (
+                                <p className="text-[10px] text-red-300">{errors.aceptaTerminos.message}</p>
+                            )}
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-2">
+                        <Checkbox
+                            id="tratamiento-f"
+                            className="mt-0.5 h-3 w-3 border-white/50 data-[state=checked]:bg-trufi-cyan data-[state=checked]:border-trufi-cyan"
+                            onCheckedChange={(checked) => setValue("aceptaTratamientoDatos", checked === true)}
+                            checked={watch("aceptaTratamientoDatos")}
+                        />
+                        <div className="grid gap-0.5 leading-none">
+                            <label
+                                htmlFor="tratamiento-f"
+                                className="text-[10px] text-white/60 font-light cursor-pointer hover:text-white/90 transition-colors leading-tight"
+                            >
+                                Acepto la <Link to="/politica-privacidad" className="text-white hover:underline">Política de Cuidado de Datos</Link>
+                            </label>
+                            {errors.aceptaTratamientoDatos && (
+                                <p className="text-[10px] text-red-300">{errors.aceptaTratamientoDatos.message}</p>
+                            )}
+                        </div>
                     </div>
                 </div>
 

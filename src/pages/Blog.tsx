@@ -50,8 +50,8 @@ const Blog = () => {
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <img
-              src={segmentImage}
-              alt="Pensionados felices"
+              src="/lovable-uploads/dsad.png"
+              alt="Academia TRUFI"
               className="w-full h-full object-cover"
             />
             {/* Dark Overlay for text contrast */}

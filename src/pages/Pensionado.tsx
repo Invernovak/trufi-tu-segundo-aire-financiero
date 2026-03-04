@@ -53,6 +53,7 @@ const Pensionado = () => {
     email: "",
     mensaje: "",
     aceptaTerminos: false,
+    aceptaTratamientoDatos: false,
   });
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormPensionado, string>>>({});
 
@@ -90,7 +91,7 @@ const Pensionado = () => {
 
       setErrors({});
       toast.success("¡Solicitud enviada! Un asesor te contactará pronto.");
-      setFormData({ nombre: "", telefono: "", email: "", mensaje: "", aceptaTerminos: false });
+      setFormData({ nombre: "", telefono: "", email: "", mensaje: "", aceptaTerminos: false, aceptaTratamientoDatos: false });
 
     } catch (error: any) {
       console.error('Error submitting form:', error);
@@ -279,7 +280,7 @@ const Pensionado = () => {
                 highlight: "Pensionados",
                 description: "¿Un viaje soñado, remodelar tu casa o unificas deudas? Disfruta tu retiro sin preocupaciones financieras.",
                 features: ["Aprobación hasta los 84 años", "Sin codeudor", "Descuento directo de mesada", "Compra de cartera al 100%"],
-                image: "/lovable-uploads/happy_client_credit.png",
+                image: "/lovable-uploads/pensionadolibreinver2.jpg.png",
                 badge: "Disfruta tu retiro",
                 badgeColor: "bg-orange-50 text-orange-600",
                 badgeDotColor: "bg-orange-600",
@@ -293,7 +294,7 @@ const Pensionado = () => {
                 highlight: "Hogar",
                 description: "Dale un nuevo aire a tu casa o invierte en una segunda vivienda para renta. Tu patrimonio sigue creciendo.",
                 features: ["Remodelación de vivienda", "Compra de vivienda nueva o usada", "Asesoría personalizada", "Trámites simplificados"],
-                image: "/lovable-uploads/pensionada1.jpg",
+                image: "/lovable-uploads/happy_client_house.png",
                 badge: "Tu patrimonio",
                 badgeColor: "bg-emerald-50 text-emerald-600",
                 badgeDotColor: "bg-emerald-600",
@@ -401,24 +402,47 @@ const Pensionado = () => {
                   {errors.mensaje && <p className="text-xs text-destructive">{errors.mensaje}</p>}
                 </div>
 
-                <div className="flex items-start gap-2">
-                  <Checkbox
-                    id="terminos"
-                    checked={formData.aceptaTerminos}
-                    onCheckedChange={(checked) => {
-                      setFormData({ ...formData, aceptaTerminos: checked === true });
-                      if (errors.aceptaTerminos) setErrors({ ...errors, aceptaTerminos: undefined });
-                    }}
-                    className="mt-1"
-                  />
-                  <div className="grid gap-1.5 leading-none">
-                    <label
-                      htmlFor="terminos"
-                      className="text-xs text-muted-foreground font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Acepto el manejo de datos y términos y condiciones
-                    </label>
-                    {errors.aceptaTerminos && <p className="text-xs text-destructive">{errors.aceptaTerminos}</p>}
+                <div className="space-y-3">
+                  <div className="flex items-start gap-2">
+                    <Checkbox
+                      id="terminos"
+                      checked={formData.aceptaTerminos}
+                      onCheckedChange={(checked) => {
+                        setFormData({ ...formData, aceptaTerminos: checked === true });
+                        if (errors.aceptaTerminos) setErrors({ ...errors, aceptaTerminos: undefined });
+                      }}
+                      className="mt-1"
+                    />
+                    <div className="grid gap-1.5 leading-none">
+                      <label
+                        htmlFor="terminos"
+                        className="text-xs text-muted-foreground font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        Acepto los <Link to="#" className="text-primary hover:underline">Términos y Condiciones</Link>
+                      </label>
+                      {errors.aceptaTerminos && <p className="text-xs text-destructive">{errors.aceptaTerminos}</p>}
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2">
+                    <Checkbox
+                      id="tratamiento"
+                      checked={formData.aceptaTratamientoDatos}
+                      onCheckedChange={(checked) => {
+                        setFormData({ ...formData, aceptaTratamientoDatos: checked === true });
+                        if (errors.aceptaTratamientoDatos) setErrors({ ...errors, aceptaTratamientoDatos: undefined });
+                      }}
+                      className="mt-1"
+                    />
+                    <div className="grid gap-1.5 leading-none">
+                      <label
+                        htmlFor="tratamiento"
+                        className="text-xs text-muted-foreground font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        Acepto la <Link to="/politica-privacidad" className="text-primary hover:underline">Política de Tratamiento de Datos Personales</Link>
+                      </label>
+                      {errors.aceptaTratamientoDatos && <p className="text-xs text-destructive">{errors.aceptaTratamientoDatos}</p>}
+                    </div>
                   </div>
                 </div>
 

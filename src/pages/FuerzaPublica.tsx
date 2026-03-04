@@ -62,6 +62,7 @@ const FuerzaPublica = () => {
     institucion: "",
     mensaje: "",
     aceptaTerminos: false,
+    aceptaTratamientoDatos: false,
   });
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormFuerzaPublica, string>>>({});
 
@@ -99,7 +100,7 @@ const FuerzaPublica = () => {
 
       setErrors({});
       toast.success("¡Solicitud enviada! Un asesor te contactará pronto.");
-      setFormData({ nombre: "", telefono: "", email: "", institucion: "", mensaje: "" });
+      setFormData({ nombre: "", telefono: "", email: "", institucion: "", mensaje: "", aceptaTerminos: false, aceptaTratamientoDatos: false });
 
     } catch (error: any) {
       console.error('Error submitting form:', error);
@@ -124,7 +125,7 @@ const FuerzaPublica = () => {
           {/* Background con imagen del segmento */}
           <div className="absolute inset-0 z-0">
             <img
-              src="/lovable-uploads/policiamujer2.jpg"
+              src={segmentImage}
               alt="Miembro de la Fuerza Pública"
               className="w-full h-full object-cover object-top"
             />
@@ -304,8 +305,7 @@ const FuerzaPublica = () => {
                 highlight: "Héroes",
                 description: "¿Un proyecto personal, negocio familiar o unificación de deudas? Reconocemos tu servicio con tasas preferenciales.",
                 features: ["Descuento directo de nómina/asignación", "Sin codeudor (según grado/rango)", "Atención prioritaria", "Plazos extendidos"],
-                image: "/lovable-uploads/policialibreinver.jpg",
-                imageClassName: "object-right-bottom",
+                image: "/lovable-uploads/happy_client_credit.png",
                 badge: "Honor y Servicio",
                 badgeColor: "bg-[#5D6532]/10 text-[#5D6532]",
                 badgeDotColor: "bg-[#5D6532]",
@@ -333,8 +333,7 @@ const FuerzaPublica = () => {
                 highlight: "Movilidad",
                 description: "Facilitamos la compra de tu vehículo particular o para negocio. Disfruta de la libertad que te mereces.",
                 features: ["Vehículos comerciales y particulares", "Aprobación simplificada", "Tasas competitivas", "Plazos cómodos"],
-                image: "/lovable-uploads/policiavehiculo.jpg",
-                imageClassName: "object-center",
+                image: "/lovable-uploads/happy_client_car.png",
                 badge: "Vehículo Propio",
                 badgeColor: "bg-[#5D6532]/10 text-[#5D6532]",
                 badgeDotColor: "bg-[#5D6532]",
@@ -444,24 +443,47 @@ const FuerzaPublica = () => {
                   {errors.mensaje && <p className="text-xs text-destructive">{errors.mensaje}</p>}
                 </div>
 
-                <div className="flex items-start gap-2">
-                  <Checkbox
-                    id="terminos"
-                    checked={formData.aceptaTerminos}
-                    onCheckedChange={(checked) => {
-                      setFormData({ ...formData, aceptaTerminos: checked === true });
-                      if (errors.aceptaTerminos) setErrors({ ...errors, aceptaTerminos: undefined });
-                    }}
-                    className="mt-1"
-                  />
-                  <div className="grid gap-1.5 leading-none">
-                    <label
-                      htmlFor="terminos"
-                      className="text-xs text-muted-foreground font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Acepto el manejo de datos y términos y condiciones
-                    </label>
-                    {errors.aceptaTerminos && <p className="text-xs text-destructive">{errors.aceptaTerminos}</p>}
+                <div className="space-y-3">
+                  <div className="flex items-start gap-2">
+                    <Checkbox
+                      id="terminos"
+                      checked={formData.aceptaTerminos}
+                      onCheckedChange={(checked) => {
+                        setFormData({ ...formData, aceptaTerminos: checked === true });
+                        if (errors.aceptaTerminos) setErrors({ ...errors, aceptaTerminos: undefined });
+                      }}
+                      className="mt-1"
+                    />
+                    <div className="grid gap-1.5 leading-none">
+                      <label
+                        htmlFor="terminos"
+                        className="text-xs text-muted-foreground font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        Acepto los <Link to="#" className="text-primary hover:underline">Términos y Condiciones</Link>
+                      </label>
+                      {errors.aceptaTerminos && <p className="text-xs text-destructive">{errors.aceptaTerminos}</p>}
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2">
+                    <Checkbox
+                      id="tratamiento"
+                      checked={formData.aceptaTratamientoDatos}
+                      onCheckedChange={(checked) => {
+                        setFormData({ ...formData, aceptaTratamientoDatos: checked === true });
+                        if (errors.aceptaTratamientoDatos) setErrors({ ...errors, aceptaTratamientoDatos: undefined });
+                      }}
+                      className="mt-1"
+                    />
+                    <div className="grid gap-1.5 leading-none">
+                      <label
+                        htmlFor="tratamiento"
+                        className="text-xs text-muted-foreground font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        Acepto la <Link to="/politica-privacidad" className="text-primary hover:underline">Política de Tratamiento de Datos Personales</Link>
+                      </label>
+                      {errors.aceptaTratamientoDatos && <p className="text-xs text-destructive">{errors.aceptaTratamientoDatos}</p>}
+                    </div>
                   </div>
                 </div>
 

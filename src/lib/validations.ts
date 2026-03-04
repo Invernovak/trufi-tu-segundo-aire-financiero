@@ -27,6 +27,9 @@ export const contactFormPensionadoSchema = z.object({
     .optional()
     .or(z.literal('')),
   aceptaTerminos: z.boolean().refine(val => val === true, {
+    message: "Debes aceptar los términos y condiciones",
+  }),
+  aceptaTratamientoDatos: z.boolean().refine(val => val === true, {
     message: "Debes aceptar la política de tratamiento de datos",
   }),
 });
@@ -64,6 +67,9 @@ export const contactFormDocenteSchema = z.object({
     .optional()
     .or(z.literal('')),
   aceptaTerminos: z.boolean().refine(val => val === true, {
+    message: "Debes aceptar los términos y condiciones",
+  }),
+  aceptaTratamientoDatos: z.boolean().refine(val => val === true, {
     message: "Debes aceptar la política de tratamiento de datos",
   }),
 });
@@ -102,6 +108,9 @@ export const footerContactFormSchema = z.object({
     .optional()
     .or(z.literal('')),
   aceptaTerminos: z.boolean().refine(val => val === true, {
+    message: "Debes aceptar los términos y condiciones",
+  }),
+  aceptaTratamientoDatos: z.boolean().refine(val => val === true, {
     message: "Debes aceptar la política de tratamiento de datos",
   }),
 });

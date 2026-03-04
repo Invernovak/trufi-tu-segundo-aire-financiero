@@ -55,6 +55,7 @@ const Docente = () => {
     institucion: "",
     mensaje: "",
     aceptaTerminos: false,
+    aceptaTratamientoDatos: false,
   });
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormDocente, string>>>({});
 
@@ -92,7 +93,7 @@ const Docente = () => {
 
       setErrors({});
       toast.success("¡Solicitud enviada! Un asesor te contactará pronto.");
-      setFormData({ nombre: "", telefono: "", email: "", institucion: "", mensaje: "" });
+      setFormData({ nombre: "", telefono: "", email: "", institucion: "", mensaje: "", aceptaTerminos: false, aceptaTratamientoDatos: false });
 
     } catch (error: any) {
       console.error('Error submitting form:', error);
@@ -277,7 +278,7 @@ const Docente = () => {
                 highlight: "Futuro",
                 description: "¿Doctorado, maestría o cursos de ascenso? Invierte en tu educación y crecimiento profesional sin aplazar tus sueños.",
                 features: ["Financiación de matrícula y sostenimiento", "Sin codeudor", "Compra de cartera educativa", "Plazos ajustados a tu capacidad"],
-                image: "/lovable-uploads/libreinversionperro1.jpg",
+                image: "/lovable-uploads/happy_client_credit.png",
                 badge: "Superación Personal",
                 badgeColor: "bg-blue-50 text-blue-600",
                 badgeDotColor: "bg-blue-600",
@@ -291,7 +292,7 @@ const Docente = () => {
                 highlight: "Maestros",
                 description: "El espacio ideal para preparar tus clases y disfrutar en familia. Aprovecha los convenios especiales.",
                 features: ["Crédito para VIS y NO VIS", "Remodelación y adecuación de estudio", "Tasas preferenciales por convenio", "Soporte en trámite notarial"],
-                image: "/lovable-uploads/happy_client_house.png",
+                image: "/lovable-uploads/docentemujer1.jpg",
                 badge: "Tu Espacio Ideal",
                 badgeColor: "bg-emerald-50 text-emerald-600",
                 badgeDotColor: "bg-emerald-600",
@@ -305,7 +306,7 @@ const Docente = () => {
                 highlight: "Clase",
                 description: "Olvídate del transporte público. Adquiere tu vehículo y muévete con comodidad entre instituciones.",
                 features: ["Vehículos nuevos o usados", "Planes de financiación flexibles", "Póliza de vehículo financiada", "Aprobación 100% digital"],
-                image: "/lovable-uploads/happy_client_car.png",
+                image: "/lovable-uploads/Puedes_hacer_a_este_docente_comprando_su_nuevo_car_delpmaspu.png",
                 badge: "Movilidad Docente",
                 badgeColor: "bg-violet-50 text-violet-600",
                 badgeDotColor: "bg-violet-600",
@@ -415,24 +416,47 @@ const Docente = () => {
                   {errors.mensaje && <p className="text-xs text-destructive">{errors.mensaje}</p>}
                 </div>
 
-                <div className="flex items-start gap-2">
-                  <Checkbox
-                    id="terminos"
-                    checked={formData.aceptaTerminos}
-                    onCheckedChange={(checked) => {
-                      setFormData({ ...formData, aceptaTerminos: checked === true });
-                      if (errors.aceptaTerminos) setErrors({ ...errors, aceptaTerminos: undefined });
-                    }}
-                    className="mt-1"
-                  />
-                  <div className="grid gap-1.5 leading-none">
-                    <label
-                      htmlFor="terminos"
-                      className="text-xs text-muted-foreground font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Acepto el manejo de datos y términos y condiciones
-                    </label>
-                    {errors.aceptaTerminos && <p className="text-xs text-destructive">{errors.aceptaTerminos}</p>}
+                <div className="space-y-3">
+                  <div className="flex items-start gap-2">
+                    <Checkbox
+                      id="terminos"
+                      checked={formData.aceptaTerminos}
+                      onCheckedChange={(checked) => {
+                        setFormData({ ...formData, aceptaTerminos: checked === true });
+                        if (errors.aceptaTerminos) setErrors({ ...errors, aceptaTerminos: undefined });
+                      }}
+                      className="mt-1"
+                    />
+                    <div className="grid gap-1.5 leading-none">
+                      <label
+                        htmlFor="terminos"
+                        className="text-xs text-muted-foreground font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        Acepto los <Link to="#" className="text-primary hover:underline">Términos y Condiciones</Link>
+                      </label>
+                      {errors.aceptaTerminos && <p className="text-xs text-destructive">{errors.aceptaTerminos}</p>}
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-2">
+                    <Checkbox
+                      id="tratamiento"
+                      checked={formData.aceptaTratamientoDatos}
+                      onCheckedChange={(checked) => {
+                        setFormData({ ...formData, aceptaTratamientoDatos: checked === true });
+                        if (errors.aceptaTratamientoDatos) setErrors({ ...errors, aceptaTratamientoDatos: undefined });
+                      }}
+                      className="mt-1"
+                    />
+                    <div className="grid gap-1.5 leading-none">
+                      <label
+                        htmlFor="tratamiento"
+                        className="text-xs text-muted-foreground font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                        Acepto la <Link to="/politica-privacidad" className="text-primary hover:underline">Política de Tratamiento de Datos Personales</Link>
+                      </label>
+                      {errors.aceptaTratamientoDatos && <p className="text-xs text-destructive">{errors.aceptaTratamientoDatos}</p>}
+                    </div>
                   </div>
                 </div>
 

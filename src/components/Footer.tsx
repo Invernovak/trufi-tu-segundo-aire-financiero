@@ -1,5 +1,6 @@
 import { MapPin, Phone, Mail, Instagram, Facebook, Linkedin } from "lucide-react";
 import FooterContactForm from "./FooterContactForm";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -68,8 +69,8 @@ const Footer = () => {
               <h4 className="font-semibold text-white mb-3">Legal</h4>
               <ul className="space-y-2 text-primary-foreground/60 text-xs md:text-sm">
                 <li><a href="#" className="hover:text-trufi-cyan transition-colors">Términos y Condiciones</a></li>
-                <li><a href="#" className="hover:text-trufi-cyan transition-colors">Política de Privacidad</a></li>
-                <li><a href="#" className="hover:text-trufi-cyan transition-colors">Tratamiento de Datos</a></li>
+                <li><Link to="/politica-privacidad" className="hover:text-trufi-cyan transition-colors">Política de Privacidad</Link></li>
+                <li><Link to="/politica-privacidad" className="hover:text-trufi-cyan transition-colors">Tratamiento de Datos</Link></li>
               </ul>
             </div>
           </div>

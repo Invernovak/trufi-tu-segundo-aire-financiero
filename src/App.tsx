@@ -22,6 +22,7 @@ import ZonaPagos from "./pages/ZonaPagos";
 import PortalComercial from "./pages/PortalComercial";
 import BeneficiosExclusivos from "./pages/BeneficiosExclusivos";
 import PQR from "./pages/PQR";
+import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
 
 // Admin Pages
 import AdminLogin from "./pages/admin/AdminLogin";
@@ -64,6 +65,7 @@ const App = () => {
               <Route path="/zona-pagos" element={<ZonaPagos />} />
               <Route path="/portal-comercial" element={<PortalComercial />} />
               <Route path="/pqr" element={<PQR />} />
+              <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
 
               {/* Admin Routes (Public) */}
               <Route path="/admin/login" element={<AdminLogin />} />

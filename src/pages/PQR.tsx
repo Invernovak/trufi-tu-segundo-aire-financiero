@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { FileText, Send, Loader2, AlertCircle } from "lucide-react";
 import { Label } from "@/components/ui/label";
+import { Link } from "react-router-dom";
 
 const PQR = () => {
     const [loading, setLoading] = useState(false);
@@ -21,6 +22,7 @@ const PQR = () => {
         tipo: "", // Petición, Queja, Reclamo, Sugerencia
         mensaje: "",
         aceptaTerminos: false,
+        aceptaTratamientoDatos: false,
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -38,8 +40,8 @@ const PQR = () => {
             return;
         }
 
-        if (!formData.aceptaTerminos) {
-            toast.error("Debes aceptar la política de tratamiento de datos");
+        if (!formData.aceptaTerminos || !formData.aceptaTratamientoDatos) {
+            toast.error("Debes aceptar los términos y la política de tratamiento de datos");
             return;
         }
 
@@ -72,6 +74,7 @@ const PQR = () => {
                 tipo: "",
                 mensaje: "",
                 aceptaTerminos: false,
+                aceptaTratamientoDatos: false,
             });
 
         } catch (error: any) {
@@ -186,23 +189,39 @@ const PQR = () => {
                                 />
                             </div>
 
-                            <div className="flex items-start gap-2 pt-2">
-                                <Checkbox
-                                    id="terminos"
-                                    className="mt-1"
-                                    checked={formData.aceptaTerminos}
-                                    onCheckedChange={(checked) => setFormData({ ...formData, aceptaTerminos: checked === true })}
-                                />
-                                <div className="grid gap-1.5 leading-none">
-                                    <label
-                                        htmlFor="terminos"
-                                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-slate-600"
-                                    >
-                                        Acepto el manejo de datos y términos y condiciones
-                                    </label>
-                                    <p className="text-xs text-slate-500">
-                                        Al marcar esta casilla, aceptas el manejo de tus datos personales y confirmas estar de acuerdo con nuestros términos y condiciones.
-                                    </p>
+                            <div className="space-y-4 pt-2">
+                                <div className="flex items-start gap-2">
+                                    <Checkbox
+                                        id="terminos"
+                                        className="mt-1"
+                                        checked={formData.aceptaTerminos}
+                                        onCheckedChange={(checked) => setFormData({ ...formData, aceptaTerminos: checked === true })}
+                                    />
+                                    <div className="grid gap-1.5 leading-none">
+                                        <label
+                                            htmlFor="terminos"
+                                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-slate-600"
+                                        >
+                                            Acepto los <Link to="#" className="text-primary hover:underline">Términos y Condiciones</Link>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-2">
+                                    <Checkbox
+                                        id="tratamiento"
+                                        className="mt-1"
+                                        checked={formData.aceptaTratamientoDatos}
+                                        onCheckedChange={(checked) => setFormData({ ...formData, aceptaTratamientoDatos: checked === true })}
+                                    />
+                                    <div className="grid gap-1.5 leading-none">
+                                        <label
+                                            htmlFor="tratamiento"
+                                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-slate-600"
+                                        >
+                                            Acepto la <Link to="/politica-privacidad" className="text-primary hover:underline">Política de Tratamiento de Datos Personales</Link>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
 
