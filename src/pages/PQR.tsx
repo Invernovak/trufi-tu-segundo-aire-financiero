@@ -198,10 +198,10 @@ const PQR = () => {
                                         htmlFor="terminos"
                                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-slate-600"
                                     >
-                                        Acepto la política de tratamiento de datos personales
+                                        Acepto el manejo de datos y términos y condiciones
                                     </label>
                                     <p className="text-xs text-slate-500">
-                                        Al marcar esta casilla, autorizas a TRUFI para el tratamiento de tus datos personales conforme a nuestra política de privacidad.
+                                        Al marcar esta casilla, aceptas el manejo de tus datos personales y confirmas estar de acuerdo con nuestros términos y condiciones.
                                     </p>
                                 </div>
                             </div>
