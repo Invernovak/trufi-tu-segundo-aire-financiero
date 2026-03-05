@@ -57,7 +57,9 @@ const PQR = () => {
                         telefono: formData.telefono,
                         tipo: formData.tipo,
                         mensaje: formData.mensaje,
-                        estado: 'Pendiente' // Default state
+                        estado: 'Pendiente', // Default state
+                        acepta_terminos: formData.aceptaTerminos,
+                        acepta_tratamiento_datos: formData.aceptaTratamientoDatos
                     }
                 ]);
 
@@ -77,7 +79,7 @@ const PQR = () => {
                 aceptaTratamientoDatos: false,
             });
 
-        } catch (error: any) {
+        } catch (error) {
             console.error('Error submitting PQR:', error);
             toast.error("Hubo un error al enviar tu solicitud", {
                 description: "Por favor intenta nuevamente o contáctanos por WhatsApp.",
@@ -93,7 +95,7 @@ const PQR = () => {
 
             <div className="absolute inset-0 z-0 h-[60vh] lg:h-[70vh]">
                 <img
-                    src="/pqr_support.png"
+                    src="/lovable-uploads/pqr_support.png"
                     alt="Atención al cliente"
                     className="w-full h-full object-cover"
                 />

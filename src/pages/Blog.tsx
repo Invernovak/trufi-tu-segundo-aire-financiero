@@ -138,6 +138,7 @@ const Blog = () => {
             <div className="container px-4 md:px-6">
               {filteredPosts.length > 0 ? (
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 row-gap-12">
+                  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                   {filteredPosts.map((article: any, index) => (
                     <Link to={`/blog/${article.id}`} key={index} className="block h-full">
                       <article

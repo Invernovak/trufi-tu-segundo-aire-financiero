@@ -83,7 +83,8 @@ const Pensionado = () => {
             telefono: formData.telefono,
             mensaje: formData.mensaje,
             segmento: 'Pensionado',
-            acepta_terminos: formData.aceptaTerminos
+            acepta_terminos: formData.aceptaTerminos,
+            acepta_tratamiento_datos: formData.aceptaTratamientoDatos
           }
         ]);
 
@@ -93,7 +94,7 @@ const Pensionado = () => {
       toast.success("¡Solicitud enviada! Un asesor te contactará pronto.");
       setFormData({ nombre: "", telefono: "", email: "", mensaje: "", aceptaTerminos: false, aceptaTratamientoDatos: false });
 
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error submitting form:', error);
       toast.error("Hubo un error al enviar tus datos", {
         description: "Por favor intenta nuevamente.",

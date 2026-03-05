@@ -15,6 +15,7 @@ import { contactFormFuerzaPublicaSchema, type ContactFormFuerzaPublica } from "@
 import ProductShowcase from "@/components/ProductShowcase";
 import Pagadurias from "@/components/Pagadurias";
 import { supabase } from "@/integrations/supabase/client";
+import segmentImage from "@/assets/segment-fuerza-publica.jpg";
 
 const benefits = [
   {
@@ -92,7 +93,8 @@ const FuerzaPublica = () => {
             telefono: formData.telefono,
             mensaje: formData.mensaje,
             segmento: 'Fuerza Publica',
-            acepta_terminos: formData.aceptaTerminos
+            acepta_terminos: formData.aceptaTerminos,
+            acepta_tratamiento_datos: formData.aceptaTratamientoDatos
           }
         ]);
 
@@ -102,7 +104,7 @@ const FuerzaPublica = () => {
       toast.success("¡Solicitud enviada! Un asesor te contactará pronto.");
       setFormData({ nombre: "", telefono: "", email: "", institucion: "", mensaje: "", aceptaTerminos: false, aceptaTratamientoDatos: false });
 
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error submitting form:', error);
       toast.error("Hubo un error al enviar tus datos", {
         description: "Por favor intenta nuevamente.",
@@ -125,7 +127,7 @@ const FuerzaPublica = () => {
           {/* Background con imagen del segmento */}
           <div className="absolute inset-0 z-0">
             <img
-              src={segmentImage}
+              src="/lovable-uploads/policiamujer2.jpg"
               alt="Miembro de la Fuerza Pública"
               className="w-full h-full object-cover object-top"
             />
@@ -305,7 +307,8 @@ const FuerzaPublica = () => {
                 highlight: "Héroes",
                 description: "¿Un proyecto personal, negocio familiar o unificación de deudas? Reconocemos tu servicio con tasas preferenciales.",
                 features: ["Descuento directo de nómina/asignación", "Sin codeudor (según grado/rango)", "Atención prioritaria", "Plazos extendidos"],
-                image: "/lovable-uploads/happy_client_credit.png",
+                image: "/lovable-uploads/policialibreinver.jpg",
+                imageClassName: "object-right-bottom",
                 badge: "Honor y Servicio",
                 badgeColor: "bg-[#5D6532]/10 text-[#5D6532]",
                 badgeDotColor: "bg-[#5D6532]",
@@ -333,7 +336,8 @@ const FuerzaPublica = () => {
                 highlight: "Movilidad",
                 description: "Facilitamos la compra de tu vehículo particular o para negocio. Disfruta de la libertad que te mereces.",
                 features: ["Vehículos comerciales y particulares", "Aprobación simplificada", "Tasas competitivas", "Plazos cómodos"],
-                image: "/lovable-uploads/happy_client_car.png",
+                image: "/lovable-uploads/policiavehiculo.jpg",
+                imageClassName: "object-center",
                 badge: "Vehículo Propio",
                 badgeColor: "bg-[#5D6532]/10 text-[#5D6532]",
                 badgeDotColor: "bg-[#5D6532]",

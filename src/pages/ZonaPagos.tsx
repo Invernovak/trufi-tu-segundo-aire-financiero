@@ -48,7 +48,7 @@ const ZonaPagos = () => {
       {/* Peaceful Background */}
       <div className="absolute inset-0 z-0 h-[70vh] lg:h-[80vh]">
         <img
-          src="/happy_customer_payment.png"
+          src="/lovable-uploads/happy_customer_payment.png"
           alt="Cliente feliz al día"
           className="w-full h-full object-cover"
         />
@@ -119,7 +119,7 @@ const ZonaPagos = () => {
               {/* Decorative background image */}
               <div className="absolute -bottom-10 -right-10 w-64 h-64 md:w-72 md:h-72 opacity-20 md:opacity-100 mix-blend-multiply pointer-events-none">
                 <img
-                  src="/asesora_pagos.png"
+                  src="/lovable-uploads/asesora_pagos.png"
                   alt="Asesora de servicio"
                   className="w-full h-full object-cover rounded-full"
                 />
@@ -201,7 +201,7 @@ const InfoRow = ({ label, value }: { label: string, value: string }) => (
 );
 
 // Helper Icon
-const Building2Icon = (props: any) => (
+const Building2Icon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     {...props}
     xmlns="http://www.w3.org/2000/svg"

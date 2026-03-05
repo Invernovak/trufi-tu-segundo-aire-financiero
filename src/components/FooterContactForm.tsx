@@ -46,7 +46,8 @@ const FooterContactForm = () => {
                         telefono: data.telefono,
                         mensaje: data.mensaje,
                         segmento: 'General - Footer',
-                        acepta_terminos: data.aceptaTerminos
+                        acepta_terminos: data.aceptaTerminos,
+                        acepta_tratamiento_datos: data.aceptaTratamientoDatos
                     }
                 ]);
 
@@ -58,7 +59,7 @@ const FooterContactForm = () => {
             });
 
             reset();
-        } catch (error: any) {
+        } catch (error) {
             console.error('Error submitting form:', error);
             toast.error("Hubo un error al enviar tus datos", {
                 description: "Por favor intenta nuevamente.",
