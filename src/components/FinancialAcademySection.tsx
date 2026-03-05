@@ -18,9 +18,9 @@ const FinancialAcademySection = () => {
                     <div className="lg:w-5/12 relative h-[350px] lg:h-auto overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-tr from-[#1A0B3B]/80 via-transparent to-transparent z-10 lg:bg-gradient-to-r lg:from-transparent lg:to-[#1A0B3B]/90" />
                         <img
-                            src="/AcademiaTrufi.jpg"
+                            src="/lovable-uploads/AcademiaTrufi.jpg"
                             alt="Educación Financiera Trufi"
-                            className="absolute inset-0 w-full h-full object-cover"
+                            className="absolute inset-0 w-full h-full object-cover z-0"
                         />
                     </div>
 
