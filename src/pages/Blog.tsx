@@ -63,7 +63,7 @@ const Blog = () => {
               Academia TRUFI - Tu Beneficio Exclusivo como Cliente
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-              Por tener un crédito con TRUFI, accedes SIN COSTO ADICIONAL a nuestra plataforma. En nuestra zona de aprendizaje, te invitamos a explorar una amplia gama de temas relacionados con finanzas personales, créditos, inversiones y mucho más. Únete a nuestra comunidad y potencia tu conocimiento financiero.
+              En TRUFI creemos que el conocimiento es tu mejor herramienta financiera. Por eso, junto a nuestros aliados especializados, te ofrecemos contenido 100% gratuito sobre finanzas personales, créditos, inversiones, tecnología y mucho más. Aprende a tu ritmo, desde donde estés, y comparte este beneficio con toda tu familia.
             </p>
           </div>
         </section>

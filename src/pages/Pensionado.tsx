@@ -184,18 +184,6 @@ const Pensionado = () => {
                   </Button>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 pt-2">
-                  <Button
-                    variant="cta"
-                    size="xl"
-                    className="bg-orange-600 hover:bg-orange-700 text-white font-bold text-lg px-8 py-6 shadow-xl shadow-orange-900/20"
-                    asChild
-                  >
-                    <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">
-                      Habla con un asesor
-                    </a>
-                  </Button>
-                </div>
               </div>
               <div id="credit-simulator" className="lg:justify-self-end w-full max-w-md mx-auto lg:mx-0">
                 <CreditSimulator />

@@ -188,18 +188,6 @@ const FuerzaPublica = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 pt-1">
-                  <Button
-                    variant="cta"
-                    size="lg"
-                    className="bg-[#5D6532] hover:bg-[#5D6532]/90 text-white font-bold text-base px-8 py-6 shadow-xl shadow-[#5D6532]/30"
-                    asChild
-                  >
-                    <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">
-                      Habla con un asesor
-                    </a>
-                  </Button>
-                </div>
               </div>
               <div id="credit-simulator" className="lg:justify-self-end w-full max-w-md mx-auto lg:mx-0 scale-90 md:scale-100 origin-top">
                 <CreditSimulator />
