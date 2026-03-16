@@ -37,6 +37,8 @@ import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
+import ProfileSelectionModal from "./components/startup/ProfileSelectionModal";
+
 const App = () => {
   const [loading, setLoading] = useState(true);
 
@@ -48,6 +50,7 @@ const App = () => {
           <Sonner />
           {loading && <PageLoader onFinished={() => setLoading(false)} />}
           <BrowserRouter>
+            <ProfileSelectionModal />
             <ScrollToTop />
             <Routes>
               {/* Public Routes */}

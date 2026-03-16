@@ -35,7 +35,7 @@ const FinancialAcademySection = () => {
                             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/30 w-fit backdrop-blur-md animate-pulse shadow-[0_0_15px_hsl(var(--secondary)/0.3)]">
                                 <BookOpen className="w-4 h-4 text-secondary" />
                                 <span className="text-xs font-bold text-secondary tracking-wider uppercase">
-                                    Academia TRUFI
+                                    Aprende con Trufi a través de nuestros aliados
                                 </span>
                             </div>
 
@@ -45,7 +45,7 @@ const FinancialAcademySection = () => {
                             </h2>
 
                             <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl font-light">
-                                No solo hablamos de finanzas. Domina la IA, crece profesionalmente y adquiere habilidades para el mundo de hoy. Contenido 100% gratuito.
+                                No solo hablamos de finanzas. Aprende sobre IA, crece profesionalmente y adquiere habilidades para el mundo de hoy. Contenido 100% gratuito.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-5 pt-2">
@@ -55,7 +55,7 @@ const FinancialAcademySection = () => {
                                         className="relative overflow-hidden bg-secondary hover:bg-secondary/90 text-primary-foreground border-0 font-bold text-lg h-14 px-10 rounded-2xl shadow-[0_0_30px_hsl(var(--secondary)/0.4)] transition-all hover:scale-105 hover:shadow-[0_0_50px_hsl(var(--secondary)/0.6)] group/btn"
                                     >
                                         <span className="relative z-10 flex items-center">
-                                            Aprender de expertos
+                                            Aprende con especialistas
                                             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/btn:translate-x-1" />
                                         </span>
                                     </Button>
@@ -80,7 +80,7 @@ const FinancialAcademySection = () => {
                                         </div>
                                         <div>
                                             <p className="text-sm font-bold text-white group-hover/item:text-secondary transition-colors">
-                                                IA para Todos
+                                                Aprende sobre IA
                                             </p>
                                             <p className="text-[10px] text-white/50 uppercase tracking-wide">Curso • Nivel Básico</p>
                                         </div>

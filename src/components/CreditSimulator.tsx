@@ -76,13 +76,13 @@ const CreditSimulator = () => {
                     <Slider
                         value={term}
                         onValueChange={setTerm}
-                        min={12}
+                        min={6}
                         max={144}
-                        step={12}
+                        step={6}
                         className="w-full"
                     />
                     <div className="flex justify-between text-[10px] text-muted-foreground">
-                        <span>12</span>
+                        <span>6</span>
                         <span>144</span>
                     </div>
                 </div>
@@ -95,9 +95,17 @@ const CreditSimulator = () => {
                     <p className="text-xl font-bold text-foreground">
                         {formatCurrency(monthlyPayment)}
                     </p>
-                    <p className="text-[10px] text-muted-foreground mt-1">
-                        *Tasa referencial
-                    </p>
+                    <div className="flex items-center justify-center gap-1 mt-1">
+                        <p className="text-[10px] text-muted-foreground">
+                            *Tasa referencial
+                        </p>
+                        <div className="group relative">
+                            <Shield className="w-3 h-3 text-muted-foreground cursor-help" />
+                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2 bg-popover text-popover-foreground text-[10px] rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 border border-border">
+                                Tasa referencial, sujeta a estudio de crédito
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 {/* CTA Button */}

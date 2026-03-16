@@ -185,8 +185,11 @@ const Docente = () => {
                     variant="cta"
                     size="lg"
                     className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-base px-8 py-6 shadow-xl shadow-blue-900/20"
+                    asChild
                   >
-                    Iniciar mi trámite ágil
+                    <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">
+                      Habla con un asesor
+                    </a>
                   </Button>
                 </div>
               </div>
@@ -315,6 +318,20 @@ const Docente = () => {
                 checkColor: "text-violet-500 fill-violet-50",
                 buttonColor: "bg-violet-600 hover:bg-violet-700",
                 buttonShadow: "shadow-violet-600/25 hover:shadow-violet-600/40",
+              },
+              tranquilidad: {
+                title: "Tu Tranquilidad:",
+                highlight: "Unifica y Respira",
+                description: "Recupera tu tranquilidad financiera y el flujo de tu caja. Unificamos tus deudas en una sola cuota mensual con descuento de nómina.",
+                features: ["Saneamiento financiero", "Compra de cartera 100%", "Mejora tu flujo de caja", "Descuento directo de nómina"],
+                image: "/lovable-uploads/docentemujer1.jpg",
+                badge: "Saneamiento",
+                badgeColor: "bg-blue-50 text-blue-600",
+                badgeDotColor: "bg-blue-600",
+                titleColor: "text-blue-600",
+                checkColor: "text-blue-500 fill-blue-50",
+                buttonColor: "bg-blue-600 hover:bg-blue-700",
+                buttonShadow: "shadow-blue-600/25 hover:shadow-blue-600/40",
               },
             }}
           />
@@ -483,8 +500,11 @@ const Docente = () => {
             <Button
               size="lg"
               className="bg-white text-blue-600 hover:bg-white/90 font-bold shadow-xl"
+              asChild
             >
-              Iniciar mi trámite ágil
+              <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">
+                Habla con un asesor
+              </a>
             </Button>
           </div>
         </section>

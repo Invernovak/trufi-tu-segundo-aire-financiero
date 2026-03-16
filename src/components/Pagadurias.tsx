@@ -4,31 +4,31 @@ import { GraduationCap, Shield, Building2, Medal } from "lucide-react";
 
 // Placeholder data for logos. In a real scenario, these would be image paths.
 const educationLogos = [
-    { name: "Secretaría de Educación Caldas", color: "bg-green-100 text-green-700" },
-    { name: "Secretaría de Educación Cundinamarca", color: "bg-blue-100 text-blue-700" },
-    { name: "Secretaría de Educación Nariño", color: "bg-yellow-100 text-yellow-700" },
-    { name: "Secretaría de Educación Soledad", color: "bg-orange-100 text-orange-700" },
-    { name: "Secretaría de Educación Medellín", color: "bg-emerald-100 text-emerald-700" },
-    { name: "Secretaría de Educación Valle del Cauca", color: "bg-red-100 text-red-700" },
-    { name: "Secretaría de Educación Sincelejo", color: "bg-indigo-100 text-indigo-700" },
+    { name: "SED BOGOTÁ", color: "bg-blue-100 text-blue-700" },
+    { name: "SED ANTIOQUIA", color: "bg-green-100 text-green-700" },
+    { name: "SED VALLE", color: "bg-red-100 text-red-700" },
+    { name: "SED ATLÁNTICO", color: "bg-cyan-100 text-cyan-700" },
+    { name: "SED SANTANDER", color: "bg-yellow-100 text-yellow-700" },
+    { name: "SED CUNDINAMARCA", color: "bg-blue-100 text-blue-800" },
 ];
 
 const pensionLogos = [
-    { name: "Colpensiones", color: "bg-green-50 text-green-800" },
-    { name: "Fiduprevisora", color: "bg-red-50 text-red-800" },
-    { name: "FOPEP", color: "bg-orange-50 text-orange-800" },
-    { name: "Colfondos", color: "bg-blue-50 text-blue-600" },
-    { name: "Porvenir", color: "bg-yellow-50 text-yellow-800" },
-    { name: "Seguros Bolívar", color: "bg-green-50 text-green-700" },
-    { name: "Seguros Alfa", color: "bg-blue-50 text-blue-500" },
-    { name: "Positiva", color: "bg-orange-50 text-orange-600" },
+    { name: "COLPENSIONES", color: "bg-yellow-50 text-yellow-800" },
+    { name: "FOPEP", color: "bg-red-50 text-red-800" },
+    { name: "FIDUPREVISORA", color: "bg-blue-50 text-blue-800" },
+    { name: "FERROCARRILES", color: "bg-gray-100 text-gray-800" },
+    { name: "FONDO PASIVO SOCIAL FERROCARRILES", color: "bg-gray-50 text-gray-700" },
+    { name: "COLFONDOS", color: "bg-blue-50 text-blue-600" },
+    { name: "PORVENIR", color: "bg-emerald-50 text-emerald-700" },
+    { name: "PROTECCIÓN", color: "bg-yellow-50 text-yellow-700" },
 ];
 
 const fuerzaPublicaLogos = [
-    { name: "CREMIL", color: "bg-blue-50 text-blue-800" },
-    { name: "CASUR", color: "bg-emerald-50 text-emerald-800" },
-    { name: "MINDEFENSA", color: "bg-blue-50 text-blue-900" },
-    { name: "CAGEN", color: "bg-gray-100 text-gray-800" },
+    { name: "CREMIL", color: "bg-army-dark/10 text-army-dark" },
+    { name: "CASUR", color: "bg-olive-600/10 text-olive-700" },
+    { name: "TEGEN", color: "bg-blue-50 text-blue-900" },
+    { name: "MINDEFENSA", color: "bg-gray-100 text-gray-800" },
+    { name: "DIVISIÓN PENSIONES POLICÍA", color: "bg-emerald-50 text-emerald-800" },
 ];
 
 const LogoPlaceholder = ({ name, color }: { name: string; color: string }) => (

@@ -111,7 +111,7 @@ const AudienceSegmentation = () => {
               description = "Para quienes disfrutan su retiro, pero buscan estabilidad extra, con descuento directo de tu mesada pensional para mayor tranquilidad.";
               buttonText = "Descubre Tus Opciones";
             } else if (item.enlace.includes('docente')) {
-              description = "Diseñado para educadores del sector público que necesitan flexibilidad financiera, alineada con tu compromiso diario.";
+              description = "Diseñado para educadores del sector público que buscan flexibilidad financiera alineada a sus metas";
               buttonText = "Descubre Tus Opciones";
             } else if (item.enlace.includes('fuerza')) {
               description = "Opciones accesibles para héroes, reconociendo tu servicio con procesos simples y confiables.";

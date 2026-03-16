@@ -57,9 +57,9 @@ const HeroSection = () => {
             {/* Benefits Grid */}
             <div className="grid sm:grid-cols-2 gap-4 text-left">
               {[
-                "Sin codeudor",
-                "Descuento de nómina",
-                "Estudio de crédito gratis",
+                "Créditos por libranza",
+                "Asistencias hogar",
+                "100% digital",
                 "Desembolso rápido"
               ].map((item, index) => (
                 <div key={index} className="flex items-center gap-2 text-white/90">

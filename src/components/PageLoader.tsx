@@ -41,7 +41,7 @@ const PageLoader = ({ onFinished }: { onFinished: () => void }) => {
 
     return (
         <div
-            className={`fixed inset-0 z-[100] flex items-center justify-center bg-white transition-opacity duration-500 ${stage === "exit" ? "opacity-0 pointer-events-none" : "opacity-100"
+            className={`fixed inset-0 z-[100] flex items-center justify-center bg-gradient-to-br from-[#1A0B3B] to-[#2D1B69] transition-opacity duration-500 ${stage === "exit" ? "opacity-0 pointer-events-none" : "opacity-100"
                 }`}
         >
             <div className="relative flex flex-col items-center">
@@ -53,12 +53,12 @@ const PageLoader = ({ onFinished }: { onFinished: () => void }) => {
                     <img
                         src="/lovable-uploads/Logo-trufi-menu.png"
                         alt="Trufi Loading"
-                        className="w-48 md:w-64 object-contain"
+                        className="w-48 md:w-64 object-contain brightness-0 invert"
                     />
 
                     {/* Approval Checkmark Overlay */}
                     <div
-                        className={`absolute -bottom-2 -right-2 bg-emerald-500 rounded-full p-2 shadow-lg transform transition-all duration-500 ${stage === "approve" || stage === "exit"
+                        className={`absolute -bottom-2 -right-2 bg-secondary rounded-full p-2 shadow-lg transform transition-all duration-500 ${stage === "approve" || stage === "exit"
                                 ? "scale-100 opacity-100 rotate-0"
                                 : "scale-0 opacity-0 -rotate-180"
                             }`}
@@ -68,7 +68,7 @@ const PageLoader = ({ onFinished }: { onFinished: () => void }) => {
                 </div>
 
                 {/* Loading Text (Optional, good for UX) */}
-                <div className={`mt-8 text-primary font-medium text-lg transition-opacity duration-300 ${stage === "approve" ? "opacity-0" : "opacity-100"}`}>
+                <div className={`mt-8 text-white/70 font-medium text-lg transition-opacity duration-300 ${stage === "approve" ? "opacity-0" : "opacity-100"}`}>
                     Cargando...
                 </div>
             </div>

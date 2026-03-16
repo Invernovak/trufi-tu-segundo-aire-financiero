@@ -177,8 +177,10 @@ const Pensionado = () => {
                     <h4 className="font-bold text-white text-base">¿Prefieres hablar con alguien?</h4>
                     <p className="text-sm text-white/60">Nuestros asesores senior te atienden sin esperas.</p>
                   </div>
-                  <Button variant="ghost" size="sm" className="ml-auto text-orange-300 hover:text-orange-200 hover:bg-white/5">
-                    Solicitar llamada &rarr;
+                  <Button variant="ghost" size="sm" className="ml-auto text-orange-300 hover:text-orange-200 hover:bg-white/5" asChild>
+                    <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">
+                      Habla con un asesor &rarr;
+                    </a>
                   </Button>
                 </div>
 
@@ -187,8 +189,11 @@ const Pensionado = () => {
                     variant="cta"
                     size="xl"
                     className="bg-orange-600 hover:bg-orange-700 text-white font-bold text-lg px-8 py-6 shadow-xl shadow-orange-900/20"
+                    asChild
                   >
-                    Quiero mi asesoría humana
+                    <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">
+                      Habla con un asesor
+                    </a>
                   </Button>
                 </div>
               </div>
@@ -317,6 +322,20 @@ const Pensionado = () => {
                 checkColor: "text-violet-500 fill-violet-50",
                 buttonColor: "bg-violet-600 hover:bg-violet-700",
                 buttonShadow: "shadow-violet-600/25 hover:shadow-violet-600/40",
+              },
+              tranquilidad: {
+                title: "Tu Tranquilidad:",
+                highlight: "Unifica y Respira",
+                description: "Recupera tu tranquilidad financiera y el flujo de tu caja. Unificamos tus deudas en una sola cuota mensual con descuento de tu mesada.",
+                features: ["Saneamiento financiero", "Compra de cartera 100%", "Mejora tu flujo de caja", "Descuento directo de mesada"],
+                image: "/assets/segment-pensionado.jpg",
+                badge: "Saneamiento",
+                badgeColor: "bg-orange-50 text-orange-600",
+                badgeDotColor: "bg-orange-600",
+                titleColor: "text-orange-600",
+                checkColor: "text-orange-500 fill-orange-50",
+                buttonColor: "bg-orange-600 hover:bg-orange-700",
+                buttonShadow: "shadow-orange-600/25 hover:shadow-orange-600/40",
               },
             }}
           />
@@ -469,9 +488,12 @@ const Pensionado = () => {
             <Button
               size="xl"
               className="bg-white text-orange-600 hover:bg-white/90 font-bold shadow-2xl"
+              asChild
             >
-              <Sparkles className="w-4 h-4 mr-2" />
-              Solicitar Crédito Ahora
+              <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">
+                <Sparkles className="w-4 h-4 mr-2" />
+                Habla con un asesor ahora
+              </a>
             </Button>
           </div>
         </section>

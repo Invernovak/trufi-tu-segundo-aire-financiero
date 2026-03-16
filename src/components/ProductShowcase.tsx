@@ -1,7 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Car, Home, Wallet, CheckCircle2, ArrowRight } from "lucide-react";
+import { Car, Home, Wallet, CheckCircle2, ArrowRight, ShieldCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface ShowcaseItem {
@@ -26,6 +26,7 @@ export interface ProductShowcaseProps {
         credito: ShowcaseItem;
         vivienda: ShowcaseItem;
         vehiculo: ShowcaseItem;
+        tranquilidad?: ShowcaseItem;
     };
     accentColor?: string; // Optional global accent color override for tabs
 }
@@ -34,14 +35,15 @@ const defaultData: {
     credito: ShowcaseItem;
     vivienda: ShowcaseItem;
     vehiculo: ShowcaseItem;
+    tranquilidad: ShowcaseItem;
 } = {
     credito: {
         title: "Tu libranza para",
-        highlight: "Libre Inversión",
-        description: "¿Un viaje soñado, remodelar tu espacio o consolidar deudas? Tu cupo de libranza lo hace posible con descuento directo de nómina.",
-        features: ["Desembolso en menos de 24 horas", "Plazos flexibles hasta 60 meses", "Sin codeudor (sujeto a estudio)", "Seguro de vida incluido"],
+        highlight: "Metas y Proyectos",
+        description: "Cumple tus sueños hoy mismo. Financiación flexible para viajes, educación, tecnología o lo que necesites para tu bienestar y el de tu familia.",
+        features: ["Aprobación en 24h", "Sin codeudor", "Plazos hasta 144 meses", "Tasa competitiva"],
         image: "/lovable-uploads/happy_client_credit.png",
-        badge: "Úsalo para lo que quieras",
+        badge: "Libre Inversión",
         badgeColor: "bg-blue-50 text-blue-600",
         badgeDotColor: "bg-blue-600",
         titleColor: "text-primary",
@@ -50,12 +52,12 @@ const defaultData: {
         buttonShadow: "shadow-primary/25 hover:shadow-primary/40",
     },
     vivienda: {
-        title: "Tu libranza para",
-        highlight: "Vivienda",
-        description: "Utiliza tu capacidad de endeudamiento por libranza para cuota inicial, mejoras locativas o compra de vivienda.",
-        features: ["Plazos hasta 20 años", "Tasas fijas en pesos", "Estudio de títulos bonificado", "Asesoría personalizada"],
+        title: "Dale vida a",
+        highlight: "Tu Hogar Soñado",
+        description: "Dale un nuevo aire a tu hogar. Remodela, amplía o personaliza tu espacio con un crédito diseñado para mejorar tu calidad de vida.",
+        features: ["Sin hipoteca", "Desembolso directo", "Mejora tu patrimonio", "Trámite 100% digital"],
         image: "/lovable-uploads/happy_client_house.png",
-        badge: "Tu nuevo hogar",
+        badge: "Vivienda",
         badgeColor: "bg-emerald-50 text-emerald-600",
         badgeDotColor: "bg-emerald-600",
         titleColor: "text-emerald-600",
@@ -64,18 +66,32 @@ const defaultData: {
         buttonShadow: "shadow-emerald-600/25 hover:shadow-emerald-600/40",
     },
     vehiculo: {
-        title: "Tu libranza para",
-        highlight: "Vehículo",
-        description: "Estrena carro con la facilidad de pago de tu crédito de libranza. Aprobación simplificada.",
-        features: ["Aprobación en línea", "Para vehículos particulares y públicos", "Paga tu primera cuota en 60 días", "Sin prenda (según perfil)"],
+        title: "Muévete con",
+        highlight: "Libertad",
+        description: "El carro o moto que siempre has querido está más cerca de lo que crees. Sin trámites engorrosos ni pignoración obligatoria.",
+        features: ["Nuevo o usado", "Sin pignoración", "Respuesta inmediata", "Para cualquier marca"],
         image: "/lovable-uploads/happy_client_car.png",
-        badge: "Estrena carro ya",
+        badge: "Vehículo",
         badgeColor: "bg-violet-50 text-violet-600",
         badgeDotColor: "bg-violet-600",
         titleColor: "text-violet-600",
         checkColor: "text-violet-500 fill-violet-50",
         buttonColor: "bg-violet-600 hover:bg-violet-700",
         buttonShadow: "shadow-violet-600/25 hover:shadow-violet-600/40",
+    },
+    tranquilidad: {
+        title: "Tu Tranquilidad:",
+        highlight: "Unifica y Respira",
+        description: "Recupera tu tranquilidad financiera y el flujo de tu caja. Unificamos tus deudas en una sola cuota mensual con descuento de nómina.",
+        features: ["Saneamiento financiero", "Compra de cartera 100%", "Mejora tu flujo de caja", "Descuento directo de nómina"],
+        image: "https://images.unsplash.com/photo-1554224155-169641357599?q=80&w=800&auto=format&fit=crop",
+        badge: "Saneamiento",
+        badgeColor: "bg-orange-50 text-orange-600",
+        badgeDotColor: "bg-orange-600",
+        titleColor: "text-orange-600",
+        checkColor: "text-orange-500 fill-orange-50",
+        buttonColor: "bg-orange-600 hover:bg-orange-700",
+        buttonShadow: "shadow-orange-600/25 hover:shadow-orange-600/40",
     },
 };
 
@@ -107,16 +123,15 @@ const ProductShowcase = ({ defaultTab = "credito", data = defaultData, accentCol
 
                 <Tabs defaultValue={defaultTab} className="w-full max-w-6xl mx-auto">
                     <div className="flex justify-center mb-12">
-                        <TabsList className="grid w-full max-w-2xl grid-cols-3 h-auto p-1.5 bg-gray-100/80 backdrop-blur-sm rounded-full border border-gray-200 shadow-sm">
+                        <TabsList className="grid w-full max-w-3xl grid-cols-2 md:grid-cols-4 h-auto p-1.5 bg-gray-100/80 backdrop-blur-sm rounded-none md:rounded-full border border-gray-200 shadow-sm">
                             <TabsTrigger
                                 value="credito"
                                 className="rounded-full py-3 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md transition-all duration-300 flex items-center justify-center gap-2 group"
-                                style={accentColor ? { color: 'inherit' } : {}} // Allow override if needed, but TabsTrigger handles active state
                             >
                                 <div className="p-1.5 rounded-full bg-gray-200/50 group-data-[state=active]:bg-primary/10 transition-colors">
                                     <Wallet className="w-4 h-4 md:w-5 md:h-5" />
                                 </div>
-                                <span className="font-bold text-sm md:text-base">Libre Inversión</span>
+                                <span className="font-bold text-xs md:text-sm">Metas y Proyectos</span>
                             </TabsTrigger>
                             <TabsTrigger
                                 value="vivienda"
@@ -125,7 +140,7 @@ const ProductShowcase = ({ defaultTab = "credito", data = defaultData, accentCol
                                 <div className="p-1.5 rounded-full bg-gray-200/50 group-data-[state=active]:bg-primary/10 transition-colors">
                                     <Home className="w-4 h-4 md:w-5 md:h-5" />
                                 </div>
-                                <span className="font-bold text-sm md:text-base">Vivienda</span>
+                                <span className="font-bold text-xs md:text-sm">Tu Hogar Soñado</span>
                             </TabsTrigger>
                             <TabsTrigger
                                 value="vehiculo"
@@ -134,7 +149,16 @@ const ProductShowcase = ({ defaultTab = "credito", data = defaultData, accentCol
                                 <div className="p-1.5 rounded-full bg-gray-200/50 group-data-[state=active]:bg-primary/10 transition-colors">
                                     <Car className="w-4 h-4 md:w-5 md:h-5" />
                                 </div>
-                                <span className="font-bold text-sm md:text-base">Vehículo</span>
+                                <span className="font-bold text-xs md:text-sm">Movilidad Total</span>
+                            </TabsTrigger>
+                            <TabsTrigger
+                                value="tranquilidad"
+                                className="rounded-full py-3 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md transition-all duration-300 flex items-center justify-center gap-2 group"
+                            >
+                                <div className="p-1.5 rounded-full bg-gray-200/50 group-data-[state=active]:bg-primary/10 transition-colors">
+                                    <ShieldCheck className="w-4 h-4 md:w-5 md:h-5" />
+                                </div>
+                                <span className="font-bold text-xs md:text-sm">Unifica y Respira</span>
                             </TabsTrigger>
                         </TabsList>
                     </div>

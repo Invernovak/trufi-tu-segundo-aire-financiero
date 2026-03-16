@@ -1,6 +1,8 @@
-import { Heart, Shield, Home, Wrench, Zap, Droplets, Snowflake, CheckCircle2 } from "lucide-react";
+import { Heart, Shield, Home, Wrench, Zap, Droplets, Snowflake, CheckCircle2, ChevronRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const amparos = [
   {
@@ -46,8 +48,7 @@ const BeneficiosTrufi = () => {
             <span className="text-primary">una protección completa</span>
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            Al adquirir un crédito con TRUFI, accedes automáticamente a un paquete de protección premium
-            <span className="font-semibold text-foreground"> sin costo adicional</span>.
+            Al adquirir un crédito con TRUFI, accedes automáticamente a un paquete de protección premium.
           </p>
         </div>
 
@@ -97,9 +98,14 @@ const BeneficiosTrufi = () => {
                 <h3 className="text-2xl font-bold text-foreground mb-3">
                   Asistencias Hogar
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Cerrajería, Electricidad, Plomería y Línea Blanca.
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Este servicio puede utilizarse hasta dos (2) veces por año. Consulta los términos y condiciones completos en la sección de Beneficios.
                 </p>
+                <Link to="/beneficios">
+                  <Button variant="outline" className="rounded-full px-6 border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-all duration-300 group/btn">
+                    Conocer más <ChevronRight className="w-4 h-4 ml-1 transition-transform group-hover/btn:translate-x-1" />
+                  </Button>
+                </Link>
               </div>
             </Card>
           </div>
@@ -118,8 +124,13 @@ const BeneficiosTrufi = () => {
 
                 <h3 className="text-3xl font-bold mb-4">Asistencias Hogar</h3>
                 <p className="text-primary-foreground/90 text-lg mb-10 leading-relaxed">
-                  Esto incluirá tu paquete de asistencia al hogar.
+                  Este servicio puede utilizarse hasta dos (2) veces por año. Consulta los términos y condiciones completos en la sección de Beneficios.
                 </p>
+                <Link to="/beneficios" className="mb-10">
+                  <Button className="bg-white text-primary rounded-full px-8 font-bold hover:bg-white/90 transition-all duration-300 group/btn shadow-lg">
+                    Conocer más <ChevronRight className="w-4 h-4 ml-1 transition-transform group-hover/btn:translate-x-1" />
+                  </Button>
+                </Link>
 
                 <div className="space-y-4 mt-auto">
                   {asistenciasHogar.map((item, idx) => (

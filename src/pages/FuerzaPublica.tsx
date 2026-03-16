@@ -193,8 +193,11 @@ const FuerzaPublica = () => {
                     variant="cta"
                     size="lg"
                     className="bg-[#5D6532] hover:bg-[#5D6532]/90 text-white font-bold text-base px-8 py-6 shadow-xl shadow-[#5D6532]/30"
+                    asChild
                   >
-                    Solicitar con Honor
+                    <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">
+                      Habla con un asesor
+                    </a>
                   </Button>
                 </div>
               </div>
@@ -339,6 +342,20 @@ const FuerzaPublica = () => {
                 image: "/lovable-uploads/policiavehiculo.jpg",
                 imageClassName: "object-center",
                 badge: "Vehículo Propio",
+                badgeColor: "bg-[#5D6532]/10 text-[#5D6532]",
+                badgeDotColor: "bg-[#5D6532]",
+                titleColor: "text-[#5D6532]",
+                checkColor: "text-[#5D6532] fill-[#5D6532]/10",
+                buttonColor: "bg-[#5D6532] hover:bg-[#5D6532]/90",
+                buttonShadow: "shadow-[#5D6532]/25 hover:shadow-[#5D6532]/40",
+              },
+              tranquilidad: {
+                title: "Tu Tranquilidad:",
+                highlight: "Unifica y Respira",
+                description: "Recupera tu tranquilidad financiera y el flujo de tu caja. Unificamos tus deudas en una sola cuota mensual con descuento de tu asignación.",
+                features: ["Saneamiento financiero", "Compra de cartera 100%", "Mejora tu flujo de caja", "Descuento directo de asignación"],
+                image: "/lovable-uploads/policiamujer2.jpg",
+                badge: "Saneamiento",
                 badgeColor: "bg-[#5D6532]/10 text-[#5D6532]",
                 badgeDotColor: "bg-[#5D6532]",
                 titleColor: "text-[#5D6532]",
@@ -513,8 +530,11 @@ const FuerzaPublica = () => {
             <Button
               size="lg"
               className="bg-white text-[#5D6532] hover:bg-white/90 font-bold shadow-xl"
+              asChild
             >
-              Solicitar con Honor
+              <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">
+                Habla con un asesor
+              </a>
             </Button>
           </div>
         </section>
