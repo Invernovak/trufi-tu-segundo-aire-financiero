@@ -40,7 +40,7 @@ const Header = () => {
         <Link to="/" className="flex items-center">
           <img
             alt="TRUFI - Confianza Inmediata"
-            className={`w-auto object-contain transition-transform hover:scale-105 ${location.pathname === '/quienes-somos' ? 'h-8 md:h-10' : 'h-10 md:h-14'}`}
+            className="w-auto h-8 md:h-10 object-contain transition-transform hover:scale-105"
             src="/lovable-uploads/Logo-trufi-menu.png"
           />
         </Link>

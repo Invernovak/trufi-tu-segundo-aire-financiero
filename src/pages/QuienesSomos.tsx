@@ -15,7 +15,7 @@ const QuienesSomos = () => {
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
             <video
-              src="/lovable-uploads/videoquienessomos2.mp4"
+              src="/lovable-uploads/Diseño sin título.mp4"
               className="w-full h-full object-cover object-center animate-in fade-in duration-1000"
               autoPlay
               loop
@@ -27,17 +27,13 @@ const QuienesSomos = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
           </div>
 
-          <div className="container relative z-10 px-4 h-full flex flex-col justify-end pb-20">
-            <div className="max-w-4xl text-white animate-in slide-in-from-left-10 fade-in duration-1000 delay-300 fill-mode-both text-left">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold font-archive leading-tight mb-4 drop-shadow-lg">
-                Bienvenido a Trufi
-              </h1>
-            </div>
-          </div>
-
           {/* Marquee Footer */}
           <div className="absolute bottom-0 left-0 right-0 bg-primary/90 backdrop-blur-md py-4 z-20 overflow-hidden border-t border-white/10">
             <div className="animate-marquee whitespace-nowrap flex gap-8 items-center">
+              <span className="text-lg md:text-xl text-white font-bold px-4">
+                Bienvenido a <span className="text-secondary">TRUFI</span>
+              </span>
+              <span className="text-white/30">•</span>
               <span className="text-lg md:text-xl text-white font-medium px-4">
                 Dejar de ser "un crédito más" para ser <span className="text-secondary font-bold">"Tu segunda oportunidad real"</span>.
               </span>
@@ -48,14 +44,6 @@ const QuienesSomos = () => {
               <span className="text-white/30">•</span>
               <span className="text-lg md:text-xl text-white font-medium px-4">
                 Somos el puente para que pensionados y docentes recuperen su tranquilidad financiera.
-              </span>
-              <span className="text-white/30">•</span>
-              <span className="text-lg md:text-xl text-white font-medium px-4">
-                Dejar de ser "un crédito más" para ser <span className="text-secondary font-bold">"Tu segunda oportunidad real"</span>.
-              </span>
-              <span className="text-white/30">•</span>
-              <span className="text-lg md:text-xl text-white font-medium px-4">
-                En TRUFI, no miramos cifras, miramos historias.
               </span>
             </div>
           </div>
