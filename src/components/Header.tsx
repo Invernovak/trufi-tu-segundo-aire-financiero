@@ -35,7 +35,7 @@ const Header = () => {
         : "bg-transparent py-4"
         }`}
     >
-      <div className="container flex items-center justify-between h-auto flex-nowrap">
+      <div className="max-w-[1200px] mx-auto w-full flex items-center justify-between h-auto flex-nowrap px-6 md:px-10">
         {/* LOGO */}
         <Link to="/" className="flex items-center">
           <img
