@@ -122,7 +122,7 @@ const Header = () => {
 
           {/* 1. Zona Clientes (Ahora primero) */}
           <Button
-            className="bg-white text-primary hover:bg-white/90 font-bold lg:text-[12px] xl:text-[13px] lg:px-3 xl:px-5 py-2 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all whitespace-nowrap min-w-fit"
+            className="bg-white text-primary hover:bg-white/90 font-bold text-[12px] lg:px-3 xl:px-4 py-1.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all whitespace-nowrap min-w-fit h-auto"
             asChild
           >
             <a href="https://app.trufi.com.co/" target="_blank" rel="noopener noreferrer">
@@ -134,7 +134,7 @@ const Header = () => {
           {/* 2. Portal Comercial (Ahora segundo e interno) */}
           <Link to="/portal-comercial">
             <Button
-              className="bg-[#78c0b3] text-white font-bold lg:text-[12px] xl:text-[13px] lg:px-3 xl:px-5 py-2 rounded-full shadow-lg hover:shadow-xl hover:bg-[#78c0b3]/90 hover:-translate-y-0.5 transition-all whitespace-nowrap min-w-fit"
+              className="bg-[#78c0b3] text-white font-bold text-[12px] lg:px-3 xl:px-4 py-1.5 rounded-full shadow-lg hover:shadow-xl hover:bg-[#78c0b3]/90 hover:-translate-y-0.5 transition-all whitespace-nowrap min-w-fit h-auto"
             >
               <Briefcase className="w-4 h-4 mr-2" />
               Portal Comercial
