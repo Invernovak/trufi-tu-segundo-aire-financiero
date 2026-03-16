@@ -35,7 +35,7 @@ const Header = () => {
         : "bg-transparent py-4"
         }`}
     >
-      <div className="max-w-[1200px] mx-auto w-full flex items-center justify-between h-auto flex-nowrap px-6 md:px-10">
+      <div className="container mx-auto flex items-center justify-between h-auto flex-nowrap px-4 md:px-8 max-w-[1250px]">
         {/* LOGO */}
         <Link to="/" className="flex items-center">
           <img
@@ -46,7 +46,7 @@ const Header = () => {
         </Link>
 
         {/* NAVEGACIÓN ESCRITORIO */}
-        <nav className="hidden lg:flex items-center lg:gap-[1vw] xl:gap-[1.5vw]">
+        <nav className="hidden lg:flex items-center lg:gap-3 xl:gap-5">
           <Link
             to="/"
             className="text-white/90 hover:text-emerald-400 transition-colors font-medium lg:text-[13px] xl:text-[14px] shadow-black/20 text-shadow-sm whitespace-nowrap"
@@ -122,7 +122,7 @@ const Header = () => {
 
           {/* 1. Zona Clientes (Ahora primero) */}
           <Button
-            className="bg-white text-primary hover:bg-white/90 font-bold text-[12px] lg:px-3 xl:px-4 py-1.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all whitespace-nowrap min-w-fit h-auto"
+            className="bg-white text-primary hover:bg-white/90 font-bold text-[12px] px-4 py-2 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all whitespace-nowrap min-w-fit"
             asChild
           >
             <a href="https://app.trufi.com.co/" target="_blank" rel="noopener noreferrer">
@@ -134,7 +134,7 @@ const Header = () => {
           {/* 2. Portal Comercial (Ahora segundo e interno) */}
           <Link to="/portal-comercial">
             <Button
-              className="bg-[#78c0b3] text-white font-bold text-[12px] lg:px-3 xl:px-4 py-1.5 rounded-full shadow-lg hover:shadow-xl hover:bg-[#78c0b3]/90 hover:-translate-y-0.5 transition-all whitespace-nowrap min-w-fit h-auto"
+              className="bg-[#78c0b3] text-white font-bold text-[12px] px-4 py-2 rounded-full shadow-lg hover:shadow-xl hover:bg-[#78c0b3]/90 hover:-translate-y-0.5 transition-all whitespace-nowrap min-w-fit"
             >
               <Briefcase className="w-4 h-4 mr-2" />
               Portal Comercial
