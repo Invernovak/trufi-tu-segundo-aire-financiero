@@ -35,7 +35,7 @@ const benefits = [
   {
     icon: Sparkles,
     title: "Libre Inversión",
-    description: "Para lo que necesites: viaje, vehículo, compra de cartera o vivienda.",
+    description: "Para tus proyectos personales.",
   },
 ];
 
@@ -280,10 +280,10 @@ const Docente = () => {
               credito: {
                 title: "Inversión en tu",
                 highlight: "Futuro",
-                description: "¿Doctorado, maestría o cursos de ascenso? Invierte en tu educación y crecimiento profesional sin aplazar tus sueños.",
-                features: ["Financiación de matrícula y sostenimiento", "Sin codeudor", "Compra de cartera educativa", "Plazos ajustados a tu capacidad"],
+                description: "¿Una maestría, un curso de ascenso o un proyecto personal? Invierte en lo que te impulsa. Financiamos tus metas.",
+                features: ["Financia tu maestría", "Sin codeudor", "Descuento directo de tu salario", "Respuesta en tiempo récord", "Tasa preferencial por libranza"],
                 image: "/lovable-uploads/happy_client_credit.png",
-                badge: "Superación Personal",
+                badge: "Libre Inversión",
                 badgeColor: "bg-blue-50 text-blue-600",
                 badgeDotColor: "bg-blue-600",
                 titleColor: "text-blue-600",
@@ -294,8 +294,8 @@ const Docente = () => {
               vivienda: {
                 title: "Vivienda para",
                 highlight: "Maestros",
-                description: "El espacio ideal para preparar tus clases y disfrutar en familia. Aprovecha los convenios especiales.",
-                features: ["Crédito para VIS y NO VIS", "Remodelación y adecuación de estudio", "Tasas preferenciales por convenio", "Soporte en trámite notarial"],
+                description: "El espacio ideal para preparar tus clases y disfrutar en familia.",
+                features: ["Remodelación y adecuación", "Cocinas, baños y zonas sociales", "Instalaciones eléctricas y sanitarias", "Pintura, pisos y fachadas"],
                 image: "/lovable-uploads/docentemujer1.jpg",
                 badge: "Tu Espacio Ideal",
                 badgeColor: "bg-emerald-50 text-emerald-600",
@@ -308,8 +308,8 @@ const Docente = () => {
               vehiculo: {
                 title: "Llega fácil a",
                 highlight: "Clase",
-                description: "Olvídate del transporte público. Adquiere tu vehículo y muévete con comodidad entre instituciones.",
-                features: ["Vehículos nuevos o usados", "Planes de financiación flexibles", "Póliza de vehículo financiada", "Aprobación 100% digital"],
+                description: "Olvídate del transporte público. Adquiere tu vehículo y muévete con comodidad",
+                features: ["Sin codeudor", "Plazos cómodos", "Aprobación rápida", "Sin intermediarios", "Cuota fija durante todo el plazo"],
                 image: "/lovable-uploads/Puedes_hacer_a_este_docente_comprando_su_nuevo_car_delpmaspu.png",
                 badge: "Movilidad Docente",
                 badgeColor: "bg-violet-50 text-violet-600",
@@ -322,10 +322,10 @@ const Docente = () => {
               tranquilidad: {
                 title: "Tu Tranquilidad:",
                 highlight: "Unifica y Respira",
-                description: "Recupera tu tranquilidad financiera y el flujo de tu caja. Unificamos tus deudas en una sola cuota mensual con descuento de nómina.",
-                features: ["Saneamiento financiero", "Compra de cartera 100%", "Mejora tu flujo de caja", "Descuento directo de nómina"],
-                image: "/lovable-uploads/docentemujer1.jpg",
-                badge: "Saneamiento",
+                description: "Unifica todas tus deudas en una sola cuota cómoda con descuento directo de tu nómina.",
+                features: ["Unificación de deudas en una sola cuota", "Compra de cartera al 100%", "Reduce tu carga financiera mensual", "Descuento directo de nómina"],
+                image: "https://images.unsplash.com/photo-1554224155-169641357599?q=80&w=800&auto=format&fit=crop",
+                badge: "SANEAMIENTO",
                 badgeColor: "bg-blue-50 text-blue-600",
                 badgeDotColor: "bg-blue-600",
                 titleColor: "text-blue-600",

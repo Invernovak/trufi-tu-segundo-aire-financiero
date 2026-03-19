@@ -41,15 +41,12 @@ const FinancialAcademySection = () => {
 
                             <div className="max-w-3xl mx-auto w-full text-center">
                                 <h2 className="text-2xl md:text-3xl lg:text-3xl font-black leading-tight text-white drop-shadow-lg uppercase tracking-tight">
-                                    "Aprende herramientas prácticas para tu día a día”
+                                    Academia TRUFI – Tu Beneficio Exclusivo como Cliente
                                 </h2>
-                                <p className="text-[#78c0b3] italic text-xl md:text-2xl lg:text-2xl mt-4 drop-shadow-[0_0_15px_rgba(120,192,179,0.3)]">
-                                    “a través de nuestros aliados"
-                                </p>
                             </div>
 
-                            <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl font-light">
-                                No solo hablamos de finanzas. Aprende sobre IA, crece profesionalmente y adquiere habilidades para el mundo de hoy. Contenido 100% gratuito.
+                            <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl font-light">
+                                En TRUFI creemos que el conocimiento es tu mejor herramienta financiera. Por eso, junto a nuestros aliados especializados, te ofrecemos contenido 100% gratuito sobre finanzas personales, créditos, inversiones, tecnología y mucho más. Aprende a tu ritmo, desde donde estés, y comparte este beneficio con toda tu familia.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-5 pt-2 justify-center">
