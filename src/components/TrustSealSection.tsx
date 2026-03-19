@@ -3,21 +3,21 @@ import { ShieldCheck, MessageCircle, HeartHandshake } from "lucide-react";
 const pillars = [
   {
     title: "Transparencia Radical",
-    description: "Sin letras pequeñas. Conoce todas las condiciones de tu crédito desde el primer momento. Honestidad total en cada proceso.",
+    description: "Sin letra pequeña ni sorpresas. Te explicamos cada condición de tu crédito con claridad, porque la confianza se construye con información honesta.",
     icon: ShieldCheck,
-    color: "text-trufi-cyan",
+    color: "text-secondary",
   },
   {
     title: "Conexión Vital",
-    description: "Estamos a un mensaje de distancia. Soporte humano y directo vía WhatsApp para resolver todas tus dudas en tiempo real.",
+    description: "Cada persona que llega a TRUFI trae una historia que merece ser escuchada. Aunque nuestro proceso es 100% digital, siempre tendrás un canal directo y ágil a través de nuestro chat de WhatsApp.",
     icon: MessageCircle,
-    color: "text-green-500",
+    color: "text-green-400",
   },
   {
     title: "Ecosistema de Valor",
-    description: "Mucho más que un crédito. Te brindamos herramientas, seguros y asistencias para proteger tu futuro y el de tu familia.",
+    description: "Tu crédito es solo el comienzo. Con TRUFI accedes a educación de valor gratuita, asistencias para tu hogar y herramientas pensadas para cuidar tu bienestar y el de tu familia durante toda la vida del credito.",
     icon: HeartHandshake,
-    color: "text-primary",
+    color: "text-trufi-cyan",
   },
 ];
 
@@ -36,7 +36,7 @@ const TrustSealSection = () => {
             Nuestro Sello de <span className="text-secondary">Confianza</span>
           </h2>
           <p className="text-white/60 text-lg md:text-xl font-light">
-            Tres pilares fundamentales que definen nuestra relación contigo y tu tranquilidad financiera.
+            Construimos relaciones duraderas basadas en nuestros tres pilares principales que garantizan tu tranquilidad.
           </p>
         </div>
 

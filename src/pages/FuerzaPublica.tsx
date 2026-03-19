@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Check, Shield, Award, Clock, Star, ArrowLeft, Send } from "lucide-react";
+import { Check, Shield, Award, Clock, Star, ArrowLeft, Send, Heart, Phone, Sun, Landmark, MessageCircle, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -186,6 +186,18 @@ const FuerzaPublica = () => {
                     <h4 className="font-bold text-white text-sm">Convenio Especial CREMIL y CASUR</h4>
                     <p className="text-xs text-white/70">Descuentos exclusivos directo de tu asignación de retiro.</p>
                   </div>
+                </div>
+
+                <div className="pt-2 animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300">
+                  <Button 
+                    className="bg-[#5D6532] hover:bg-[#4a5128] text-white font-bold py-6 px-10 rounded-2xl text-lg shadow-xl shadow-black/20 group"
+                    asChild
+                  >
+                    <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+                      <MessageCircle className="w-6 h-6 fill-current group-hover:scale-110 transition-transform" />
+                      Habla con un asesor
+                    </a>
+                  </Button>
                 </div>
 
               </div>

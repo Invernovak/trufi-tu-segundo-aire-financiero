@@ -39,7 +39,7 @@ const defaultData: {
 } = {
     credito: {
         title: "Tu libranza para",
-        highlight: "Metas y Proyectos",
+        highlight: "Libre inversión",
         description: "Cumple tus sueños hoy mismo. Financiación flexible para viajes, educación, tecnología o lo que necesites para tu bienestar y el de tu familia.",
         features: ["Aprobación en 24h", "Sin codeudor", "Plazos hasta 144 meses", "Tasa competitiva"],
         image: "/lovable-uploads/happy_client_credit.png",
@@ -53,7 +53,7 @@ const defaultData: {
     },
     vivienda: {
         title: "Dale vida a",
-        highlight: "Tu Hogar Soñado",
+        highlight: "Vivienda",
         description: "Dale un nuevo aire a tu hogar. Remodela, amplía o personaliza tu espacio con un crédito diseñado para mejorar tu calidad de vida.",
         features: ["Sin hipoteca", "Desembolso directo", "Mejora tu patrimonio", "Trámite 100% digital"],
         image: "/lovable-uploads/happy_client_house.png",
@@ -67,7 +67,7 @@ const defaultData: {
     },
     vehiculo: {
         title: "Muévete con",
-        highlight: "Libertad",
+        highlight: "Vehículo",
         description: "El carro o moto que siempre has querido está más cerca de lo que crees. Sin trámites engorrosos ni pignoración obligatoria.",
         features: ["Nuevo o usado", "Sin pignoración", "Respuesta inmediata", "Para cualquier marca"],
         image: "/lovable-uploads/happy_client_car.png",
@@ -80,8 +80,8 @@ const defaultData: {
         buttonShadow: "shadow-violet-600/25 hover:shadow-violet-600/40",
     },
     tranquilidad: {
-        title: "Tu Tranquilidad:",
-        highlight: "Unifica y Respira",
+        title: "Tu",
+        highlight: "tranquilidad",
         description: "Recupera tu tranquilidad financiera y el flujo de tu caja. Unificamos tus deudas en una sola cuota mensual con descuento de nómina.",
         features: ["Saneamiento financiero", "Compra de cartera 100%", "Mejora tu flujo de caja", "Descuento directo de nómina"],
         image: "https://images.unsplash.com/photo-1554224155-169641357599?q=80&w=800&auto=format&fit=crop",
@@ -131,7 +131,7 @@ const ProductShowcase = ({ defaultTab = "credito", data = defaultData, accentCol
                                 <div className="p-1.5 rounded-full bg-gray-200/50 group-data-[state=active]:bg-primary/10 transition-colors">
                                     <Wallet className="w-4 h-4 md:w-5 md:h-5" />
                                 </div>
-                                <span className="font-bold text-xs md:text-sm">Metas y Proyectos</span>
+                                <span className="font-bold text-xs md:text-sm">Libre inversión</span>
                             </TabsTrigger>
                             <TabsTrigger
                                 value="vivienda"
@@ -140,7 +140,7 @@ const ProductShowcase = ({ defaultTab = "credito", data = defaultData, accentCol
                                 <div className="p-1.5 rounded-full bg-gray-200/50 group-data-[state=active]:bg-primary/10 transition-colors">
                                     <Home className="w-4 h-4 md:w-5 md:h-5" />
                                 </div>
-                                <span className="font-bold text-xs md:text-sm">Tu Hogar Soñado</span>
+                                <span className="font-bold text-xs md:text-sm">Vivienda</span>
                             </TabsTrigger>
                             <TabsTrigger
                                 value="vehiculo"
@@ -149,7 +149,7 @@ const ProductShowcase = ({ defaultTab = "credito", data = defaultData, accentCol
                                 <div className="p-1.5 rounded-full bg-gray-200/50 group-data-[state=active]:bg-primary/10 transition-colors">
                                     <Car className="w-4 h-4 md:w-5 md:h-5" />
                                 </div>
-                                <span className="font-bold text-xs md:text-sm">Movilidad Total</span>
+                                <span className="font-bold text-xs md:text-sm">Vehículo</span>
                             </TabsTrigger>
                             <TabsTrigger
                                 value="tranquilidad"
@@ -158,7 +158,7 @@ const ProductShowcase = ({ defaultTab = "credito", data = defaultData, accentCol
                                 <div className="p-1.5 rounded-full bg-gray-200/50 group-data-[state=active]:bg-primary/10 transition-colors">
                                     <ShieldCheck className="w-4 h-4 md:w-5 md:h-5" />
                                 </div>
-                                <span className="font-bold text-xs md:text-sm">Unifica y Respira</span>
+                                <span className="font-bold text-xs md:text-sm">Tu tranquilidad</span>
                             </TabsTrigger>
                         </TabsList>
                     </div>

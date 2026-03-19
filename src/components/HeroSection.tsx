@@ -58,9 +58,11 @@ const HeroSection = () => {
             <div className="grid sm:grid-cols-2 gap-4 text-left">
               {[
                 "Créditos por libranza",
+                "Sin codeudor",
+                "Descuento de nómina",
+                "Desembolso rápido",
                 "Asistencias hogar",
-                "100% digital",
-                "Desembolso rápido"
+                "100% digital"
               ].map((item, index) => (
                 <div key={index} className="flex items-center gap-2 text-white/90">
                   <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />

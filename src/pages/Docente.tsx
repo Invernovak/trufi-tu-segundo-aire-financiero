@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Check, BookOpen, GraduationCap, Laptop, Sparkles, ArrowLeft, Send, Zap } from "lucide-react";
+import { Check, Heart, GraduationCap, Laptop, Shield, MessageCircle, ArrowLeft, Send, Sparkles, Zap, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -178,6 +178,18 @@ const Docente = () => {
                     <h4 className="font-bold text-white text-sm">Sin salir del salón de clase</h4>
                     <p className="text-xs text-white/70">Proceso 100% digital desde tu celular.</p>
                   </div>
+                </div>
+
+                <div className="pt-2 animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300">
+                  <Button 
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-6 px-10 rounded-2xl text-lg shadow-xl shadow-blue-500/20 group"
+                    asChild
+                  >
+                    <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+                      <MessageCircle className="w-6 h-6 fill-current group-hover:scale-110 transition-transform" />
+                      Habla con un asesor
+                    </a>
+                  </Button>
                 </div>
 
               </div>

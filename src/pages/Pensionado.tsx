@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Check, Heart, Phone, Shield, Sun, ArrowLeft, Send, Sparkles } from "lucide-react";
+import { Check, Heart, Phone, Shield, Sun, Landmark, MessageCircle, Clock, ArrowLeft, Send, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -18,9 +18,9 @@ import { supabase } from "@/integrations/supabase/client";
 
 const benefits = [
   {
-    icon: Phone,
-    title: "Atención Preferencial",
-    description: "Línea directa para ti. Sin menús robóticos, te atiende una persona.",
+    icon: MessageCircle,
+    title: "Atención ágil",
+    description: "A través de nuestro chat de WhatsApp. Sin menús robóticos, te atiende una persona.",
   },
   {
     icon: Heart,
@@ -166,23 +166,20 @@ const Pensionado = () => {
                   <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-lg">
                     Dedicaste tu vida a trabajar, ahora déjanos trabajar por ti. Te ofrecemos un "Segundo Aire Financiero" con trato preferencial.
                   </p>
+                  
+                  <div className="pt-4 animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300">
+                    <Button 
+                      className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-6 px-10 rounded-2xl text-lg shadow-xl shadow-orange-500/20 group"
+                      asChild
+                    >
+                      <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+                        <MessageCircle className="w-6 h-6 fill-current group-hover:scale-110 transition-transform" />
+                        Habla con un asesor
+                      </a>
+                    </Button>
+                  </div>
                 </div>
 
-                {/* Highlight: Llamada Humana */}
-                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 flex items-center gap-5 hover:bg-white/10 transition-colors cursor-default group">
-                  <div className="bg-orange-500 rounded-full p-3 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <Phone className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white text-base">¿Prefieres hablar con alguien?</h4>
-                    <p className="text-sm text-white/60">Nuestros asesores senior te atienden sin esperas.</p>
-                  </div>
-                  <Button variant="ghost" size="sm" className="ml-auto text-orange-300 hover:text-orange-200 hover:bg-white/5" asChild>
-                    <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">
-                      Habla con un asesor &rarr;
-                    </a>
-                  </Button>
-                </div>
 
               </div>
               <div id="credit-simulator" className="lg:justify-self-end w-full max-w-md mx-auto lg:mx-0">
@@ -272,10 +269,10 @@ const Pensionado = () => {
               credito: {
                 title: "Crédito para",
                 highlight: "Pensionados",
-                description: "¿Un viaje soñado, remodelar tu casa o unificas deudas? Disfruta tu retiro sin preocupaciones financieras.",
-                features: ["Aprobación hasta los 84 años", "Sin codeudor", "Descuento directo de mesada", "Compra de cartera al 100%"],
+                description: "Ese viaje soñado, apoyar a tus nietos o simplemente tener un respaldo económico. En tu retiro, tú decides en qué invertir.",
+                features: ["Aprobación hasta los 84 años", "Sin codeudor", "Descuento directo de mesada", "Respuesta en tiempo récord"],
                 image: "/lovable-uploads/pensionadolibreinver2.jpg.png",
-                badge: "Disfruta tu retiro",
+                badge: "DISFRUTA TU RETIRO",
                 badgeColor: "bg-orange-50 text-orange-600",
                 badgeDotColor: "bg-orange-600",
                 titleColor: "text-orange-600",

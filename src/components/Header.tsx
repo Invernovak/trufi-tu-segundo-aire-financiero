@@ -46,7 +46,7 @@ const Header = () => {
         </Link>
 
         {/* NAVEGACIÓN ESCRITORIO */}
-        <nav className="hidden lg:flex items-center lg:gap-3 xl:gap-5">
+        <nav className="hidden xl:flex items-center lg:gap-3 xl:gap-5">
           <Link
             to="/"
             className="text-white/90 hover:text-emerald-400 transition-colors font-medium lg:text-[13px] xl:text-[14px] shadow-black/20 text-shadow-sm whitespace-nowrap"
@@ -97,7 +97,7 @@ const Header = () => {
             to="/blog"
             className="text-white/90 hover:text-emerald-400 transition-colors font-medium lg:text-[13px] xl:text-[14px] text-shadow-sm whitespace-nowrap"
           >
-            Academia TRUFI
+            Aprende con Trufi
           </Link>
 
           {/* Nuevo Item: Ponte al día */}
@@ -117,7 +117,7 @@ const Header = () => {
         </nav>
 
         {/* LADO DERECHO: Botones */}
-        <div className="hidden lg:flex items-center lg:gap-2 xl:gap-3 flex-nowrap">
+        <div className="hidden xl:flex items-center lg:gap-2 xl:gap-3 flex-nowrap">
 
 
           {/* 1. Zona Clientes (Ahora primero) */}
@@ -143,7 +143,7 @@ const Header = () => {
         </div>
 
         {/* MENÚ MÓVIL */}
-        <div className="lg:hidden flex items-center gap-3">
+        <div className="xl:hidden flex items-center gap-3">
 
           <button
             className="p-2 text-white hover:bg-white/10 rounded-full transition-colors"
@@ -157,7 +157,7 @@ const Header = () => {
 
       {/* CONTENIDO MENÚ MÓVIL */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-primary/95 backdrop-blur-xl border-t border-white/10 animate-fade-in absolute top-full left-0 right-0 shadow-2xl max-h-[calc(100vh-80px)] overflow-y-auto">
+        <div className="xl:hidden bg-primary/95 backdrop-blur-xl border-t border-white/10 animate-fade-in absolute top-full left-0 right-0 shadow-2xl max-h-[calc(100vh-80px)] overflow-y-auto">
           <nav className="container py-6 flex flex-col gap-3">
             <Link
               to="/"
@@ -208,7 +208,7 @@ const Header = () => {
               className="text-white text-sm font-medium py-3 border-b border-white/10"
               onClick={() => setIsMenuOpen(false)}
             >
-              Zona de Aprendizaje
+              Aprende con Trufi
             </Link>
 
             <Link

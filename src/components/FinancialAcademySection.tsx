@@ -30,25 +30,29 @@ const FinancialAcademySection = () => {
                         {/* Blob Decoration */}
                         <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none mix-blend-screen" />
 
-                        <div className="relative z-10 space-y-8">
+                        <div className="relative z-10 space-y-8 flex flex-col items-center text-center">
                             {/* Badger pulsing */}
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/30 w-fit backdrop-blur-md animate-pulse shadow-[0_0_15px_hsl(var(--secondary)/0.3)]">
-                                <BookOpen className="w-4 h-4 text-secondary" />
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-secondary/40 w-fit backdrop-blur-md shadow-sm">
+                                <BookOpen className="w-4 h-4 text-secondary/70" />
                                 <span className="text-xs font-bold text-secondary tracking-wider uppercase">
-                                    Aprende con Trufi a través de nuestros aliados
+                                    Aprende con Trufi
                                 </span>
                             </div>
 
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/70">
-                                Aprendizaje para <br />
-                                <span className="text-secondary drop-shadow-[0_0_20px_hsl(var(--secondary)/0.4)]">la Vida Real</span>
-                            </h2>
+                            <div className="max-w-3xl mx-auto w-full text-center">
+                                <h2 className="text-2xl md:text-3xl lg:text-3xl font-black leading-tight text-white drop-shadow-lg uppercase tracking-tight">
+                                    "Aprende herramientas prácticas para tu día a día”
+                                </h2>
+                                <p className="text-[#78c0b3] italic text-xl md:text-2xl lg:text-2xl mt-4 drop-shadow-[0_0_15px_rgba(120,192,179,0.3)]">
+                                    “a través de nuestros aliados"
+                                </p>
+                            </div>
 
                             <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl font-light">
                                 No solo hablamos de finanzas. Aprende sobre IA, crece profesionalmente y adquiere habilidades para el mundo de hoy. Contenido 100% gratuito.
                             </p>
 
-                            <div className="flex flex-col sm:flex-row gap-5 pt-2">
+                            <div className="flex flex-col sm:flex-row gap-5 pt-2 justify-center">
                                 <Link to="/blog">
                                     <Button
                                         size="lg"

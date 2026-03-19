@@ -51,7 +51,7 @@ const Blog = () => {
           <div className="absolute inset-0 z-0">
             <img
               src="/lovable-uploads/dsad.png"
-              alt="Academia TRUFI"
+              alt="Aprende con Trufi"
               className="w-full h-full object-cover"
             />
             {/* Dark Overlay for text contrast */}
@@ -60,7 +60,7 @@ const Blog = () => {
 
           <div className="container relative z-10 text-center max-w-4xl px-4">
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              Academia TRUFI - Tu Beneficio Exclusivo como Cliente
+              Aprende con Trufi - Tu Beneficio Exclusivo como Cliente
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
               En TRUFI creemos que el conocimiento es tu mejor herramienta financiera. Por eso, junto a nuestros aliados especializados, te ofrecemos contenido 100% gratuito sobre finanzas personales, créditos, inversiones, tecnología y mucho más. Aprende a tu ritmo, desde donde estés, y comparte este beneficio con toda tu familia.
