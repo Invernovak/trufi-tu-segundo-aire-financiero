@@ -9,48 +9,59 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { FileText, Send, Loader2, AlertCircle, HelpCircle, Frown, ShieldCheck, AlertTriangle, Info, Users, DollarSign, Clock, Lightbulb, RefreshCw, Trash2, Lock, Zap, ShieldAlert, CheckCircle2, Plane } from "lucide-react";
+import { 
+    FileText, Send, Loader2, AlertCircle, HelpCircle, Frown, ShieldCheck, 
+    AlertTriangle, Info, Users, DollarSign, Clock, Lightbulb, RefreshCw, 
+    Trash2, Lock, Zap, ShieldAlert, CheckCircle2, Plane, MessageSquare, 
+    UserX, Settings, ClipboardList, Package, FileSignature, Users2 
+} from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
 
 const PQR_GROUPS = [
     {
-        id: "consultas",
-        label: "Tengo una duda o necesito un documento",
-        icon: HelpCircle,
+        id: "solicitud",
+        label: "Solicitud",
+        icon: FileText,
         subtypes: [
-            { id: "info", label: "Consulta de información general", icon: Info },
-            { id: "docs", label: "Solicitud de documentos", icon: FileText }
+            { id: "info", label: "Solicitud de información", icon: Info, techType: "Solicitud" },
+            { id: "operativa", label: "Solicitud Operativa", icon: Settings, techType: "Solicitud" }
         ]
     },
     {
-        id: "inconformidad",
-        label: "Algo no salió como esperaba",
+        id: "queja",
+        label: "Queja",
         icon: Frown,
         subtypes: [
-            { id: "atencion", label: "Queja por atención al cliente", icon: Users },
-            { id: "cobros", label: "Reclamo por cobros o tasas", icon: DollarSign },
-            { id: "tiempos", label: "Reclamo por tiempos de respuesta", icon: Clock },
-            { id: "mejoras", label: "Sugerencia de mejora", icon: Lightbulb }
+            { id: "comercial", label: "Queja - Servicio comercial", icon: Users2, techType: "Queja" },
+            { id: "credito", label: "Queja - Proceso de crédito", icon: ClipboardList, techType: "Queja" }
         ]
     },
     {
-        id: "privacidad",
-        label: "Temas de mis datos (Habeas Data)",
+        id: "reclamo",
+        label: "Reclamo",
+        icon: AlertCircle,
+        subtypes: [
+            { id: "producto", label: "Reclamo Producto/Operación", icon: Package, techType: "Reclamo" },
+            { id: "cartera", label: "Reclamo Cartera y cobranza", icon: DollarSign, techType: "Reclamo" }
+        ]
+    },
+    {
+        id: "habeas",
+        label: "Habeas Data",
         icon: ShieldCheck,
         subtypes: [
-            { id: "actualizacion", label: "Actualización de datos", icon: RefreshCw },
-            { id: "supresion", label: "Supresión de datos", icon: Trash2 },
-            { id: "revocatoria", label: "Revocatoria de autorización", icon: Lock }
+            { id: "proteccion", label: "Protección de datos personales", icon: Lock, techType: "Habeas Data" },
+            { id: "financiero", label: "Habeas Data Financiero", icon: CheckCircle2, techType: "Habeas Data" }
         ]
     },
     {
-        id: "urgente",
-        label: "Reportar un fraude o incidente",
-        icon: AlertTriangle,
+        id: "incidente",
+        label: "Incidente",
+        icon: ShieldAlert,
         subtypes: [
-            { id: "fraude", label: "Reporte de fraude", icon: Zap },
-            { id: "incidente", label: "Incidente de seguridad", icon: ShieldAlert }
+            { id: "peticion", label: "Derecho de petición", icon: FileSignature, techType: "Incidente" },
+            { id: "especial", label: "Incidentes Especiales", icon: Zap, techType: "Incidente" }
         ]
     }
 ];
@@ -101,6 +112,15 @@ const PQR = () => {
         setLoading(true);
 
         try {
+            // Find the technical type from the mapping
+            let technicalType = "Solicitud"; // Default fallback
+            PQR_GROUPS.forEach(group => {
+                const subtype = group.subtypes.find(s => s.label === formData.tipo);
+                if (subtype && 'techType' in subtype) {
+                    technicalType = subtype.techType as string;
+                }
+            });
+
             const { error } = await supabase
                 .from('pqrs')
                 .insert([
@@ -108,8 +128,8 @@ const PQR = () => {
                         nombre: formData.nombre,
                         email: formData.email,
                         telefono: formData.telefono,
-                        tipo: formData.tipo,
-                        mensaje: formData.mensaje,
+                        tipo: technicalType,
+                        mensaje: `${formData.grupo} - ${formData.tipo}: ${formData.mensaje}`,
                         estado: 'Pendiente', // Default state
                     }
                 ]);
