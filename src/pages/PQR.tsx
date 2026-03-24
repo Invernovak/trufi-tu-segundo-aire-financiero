@@ -294,6 +294,7 @@ const PQR = () => {
                 email: "",
                 telefono: "",
                 grupo: "",
+                subgrupo: "",
                 tipo: "",
                 mensaje: "",
                 aceptaTerminos: false,
@@ -336,7 +337,10 @@ const PQR = () => {
                         </h1>
                         <p className="text-lg text-slate-100 max-w-2xl mx-auto drop-shadow-sm font-medium">
                             Tu voz nos ayuda a mejorar. Cuéntanos qué necesitas y nuestro equipo te responderá lo antes posible.
-                          <div className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/60 border border-slate-100 p-8 md:p-12 relative z-10 overflow-hidden">
+                        </p>
+                    </div>
+
+                    <div className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/60 border border-slate-100 p-8 md:p-12 relative z-10 overflow-hidden">
                         {!isSubmitted ? (
                             <>
                                 {/* Support Avatar Decor */}
@@ -587,7 +591,7 @@ const PQR = () => {
                             <div className="py-12 flex flex-col items-center text-center animate-in fade-in zoom-in duration-700">
                                 <div className="w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center mb-8 relative">
                                     <CheckCircle className="w-12 h-12 text-emerald-500" />
-                                    <div className="absolute inset-0 rounded-full border-4 border-emerald-500 border-t-transparent animate-spin duration-[3s]" />
+                                    <div className="absolute inset-0 rounded-full border-4 border-emerald-500 border-t-transparent animate-spin duration-[3000ms]" />
                                 </div>
                                 
                                 <h2 className="text-3xl font-black text-slate-800 mb-4">¡Solicitud Radicada!</h2>
@@ -622,11 +626,6 @@ const PQR = () => {
                             </div>
                         )}
                     </div>
- </Button>
-
-                        </form>
-                    </div>
-
                 </div>
             </main>
 
