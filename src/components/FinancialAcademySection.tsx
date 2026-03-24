@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { BookOpen, TrendingUp, ArrowRight, Headphones } from "lucide-react";
+import { BookOpen, TrendingUp, ArrowRight, Shield, Coins, BarChart } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const FinancialAcademySection = () => {
@@ -30,77 +30,66 @@ const FinancialAcademySection = () => {
                         {/* Blob Decoration */}
                         <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none mix-blend-screen" />
 
-                        <div className="relative z-10 space-y-8 flex flex-col items-center text-center">
-                            {/* Badger pulsing */}
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-secondary/40 w-fit backdrop-blur-md shadow-sm">
-                                <BookOpen className="w-4 h-4 text-secondary/70" />
-                                <span className="text-xs font-bold text-secondary tracking-wider uppercase">
-                                    Aprende con Trufi
+                        <div className="relative z-10 space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
+                            {/* Badge */}
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-800/80 bg-purple-900/40 backdrop-blur-md shadow-sm">
+                                <BookOpen className="w-4 h-4 text-cyan-400" />
+                                <span className="text-xs font-bold text-cyan-400 tracking-wider uppercase">
+                                    APRENDE CON TRUFI
                                 </span>
                             </div>
 
-                            <div className="max-w-3xl mx-auto w-full text-center">
-                                <h2 className="text-2xl md:text-3xl lg:text-3xl font-black leading-tight text-white drop-shadow-lg uppercase tracking-tight">
-                                    Academia TRUFI – Tu Beneficio Exclusivo como Cliente
+                            <div className="max-w-3xl w-full">
+                                <h2 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight text-white drop-shadow-lg uppercase tracking-tight">
+                                    APRENDE CON TRUFI – TU BENEFICIO EXCLUSIVO
                                 </h2>
                             </div>
 
-                            <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl font-light">
-                                En TRUFI creemos que el conocimiento es tu mejor herramienta financiera. Por eso, junto a nuestros aliados especializados, te ofrecemos contenido 100% gratuito sobre finanzas personales, créditos, inversiones, tecnología y mucho más. Aprende a tu ritmo, desde donde estés, y comparte este beneficio con toda tu familia.
-                            </p>
+                            <div className="w-full space-y-6">
+                                <p className="text-lg md:text-xl text-white/90 font-medium">
+                                    Creemos que el conocimiento es tu mejor herramienta financiera.
+                                </p>
+                                
+                                <ul className="space-y-4 text-left inline-block lg:block">
+                                    <li className="flex items-center gap-3 text-white/80 md:text-lg">
+                                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                                            <Coins className="w-4 h-4 text-cyan-400" />
+                                        </div>
+                                        <span>Finanzas personales y créditos.</span>
+                                    </li>
+                                    <li className="flex items-center gap-3 text-white/80 md:text-lg">
+                                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                                            <TrendingUp className="w-4 h-4 text-cyan-400" />
+                                        </div>
+                                        <span>Inversiones y tecnología.</span>
+                                    </li>
+                                    <li className="flex items-center gap-3 text-white/80 md:text-lg">
+                                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                                            <Shield className="w-4 h-4 text-cyan-400" />
+                                        </div>
+                                        <span>Contenido 100% gratuito para ti y tu familia.</span>
+                                    </li>
+                                </ul>
+                            </div>
 
-                            <div className="flex flex-col sm:flex-row gap-5 pt-2 justify-center">
-                                <Link to="/blog">
+                            <div className="flex flex-col sm:flex-row gap-4 pt-6 w-full lg:w-auto">
+                                <Link to="/blog" className="w-full sm:w-auto">
                                     <Button
-                                        size="lg"
-                                        className="relative overflow-hidden bg-secondary hover:bg-secondary/90 text-primary-foreground border-0 font-bold text-lg h-14 px-10 rounded-2xl shadow-[0_0_30px_hsl(var(--secondary)/0.4)] transition-all hover:scale-105 hover:shadow-[0_0_50px_hsl(var(--secondary)/0.6)] group/btn"
+                                        className="w-full relative overflow-hidden bg-teal-500 hover:bg-teal-400 text-white border-0 font-bold text-base h-12 px-8 rounded-full shadow-[0_0_30px_rgba(20,184,166,0.4)] transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(20,184,166,0.6)] group/btn"
                                     >
-                                        <span className="relative z-10 flex items-center">
+                                        <span className="relative z-10 flex items-center justify-center whitespace-nowrap">
                                             Aprende con especialistas
-                                            <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover/btn:translate-x-1" />
+                                            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                                         </span>
                                     </Button>
                                 </Link>
 
-                                <div className="flex items-center gap-3 px-4 py-2 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm">
-                                    <TrendingUp className="w-5 h-5 text-secondary" />
-                                    <span className="text-sm font-medium text-white/90">Acceso Gratuito</span>
+                                <div className="flex items-center justify-center gap-3 px-8 h-12 bg-[#2D1B69] rounded-full border border-purple-500 backdrop-blur-sm transition-colors hover:bg-purple-900/80 cursor-default">
+                                    <BarChart className="w-4 h-4 text-cyan-400" />
+                                    <span className="text-sm font-bold text-white tracking-wider whitespace-nowrap">Acceso gratuito</span>
                                 </div>
                             </div>
 
-                            {/* Featured Resources - Modern List */}
-                            <div className="pt-10 mt-6 border-t border-white/10">
-                                <p className="text-xs font-bold text-white/40 mb-5 uppercase tracking-widest">
-                                    Lo más visto hoy
-                                </p>
-                                <div className="grid sm:grid-cols-2 gap-4">
-                                    {/* Resource 1 */}
-                                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-white/5 to-transparent border border-white/5 hover:border-secondary/30 transition-all hover:bg-white/10 cursor-pointer group/item">
-                                        <div className="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center shadow-inner">
-                                            <Headphones className="w-5 h-5 text-orange-300" />
-                                        </div>
-                                        <div>
-                                            <p className="text-sm font-bold text-white group-hover/item:text-secondary transition-colors">
-                                                Aprende sobre IA
-                                            </p>
-                                            <p className="text-[10px] text-white/50 uppercase tracking-wide">Curso • Nivel Básico</p>
-                                        </div>
-                                    </div>
-
-                                    {/* Resource 2 */}
-                                    <div className="flex items-center gap-4 p-4 rounded-2xl bg-gradient-to-r from-white/5 to-transparent border border-white/5 hover:border-blue-500/30 transition-all hover:bg-white/10 cursor-pointer group/item">
-                                        <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center shadow-inner">
-                                            <BookOpen className="w-5 h-5 text-blue-300" />
-                                        </div>
-                                        <div>
-                                            <p className="text-sm font-bold text-white group-hover/item:text-secondary transition-colors">
-                                                Productividad Real
-                                            </p>
-                                            <p className="text-[10px] text-white/50 uppercase tracking-wide">Blog • 3 min</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
