@@ -9,9 +9,51 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { FileText, Send, Loader2, AlertCircle } from "lucide-react";
+import { FileText, Send, Loader2, AlertCircle, HelpCircle, Frown, ShieldCheck, AlertTriangle, Info, Users, DollarSign, Clock, Lightbulb, RefreshCw, Trash2, Lock, Zap, ShieldAlert, CheckCircle2, Plane } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { Link } from "react-router-dom";
+
+const PQR_GROUPS = [
+    {
+        id: "consultas",
+        label: "Tengo una duda o necesito un documento",
+        icon: HelpCircle,
+        subtypes: [
+            { id: "info", label: "Consulta de información general", icon: Info },
+            { id: "docs", label: "Solicitud de documentos", icon: FileText }
+        ]
+    },
+    {
+        id: "inconformidad",
+        label: "Algo no salió como esperaba",
+        icon: Frown,
+        subtypes: [
+            { id: "atencion", label: "Queja por atención al cliente", icon: Users },
+            { id: "cobros", label: "Reclamo por cobros o tasas", icon: DollarSign },
+            { id: "tiempos", label: "Reclamo por tiempos de respuesta", icon: Clock },
+            { id: "mejoras", label: "Sugerencia de mejora", icon: Lightbulb }
+        ]
+    },
+    {
+        id: "privacidad",
+        label: "Temas de mis datos (Habeas Data)",
+        icon: ShieldCheck,
+        subtypes: [
+            { id: "actualizacion", label: "Actualización de datos", icon: RefreshCw },
+            { id: "supresion", label: "Supresión de datos", icon: Trash2 },
+            { id: "revocatoria", label: "Revocatoria de autorización", icon: Lock }
+        ]
+    },
+    {
+        id: "urgente",
+        label: "Reportar un fraude o incidente",
+        icon: AlertTriangle,
+        subtypes: [
+            { id: "fraude", label: "Reporte de fraude", icon: Zap },
+            { id: "incidente", label: "Incidente de seguridad", icon: ShieldAlert }
+        ]
+    }
+];
 
 const PQR = () => {
     const [loading, setLoading] = useState(false);
@@ -19,18 +61,29 @@ const PQR = () => {
         nombre: "",
         email: "",
         telefono: "",
-        tipo: "", // Petición, Queja, Reclamo, Sugerencia
+        grupo: "", // Consultas, Inconformidad, Privacidad, Urgente
+        tipo: "",
         mensaje: "",
         aceptaTerminos: false,
         aceptaTratamientoDatos: false,
     });
+    const [isEmailValid, setIsEmailValid] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+
+        if (name === 'email') {
+            setIsEmailValid(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
+        }
     };
 
-    const handleSelectChange = (value: string) => {
-        setFormData({ ...formData, tipo: value });
+    const handleGroupSelect = (group: string) => {
+        setFormData({ ...formData, grupo: group, tipo: "" });
+    };
+
+    const handleTypeSelect = (type: string) => {
+        setFormData({ ...formData, tipo: type });
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -58,21 +111,20 @@ const PQR = () => {
                         tipo: formData.tipo,
                         mensaje: formData.mensaje,
                         estado: 'Pendiente', // Default state
-                        acepta_terminos: formData.aceptaTerminos,
-                        acepta_tratamiento_datos: formData.aceptaTratamientoDatos
                     }
                 ]);
 
             if (error) throw error;
 
             toast.success("¡Tu solicitud ha sido radicada con éxito!", {
-                description: "Hemos recibido tu PQR. Te contactaremos pronto.",
+                description: "Hemos recibido tu mensaje. Ana de soporte te contactará pronto.",
             });
 
             setFormData({
                 nombre: "",
                 email: "",
                 telefono: "",
+                grupo: "",
                 tipo: "",
                 mensaje: "",
                 aceptaTerminos: false,
@@ -111,136 +163,214 @@ const PQR = () => {
                             <span className="text-emerald-100 font-semibold text-sm tracking-wide">Centro de Ayuda</span>
                         </div>
                         <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-sm">
-                            Peticiones, Quejas y Reclamos
+                            Estamos aquí para escucharte
                         </h1>
                         <p className="text-lg text-slate-100 max-w-2xl mx-auto drop-shadow-sm font-medium">
-                            Tu opinión es fundamental para nosotros. Utiliza este formulario para radicar tus solicitudes y daremos respuesta en los tiempos establecidos por la ley.
+                            Tu voz nos ayuda a mejorar. Cuéntanos qué necesitas y nuestro equipo te responderá lo antes posible.
                         </p>
                     </div>
 
-                    <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 p-8 md:p-12 relative z-10">
-                        <form onSubmit={handleSubmit} className="space-y-6">
-
-                            <div className="grid md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <Label htmlFor="nombre">Nombre Completo</Label>
-                                    <Input
-                                        id="nombre"
-                                        name="nombre"
-                                        placeholder="Tu nombre completo"
-                                        required
-                                        value={formData.nombre}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Label htmlFor="tipo">Tipo de Solicitud</Label>
-                                    <Select onValueChange={handleSelectChange} value={formData.tipo} required>
-                                        <SelectTrigger>
-                                            <SelectValue placeholder="Selecciona una opción" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="Peticion">Petición</SelectItem>
-                                            <SelectItem value="Queja">Queja</SelectItem>
-                                            <SelectItem value="Reclamo">Reclamo</SelectItem>
-                                            <SelectItem value="Sugerencia">Sugerencia</SelectItem>
-                                            <SelectItem value="Felicitacion">Felicitación</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                </div>
-                            </div>
-
-                            <div className="grid md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <Label htmlFor="email">Correo Electrónico</Label>
-                                    <Input
-                                        id="email"
-                                        name="email"
-                                        type="email"
-                                        placeholder="tucorreo@ejemplo.com"
-                                        required
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="telefono">Teléfono de Contacto</Label>
-                                    <Input
-                                        id="telefono"
-                                        name="telefono"
-                                        type="tel"
-                                        placeholder="300 123 4567"
-                                        required
-                                        value={formData.telefono}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="space-y-2">
-                                <Label htmlFor="mensaje">Detalle de tu solicitud</Label>
-                                <Textarea
-                                    id="mensaje"
-                                    name="mensaje"
-                                    placeholder="Describe detalladamente tu solicitud, queja o reclamo..."
-                                    className="min-h-[150px] resize-none"
-                                    required
-                                    value={formData.mensaje}
-                                    onChange={handleChange}
+                    <div className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/60 border border-slate-100 p-8 md:p-12 relative z-10 overflow-hidden">
+                        {/* Support Avatar Decor */}
+                        <div className="absolute top-6 right-8 flex items-center gap-3 bg-slate-50 px-4 py-2 rounded-2xl border border-slate-100 shadow-sm animate-in fade-in slide-in-from-right-4 duration-700">
+                            <div className="relative">
+                                <img
+                                    src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ana&backgroundColor=b6e3f4"
+                                    alt="Ana de soporte"
+                                    className="w-10 h-10 rounded-full bg-emerald-100 border-2 border-white shadow-sm"
                                 />
+                                <div className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></div>
                             </div>
+                            <div className="text-left">
+                                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider leading-none mb-1">En línea</p>
+                                <p className="text-xs font-semibold text-slate-700">Ana de soporte recibirá tu mensaje</p>
+                            </div>
+                        </div>
+
+                        <form onSubmit={handleSubmit} className="space-y-10 pt-8">
+                            {/* Step 1: Group Selection */}
+                            <div className="space-y-6">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-sm">1</div>
+                                    <h3 className="text-xl font-bold text-slate-800">¿Qué tipo de solicitud deseas realizar?</h3>
+                                </div>
+                                <div className="grid sm:grid-cols-2 gap-4">
+                                    {PQR_GROUPS.map((group) => (
+                                        <button
+                                            key={group.id}
+                                            type="button"
+                                            onClick={() => handleGroupSelect(group.id)}
+                                            className={`flex items-start gap-4 p-5 rounded-2xl border-2 transition-all text-left group ${formData.grupo === group.id
+                                                ? "border-emerald-500 bg-emerald-50/50 shadow-md shadow-emerald-100"
+                                                : "border-slate-100 bg-slate-50/30 hover:border-emerald-200 hover:bg-white hover:shadow-lg"
+                                                }`}
+                                        >
+                                            <div className={`p-3 rounded-xl transition-colors ${formData.grupo === group.id ? "bg-emerald-500 text-white" : "bg-white text-slate-400 group-hover:text-emerald-500 shadow-sm"}`}>
+                                                <group.icon className="w-6 h-6" />
+                                            </div>
+                                            <span className={`text-sm font-bold leading-tight pt-1 ${formData.grupo === group.id ? "text-emerald-900" : "text-slate-600"}`}>
+                                                {group.label}
+                                            </span>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Step 2: Sub-type Selection (Conditional) */}
+                            {formData.grupo && (
+                                <div className="space-y-6 animate-in fade-in slide-in-from-top-4 duration-500">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-sm">2</div>
+                                        <h3 className="text-xl font-bold text-slate-800">Cuéntanos un poco más...</h3>
+                                    </div>
+                                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                                        {PQR_GROUPS.find(g => g.id === formData.grupo)?.subtypes.map((sub) => (
+                                            <button
+                                                key={sub.id}
+                                                type="button"
+                                                onClick={() => handleTypeSelect(sub.label)}
+                                                className={`flex items-center gap-3 p-3.5 rounded-xl border transition-all text-left ${formData.tipo === sub.label
+                                                    ? "border-emerald-500 bg-emerald-50 text-emerald-700 font-bold shadow-sm"
+                                                    : "border-slate-200 bg-white hover:border-emerald-300 hover:shadow-md text-slate-600"
+                                                    }`}
+                                            >
+                                                <sub.icon className={`w-4 h-4 ${formData.tipo === sub.label ? "text-emerald-600" : "text-slate-400"}`} />
+                                                <span className="text-xs">{sub.label}</span>
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Step 3: Personal Data */}
+                            <div className="space-y-8">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-sm">3</div>
+                                    <h3 className="text-xl font-bold text-slate-800">Tu información de contacto</h3>
+                                </div>
+
+                                <div className="grid md:grid-cols-2 gap-8">
+                                    <div className="space-y-3">
+                                        <Label htmlFor="nombre" className="text-slate-500 font-medium ml-1 italic">¿Cómo te llamas?</Label>
+                                        <Input
+                                            id="nombre"
+                                            name="nombre"
+                                            placeholder="Tu nombre completo"
+                                            required
+                                            value={formData.nombre}
+                                            onChange={handleChange}
+                                            className="h-14 rounded-xl border-slate-200 bg-slate-50/30 focus:bg-white focus:ring-4 focus:ring-emerald-100 transition-all text-lg font-medium px-6 placeholder:text-slate-300"
+                                        />
+                                    </div>
+
+                                    <div className="space-y-3">
+                                        <Label htmlFor="email" className="text-slate-500 font-medium ml-1 italic flex justify-between items-center">
+                                            ¿A qué email podemos escribirte?
+                                            {isEmailValid && <CheckCircle2 className="w-5 h-5 text-emerald-500 animate-in zoom-in duration-300" />}
+                                        </Label>
+                                        <div className="relative">
+                                            <Input
+                                                id="email"
+                                                name="email"
+                                                type="email"
+                                                placeholder="tucorreo@ejemplo.com"
+                                                required
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                                className={`h-14 rounded-xl border-slate-200 transition-all text-lg font-medium px-6 placeholder:text-slate-300 pr-12 ${isEmailValid ? 'bg-emerald-50/30 border-emerald-200 ring-4 ring-emerald-50/50' : 'bg-slate-50/30 focus:bg-white focus:ring-4 focus:ring-emerald-100'}`}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="grid md:grid-cols-2 gap-8">
+                                    <div className="space-y-3">
+                                        <Label htmlFor="telefono" className="text-slate-500 font-medium ml-1 italic">¿Un número de teléfono?</Label>
+                                        <Input
+                                            id="telefono"
+                                            name="telefono"
+                                            type="tel"
+                                            placeholder="300 123 4567"
+                                            required
+                                            value={formData.telefono}
+                                            onChange={handleChange}
+                                            className="h-14 rounded-xl border-slate-200 bg-slate-50/30 focus:bg-white focus:ring-4 focus:ring-emerald-100 transition-all text-lg font-medium px-6 placeholder:text-slate-300"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="space-y-3">
+                                    <Label htmlFor="mensaje" className="text-slate-500 font-medium ml-1 italic">Cuéntanos tu caso con confianza, estamos listos para ayudarte...</Label>
+                                    <Textarea
+                                        id="mensaje"
+                                        name="mensaje"
+                                        placeholder="Describe detalladamente tu situación..."
+                                        className="min-h-[180px] rounded-2xl border-slate-200 bg-slate-50/30 focus:bg-white focus:ring-4 focus:ring-emerald-100 transition-all text-lg font-medium px-6 py-4 placeholder:text-slate-300 resize-none shadow-inner"
+                                        required
+                                        value={formData.mensaje}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                            </div>
+
+
 
                             <div className="space-y-4 pt-2">
-                                <div className="flex items-start gap-2">
+                                <div className="flex items-start gap-3">
                                     <Checkbox
-                                        id="terminos"
-                                        className="mt-1"
+                                        id="aceptaTerminos"
                                         checked={formData.aceptaTerminos}
-                                        onCheckedChange={(checked) => setFormData({ ...formData, aceptaTerminos: checked === true })}
+                                        onCheckedChange={(checked) =>
+                                            setFormData({ ...formData, aceptaTerminos: checked === true })
+                                        }
+                                        className="mt-1 border-slate-300 data-[state=checked]:bg-emerald-500 data-[state=checked]:border-emerald-500"
                                     />
-                                    <div className="grid gap-1.5 leading-none">
-                                        <label
-                                            htmlFor="terminos"
-                                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-slate-600"
-                                        >
-                                            Acepto los <Link to="#" className="text-primary hover:underline">Términos y Condiciones</Link>
-                                        </label>
-                                    </div>
+                                    <Label
+                                        htmlFor="aceptaTerminos"
+                                        className="text-sm text-slate-500 leading-relaxed cursor-pointer font-normal"
+                                    >
+                                        Acepto los{" "}
+                                        <Link to="/terminos-condiciones" className="text-emerald-600 font-bold hover:underline">
+                                            términos y condiciones
+                                        </Link>
+                                    </Label>
                                 </div>
 
-                                <div className="flex items-start gap-2">
+                                <div className="flex items-start gap-3">
                                     <Checkbox
-                                        id="tratamiento"
-                                        className="mt-1"
+                                        id="aceptaTratamientoDatos"
                                         checked={formData.aceptaTratamientoDatos}
-                                        onCheckedChange={(checked) => setFormData({ ...formData, aceptaTratamientoDatos: checked === true })}
+                                        onCheckedChange={(checked) =>
+                                            setFormData({ ...formData, aceptaTratamientoDatos: checked === true })
+                                        }
+                                        className="mt-1 border-slate-300 data-[state=checked]:bg-emerald-500 data-[state=checked]:border-emerald-500"
                                     />
-                                    <div className="grid gap-1.5 leading-none">
-                                        <label
-                                            htmlFor="tratamiento"
-                                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-slate-600"
-                                        >
-                                            Acepto la <Link to="/politica-privacidad" className="text-primary hover:underline">Política de Tratamiento de Datos Personales</Link>
-                                        </label>
-                                    </div>
+                                    <Label
+                                        htmlFor="aceptaTratamientoDatos"
+                                        className="text-sm text-slate-500 leading-relaxed cursor-pointer font-normal"
+                                    >
+                                        Acepto la{" "}
+                                        <Link to="/politica-privacidad" className="text-emerald-600 font-bold hover:underline">
+                                            política de tratamiento de datos personales
+                                        </Link>
+                                    </Label>
                                 </div>
                             </div>
 
                             <Button
                                 type="submit"
-                                className="w-full h-12 text-base font-bold bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20"
+                                className="w-full h-16 text-lg font-black bg-emerald-500 hover:bg-emerald-600 text-white shadow-xl shadow-emerald-200/50 rounded-2xl transition-all hover:scale-[1.02] active:scale-95 group/submit"
                                 disabled={loading}
                             >
                                 {loading ? (
                                     <>
-                                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                        Enviando Solicitud...
+                                        <Loader2 className="mr-2 h-6 w-6 animate-spin" />
+                                        Enviando mensaje...
                                     </>
                                 ) : (
                                     <>
-                                        <Send className="mr-2 h-4 w-4" />
-                                        Radicar PQR
+                                        <Plane className="mr-3 h-6 w-6 transition-transform group-hover/submit:translate-x-1 group-hover/submit:-translate-y-1" />
+                                        Enviar mi mensaje
                                     </>
                                 )}
                             </Button>
