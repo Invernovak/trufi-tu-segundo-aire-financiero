@@ -192,26 +192,24 @@ const PQR = () => {
     const [radicadoNumber, setRadicadoNumber] = useState("");
 
     const generateRadicado = () => {
-        const date = new Date();
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
+        const year = new Date().getFullYear();
         const random = Math.random().toString(36).substring(2, 6).toUpperCase();
-        return `PQR-${year}${month}${day}-${random}`;
+        return `TRF-${year}-${random}`;
     };
 
     const sendEmailNotifications = async (pqrData: any, radicado: string) => {
-        console.log("Simulando envío de correos...", {
-            toUser: pqrData.email,
-            toTrufi: "Notificaciones@trufi.com.co",
-            subject: `Radicado ${radicado} recibido`,
-            content: pqrData
+        console.log("🚀 Enviando notificaciones de PQR...", {
+            para_trufi: "notificaciones@trufi.com.co",
+            para_cliente: pqrData.email,
+            radicado: radicado
         });
         
-        // Aquí se llamaría a una Supabase Edge Function o servicio de Email (Resend/EmailJS)
-        // const { data, error } = await supabase.functions.invoke('send-pqr-email', {
-        //   body: { pqrData, radicado },
-        // });
+        // NOTA PARA EL USUARIO: Para que esto envíe correos reales:
+        // 1. Usa Supabase Edge Functions: supabase.functions.invoke('pqr-email', { body: { pqrData, radicado } })
+        // 2. O usa EmailJS: emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", { ...pqrData, radicado })
+        
+        // Simulamos un delay de red para realismo
+        await new Promise(resolve => setTimeout(resolve, 1500));
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -237,13 +235,20 @@ const PQR = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        
+        // Validaciones básicas
         if (!formData.tipo) {
             toast.error("Por favor selecciona el tipo de solicitud");
             return;
         }
 
+        if (!formData.nombre || !formData.email || !formData.telefono || !formData.mensaje) {
+            toast.error("Por favor completa todos los campos de contacto");
+            return;
+        }
+
         if (!formData.aceptaTerminos || !formData.aceptaTratamientoDatos) {
-            toast.error("Debes aceptar los términos y la política de tratamiento de datos");
+            toast.error("Debes aceptar los términos y la política de datos");
             return;
         }
 
@@ -251,9 +256,8 @@ const PQR = () => {
 
         try {
             const radicado = generateRadicado();
-            setRadicadoNumber(radicado);
-
-            // Mapping Level 1 group to technical DB type
+            
+            // 1. Mapeo a tipos técnicos para la DB
             const techMapping: Record<string, string> = {
                 solicitud: "Solicitud",
                 queja: "Queja",
@@ -262,8 +266,7 @@ const PQR = () => {
                 incidente: "Incidente"
             };
 
-            const technicalType = techMapping[formData.grupo] || "Solicitud";
-
+            // 2. Guardar en Supabase
             const { error } = await supabase
                 .from('pqrs')
                 .insert([
@@ -271,40 +274,34 @@ const PQR = () => {
                         nombre: formData.nombre,
                         email: formData.email,
                         telefono: formData.telefono,
-                        tipo: technicalType,
-                        mensaje: `[RADICADO: ${radicado}] ${formData.subgrupo} > ${formData.tipo}: ${formData.mensaje}`,
-                        estado: 'Pendiente', // Default state
+                        tipo: techMapping[formData.grupo] || "Solicitud",
+                        mensaje: `[RADICADO: ${radicado}] | ${formData.subgrupo} > ${formData.tipo}\n\nMENSAJE:\n${formData.mensaje}`,
+                        estado: 'Pendiente'
                     }
                 ]);
 
-            if (error) throw error;
+            if (error) {
+                console.error("Error DB:", error);
+                throw new Error("No se pudo guardar en la base de datos.");
+            }
 
-            // Enviar notificaciones (Placeholder)
+            // 3. Simular Envío de Correos
             await sendEmailNotifications(formData, radicado);
 
-            toast.success("¡Tu solicitud ha sido radicada con éxito!", {
-                description: `Tu número de radicado es ${radicado}`,
+            // 4. Actualizar Estado de Éxito
+            setRadicadoNumber(radicado);
+            setIsSubmitted(true);
+            
+            toast.success("¡PQR Recibida!", {
+                description: `Tu radicado es ${radicado}`,
             });
 
-            setIsSubmitted(true);
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            setFormData({
-                nombre: "",
-                email: "",
-                telefono: "",
-                grupo: "",
-                subgrupo: "",
-                tipo: "",
-                mensaje: "",
-                aceptaTerminos: false,
-                aceptaTratamientoDatos: false,
-            });
-
-        } catch (error) {
-            console.error('Error submitting PQR:', error);
-            toast.error("Hubo un error al enviar tu solicitud", {
-                description: "Por favor intenta nuevamente o contáctanos por WhatsApp.",
+        } catch (error: any) {
+            console.error('Error FATAL en PQR:', error);
+            toast.error("Error al procesar la solicitud", {
+                description: "Verifica que la tabla 'pqrs' exista en Supabase o inténtalo más tarde.",
             });
         } finally {
             setLoading(false);
