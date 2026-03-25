@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Check, Shield, Award, Clock, Star, ArrowLeft, Send, Heart, Phone, Sun, Landmark, MessageCircle, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+import { TermsDialog, PrivacyDialog } from "@/components/LegalDialogs";
 import { useState } from "react";
 import { toast } from "sonner";
 import { contactFormFuerzaPublicaSchema, type ContactFormFuerzaPublica } from "@/lib/validations";
@@ -476,12 +477,12 @@ const FuerzaPublica = () => {
                       className="mt-1"
                     />
                     <div className="grid gap-1.5 leading-none">
-                      <label
-                        htmlFor="terminos"
-                        className="text-xs text-muted-foreground font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Acepto los <Link to="#" className="text-primary hover:underline">Términos y Condiciones</Link>
-                      </label>
+                            <label
+                                htmlFor="terminos"
+                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-600"
+                            >
+                                Acepto los <TermsDialog><span className="text-primary hover:underline cursor-pointer">Términos y Condiciones</span></TermsDialog>
+                            </label>
                       {errors.aceptaTerminos && <p className="text-xs text-destructive">{errors.aceptaTerminos}</p>}
                     </div>
                   </div>
@@ -497,12 +498,12 @@ const FuerzaPublica = () => {
                       className="mt-1"
                     />
                     <div className="grid gap-1.5 leading-none">
-                      <label
-                        htmlFor="tratamiento"
-                        className="text-xs text-muted-foreground font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Acepto la <Link to="/politica-privacidad" className="text-primary hover:underline">Política de Tratamiento de Datos Personales</Link>
-                      </label>
+                            <label
+                                htmlFor="tratamiento"
+                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-600"
+                            >
+                                Acepto la <PrivacyDialog><span className="text-primary hover:underline cursor-pointer">Política de Tratamiento de Datos Personales</span></PrivacyDialog>
+                            </label>
                       {errors.aceptaTratamientoDatos && <p className="text-xs text-destructive">{errors.aceptaTratamientoDatos}</p>}
                     </div>
                   </div>

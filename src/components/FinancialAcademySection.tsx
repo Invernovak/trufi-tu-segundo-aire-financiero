@@ -47,7 +47,7 @@ const FinancialAcademySection = () => {
 
                             <div className="w-full space-y-6">
                                 <p className="text-lg md:text-xl text-white/90 font-medium">
-                                    Creemos que el conocimiento es tu mejor herramienta financiera.
+                                    Creemos que el aprendizaje continuo es tu mejor herramienta para el éxito y la estabilidad.
                                 </p>
                                 
                                 <ul className="space-y-4 text-left inline-block lg:block">
@@ -55,19 +55,19 @@ const FinancialAcademySection = () => {
                                         <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
                                             <Coins className="w-4 h-4 text-cyan-400" />
                                         </div>
-                                        <span>Finanzas personales y créditos.</span>
+                                        <span>Finanzas, bienestar y desarrollo personal.</span>
                                     </li>
                                     <li className="flex items-center gap-3 text-white/80 md:text-lg">
                                         <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
                                             <TrendingUp className="w-4 h-4 text-cyan-400" />
                                         </div>
-                                        <span>Inversiones y tecnología.</span>
+                                        <span>Tecnología, emprendimiento y nuevas tendencias.</span>
                                     </li>
                                     <li className="flex items-center gap-3 text-white/80 md:text-lg">
                                         <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
                                             <Shield className="w-4 h-4 text-cyan-400" />
                                         </div>
-                                        <span>Contenido 100% gratuito para ti y tu familia.</span>
+                                        <span>Contenido de alto valor, 100% gratuito para ti y tu familia.</span>
                                     </li>
                                 </ul>
                             </div>

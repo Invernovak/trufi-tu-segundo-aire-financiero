@@ -23,7 +23,7 @@ const pillars = [
 
 const TrustSealSection = () => {
   return (
-    <section className="py-20 md:py-32 bg-[#1A0B3B] text-white relative overflow-hidden">
+    <section className="py-20 md:py-32 bg-trufi-purple-dark text-white relative overflow-hidden">
       {/* Background Ambient Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
 

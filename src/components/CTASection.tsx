@@ -5,7 +5,7 @@ const CTASection = () => {
   return (
     <section className="py-20 md:py-24 bg-white">
       <div className="container px-4 md:px-6">
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-[#2A1F45] text-center shadow-2xl">
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-trufi-purple-dark text-center shadow-2xl">
           {/* Background decoration */}
           <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay pointer-events-none" />
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />

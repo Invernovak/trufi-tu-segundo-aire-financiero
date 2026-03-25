@@ -1,12 +1,13 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { TermsDialog, PrivacyDialog } from "@/components/LegalDialogs";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { 
@@ -191,6 +192,14 @@ const PQR = () => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [radicadoNumber, setRadicadoNumber] = useState("");
 
+    const supportAgent = useMemo(() => {
+        const agents = [
+            { name: "Ana", avatar: "https://api.dicebear.com/7.x/micah/svg?seed=Aneka&backgroundColor=b6e3f4" },
+            { name: "Carlos", avatar: "https://api.dicebear.com/7.x/micah/svg?seed=Felix&backgroundColor=b6e3f4" }
+        ];
+        return agents[Math.floor(Math.random() * agents.length)];
+    }, []);
+
     const generateRadicado = () => {
         const year = new Date().getFullYear();
         const random = Math.random().toString(36).substring(2, 6).toUpperCase();
@@ -344,15 +353,15 @@ const PQR = () => {
                                 <div className="absolute top-6 right-8 flex items-center gap-3 bg-slate-50 px-4 py-2 rounded-2xl border border-slate-100 shadow-sm animate-in fade-in slide-in-from-right-4 duration-700">
                                     <div className="relative">
                                         <img
-                                            src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ana&backgroundColor=b6e3f4"
-                                            alt="Ana de soporte"
+                                            src={supportAgent.avatar}
+                                            alt={`${supportAgent.name} de soporte`}
                                             className="w-10 h-10 rounded-full bg-emerald-100 border-2 border-white shadow-sm"
                                         />
                                         <div className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></div>
                                     </div>
                                     <div className="text-left">
                                         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider leading-none mb-1">En línea</p>
-                                        <p className="text-xs font-semibold text-slate-700">Ana de soporte recibirá tu mensaje</p>
+                                        <p className="text-xs font-semibold text-slate-700">{supportAgent.name} de soporte recibirá tu mensaje</p>
                                     </div>
                                 </div>
 
@@ -537,9 +546,11 @@ const PQR = () => {
                                                 className="text-sm text-slate-500 leading-relaxed cursor-pointer font-normal"
                                             >
                                                 Acepto los{" "}
-                                                <Link to="/terminos-condiciones" className="text-emerald-600 font-bold hover:underline">
-                                                    términos y condiciones
-                                                </Link>
+                                                <TermsDialog>
+                                                    <span className="text-emerald-600 font-bold hover:underline cursor-pointer">
+                                                        términos y condiciones
+                                                    </span>
+                                                </TermsDialog>
                                             </Label>
                                         </div>
 
@@ -557,9 +568,11 @@ const PQR = () => {
                                                 className="text-sm text-slate-500 leading-relaxed cursor-pointer font-normal"
                                             >
                                                 Acepto la{" "}
-                                                <Link to="/politica-privacidad" className="text-emerald-600 font-bold hover:underline">
-                                                    política de tratamiento de datos personales
-                                                </Link>
+                                                <PrivacyDialog>
+                                                    <span className="text-emerald-600 font-bold hover:underline cursor-pointer">
+                                                        política de tratamiento de datos personales
+                                                    </span>
+                                                </PrivacyDialog>
                                             </Label>
                                         </div>
                                     </div>

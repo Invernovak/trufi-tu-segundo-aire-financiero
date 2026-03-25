@@ -20,7 +20,7 @@ const QuienesSomos = () => {
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
             <video
-              src="/lovable-uploads/Diseño sin título.mp4"
+              src="/lovable-uploads/corporate-video.mp4"
               className="w-full h-full object-cover object-center animate-in fade-in duration-1000"
               autoPlay
               loop
@@ -66,8 +66,9 @@ const QuienesSomos = () => {
                 La Tesis de la <span className="text-secondary">Reincorporación Financiera</span>
               </h2>
               <div className="relative group cursor-default">
-                <Quote className="absolute -left-8 -top-8 w-16 h-16 text-primary/5 select-none" />
-                <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed font-archive italic">
+                {/* Accent line replacing the old Quote watermark */}
+                <div className="absolute -left-6 top-0 bottom-0 w-1.5 bg-gradient-to-b from-primary via-secondary to-transparent rounded-full shadow-sm" />
+                <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed font-archive italic pl-4">
                   "Si la banca tradicional te cerró la puerta, nosotros te damos la mano.
                   Nacimos para combatir la exclusión, no solo para hacer negocios."
                 </p>

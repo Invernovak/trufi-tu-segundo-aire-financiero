@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { Send, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Link } from "react-router-dom";
+import { TermsDialog, PrivacyDialog } from "@/components/LegalDialogs";
 
 const FooterContactForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -143,7 +144,7 @@ const FooterContactForm = () => {
                                 htmlFor="terminos-f"
                                 className="text-[10px] text-white/60 font-light cursor-pointer hover:text-white/90 transition-colors leading-tight"
                             >
-                                Acepto los <Link to="#" className="text-white hover:underline">Términos y Condiciones</Link>
+                                Acepto los <TermsDialog><span className="text-white hover:underline cursor-pointer">Términos y Condiciones</span></TermsDialog>
                             </label>
                             {errors.aceptaTerminos && (
                                 <p className="text-[10px] text-red-300">{errors.aceptaTerminos.message}</p>
@@ -163,7 +164,7 @@ const FooterContactForm = () => {
                                 htmlFor="tratamiento-f"
                                 className="text-[10px] text-white/60 font-light cursor-pointer hover:text-white/90 transition-colors leading-tight"
                             >
-                                Acepto la <Link to="/politica-privacidad" className="text-white hover:underline">Política de Cuidado de Datos</Link>
+                                Acepto la <PrivacyDialog><span className="text-white hover:underline cursor-pointer">Política de Cuidado de Datos</span></PrivacyDialog>
                             </label>
                             {errors.aceptaTratamientoDatos && (
                                 <p className="text-[10px] text-red-300">{errors.aceptaTratamientoDatos.message}</p>
