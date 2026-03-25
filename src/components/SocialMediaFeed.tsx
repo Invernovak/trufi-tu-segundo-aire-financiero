@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
+import { Instagram, Linkedin, Facebook, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Custom TikTok Icon (since Lucide doesn't have it standard or it might differ)
@@ -19,12 +19,28 @@ const TikTokIcon = ({ className }: { className?: string }) => (
 
 const socialPlatforms = [
     {
+        id: "linkedin",
+        name: "LinkedIn",
+        icon: Linkedin,
+        color: "bg-[#0077b5]",
+        link: "#",
+        description: "Noticias corporativas"
+    },
+    {
         id: "instagram",
         name: "Instagram",
         icon: Instagram,
         color: "bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888]",
         link: "#",
         description: "Tips diarios y vida TRUFI"
+    },
+    {
+        id: "facebook",
+        name: "Facebook",
+        icon: Facebook,
+        color: "bg-[#1877F2]",
+        link: "#",
+        description: "Comunidad y novedades"
     },
     {
         id: "tiktok",
@@ -34,22 +50,6 @@ const socialPlatforms = [
         link: "#",
         description: "Casos de éxito y educación"
     },
-    {
-        id: "linkedin",
-        name: "LinkedIn",
-        icon: Linkedin,
-        color: "bg-[#0077b5]",
-        link: "#",
-        description: "Noticias corporativas"
-    },
-    {
-        id: "twitter",
-        name: "Twitter",
-        icon: Twitter,
-        color: "bg-black",
-        link: "#",
-        description: "Novedades en tiempo real"
-    }
 ];
 
 const SocialMediaFeed = () => {

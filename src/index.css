@@ -109,6 +109,16 @@
     font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   }
 
+  p {
+    text-align: justify;
+  }
+
+  /* Reduce section padding globally to minimize excessive scrolling */
+  main section {
+    padding-top: clamp(2.5rem, 5vw, 4rem) !important;
+    padding-bottom: clamp(2.5rem, 5vw, 4rem) !important;
+  }
+
   /* Smooth scroll global */
   html {
     scroll-behavior: smooth;

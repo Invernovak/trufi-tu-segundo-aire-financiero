@@ -171,7 +171,7 @@ const QuienesSomos = () => {
                   <TabsContent value="reglas" className="space-y-8 animate-in fade-in-50 slide-in-from-bottom-2 duration-300">
                     <div className="grid gap-6">
                       {[
-                        { title: "Tus Datos son Sagrados", desc: "Cumplimos con la Ley 1581 y 1266. Tu información es tuya." },
+                        { title: "Tus Datos son Sagrados", desc: "Cumplimos con la Ley 1581 y 1266." },
                         { title: "Crédito Responsable", desc: "No te prestamos para que te ahogues. Analizamos tu capacidad real." },
                         { title: "Cero Tolerancia al Fraude", desc: "Controles rigurosos para proteger tu identidad." }
                       ].map((policy, i) => (

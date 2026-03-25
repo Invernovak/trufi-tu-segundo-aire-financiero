@@ -84,10 +84,7 @@ const FinancialAcademySection = () => {
                                     </Button>
                                 </Link>
 
-                                <div className="flex items-center justify-center gap-3 px-8 h-12 bg-[#2D1B69] rounded-full border border-purple-500 backdrop-blur-sm transition-colors hover:bg-purple-900/80 cursor-default">
-                                    <BarChart className="w-4 h-4 text-cyan-400" />
-                                    <span className="text-sm font-bold text-white tracking-wider whitespace-nowrap">Acceso gratuito</span>
-                                </div>
+
                             </div>
 
                         </div>
