@@ -115,7 +115,7 @@ const Pensionado = () => {
       <main className="pt-0"> {/* Removed pt-20 to allow hero to touch top */}
 
         {/* Hero Section - Pensionados */}
-        <section className="relative min-h-[600px] lg:min-h-[80vh] pt-20 md:pt-28 pb-8 md:pb-12 overflow-hidden flex flex-col justify-center">
+        <section className="relative min-h-screen pt-20 md:pt-28 pb-8 md:pb-12 overflow-hidden flex flex-col justify-center">
           {/* Background con imagen del segmento covering everything */}
           <div className="absolute inset-0 z-0">
             <img

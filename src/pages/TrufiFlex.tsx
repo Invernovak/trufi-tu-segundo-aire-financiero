@@ -63,9 +63,9 @@ const TrufiFlex = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-20">
+      <main className="pt-0">
         {/* Hero Section */}
-        <section className="py-12 md:py-20 bg-gradient-to-br from-primary/10 to-background">
+        <section className="relative min-h-screen pt-20 pb-12 md:pt-28 md:pb-20 flex items-center justify-center bg-gradient-to-br from-primary/10 to-background">
           <div className="container">
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="space-y-6">
