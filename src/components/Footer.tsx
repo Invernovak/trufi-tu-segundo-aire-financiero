@@ -55,16 +55,7 @@ const Footer = () => {
           </div>
 
           {/* Middle Column: Unified Links Grid */}
-          <div className="lg:col-span-4 grid grid-cols-2 gap-4">
-            <div>
-              <h4 className="font-semibold text-white mb-3">Enlaces</h4>
-              <ul className="space-y-2 text-primary-foreground/60 text-xs md:text-sm">
-                <li><a href="#como-funciona" className="hover:text-trufi-cyan transition-colors">¿Cómo Funciona?</a></li>
-                <li><a href="#beneficios" className="hover:text-trufi-cyan transition-colors">Beneficios</a></li>
-                <li><a href="#inversionistas" className="hover:text-trufi-cyan transition-colors">Inversionistas</a></li>
-                <li><a href="#" className="hover:text-trufi-cyan transition-colors">Preguntas Frecuentes</a></li>
-              </ul>
-            </div>
+          <div className="lg:col-span-4 flex justify-center lg:justify-start">
             <div>
               <h4 className="font-semibold text-white mb-3">Legal</h4>
               <ul className="space-y-2 text-primary-foreground/60 text-xs md:text-sm">

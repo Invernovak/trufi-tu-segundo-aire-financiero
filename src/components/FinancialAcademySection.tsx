@@ -40,8 +40,8 @@ const FinancialAcademySection = () => {
                             </div>
 
                             <div className="max-w-3xl w-full">
-                                <h2 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight text-white drop-shadow-lg uppercase tracking-tight">
-                                    APRENDE CON TRUFI – TU BENEFICIO EXCLUSIVO
+                                <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-white drop-shadow-lg tracking-tight">
+                                    Aprende con Trufi – Tu Beneficio Exclusivo
                                 </h2>
                             </div>
 

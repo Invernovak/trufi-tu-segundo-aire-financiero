@@ -1,8 +1,9 @@
-import { Heart, Shield, Home, Wrench, Zap, Droplets, Snowflake, CheckCircle2, ChevronRight } from "lucide-react";
+import { Heart, Shield, Home, Wrench, Zap, Droplets, Snowflake, CheckCircle2, ChevronRight, Info } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 const amparos = [
   {
@@ -95,12 +96,19 @@ const BeneficiosTrufi = () => {
                   Cobertura 24/7
                 </Badge>
 
-                <h3 className="text-2xl font-bold text-foreground mb-3">
-                  Asistencias Hogar
-                </h3>
-                <p className="text-muted-foreground leading-relaxed mb-4">
-                  Este servicio puede utilizarse hasta dos (2) veces por año. Consulta los términos y condiciones completos en la sección de Beneficios.
-                </p>
+                <div className="flex items-center gap-2 mb-6">
+                  <h3 className="text-2xl font-bold text-foreground">
+                    Asistencias Hogar
+                  </h3>
+                  <Tooltip delayDuration={300}>
+                    <TooltipTrigger asChild>
+                      <Info className="w-5 h-5 text-muted-foreground hover:text-foreground cursor-help transition-colors" />
+                    </TooltipTrigger>
+                    <TooltipContent className="max-w-xs p-3" side="top">
+                      <p className="text-sm">Este servicio puede utilizarse hasta dos (2) veces por año. Consulta los términos y condiciones completos en la sección de Beneficios.</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </div>
                 <Link to="/beneficios">
                   <Button variant="outline" className="rounded-full px-6 border-primary/20 text-primary font-bold hover:bg-primary hover:text-white transition-all duration-300 group/btn">
                     Conocer más <ChevronRight className="w-4 h-4 ml-1 transition-transform group-hover/btn:translate-x-1" />
@@ -118,14 +126,21 @@ const BeneficiosTrufi = () => {
               <Home className="absolute -bottom-6 -right-6 w-48 h-48 text-white/10 rotate-12" />
 
               <div className="relative z-10 h-full flex flex-col">
-                <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-8">
-                  <Home className="w-8 h-8 text-white" />
+                <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-6">
+                  <Home className="w-7 h-7 text-white" />
                 </div>
 
-                <h3 className="text-3xl font-bold mb-4">Asistencias Hogar</h3>
-                <p className="text-primary-foreground/90 text-lg mb-10 leading-relaxed">
-                  Este servicio puede utilizarse hasta dos (2) veces por año. Consulta los términos y condiciones completos en la sección de Beneficios.
-                </p>
+                <div className="flex items-center gap-3 mb-10">
+                  <h3 className="text-3xl font-bold">Asistencias Hogar</h3>
+                  <Tooltip delayDuration={300}>
+                    <TooltipTrigger asChild>
+                      <Info className="w-6 h-6 text-white/70 hover:text-white cursor-help transition-colors" />
+                    </TooltipTrigger>
+                    <TooltipContent className="max-w-xs p-3 text-sm bg-white text-primary border-primary/20 shadow-xl" side="top">
+                      Este servicio puede utilizarse hasta dos (2) veces por año. Consulta los términos y condiciones completos en la sección de Beneficios.
+                    </TooltipContent>
+                  </Tooltip>
+                </div>
                 <Link to="/beneficios" className="mb-10">
                   <Button className="bg-white text-primary rounded-full px-8 font-bold hover:bg-white/90 transition-all duration-300 group/btn shadow-lg">
                     Conocer más <ChevronRight className="w-4 h-4 ml-1 transition-transform group-hover/btn:translate-x-1" />

@@ -29,7 +29,7 @@ const stats = [
 
 const StatsImpact = () => {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <div className="relative overflow-hidden w-full">
       <div className="container px-4">
         <div className="grid md:grid-cols-3 gap-8">
           {stats.map((stat, index) => (
@@ -53,7 +53,7 @@ const StatsImpact = () => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

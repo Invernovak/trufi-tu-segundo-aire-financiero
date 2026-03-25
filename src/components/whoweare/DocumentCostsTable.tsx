@@ -1,12 +1,11 @@
 import { Check, Info } from "lucide-react";
 
 const documents = [
-  "Certificado de deuda (Sucursal virtual)",
+  "Certificado de deuda",
   "Plan de Pagos",
   "Certificado tributario declaración de renta",
   "Paz y Salvos",
   "Copias documentales",
-  "Otras Certificaciones del producto",
 ];
 
 const DocumentCostsTable = () => {

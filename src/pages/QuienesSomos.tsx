@@ -55,9 +55,6 @@ const QuienesSomos = () => {
           </div>
         </section>
 
-        {/* New: Stats Section for quick trust building */}
-        <StatsImpact />
-
         {/* --- Nuestra Tesis: Reincorporación Humana --- */}
         <section className="py-24 bg-background relative overflow-hidden border-y border-gray-100">
           <div className="container px-4">
@@ -66,7 +63,7 @@ const QuienesSomos = () => {
                 Nuestra Filosofía
               </div>
               <h2 className="text-4xl md:text-5xl font-black font-archive text-primary mb-10 tracking-tight">
-                La Tesis de la <span className="text-secondary">Reincorporación Humana</span>
+                La Tesis de la <span className="text-secondary">Reincorporación Financiera</span>
               </h2>
               <div className="relative group cursor-default">
                 <Quote className="absolute -left-8 -top-8 w-16 h-16 text-primary/5 select-none" />
@@ -81,6 +78,9 @@ const QuienesSomos = () => {
             </div>
           </div>
         </section>
+
+        {/* New: Stats Section for quick trust building */}
+        <StatsImpact />
 
         {/* New: Comparison Section to highlight the "Why Choose Us" */}
         <ComparisonSection />
@@ -123,7 +123,7 @@ const QuienesSomos = () => {
                           <Target className="w-7 h-7 text-primary" />
                         </div>
                         <h3 className="text-2xl font-black text-gray-900">Más que una Misión</h3>
-                        <p className="text-gray-600 leading-relaxed text-lg">
+                        <p className="text-gray-600 leading-relaxed text-[17px] text-justify">
                           No solo damos créditos. Cada día trabajamos para que tu historial no sea un obstáculo, sino el punto de partida de tu nueva etapa financiera. Creemos en soluciones reales, ágiles y transparentes, diseñadas para quienes han servido y merecen una segunda oportunidad.
                         </p>
                       </div>
@@ -132,7 +132,7 @@ const QuienesSomos = () => {
                           <Eye className="w-7 h-7 text-secondary-foreground" />
                         </div>
                         <h3 className="text-2xl font-black text-gray-900">Nuestra Visión</h3>
-                        <p className="text-gray-600 leading-relaxed text-lg">
+                        <p className="text-gray-600 leading-relaxed text-[17px] text-justify">
                           Soñamos con un país donde pensionados y docentes tengan en TRUFI su aliado financiero de confianza. Para 2030, queremos ser el puente que conecta a más colombianos con el sistema financiero, de forma digna, simple y sin letra pequeña.
                         </p>
                       </div>
@@ -171,7 +171,7 @@ const QuienesSomos = () => {
                   <TabsContent value="reglas" className="space-y-8 animate-in fade-in-50 slide-in-from-bottom-2 duration-300">
                     <div className="grid gap-6">
                       {[
-                        { title: "Tus Datos son Sagrados", desc: "Cumplimos estrictamente la Ley 1581. Tu información es tuya." },
+                        { title: "Tus Datos son Sagrados", desc: "Cumplimos con la Ley 1581 y 1266. Tu información es tuya." },
                         { title: "Crédito Responsable", desc: "No te prestamos para que te ahogues. Analizamos tu capacidad real." },
                         { title: "Cero Tolerancia al Fraude", desc: "Controles rigurosos para proteger tu identidad." }
                       ].map((policy, i) => (

@@ -40,8 +40,6 @@ const BeneficiosExclusivos = () => {
                 <BeneficiosTrufi />
 
                 {/* <TrufiAdelantaYGana /> */}
-
-                <CTASection />
             </main>
             <Footer />
             <WhatsAppButton />

@@ -9,7 +9,7 @@ const steps = [
   },
   {
     icon: FileSearch,
-    title: "Análisis Humano",
+    title: "Análisis Especializado",
     desc: "Evaluamos tu capacidad de pago real y diseñamos una solución a tu medida.",
     step: "02",
   },
@@ -30,7 +30,7 @@ const JourneyRoadmap = () => {
             Tu Camino a la <span className="text-secondary">Libertad</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Un proceso diseñado para ser simple, transparente y, sobre todo, humano.
+            Un proceso diseñado para ser simple, transparente y sobre todo humano.
           </p>
         </div>
 

@@ -9,7 +9,7 @@ const ComparisonSection = () => {
             ¿Por qué elegir <span className="text-secondary">TRUFI</span>?
           </h2>
           <p className="text-lg text-muted-foreground">
-            No somos un banco más. Somos la alternativa humana para quienes el sistema olvidó.
+            No somos un banco, somos la alternativa humana para quienes el sistema olvidó.
           </p>
         </div>
 

@@ -57,7 +57,7 @@ const TrustSealSection = () => {
               <h3 className="text-2xl font-bold mb-4 tracking-tight">
                 {pillar.title}
               </h3>
-              <p className="text-white/70 leading-relaxed font-light">
+              <p className="text-white/70 leading-relaxed font-light text-justify">
                 {pillar.description}
               </p>
             </div>
