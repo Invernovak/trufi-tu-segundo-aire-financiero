@@ -325,7 +325,7 @@ const Docente = () => {
                 highlight: "Unifica y Respira",
                 description: "Unifica todas tus deudas en una sola cuota cómoda con descuento directo de tu nómina.",
                 features: ["Unificación de deudas en una sola cuota", "Compra de cartera al 100%", "Reduce tu carga financiera mensual", "Descuento directo de nómina"],
-                image: "https://images.unsplash.com/photo-1554224155-169641357599?q=80&w=800&auto=format&fit=crop",
+                image: "/lovable-uploads/Tu-tranquilidad-docentes (2).png",
                 badge: "SANEAMIENTO",
                 badgeColor: "bg-blue-50 text-blue-600",
                 badgeDotColor: "bg-blue-600",

@@ -133,14 +133,15 @@ const Header = () => {
           </Button>
 
           {/* 2. Portal Comercial (Ahora segundo e interno) */}
-          <Link to="/portal-comercial">
-            <Button
-              className="bg-[#78c0b3] text-white font-bold text-[12px] px-4 py-2 rounded-full shadow-lg hover:shadow-xl hover:bg-[#78c0b3]/90 hover:-translate-y-0.5 transition-all whitespace-nowrap min-w-fit"
-            >
+          <Button
+            className="bg-[#78c0b3] text-white font-bold text-[12px] px-4 py-2 rounded-full shadow-lg hover:shadow-xl hover:bg-[#78c0b3]/90 hover:-translate-y-0.5 transition-all whitespace-nowrap min-w-fit"
+            asChild
+          >
+            <a href="https://sales.trufi.com.co/formCredits" target="_blank" rel="noopener noreferrer">
               <Briefcase className="w-4 h-4 mr-2" />
               Portal Comercial
-            </Button>
-          </Link>
+            </a>
+          </Button>
         </div>
 
         {/* MENÚ MÓVIL */}
@@ -242,14 +243,16 @@ const Header = () => {
                 </a>
               </Button>
 
-              <Link to="/portal-comercial" onClick={() => setIsMenuOpen(false)}>
-                <Button
-                  className="w-full bg-[#78c0b3] text-white font-bold py-5 rounded-full shadow-lg"
-                >
+              <Button
+                className="w-full bg-[#78c0b3] text-white font-bold py-5 rounded-full shadow-lg"
+                onClick={() => setIsMenuOpen(false)}
+                asChild
+              >
+                <a href="https://sales.trufi.com.co/formCredits" target="_blank" rel="noopener noreferrer">
                   <Briefcase className="w-4 h-4 mr-2" />
                   Portal Comercial
-                </Button>
-              </Link>
+                </a>
+              </Button>
             </div>
           </nav>
         </div>

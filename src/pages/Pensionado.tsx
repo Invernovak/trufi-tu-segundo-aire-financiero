@@ -167,9 +167,9 @@ const Pensionado = () => {
                   <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-lg">
                     Dedicaste tu vida a trabajar, ahora déjanos trabajar por ti. Te ofrecemos un "Segundo Aire Financiero" con trato preferencial.
                   </p>
-                  
+
                   <div className="pt-4 animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300">
-                    <Button 
+                    <Button
                       className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-6 px-10 rounded-2xl text-lg shadow-xl shadow-orange-500/20 group"
                       asChild
                     >
@@ -300,7 +300,7 @@ const Pensionado = () => {
                 highlight: "Libertad",
                 description: "Ya sea para tus diligencias personales o para impulsar un negocio.",
                 features: ["Sin codeudor", "Plazos cómodos", "Aprobación rápida", "Cuota fija durante todo el plazo"],
-                image: "/lovable-uploads/pensionadovehiculo1.jpg.png",
+                image: "/lovable-uploads/vehiculo-pensionado-1.png",
                 badge: "VIAJA CÓMODO",
                 badgeColor: "bg-violet-50 text-violet-600",
                 badgeDotColor: "bg-violet-600",
@@ -314,7 +314,7 @@ const Pensionado = () => {
                 highlight: "Unifica y Respira",
                 description: "Unifica todas tus deudas en una sola cuota cómoda con descuento directo de tu mesada.",
                 features: ["Unificación de deudas en una sola cuota", "Compra de cartera al 100%", "Reduce tu carga financiera mensual", "Descuento directo de mesada"],
-                image: "https://images.unsplash.com/photo-1554224155-169641357599?q=80&w=800&auto=format&fit=crop",
+                image: "/lovable-uploads/tu-tranquilidad-pensionadas.png",
                 badge: "SANEAMIENTO",
                 badgeColor: "bg-orange-50 text-orange-600",
                 badgeDotColor: "bg-orange-600",
@@ -420,12 +420,12 @@ const Pensionado = () => {
                       className="mt-1"
                     />
                     <div className="grid gap-1.5 leading-none">
-                            <label
-                                htmlFor="terminos"
-                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-600"
-                            >
-                                Acepto los <TermsDialog><span className="text-primary hover:underline cursor-pointer">Términos y Condiciones</span></TermsDialog>
-                            </label>
+                      <label
+                        htmlFor="terminos"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-600"
+                      >
+                        Acepto los <TermsDialog><span className="text-primary hover:underline cursor-pointer">Términos y Condiciones</span></TermsDialog>
+                      </label>
                       {errors.aceptaTerminos && <p className="text-xs text-destructive">{errors.aceptaTerminos}</p>}
                     </div>
                   </div>
@@ -441,12 +441,12 @@ const Pensionado = () => {
                       className="mt-1"
                     />
                     <div className="grid gap-1.5 leading-none">
-                            <label
-                                htmlFor="tratamiento"
-                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-600"
-                            >
-                                Acepto la <PrivacyDialog><span className="text-primary hover:underline cursor-pointer">Política de Tratamiento de Datos Personales</span></PrivacyDialog>
-                            </label>
+                      <label
+                        htmlFor="tratamiento"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-600"
+                      >
+                        Acepto la <PrivacyDialog><span className="text-primary hover:underline cursor-pointer">Política de Tratamiento de Datos Personales</span></PrivacyDialog>
+                      </label>
                       {errors.aceptaTratamientoDatos && <p className="text-xs text-destructive">{errors.aceptaTratamientoDatos}</p>}
                     </div>
                   </div>

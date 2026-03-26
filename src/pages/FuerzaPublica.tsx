@@ -190,7 +190,7 @@ const FuerzaPublica = () => {
                 </div>
 
                 <div className="pt-2 animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300">
-                  <Button 
+                  <Button
                     className="bg-[#5D6532] hover:bg-[#4a5128] text-white font-bold py-6 px-10 rounded-2xl text-lg shadow-xl shadow-black/20 group"
                     asChild
                   >
@@ -311,7 +311,7 @@ const FuerzaPublica = () => {
                 highlight: "Héroes",
                 description: "Tu legado merece seguir creciendo. Ya sea un negocio familiar, un proyecto propio o tus metas personales",
                 features: ["Sin codeudor", "Descuento directo de mesada", "Respuesta en tiempo récord", "Tasa preferencial por libranza"],
-                image: "/lovable-uploads/policialibreinver.jpg",
+                image: "/lovable-uploads/policia-libre-inversion.png",
                 imageClassName: "object-right-bottom",
                 badge: "Honor y Servicio",
                 badgeColor: "bg-[#5D6532]/10 text-[#5D6532]",
@@ -326,7 +326,7 @@ const FuerzaPublica = () => {
                 highlight: "Ti y tu Familia",
                 description: "Dale un nuevo aire a tu hogar. Remodela tu vivienda, tu estabilidad y trayectoria son tu mejor garantía.",
                 features: ["Remodelación y adecuación", "Cocinas, baños y zonas sociales", "Instalaciones eléctricas y sanitarias", "Pintura, pisos y fachadas"],
-                image: "/lovable-uploads/policiavivienda.jpg",
+                image: "/lovable-uploads/vivienda-fuerzp.png",
                 badge: "Tu Hogar Seguro",
                 badgeColor: "bg-[#5D6532]/10 text-[#5D6532]",
                 badgeDotColor: "bg-[#5D6532]",
@@ -340,7 +340,7 @@ const FuerzaPublica = () => {
                 highlight: "Movilidad",
                 description: "Adquiere el vehículo que necesitas. Ya sea para tus diligencias personales o para impulsar un negocio.",
                 features: ["Sin codeudor", "Plazos cómodos", "Aprobación rápida", "Sin intermediarios", "Cuota fija durante todo el plazo"],
-                image: "/lovable-uploads/policiavehiculo.jpg",
+                image: "/lovable-uploads/vehiculo-fuerzap00.png",
                 imageClassName: "object-center",
                 badge: "Vehículo Propio",
                 badgeColor: "bg-[#5D6532]/10 text-[#5D6532]",
@@ -355,7 +355,7 @@ const FuerzaPublica = () => {
                 highlight: "Unifica y Respira",
                 description: "Unifica todas tus deudas en una sola cuota cómoda con descuento directo de tu asignación.",
                 features: ["Unificación de deudas en una sola cuota", "Compra de cartera al 100%", "Reduce tu carga financiera mensual", "Descuento directo de asignación"],
-                image: "https://images.unsplash.com/photo-1554224155-169641357599?q=80&w=800&auto=format&fit=crop",
+                image: "/lovable-uploads/Tu-tranquilidad-fuerzap.png",
                 badge: "SANEAMIENTO",
                 badgeColor: "bg-[#5D6532]/10 text-[#5D6532]",
                 badgeDotColor: "bg-[#5D6532]",
@@ -477,12 +477,12 @@ const FuerzaPublica = () => {
                       className="mt-1"
                     />
                     <div className="grid gap-1.5 leading-none">
-                            <label
-                                htmlFor="terminos"
-                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-600"
-                            >
-                                Acepto los <TermsDialog><span className="text-primary hover:underline cursor-pointer">Términos y Condiciones</span></TermsDialog>
-                            </label>
+                      <label
+                        htmlFor="terminos"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-600"
+                      >
+                        Acepto los <TermsDialog><span className="text-primary hover:underline cursor-pointer">Términos y Condiciones</span></TermsDialog>
+                      </label>
                       {errors.aceptaTerminos && <p className="text-xs text-destructive">{errors.aceptaTerminos}</p>}
                     </div>
                   </div>
@@ -498,12 +498,12 @@ const FuerzaPublica = () => {
                       className="mt-1"
                     />
                     <div className="grid gap-1.5 leading-none">
-                            <label
-                                htmlFor="tratamiento"
-                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-600"
-                            >
-                                Acepto la <PrivacyDialog><span className="text-primary hover:underline cursor-pointer">Política de Tratamiento de Datos Personales</span></PrivacyDialog>
-                            </label>
+                      <label
+                        htmlFor="tratamiento"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-600"
+                      >
+                        Acepto la <PrivacyDialog><span className="text-primary hover:underline cursor-pointer">Política de Tratamiento de Datos Personales</span></PrivacyDialog>
+                      </label>
                       {errors.aceptaTratamientoDatos && <p className="text-xs text-destructive">{errors.aceptaTratamientoDatos}</p>}
                     </div>
                   </div>
