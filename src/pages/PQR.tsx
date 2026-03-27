@@ -264,7 +264,9 @@ const PQR = () => {
                     {
                         nombre: formData.nombre,
                         email: formData.email,
-                        mensaje: formData.mensaje,
+                        telefono: formData.telefono,
+                        tipo: formData.grupo || "Solicitud",
+                        mensaje: `${formData.subgrupo} > ${formData.tipo}\n\nMENSAJE:\n${formData.mensaje}`,
                         estado: 'Pendiente',
                         numero_radicado: radicado,
                         acepta_terminospqr: formData.aceptaTerminos,
@@ -273,8 +275,8 @@ const PQR = () => {
                 ]);
 
             if (error) {
-                console.error("Error DB:", error);
-                throw new Error("No se pudo guardar la PQR.");
+                console.error("Error DB detalle:", error);
+                throw error;
             }
 
             // Exito: Notificación con el radicado
