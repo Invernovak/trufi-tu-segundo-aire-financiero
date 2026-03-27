@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Check, Heart, Phone, Shield, Sun, Landmark, MessageCircle, Clock, ArrowLeft, Send, Sparkles } from "lucide-react";
+import { Check, Heart, Phone, Shield, Sun, Landmark, MessageCircle, Clock, ArrowLeft, Send, Sparkles, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { TermsDialog, PrivacyDialog } from "@/components/LegalDialogs";
 import { useState } from "react";
@@ -15,7 +15,7 @@ import { contactFormPensionadoSchema, type ContactFormPensionado } from "@/lib/v
 import segmentImage from "@/assets/PensionadosPagina.jpg";
 import ProductShowcase from "@/components/ProductShowcase";
 import Pagadurias from "@/components/Pagadurias";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/lib/supabase";
 
 const benefits = [
   {
@@ -56,6 +56,7 @@ const Pensionado = () => {
     aceptaTerminos: false,
     aceptaTratamientoDatos: false,
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormPensionado, string>>>({});
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -74,32 +75,44 @@ const Pensionado = () => {
       return;
     }
 
+    setIsSubmitting(true);
+
     try {
       const { error } = await supabase
-        .from('leads')
+        .from('leads_comerciales')
         .insert([
           {
-            nombre: formData.nombre,
+            nombre_completo: formData.nombre,
             email: formData.email,
             telefono: formData.telefono,
             mensaje: formData.mensaje,
-            segmento: 'Pensionado',
             acepta_terminos: formData.aceptaTerminos,
-            acepta_tratamiento_datos: formData.aceptaTratamientoDatos
+            acepta_tratamiento_datos: formData.aceptaTratamientoDatos,
+            monto_solicitado: 0,
+            origen: 'Pensionados'
           }
         ]);
 
       if (error) throw error;
 
       setErrors({});
-      toast.success("¡Solicitud enviada! Un asesor te contactará pronto.");
-      setFormData({ nombre: "", telefono: "", email: "", mensaje: "", aceptaTerminos: false, aceptaTratamientoDatos: false });
-
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      toast.error("Hubo un error al enviar tus datos", {
-        description: "Por favor intenta nuevamente.",
+      toast.success("¡Gracias! Hemos recibido tus datos con éxito.");
+      setFormData({ 
+        nombre: "", 
+        telefono: "", 
+        email: "", 
+        mensaje: "", 
+        aceptaTerminos: false, 
+        aceptaTratamientoDatos: false 
       });
+
+    } catch (error: any) {
+      console.error('Error en el envío:', error);
+      toast.error("Hubo un error al procesar tu solicitud", {
+        description: error.message || "Por favor intenta nuevamente más tarde.",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -452,9 +465,24 @@ const Pensionado = () => {
                   </div>
                 </div>
 
-                <Button type="submit" variant="outline" size="lg" className="w-full gap-2">
-                  <Send className="w-4 h-4" />
-                  Solicitar Asistencia Humana
+                <Button 
+                  type="submit" 
+                  variant="outline" 
+                  size="lg" 
+                  className="w-full gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                  disabled={isSubmitting || !formData.aceptaTerminos || !formData.aceptaTratamientoDatos}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Enviando...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      Solicitar Asistencia Humana
+                    </>
+                  )}
                 </Button>
               </form>
             </div>

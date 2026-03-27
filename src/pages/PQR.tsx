@@ -9,7 +9,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState, useMemo } from "react";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/lib/supabase";
 import { 
     FileText, Send, Loader2, AlertCircle, HelpCircle, Frown, ShieldCheck, 
     AlertTriangle, Info, Users, DollarSign, Clock, Lightbulb, RefreshCw, 
@@ -245,17 +245,6 @@ const PQR = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         
-        // Validaciones básicas
-        if (!formData.tipo) {
-            toast.error("Por favor selecciona el tipo de solicitud");
-            return;
-        }
-
-        if (!formData.nombre || !formData.email || !formData.telefono || !formData.mensaje) {
-            toast.error("Por favor completa todos los campos de contacto");
-            return;
-        }
-
         if (!formData.aceptaTerminos || !formData.aceptaTratamientoDatos) {
             toast.error("Debes aceptar los términos y la política de datos");
             return;
@@ -264,54 +253,55 @@ const PQR = () => {
         setLoading(true);
 
         try {
-            const radicado = generateRadicado();
+            // Generación de Radicado: TRF-2026- + 4 caracteres aleatorios
+            const randomChars = Math.random().toString(36).substring(2, 6).toUpperCase();
+            const radicado = `TRF-2026-${randomChars}`;
             
-            // 1. Mapeo a tipos técnicos para la DB
-            const techMapping: Record<string, string> = {
-                solicitud: "Solicitud",
-                queja: "Queja",
-                reclamo: "Reclamo",
-                habeas: "Habeas Data",
-                incidente: "Incidente"
-            };
-
-            // 2. Guardar en Supabase
+            // Inserción en Supabase
             const { error } = await supabase
                 .from('pqrs')
                 .insert([
                     {
                         nombre: formData.nombre,
                         email: formData.email,
-                        telefono: formData.telefono,
-                        tipo: techMapping[formData.grupo] || "Solicitud",
-                        mensaje: `[RADICADO: ${radicado}] | ${formData.subgrupo} > ${formData.tipo}\n\nMENSAJE:\n${formData.mensaje}`,
-                        estado: 'Pendiente'
+                        mensaje: formData.mensaje,
+                        estado: 'Pendiente',
+                        numero_radicado: radicado,
+                        acepta_terminospqr: formData.aceptaTerminos,
+                        acepta_tratamiento_datospqr: formData.aceptaTratamientoDatos,
                     }
                 ]);
 
             if (error) {
                 console.error("Error DB:", error);
-                throw new Error("No se pudo guardar en la base de datos.");
+                throw new Error("No se pudo guardar la PQR.");
             }
 
-            // 3. Simular Envío de Correos
-            await sendEmailNotifications(formData, radicado);
+            // Exito: Notificación con el radicado
+            toast.success(`PQR radicado con éxito. Tu número de seguimiento es: ${radicado}`);
 
-            // 4. Actualizar Estado de Éxito
+            // Guardar radicado para mostrar en la pantalla de éxito
             setRadicadoNumber(radicado);
             setIsSubmitted(true);
-            
-            toast.success("¡PQR Recibida!", {
-                description: `Tu radicado es ${radicado}`,
+
+            // Limpia el formulario (reset)
+            setFormData({
+                nombre: "",
+                email: "",
+                telefono: "",
+                grupo: "",
+                subgrupo: "",
+                tipo: "",
+                mensaje: "",
+                aceptaTerminos: false,
+                aceptaTratamientoDatos: false,
             });
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
         } catch (error: any) {
-            console.error('Error FATAL en PQR:', error);
-            toast.error("Error al procesar la solicitud", {
-                description: "Verifica que la tabla 'pqrs' exista en Supabase o inténtalo más tarde.",
-            });
+            console.error('Error en PQR:', error);
+            toast.error("Hubo un error al procesar tu radicado. Inténtalo de nuevo.");
         } finally {
             setLoading(false);
         }
@@ -579,8 +569,8 @@ const PQR = () => {
 
                                     <Button
                                         type="submit"
-                                        className="w-full h-16 text-lg font-black bg-emerald-500 hover:bg-emerald-600 text-white shadow-xl shadow-emerald-200/50 rounded-2xl transition-all hover:scale-[1.02] active:scale-95 group/submit"
-                                        disabled={loading}
+                                        className="w-full h-16 text-lg font-black bg-emerald-500 hover:bg-emerald-600 text-white shadow-xl shadow-emerald-200/50 rounded-2xl transition-all hover:scale-[1.02] active:scale-95 group/submit disabled:opacity-50 disabled:grayscale disabled:scale-100 disabled:shadow-none disabled:cursor-not-allowed"
+                                        disabled={loading || !formData.aceptaTerminos || !formData.aceptaTratamientoDatos}
                                     >
                                         {loading ? (
                                             <>

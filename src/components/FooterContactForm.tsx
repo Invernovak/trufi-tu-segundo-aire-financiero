@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { Send, Loader2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/lib/supabase"; // RUTA CORREGIDA
 import { Link } from "react-router-dom";
 import { TermsDialog, PrivacyDialog } from "@/components/LegalDialogs";
 
@@ -39,31 +39,31 @@ const FooterContactForm = () => {
 
         try {
             const { error } = await supabase
-                .from('leads')
+                .from('leads_comerciales')
                 .insert([
                     {
-                        nombre: data.nombre,
+                        nombre_completo: data.nombre,
                         email: data.email,
                         telefono: data.telefono,
                         mensaje: data.mensaje,
-                        segmento: 'General - Footer',
                         acepta_terminos: data.aceptaTerminos,
-                        acepta_tratamiento_datos: data.aceptaTratamientoDatos
+                        acepta_tratamiento_datos: data.aceptaTratamientoDatos,
+                        monto_solicitado: 0,
+                        origen: 'Footer'
                     }
                 ]);
 
             if (error) throw error;
 
-            toast.success("¡Hemos recibido tus datos con éxito!", {
+            toast.success("¡Gracias! Hemos recibido tus datos con éxito.", {
                 description: "Uno de nuestros asesores comerciales te contactará muy pronto.",
-                duration: 5000,
             });
 
             reset();
-        } catch (error) {
+        } catch (error: any) {
             console.error('Error submitting form:', error);
             toast.error("Hubo un error al enviar tus datos", {
-                description: "Por favor intenta nuevamente.",
+                description: error.message || "Por favor intenta nuevamente.",
             });
         } finally {
             setIsSubmitting(false);
@@ -175,8 +175,8 @@ const FooterContactForm = () => {
 
                 <Button
                     type="submit"
-                    disabled={isSubmitting}
-                    className="w-full h-8 text-xs bg-white text-trufi-purple-dark hover:bg-white/90 font-bold mt-1"
+                    disabled={isSubmitting || !watch("aceptaTerminos") || !watch("aceptaTratamientoDatos")}
+                    className="w-full h-8 text-xs bg-white text-trufi-purple-dark hover:bg-white/90 font-bold mt-1 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     {isSubmitting ? (
                         <>
