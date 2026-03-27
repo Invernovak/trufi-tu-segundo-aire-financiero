@@ -67,7 +67,7 @@ const ZonaPagos = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
               Tranquilidad en tus <span className="text-emerald-400">Pagos</span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed text-center">
               Gestiona tus cuotas de manera sencilla y segura. Elige la opción que mejor se adapte a ti y vive sin preocupaciones.
             </p>
           </div>

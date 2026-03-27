@@ -29,7 +29,7 @@ const JourneyRoadmap = () => {
           <h2 className="text-3xl md:text-5xl font-black text-primary mb-4">
             Tu Camino a la <span className="text-secondary">Libertad</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-center">
             Un proceso diseñado para ser simple, transparente y sobre todo humano.
           </p>
         </div>

@@ -21,7 +21,7 @@ const TrufiAdelantaYGana = () => {
                     <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4 tracking-tight">
                         Trufi <span className="text-primary">Adelanta y Gana</span>
                     </h2>
-                    <p className="text-lg text-muted-foreground/90 leading-relaxed">
+                    <p className="text-lg text-muted-foreground/90 leading-relaxed text-center">
                         Tu puntualidad abre puertas. Adelanta tus cuotas y <span className="font-semibold text-foreground">desbloquea tu próximo nivel financiero</span>.
                     </p>
                 </div>

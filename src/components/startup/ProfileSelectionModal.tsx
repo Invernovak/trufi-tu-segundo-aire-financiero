@@ -64,7 +64,7 @@ const ProfileSelectionModal = () => {
               <DialogTitle className="text-3xl font-black text-white tracking-tight leading-tight">
                 Bienvenido a TRUFI
               </DialogTitle>
-              <p className="text-xl font-bold text-secondary tracking-tight">
+              <p className="text-xl font-bold text-secondary tracking-tight text-center">
                 Elige tu perfil para continuar
               </p>
             </div>

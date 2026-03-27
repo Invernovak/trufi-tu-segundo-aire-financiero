@@ -30,7 +30,7 @@ const BeneficiosExclusivos = () => {
                             Más que un crédito, <br />
                             <span className="text-secondary">un estilo de vida</span>
                         </h1>
-                        <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: "100ms" }}>
+                        <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed animate-slide-up text-center" style={{ animationDelay: "100ms" }}>
                             Accede a un ecosistema de bienestar, protección y recompensas diseñado exclusivamente para nuestros clientes.
                         </p>
                     </div>

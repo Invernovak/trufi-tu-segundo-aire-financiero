@@ -20,7 +20,7 @@ import { supabase } from "@/lib/supabase";
 const benefits = [
   {
     icon: MessageCircle,
-    title: "Atención ágil",
+    title: "Asistente IA",
     description: "A través de nuestro chat de WhatsApp. Sin menús robóticos, te atiende una persona.",
   },
   {
@@ -41,7 +41,7 @@ const benefits = [
 ];
 
 const requirements = [
-  "Ser pensionado activo (Colpensiones, FOPEP, o fondo privado)",
+  "Ser pensionado activo",
   "Cédula de ciudadanía vigente",
   "Desprendible de pago de los últimos 3 meses",
   "Edad máxima: 84 años al finalizar el crédito",
@@ -97,13 +97,13 @@ const Pensionado = () => {
 
       setErrors({});
       toast.success("¡Gracias! Hemos recibido tus datos con éxito.");
-      setFormData({ 
-        nombre: "", 
-        telefono: "", 
-        email: "", 
-        mensaje: "", 
-        aceptaTerminos: false, 
-        aceptaTratamientoDatos: false 
+      setFormData({
+        nombre: "",
+        telefono: "",
+        email: "",
+        mensaje: "",
+        aceptaTerminos: false,
+        aceptaTratamientoDatos: false
       });
 
     } catch (error: any) {
@@ -280,11 +280,25 @@ const Pensionado = () => {
         <div className="py-4">
           <ProductShowcase
             data={{
+              tranquilidad: {
+                title: "Tu Tranquilidad:",
+                highlight: "Unifica y Respira",
+                description: "Unifica todas tus deudas en una sola cuota cómoda con descuento directo de tu mesada.",
+                features: ["Unificación de deudas en una sola cuota", "Compra de cartera al 100%", "Reduce tu carga financiera mensual", "Descuento directo de mesada"],
+                image: "/lovable-uploads/tu-tranquilidad-pensionadas.png",
+                badge: "SANEAMIENTO",
+                badgeColor: "bg-orange-50 text-orange-600",
+                badgeDotColor: "bg-orange-600",
+                titleColor: "text-orange-600",
+                checkColor: "text-orange-500 fill-orange-50",
+                buttonColor: "bg-orange-600 hover:bg-orange-700",
+                buttonShadow: "shadow-orange-600/25 hover:shadow-orange-600/40",
+              },
               credito: {
                 title: "Crédito para",
                 highlight: "Pensionados",
                 description: "Ese viaje soñado, apoyar a tus nietos o simplemente tener un respaldo económico. En tu retiro, tú decides en qué invertir.",
-                features: ["Aprobación hasta los 84 años", "Sin codeudor", "Descuento directo de mesada", "Respuesta en tiempo récord"],
+                features: ["Aprobación hasta los 84 años", "Sin codeudor", "Libera flujo de caja", "Respuesta en tiempo récord"],
                 image: "/lovable-uploads/pensionadolibreinver2.jpg.png",
                 badge: "DISFRUTA TU RETIRO",
                 badgeColor: "bg-orange-50 text-orange-600",
@@ -298,7 +312,7 @@ const Pensionado = () => {
                 title: "Mejora tu",
                 highlight: "Hogar",
                 description: "Dale un nuevo aire a tu hogar. Remodela tu vivienda, tu estabilidad y trayectoria son tu mejor garantía.",
-                features: ["Remodelación de vivienda", "Compra de vivienda nueva o usada", "Asesoría personalizada", "Trámites simplificados"],
+                features: ["Remodelación de vivienda", "Asesoría personalizada", "Trámites simplificados"],
                 image: "/lovable-uploads/happy_client_house.png",
                 badge: "Tu patrimonio",
                 badgeColor: "bg-emerald-50 text-emerald-600",
@@ -321,20 +335,6 @@ const Pensionado = () => {
                 checkColor: "text-violet-500 fill-violet-50",
                 buttonColor: "bg-violet-600 hover:bg-violet-700",
                 buttonShadow: "shadow-violet-600/25 hover:shadow-violet-600/40",
-              },
-              tranquilidad: {
-                title: "Tu Tranquilidad:",
-                highlight: "Unifica y Respira",
-                description: "Unifica todas tus deudas en una sola cuota cómoda con descuento directo de tu mesada.",
-                features: ["Unificación de deudas en una sola cuota", "Compra de cartera al 100%", "Reduce tu carga financiera mensual", "Descuento directo de mesada"],
-                image: "/lovable-uploads/tu-tranquilidad-pensionadas.png",
-                badge: "SANEAMIENTO",
-                badgeColor: "bg-orange-50 text-orange-600",
-                badgeDotColor: "bg-orange-600",
-                titleColor: "text-orange-600",
-                checkColor: "text-orange-500 fill-orange-50",
-                buttonColor: "bg-orange-600 hover:bg-orange-700",
-                buttonShadow: "shadow-orange-600/25 hover:shadow-orange-600/40",
               },
             }}
           />
@@ -465,10 +465,10 @@ const Pensionado = () => {
                   </div>
                 </div>
 
-                <Button 
-                  type="submit" 
-                  variant="outline" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  variant="outline"
+                  size="lg"
                   className="w-full gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                   disabled={isSubmitting || !formData.aceptaTerminos || !formData.aceptaTratamientoDatos}
                 >

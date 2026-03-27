@@ -32,11 +32,25 @@ export interface ProductShowcaseProps {
 }
 
 const defaultData: {
+    tranquilidad: ShowcaseItem;
     credito: ShowcaseItem;
     vivienda: ShowcaseItem;
     vehiculo: ShowcaseItem;
-    tranquilidad: ShowcaseItem;
 } = {
+    tranquilidad: {
+        title: "Tu",
+        highlight: "tranquilidad",
+        description: "Unifica todas tus deudas en una sola cuota cómoda con descuento directo de tu nómina o mesada.",
+        features: ["Unificación de deudas en una sola cuota", "Compra de cartera al 100%", "Reduce tu carga financiera mensual", "Descuento directo de nómina/mesada"],
+        image: "/lovable-uploads/tu-tranquilidad-fuerzap2.png",
+        badge: "SANEAMIENTO",
+        badgeColor: "bg-orange-50 text-orange-600",
+        badgeDotColor: "bg-orange-600",
+        titleColor: "text-orange-600",
+        checkColor: "text-orange-500 fill-orange-50",
+        buttonColor: "bg-orange-600 hover:bg-orange-700",
+        buttonShadow: "shadow-orange-600/25 hover:shadow-orange-600/40",
+    },
     credito: {
         title: "Tu libranza para",
         highlight: "Libre inversión",
@@ -79,23 +93,9 @@ const defaultData: {
         buttonColor: "bg-violet-600 hover:bg-violet-700",
         buttonShadow: "shadow-violet-600/25 hover:shadow-violet-600/40",
     },
-    tranquilidad: {
-        title: "Tu",
-        highlight: "tranquilidad",
-        description: "Unifica todas tus deudas en una sola cuota cómoda con descuento directo de tu nómina o mesada.",
-        features: ["Unificación de deudas en una sola cuota", "Compra de cartera al 100%", "Reduce tu carga financiera mensual", "Descuento directo de nómina/mesada"],
-        image: "/lovable-uploads/tu-tranquilidad-fuerzap2.png",
-        badge: "SANEAMIENTO",
-        badgeColor: "bg-orange-50 text-orange-600",
-        badgeDotColor: "bg-orange-600",
-        titleColor: "text-orange-600",
-        checkColor: "text-orange-500 fill-orange-50",
-        buttonColor: "bg-orange-600 hover:bg-orange-700",
-        buttonShadow: "shadow-orange-600/25 hover:shadow-orange-600/40",
-    },
 };
 
-const ProductShowcase = ({ defaultTab = "credito", data = defaultData, accentColor }: ProductShowcaseProps) => {
+const ProductShowcase = ({ defaultTab = "tranquilidad", data = defaultData, accentColor }: ProductShowcaseProps) => {
 
     // Function to determine tab styling based on accentColor or fallback to default
     const getTabStyle = (isActive: boolean) => {
@@ -116,7 +116,7 @@ const ProductShowcase = ({ defaultTab = "credito", data = defaultData, accentCol
                     <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
                         Un crédito, múltiples destinos
                     </h2>
-                    <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto text-center">
                         Úsalo para lo que realmente necesitas en este momento de tu vida.
                     </p>
                 </div>
@@ -124,6 +124,15 @@ const ProductShowcase = ({ defaultTab = "credito", data = defaultData, accentCol
                 <Tabs defaultValue={defaultTab} className="w-full max-w-6xl mx-auto">
                     <div className="flex justify-center mb-12">
                         <TabsList className="grid w-full max-w-3xl grid-cols-2 md:grid-cols-4 h-auto p-1.5 bg-gray-100/80 backdrop-blur-sm rounded-none md:rounded-full border border-gray-200 shadow-sm">
+                            <TabsTrigger
+                                value="tranquilidad"
+                                className="rounded-full py-3 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md transition-all duration-300 flex items-center justify-center gap-2 group"
+                            >
+                                <div className="p-1.5 rounded-full bg-gray-200/50 group-data-[state=active]:bg-primary/10 transition-colors">
+                                    <ShieldCheck className="w-4 h-4 md:w-5 md:h-5" />
+                                </div>
+                                <span className="font-bold text-xs md:text-sm">Tu tranquilidad</span>
+                            </TabsTrigger>
                             <TabsTrigger
                                 value="credito"
                                 className="rounded-full py-3 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md transition-all duration-300 flex items-center justify-center gap-2 group"
@@ -150,15 +159,6 @@ const ProductShowcase = ({ defaultTab = "credito", data = defaultData, accentCol
                                     <Car className="w-4 h-4 md:w-5 md:h-5" />
                                 </div>
                                 <span className="font-bold text-xs md:text-sm">Vehículo</span>
-                            </TabsTrigger>
-                            <TabsTrigger
-                                value="tranquilidad"
-                                className="rounded-full py-3 data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-md transition-all duration-300 flex items-center justify-center gap-2 group"
-                            >
-                                <div className="p-1.5 rounded-full bg-gray-200/50 group-data-[state=active]:bg-primary/10 transition-colors">
-                                    <ShieldCheck className="w-4 h-4 md:w-5 md:h-5" />
-                                </div>
-                                <span className="font-bold text-xs md:text-sm">Tu tranquilidad</span>
                             </TabsTrigger>
                         </TabsList>
                     </div>
@@ -202,7 +202,7 @@ const ProductShowcase = ({ defaultTab = "credito", data = defaultData, accentCol
                                                         className={cn("rounded-xl px-8 h-12 text-base transition-all duration-300", item.buttonColor, item.buttonShadow)}
                                                         asChild
                                                     >
-                                                        <a href="https://app.trufi.com.co/" target="_blank" rel="noopener noreferrer">
+                                                        <a href="https://portal.trufi.com.co/credits" target="_blank" rel="noopener noreferrer">
                                                             Solicita tu crédito
                                                             <ArrowRight className="ml-2 w-4 h-4" />
                                                         </a>

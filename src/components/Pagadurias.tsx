@@ -3,10 +3,10 @@ import { GraduationCap, Shield, Building2, Medal, Search, X } from "lucide-react
 import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
 } from "@/components/ui/accordion";
 
 const educationLogos = [
@@ -86,23 +86,23 @@ const PagaduriasList = ({ items }: { items: { name: string }[] }) => (
 const Pagadurias = ({ segment }: PagaduriasProps) => {
     const [searchTerm, setSearchTerm] = useState("");
 
-    const filteredEducation = useMemo(() => 
+    const filteredEducation = useMemo(() =>
         educationLogos.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase())),
-    [searchTerm]);
+        [searchTerm]);
 
-    const filteredPension = useMemo(() => 
+    const filteredPension = useMemo(() =>
         pensionLogos.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase())),
-    [searchTerm]);
+        [searchTerm]);
 
-    const filteredFuerza = useMemo(() => 
+    const filteredFuerza = useMemo(() =>
         fuerzaPublicaLogos.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase())),
-    [searchTerm]);
+        [searchTerm]);
 
-    const defaultAccordion = 
-        segment === 'docente' ? 'educacion' : 
-        segment === 'pensionado' ? 'pensionados' : 
-        segment === 'fuerza-publica' ? 'fuerza-publica' : 
-        'educacion';
+    const defaultAccordion =
+        segment === 'docente' ? 'educacion' :
+            segment === 'pensionado' ? 'pensionados' :
+                segment === 'fuerza-publica' ? 'fuerza-publica' :
+                    'educacion';
 
     return (
         <section className="py-24 bg-slate-50/50 overflow-hidden" id="convenios">
@@ -114,8 +114,8 @@ const Pagadurias = ({ segment }: PagaduriasProps) => {
                     <h2 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900">
                         ¿Tu entidad está afiliada?
                     </h2>
-                    <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto font-medium">
-                        Busca tu cooperativa, fondo de pensiones o secretaría en nuestro listado oficial.
+                    <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto font-medium text-center">
+                        Busca tu secretaria de educación en nuestro listado oficial
                     </p>
                 </div>
 
@@ -125,7 +125,7 @@ const Pagadurias = ({ segment }: PagaduriasProps) => {
                         <div className="absolute inset-0 bg-emerald-500/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <div className="relative flex items-center">
                             <Search className="absolute left-4 w-5 h-5 text-slate-400 group-focus-within:text-emerald-500 transition-colors" />
-                            <Input 
+                            <Input
                                 type="text"
                                 placeholder="Busca tu secretaría, fondo o entidad..."
                                 className="pl-12 h-16 bg-white border-2 border-slate-100 rounded-2xl shadow-sm focus:border-emerald-500 focus:ring-emerald-500/20 text-lg font-medium transition-all"
@@ -133,7 +133,7 @@ const Pagadurias = ({ segment }: PagaduriasProps) => {
                                 onChange={(e) => setSearchTerm(e.target.value)}
                             />
                             {searchTerm && (
-                                <button 
+                                <button
                                     onClick={() => setSearchTerm("")}
                                     className="absolute right-4 p-1.5 hover:bg-slate-100 rounded-full transition-colors"
                                 >
@@ -211,7 +211,7 @@ const Pagadurias = ({ segment }: PagaduriasProps) => {
                             <div className="py-12 text-center">
                                 <Search className="w-12 h-12 text-slate-200 mx-auto mb-4" />
                                 <p className="text-slate-500 font-medium">No encontramos coincidencias para "<span className="text-slate-900 font-bold">{searchTerm}</span>"</p>
-                                <button 
+                                <button
                                     onClick={() => setSearchTerm("")}
                                     className="mt-4 text-emerald-600 font-bold hover:underline"
                                 >

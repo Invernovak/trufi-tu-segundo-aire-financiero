@@ -41,9 +41,8 @@ const benefits = [
 ];
 
 const requirements = [
-  "Ser docente activo del sector público o privado",
+  "Ser docente o tener cargos administrativos del sector público",
   "Cédula de ciudadanía vigente",
-  "Certificado laboral con fecha reciente (máximo 30 días)",
   "Desprendibles de nómina de los últimos 3 meses",
   "Antigüedad mínima de 1 año en la institución",
 ];
@@ -99,14 +98,14 @@ const Docente = () => {
 
       setErrors({});
       toast.success("¡Gracias! Hemos recibido tus datos con éxito.");
-      setFormData({ 
-        nombre: "", 
-        telefono: "", 
-        email: "", 
-        institucion: "", 
-        mensaje: "", 
-        aceptaTerminos: false, 
-        aceptaTratamientoDatos: false 
+      setFormData({
+        nombre: "",
+        telefono: "",
+        email: "",
+        institucion: "",
+        mensaje: "",
+        aceptaTerminos: false,
+        aceptaTratamientoDatos: false
       });
 
     } catch (error: any) {
@@ -196,7 +195,7 @@ const Docente = () => {
                 </div>
 
                 <div className="pt-2 animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300">
-                  <Button 
+                  <Button
                     className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-6 px-10 rounded-2xl text-lg shadow-xl shadow-blue-500/20 group"
                     asChild
                   >
@@ -292,11 +291,25 @@ const Docente = () => {
         <div className="py-4">
           <ProductShowcase
             data={{
+              tranquilidad: {
+                title: "Tu Tranquilidad:",
+                highlight: "Unifica y Respira",
+                description: "Unifica todas tus deudas en una sola cuota cómoda con descuento directo de tu nómina.",
+                features: ["Unificación de deudas en una sola cuota", "Compra de cartera al 100%", "Reduce tu carga financiera mensual", "Descuento directo de nómina"],
+                image: "/lovable-uploads/Tu-tranquilidad-docentes (2).png",
+                badge: "SANEAMIENTO",
+                badgeColor: "bg-blue-50 text-blue-600",
+                badgeDotColor: "bg-blue-600",
+                titleColor: "text-blue-600",
+                checkColor: "text-blue-500 fill-blue-50",
+                buttonColor: "bg-blue-600 hover:bg-blue-700",
+                buttonShadow: "shadow-blue-600/25 hover:shadow-blue-600/40",
+              },
               credito: {
                 title: "Inversión en tu",
                 highlight: "Futuro",
                 description: "¿Una maestría, un curso de ascenso o un proyecto personal? Invierte en lo que te impulsa. Financiamos tus metas.",
-                features: ["Financia tu maestría", "Sin codeudor", "Descuento directo de tu salario", "Respuesta en tiempo récord", "Tasa preferencial por libranza"],
+                features: ["Financia tu maestría", "Sin codeudor", "Descuento directo de tu salario", "Respuesta en tiempo récord"],
                 image: "/lovable-uploads/happy_client_credit.png",
                 badge: "Libre Inversión",
                 badgeColor: "bg-blue-50 text-blue-600",
@@ -307,8 +320,8 @@ const Docente = () => {
                 buttonShadow: "shadow-blue-600/25 hover:shadow-blue-600/40",
               },
               vivienda: {
-                title: "Vivienda para",
-                highlight: "Maestros",
+                title: "Mejora tu",
+                highlight: "Hogar",
                 description: "El espacio ideal para preparar tus clases y disfrutar en familia.",
                 features: ["Remodelación y adecuación", "Cocinas, baños y zonas sociales", "Instalaciones eléctricas y sanitarias", "Pintura, pisos y fachadas"],
                 image: "/lovable-uploads/docentemujer1.jpg",
@@ -333,20 +346,6 @@ const Docente = () => {
                 checkColor: "text-violet-500 fill-violet-50",
                 buttonColor: "bg-violet-600 hover:bg-violet-700",
                 buttonShadow: "shadow-violet-600/25 hover:shadow-violet-600/40",
-              },
-              tranquilidad: {
-                title: "Tu Tranquilidad:",
-                highlight: "Unifica y Respira",
-                description: "Unifica todas tus deudas en una sola cuota cómoda con descuento directo de tu nómina.",
-                features: ["Unificación de deudas en una sola cuota", "Compra de cartera al 100%", "Reduce tu carga financiera mensual", "Descuento directo de nómina"],
-                image: "/lovable-uploads/Tu-tranquilidad-docentes (2).png",
-                badge: "SANEAMIENTO",
-                badgeColor: "bg-blue-50 text-blue-600",
-                badgeDotColor: "bg-blue-600",
-                titleColor: "text-blue-600",
-                checkColor: "text-blue-500 fill-blue-50",
-                buttonColor: "bg-blue-600 hover:bg-blue-700",
-                buttonShadow: "shadow-blue-600/25 hover:shadow-blue-600/40",
               },
             }}
           />
@@ -461,12 +460,12 @@ const Docente = () => {
                       className="mt-1"
                     />
                     <div className="grid gap-1.5 leading-none">
-                            <label
-                                htmlFor="terminos"
-                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-600"
-                            >
-                                Acepto los <TermsDialog><span className="text-primary hover:underline cursor-pointer">Términos y Condiciones</span></TermsDialog>
-                            </label>
+                      <label
+                        htmlFor="terminos"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-600"
+                      >
+                        Acepto los <TermsDialog><span className="text-primary hover:underline cursor-pointer">Términos y Condiciones</span></TermsDialog>
+                      </label>
                       {errors.aceptaTerminos && <p className="text-xs text-destructive">{errors.aceptaTerminos}</p>}
                     </div>
                   </div>
@@ -482,21 +481,21 @@ const Docente = () => {
                       className="mt-1"
                     />
                     <div className="grid gap-1.5 leading-none">
-                            <label
-                                htmlFor="tratamiento"
-                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-600"
-                            >
-                                Acepto la <PrivacyDialog><span className="text-primary hover:underline cursor-pointer">Política de Tratamiento de Datos Personales</span></PrivacyDialog>
-                            </label>
+                      <label
+                        htmlFor="tratamiento"
+                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-600"
+                      >
+                        Acepto la <PrivacyDialog><span className="text-primary hover:underline cursor-pointer">Política de Tratamiento de Datos Personales</span></PrivacyDialog>
+                      </label>
                       {errors.aceptaTratamientoDatos && <p className="text-xs text-destructive">{errors.aceptaTratamientoDatos}</p>}
                     </div>
                   </div>
                 </div>
 
-                <Button 
-                  type="submit" 
-                  variant="outline" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  variant="outline"
+                  size="lg"
                   className="w-full gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                   disabled={isSubmitting || !formData.aceptaTerminos || !formData.aceptaTratamientoDatos}
                 >

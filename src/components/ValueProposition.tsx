@@ -28,7 +28,7 @@ const ValueProposition = () => {
             Crédito de libranza pensado{" "}
             <span className="text-gradient text-primary-foreground">para ti</span>
           </h2>
-          <p className="text-lg text-primary-foreground">
+          <p className="text-lg text-primary-foreground text-center">
             En TRUFI creemos en la inclusión financiera con un enfoque humano. 
             Te acompañamos para que recuperes tu tranquilidad económica.
           </p>

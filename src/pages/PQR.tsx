@@ -333,7 +333,7 @@ const PQR = () => {
                         <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-sm">
                             Estamos aquí para escucharte
                         </h1>
-                        <p className="text-lg text-slate-100 max-w-2xl mx-auto drop-shadow-sm font-medium">
+                        <p className="text-lg text-slate-100 max-w-2xl mx-auto drop-shadow-sm font-medium text-center">
                             Tu voz nos ayuda a mejorar. Cuéntanos qué necesitas y nuestro equipo te responderá lo antes posible.
                         </p>
                     </div>

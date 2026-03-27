@@ -35,7 +35,7 @@ const TrustSealSection = () => {
           <h2 className="text-4xl md:text-5xl font-black tracking-tight">
             Nuestro Sello de <span className="text-secondary">Confianza</span>
           </h2>
-          <p className="text-white/60 text-lg md:text-xl font-light">
+          <p className="text-white/60 text-lg md:text-xl font-light text-center">
             Construimos relaciones duraderas basadas en nuestros tres pilares principales que garantizan tu tranquilidad.
           </p>
         </div>

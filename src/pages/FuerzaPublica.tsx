@@ -46,7 +46,6 @@ const requirements = [
   "Tener asignación de retiro activa",
   "Cédula de ciudadanía",
   "Desprendible de pago de los últimos 3 meses (Asignación de retiro)",
-  "Sin codeudor",
 ];
 
 const institutions = [
@@ -107,14 +106,14 @@ const FuerzaPublica = () => {
 
       setErrors({});
       toast.success("¡Gracias! Hemos recibido tus datos con éxito.");
-      setFormData({ 
-        nombre: "", 
-        telefono: "", 
-        email: "", 
-        institucion: "", 
-        mensaje: "", 
-        aceptaTerminos: false, 
-        aceptaTratamientoDatos: false 
+      setFormData({
+        nombre: "",
+        telefono: "",
+        email: "",
+        institucion: "",
+        mensaje: "",
+        aceptaTerminos: false,
+        aceptaTratamientoDatos: false
       });
 
     } catch (error: any) {
@@ -274,8 +273,15 @@ const FuerzaPublica = () => {
               <div className="absolute top-4 left-4 text-5xl text-[#5D6532]/20 font-serif opacity-50">"</div>
               <div className="flex flex-col md:flex-row gap-6 items-center">
                 <div className="shrink-0">
-                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-[#5D6532]/20 shadow-inner">
-                    <img src="/assets/segment-fuerza-publica.jpg" alt="Jorge R" className="w-full h-full object-cover" />
+                  <div className="w-20 h-20 rounded-full border-2 border-slate-200/60 relative overflow-visible bg-slate-50 shadow-sm
+                                  after:content-[''] after:absolute after:inset-[-2px] after:rounded-full after:border-2 
+                                  after:border-slate-200/60 after:z-20 after:[clip-path:polygon(0_50%,100%_50%,100%_100%,0_100%)] 
+                                  after:pointer-events-none">
+                    <img
+                      src="/lovable-uploads/testimonio-fuerzap.png"
+                      alt="Jorge R"
+                      className="absolute -top-5 left-1/2 -translate-x-1/2 w-[135%] h-auto max-w-none object-contain origin-bottom z-10"
+                    />
                   </div>
                 </div>
                 <div className="text-center md:text-left">
@@ -320,11 +326,25 @@ const FuerzaPublica = () => {
           <ProductShowcase
             accentColor="#5D6532"
             data={{
+              tranquilidad: {
+                title: "Tu Tranquilidad:",
+                highlight: "Unifica y Respira",
+                description: "Unifica todas tus deudas en una sola cuota cómoda con descuento directo de tu asignación.",
+                features: ["Unificación de deudas en una sola cuota", "Compra de cartera al 100%", "Reduce tu carga financiera mensual", "Descuento directo de asignación"],
+                image: "/lovable-uploads/Tu-tranquilidad-fuerzap.png",
+                badge: "SANEAMIENTO",
+                badgeColor: "bg-[#5D6532]/10 text-[#5D6532]",
+                badgeDotColor: "bg-[#5D6532]",
+                titleColor: "text-[#5D6532]",
+                checkColor: "text-[#5D6532] fill-[#5D6532]/10",
+                buttonColor: "bg-[#5D6532] hover:bg-[#5D6532]/90",
+                buttonShadow: "shadow-[#5D6532]/25 hover:shadow-[#5D6532]/40",
+              },
               credito: {
                 title: "Crédito para",
                 highlight: "Héroes",
                 description: "Tu legado merece seguir creciendo. Ya sea un negocio familiar, un proyecto propio o tus metas personales",
-                features: ["Sin codeudor", "Descuento directo de mesada", "Respuesta en tiempo récord", "Tasa preferencial por libranza"],
+                features: ["Sin codeudor", "Descuento directo de mesada", "Respuesta en tiempo récord"],
                 image: "/lovable-uploads/policia-libre-inversion.png",
                 imageClassName: "object-right-bottom",
                 badge: "Honor y Servicio",
@@ -336,8 +356,8 @@ const FuerzaPublica = () => {
                 buttonShadow: "shadow-[#5D6532]/25 hover:shadow-[#5D6532]/40",
               },
               vivienda: {
-                title: "Vivienda digna para",
-                highlight: "Ti y tu Familia",
+                title: "Mejora tu",
+                highlight: "Hogar",
                 description: "Dale un nuevo aire a tu hogar. Remodela tu vivienda, tu estabilidad y trayectoria son tu mejor garantía.",
                 features: ["Remodelación y adecuación", "Cocinas, baños y zonas sociales", "Instalaciones eléctricas y sanitarias", "Pintura, pisos y fachadas"],
                 image: "/lovable-uploads/vivienda-fuerzp.png",
@@ -357,20 +377,6 @@ const FuerzaPublica = () => {
                 image: "/lovable-uploads/vehiculo-fuerzap00.png",
                 imageClassName: "object-center",
                 badge: "Vehículo Propio",
-                badgeColor: "bg-[#5D6532]/10 text-[#5D6532]",
-                badgeDotColor: "bg-[#5D6532]",
-                titleColor: "text-[#5D6532]",
-                checkColor: "text-[#5D6532] fill-[#5D6532]/10",
-                buttonColor: "bg-[#5D6532] hover:bg-[#5D6532]/90",
-                buttonShadow: "shadow-[#5D6532]/25 hover:shadow-[#5D6532]/40",
-              },
-              tranquilidad: {
-                title: "Tu Tranquilidad:",
-                highlight: "Unifica y Respira",
-                description: "Unifica todas tus deudas en una sola cuota cómoda con descuento directo de tu asignación.",
-                features: ["Unificación de deudas en una sola cuota", "Compra de cartera al 100%", "Reduce tu carga financiera mensual", "Descuento directo de asignación"],
-                image: "/lovable-uploads/Tu-tranquilidad-fuerzap.png",
-                badge: "SANEAMIENTO",
                 badgeColor: "bg-[#5D6532]/10 text-[#5D6532]",
                 badgeDotColor: "bg-[#5D6532]",
                 titleColor: "text-[#5D6532]",
@@ -523,10 +529,10 @@ const FuerzaPublica = () => {
                   </div>
                 </div>
 
-                <Button 
-                  type="submit" 
-                  variant="outline" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  variant="outline"
+                  size="lg"
                   className="w-full gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                   disabled={isSubmitting || !formData.aceptaTerminos || !formData.aceptaTratamientoDatos}
                 >

@@ -113,10 +113,13 @@ const CreditSimulator = () => {
                     variant="cta"
                     size="lg"
                     className="w-full text-base py-6 font-bold group bg-[#78c0b3] hover:bg-[#78c0b3]/90 text-white shadow-lg hover:shadow-xl icon-thumbs-up"
+                    asChild
                 >
-                    <Sparkles className="w-4 h-4 mr-2" />
-                    ¡Lo quiero!
-                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                    <a href="https://portal.trufi.com.co/credits" target="_blank" rel="noopener noreferrer">
+                        <Sparkles className="w-4 h-4 mr-2" />
+                        ¡Lo quiero!
+                        <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                    </a>
                 </Button>
 
                 {/* Trust Badges */}

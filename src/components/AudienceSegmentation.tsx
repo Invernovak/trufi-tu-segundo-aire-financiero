@@ -91,7 +91,7 @@ const AudienceSegmentation = () => {
           <h2 className="text-3xl md:text-5xl font-extrabold text-foreground tracking-tight">
             ¿A qué grupo perteneces?
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
+          <p className="text-muted-foreground text-lg leading-relaxed text-center">
             Hemos diseñado beneficios exclusivos pensando en las necesidades específicas de tu sector.
           </p>
         </div>

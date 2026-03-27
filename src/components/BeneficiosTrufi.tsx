@@ -48,7 +48,7 @@ const BeneficiosTrufi = () => {
             Más que un crédito, <br />
             <span className="text-primary">una protección completa</span>
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
+          <p className="text-xl text-muted-foreground leading-relaxed text-center">
             Al adquirir un crédito con TRUFI, accedes automáticamente a un paquete de protección premium.
           </p>
         </div>

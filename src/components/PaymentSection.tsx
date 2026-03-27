@@ -27,7 +27,7 @@ const PaymentSection = () => {
             Realiza tus Pagos de Forma Segura
           </h2>
 
-          <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto text-center">
             Accede a nuestra pasarela de pagos segura para realizar tus abonos y pagos
             de cuotas. Serás redirigido a una plataforma certificada.
           </p>

@@ -33,7 +33,7 @@ const HowItWorks = () => {
             Tu dinero protegido por{" "}
             <span className="text-gradient">Patrimonio Autónomo</span>
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg">
+          <p className="text-muted-foreground text-base md:text-lg text-center">
             Máxima seguridad jurídica para tu tranquilidad. 
             Así funciona nuestro proceso blindado.
           </p>
