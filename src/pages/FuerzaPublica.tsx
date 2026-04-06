@@ -11,11 +11,12 @@ import { Link } from "react-router-dom";
 import { TermsDialog, PrivacyDialog } from "@/components/LegalDialogs";
 import { useState } from "react";
 import { toast } from "sonner";
-import { contactFormFuerzaPublicaSchema, type ContactFormFuerzaPublica } from "@/lib/validations";
+import { contactFormFuerzaPublicaSchema } from "@/lib/validations";
 
 import ProductShowcase from "@/components/ProductShowcase";
 import Pagadurias from "@/components/Pagadurias";
-import { supabase } from "@/lib/supabase";
+import { useLeadsForm } from "@/hooks/useLeadsForm";
+import { SEOHead } from "@/components/SEOHead";
 import segmentImage from "@/assets/segment-fuerza-publica.jpg";
 
 const benefits = [
@@ -56,75 +57,25 @@ const institutions = [
 ];
 
 const FuerzaPublica = () => {
-  const [formData, setFormData] = useState<ContactFormFuerzaPublica>({
-    nombre: "",
-    telefono: "",
-    email: "",
-    institucion: "",
-    mensaje: "",
-    aceptaTerminos: false,
-    aceptaTratamientoDatos: false,
+  const {
+    formData,
+    handleInputChange,
+    handleSubmit,
+    isSubmitting,
+    errors,
+  } = useLeadsForm({
+    schema: contactFormFuerzaPublicaSchema,
+    initialValues: {
+      nombre: "",
+      telefono: "",
+      email: "",
+      institucion: "",
+      mensaje: "",
+      aceptaTerminos: false,
+      aceptaTratamientoDatos: false,
+    },
+    segmento: "Fuerza Pública",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errors, setErrors] = useState<Partial<Record<keyof ContactFormFuerzaPublica, string>>>({});
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const result = contactFormFuerzaPublicaSchema.safeParse(formData);
-
-    if (!result.success) {
-      const fieldErrors: Partial<Record<keyof ContactFormFuerzaPublica, string>> = {};
-      result.error.errors.forEach((error) => {
-        const field = error.path[0] as keyof ContactFormFuerzaPublica;
-        fieldErrors[field] = error.message;
-      });
-      setErrors(fieldErrors);
-      toast.error("Por favor corrige los errores en el formulario");
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      const { error } = await supabase
-        .from('leads_comerciales')
-        .insert([
-          {
-            nombre_completo: formData.nombre,
-            email: formData.email,
-            telefono: formData.telefono,
-            mensaje: formData.mensaje,
-            acepta_terminos: formData.aceptaTerminos,
-            acepta_tratamiento_datos: formData.aceptaTratamientoDatos,
-            monto_solicitado: 0,
-            origen: 'Fuerza Pública'
-          }
-        ]);
-
-      if (error) throw error;
-
-      setErrors({});
-      toast.success("¡Gracias! Hemos recibido tus datos con éxito.");
-      setFormData({
-        nombre: "",
-        telefono: "",
-        email: "",
-        institucion: "",
-        mensaje: "",
-        aceptaTerminos: false,
-        aceptaTratamientoDatos: false
-      });
-
-    } catch (error: any) {
-      console.error('Error en el envío:', error);
-      toast.error("Hubo un error al procesar tu solicitud", {
-        description: error.message || "Por favor intenta nuevamente más tarde.",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   // Color de acento para Fuerza Pública: Verde Militar (#5D6532)
   const accentBg = "bg-[#5D6532]/10";
@@ -133,6 +84,10 @@ const FuerzaPublica = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Créditos para Fuerza Pública" 
+        description="Serviste a la patria con honor, ahora es nuestro turno de servirte a ti. Créditos de libranza exclusivos para veteranos y pensionados de la Fuerza Pública." 
+      />
       <Header />
       <main className="pt-0">
 
@@ -413,10 +368,7 @@ const FuerzaPublica = () => {
                     <Input
                       placeholder="Tu nombre"
                       value={formData.nombre}
-                      onChange={(e) => {
-                        setFormData({ ...formData, nombre: e.target.value });
-                        if (errors.nombre) setErrors({ ...errors, nombre: undefined });
-                      }}
+                      onChange={(e) => handleInputChange("nombre", e.target.value)}
                       className={`h-9 ${errors.nombre ? "border-destructive" : ""}`}
                       maxLength={100}
                     />
@@ -428,10 +380,7 @@ const FuerzaPublica = () => {
                       placeholder="Tu teléfono"
                       type="tel"
                       value={formData.telefono}
-                      onChange={(e) => {
-                        setFormData({ ...formData, telefono: e.target.value });
-                        if (errors.telefono) setErrors({ ...errors, telefono: undefined });
-                      }}
+                      onChange={(e) => handleInputChange("telefono", e.target.value)}
                       className={`h-9 ${errors.telefono ? "border-destructive" : ""}`}
                       maxLength={20}
                     />
@@ -445,10 +394,7 @@ const FuerzaPublica = () => {
                       placeholder="tu@email.com"
                       type="email"
                       value={formData.email}
-                      onChange={(e) => {
-                        setFormData({ ...formData, email: e.target.value });
-                        if (errors.email) setErrors({ ...errors, email: undefined });
-                      }}
+                      onChange={(e) => handleInputChange("email", e.target.value)}
                       className={`h-9 ${errors.email ? "border-destructive" : ""}`}
                       maxLength={255}
                     />
@@ -459,10 +405,7 @@ const FuerzaPublica = () => {
                     <Input
                       placeholder="Ej: Ejército Nacional"
                       value={formData.institucion}
-                      onChange={(e) => {
-                        setFormData({ ...formData, institucion: e.target.value });
-                        if (errors.institucion) setErrors({ ...errors, institucion: undefined });
-                      }}
+                      onChange={(e) => handleInputChange("institucion", e.target.value)}
                       className={`h-9 ${errors.institucion ? "border-destructive" : ""}`}
                       maxLength={200}
                     />
@@ -474,10 +417,7 @@ const FuerzaPublica = () => {
                   <Textarea
                     placeholder="Cuéntanos cómo podemos ayudarte..."
                     value={formData.mensaje}
-                    onChange={(e) => {
-                      setFormData({ ...formData, mensaje: e.target.value });
-                      if (errors.mensaje) setErrors({ ...errors, mensaje: undefined });
-                    }}
+                    onChange={(e) => handleInputChange("mensaje", e.target.value)}
                     className={errors.mensaje ? "border-destructive" : ""}
                     rows={2}
                     maxLength={1000}
@@ -490,10 +430,7 @@ const FuerzaPublica = () => {
                     <Checkbox
                       id="terminos"
                       checked={formData.aceptaTerminos}
-                      onCheckedChange={(checked) => {
-                        setFormData({ ...formData, aceptaTerminos: checked === true });
-                        if (errors.aceptaTerminos) setErrors({ ...errors, aceptaTerminos: undefined });
-                      }}
+                      onCheckedChange={(checked) => handleInputChange("aceptaTerminos", checked === true)}
                       className="mt-1"
                     />
                     <div className="grid gap-1.5 leading-none">
@@ -511,10 +448,7 @@ const FuerzaPublica = () => {
                     <Checkbox
                       id="tratamiento"
                       checked={formData.aceptaTratamientoDatos}
-                      onCheckedChange={(checked) => {
-                        setFormData({ ...formData, aceptaTratamientoDatos: checked === true });
-                        if (errors.aceptaTratamientoDatos) setErrors({ ...errors, aceptaTratamientoDatos: undefined });
-                      }}
+                      onCheckedChange={(checked) => handleInputChange("aceptaTratamientoDatos", checked === true)}
                       className="mt-1"
                     />
                     <div className="grid gap-1.5 leading-none">
