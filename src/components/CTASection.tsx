@@ -32,9 +32,12 @@ const CTASection = () => {
             <Button
               size="lg"
               className="bg-secondary hover:bg-secondary/90 text-primary-foreground font-bold text-base px-8 py-4 h-auto rounded-full shadow-lg hover:shadow-secondary/20 hover:-translate-y-1 transition-all duration-300 group whitespace-nowrap"
+              asChild
             >
-              Solicitar mi Crédito Ahora
-              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+              <a href="https://portal.trufi.com.co/credits" target="_blank" rel="noopener noreferrer">
+                Solicitar mi Crédito Ahora
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+              </a>
             </Button>
 
           </div>
@@ -44,7 +47,7 @@ const CTASection = () => {
             <div className="flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
 
               {/* Subtitle */}
-              <p className="text-sm md:text-base text-white/80 font-light max-w-xl">
+              <p className="text-sm md:text-base text-white/80 font-light max-w-xl text-center">
                 Somos el camino a tu reincorporación Financiera.
               </p>
 

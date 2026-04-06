@@ -55,7 +55,7 @@ const HeroSection = () => {
             </p>
 
             {/* Benefits Grid */}
-            <div className="grid sm:grid-cols-2 gap-4 text-left">
+            <div className="grid sm:grid-cols-2 gap-4 text-center lg:text-left items-center lg:items-start">
               {[
                 "Créditos por libranza",
                 "Sin codeudor",
@@ -64,7 +64,7 @@ const HeroSection = () => {
                 "Asistencias hogar",
                 "100% digital"
               ].map((item, index) => (
-                <div key={index} className="flex items-center gap-2 text-white/90">
+                <div key={index} className="flex items-center justify-center lg:justify-start gap-2 text-white/90">
                   <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
                   <span className="font-medium">{item}</span>
                 </div>

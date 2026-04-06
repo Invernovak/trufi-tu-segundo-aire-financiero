@@ -48,13 +48,13 @@ const FinancialAcademySection = () => {
                                 <p className="text-lg md:text-xl text-white/90 font-medium">
                                     Creemos que el aprendizaje continuo es tu mejor herramienta para el éxito y la estabilidad.
                                 </p>
-                                
+
                                 <ul className="space-y-4 text-left inline-block lg:block">
                                     <li className="flex items-center gap-3 text-white/80 md:text-lg">
                                         <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
                                             <Coins className="w-4 h-4 text-cyan-400" />
                                         </div>
-                                        <span>Finanzas, bienestar y desarrollo personal.</span>
+                                        <span>Tu mejor herramienta de crecimiento, bienestar y desarrollo personal.</span>
                                     </li>
                                     <li className="flex items-center gap-3 text-white/80 md:text-lg">
                                         <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">

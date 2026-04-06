@@ -20,7 +20,7 @@ import { supabase } from "@/lib/supabase";
 const benefits = [
   {
     icon: MessageCircle,
-    title: "Atención ágil",
+    title: "Asistente IA",
     description: "A través de nuestro chat de WhatsApp. Sin menús robóticos, te atiende una persona.",
   },
   {
@@ -41,7 +41,7 @@ const benefits = [
 ];
 
 const requirements = [
-  "Ser pensionado activo (Colpensiones, FOPEP, o fondo privado)",
+  "Ser pensionado activo",
   "Cédula de ciudadanía vigente",
   "Desprendible de pago de los últimos 3 meses",
   "Edad máxima: 84 años al finalizar el crédito",
@@ -97,13 +97,13 @@ const Pensionado = () => {
 
       setErrors({});
       toast.success("¡Gracias! Hemos recibido tus datos con éxito.");
-      setFormData({ 
-        nombre: "", 
-        telefono: "", 
-        email: "", 
-        mensaje: "", 
-        aceptaTerminos: false, 
-        aceptaTratamientoDatos: false 
+      setFormData({
+        nombre: "",
+        telefono: "",
+        email: "",
+        mensaje: "",
+        aceptaTerminos: false,
+        aceptaTratamientoDatos: false
       });
 
     } catch (error: any) {
@@ -163,9 +163,9 @@ const Pensionado = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center flex-1">
-              <div className="space-y-6 max-w-xl">
+              <div className="space-y-6 max-w-xl text-center lg:text-left flex flex-col items-center lg:items-start">
                 {/* Badge con color distintivo */}
-                <div className={`inline-flex items-center gap-2 px-4 py-1.5 bg-orange-500/10 backdrop-blur-md border border-orange-500/20 rounded-full`}>
+                <div className={`inline-flex items-center gap-2 px-4 py-1.5 bg-orange-500/10 backdrop-blur-md border border-orange-500/20 rounded-full w-fit`}>
                   <Sun className={`w-4 h-4 text-orange-400`} />
                   <span className={`text-orange-100 font-semibold text-sm tracking-wide`}>
                     Pensionados
@@ -177,7 +177,7 @@ const Pensionado = () => {
                     Tranquilidad y <br />
                     Respaldo para ti
                   </h1>
-                  <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-lg">
+                  <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-lg mx-auto lg:mx-0">
                     Dedicaste tu vida a trabajar, ahora déjanos trabajar por ti. Te ofrecemos un "Segundo Aire Financiero" con trato preferencial.
                   </p>
 
@@ -280,11 +280,25 @@ const Pensionado = () => {
         <div className="py-4">
           <ProductShowcase
             data={{
+              tranquilidad: {
+                title: "Tu Tranquilidad:",
+                highlight: "Unifica y Respira",
+                description: "Unifica todas tus deudas en una sola cuota cómoda con descuento directo de tu mesada.",
+                features: ["Unificación de deudas en una sola cuota", "Compra de cartera al 100%", "Reduce tu carga financiera mensual", "Descuento directo de mesada"],
+                image: "/lovable-uploads/tu-tranquilidad-pensionadas.png",
+                badge: "SANEAMIENTO",
+                badgeColor: "bg-orange-50 text-orange-600",
+                badgeDotColor: "bg-orange-600",
+                titleColor: "text-orange-600",
+                checkColor: "text-orange-500 fill-orange-50",
+                buttonColor: "bg-orange-600 hover:bg-orange-700",
+                buttonShadow: "shadow-orange-600/25 hover:shadow-orange-600/40",
+              },
               credito: {
                 title: "Crédito para",
                 highlight: "Pensionados",
                 description: "Ese viaje soñado, apoyar a tus nietos o simplemente tener un respaldo económico. En tu retiro, tú decides en qué invertir.",
-                features: ["Aprobación hasta los 84 años", "Sin codeudor", "Descuento directo de mesada", "Respuesta en tiempo récord"],
+                features: ["Aprobación hasta los 84 años", "Sin codeudor", "Libera flujo de caja", "Respuesta en tiempo récord"],
                 image: "/lovable-uploads/pensionadolibreinver2.jpg.png",
                 badge: "DISFRUTA TU RETIRO",
                 badgeColor: "bg-orange-50 text-orange-600",
@@ -298,7 +312,7 @@ const Pensionado = () => {
                 title: "Mejora tu",
                 highlight: "Hogar",
                 description: "Dale un nuevo aire a tu hogar. Remodela tu vivienda, tu estabilidad y trayectoria son tu mejor garantía.",
-                features: ["Remodelación de vivienda", "Compra de vivienda nueva o usada", "Asesoría personalizada", "Trámites simplificados"],
+                features: ["Remodelación de vivienda", "Asesoría personalizada", "Trámites simplificados"],
                 image: "/lovable-uploads/happy_client_house.png",
                 badge: "Tu patrimonio",
                 badgeColor: "bg-emerald-50 text-emerald-600",
@@ -322,20 +336,6 @@ const Pensionado = () => {
                 buttonColor: "bg-violet-600 hover:bg-violet-700",
                 buttonShadow: "shadow-violet-600/25 hover:shadow-violet-600/40",
               },
-              tranquilidad: {
-                title: "Tu Tranquilidad:",
-                highlight: "Unifica y Respira",
-                description: "Unifica todas tus deudas en una sola cuota cómoda con descuento directo de tu mesada.",
-                features: ["Unificación de deudas en una sola cuota", "Compra de cartera al 100%", "Reduce tu carga financiera mensual", "Descuento directo de mesada"],
-                image: "/lovable-uploads/tu-tranquilidad-pensionadas.png",
-                badge: "SANEAMIENTO",
-                badgeColor: "bg-orange-50 text-orange-600",
-                badgeDotColor: "bg-orange-600",
-                titleColor: "text-orange-600",
-                checkColor: "text-orange-500 fill-orange-50",
-                buttonColor: "bg-orange-600 hover:bg-orange-700",
-                buttonShadow: "shadow-orange-600/25 hover:shadow-orange-600/40",
-              },
             }}
           />
         </div>
@@ -350,11 +350,11 @@ const Pensionado = () => {
           <div className="container">
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-8">
-                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2 text-center">
                   ¿Necesitas ayuda personalizada?
                 </h2>
-                <p className="text-muted-foreground text-sm">
-                  Déjanos tus datos y un asesor humano te contactará a la brevedad.
+                <p className="text-muted-foreground text-sm text-center">
+                  Déjanos tus datos y un asesor especializado te contactará
                 </p>
               </div>
 
@@ -465,10 +465,10 @@ const Pensionado = () => {
                   </div>
                 </div>
 
-                <Button 
-                  type="submit" 
-                  variant="outline" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  variant="outline"
+                  size="lg"
                   className="w-full gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                   disabled={isSubmitting || !formData.aceptaTerminos || !formData.aceptaTratamientoDatos}
                 >
@@ -493,10 +493,10 @@ const Pensionado = () => {
         <section className="py-10 md:py-14 bg-gradient-to-br from-orange-500 to-orange-600 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-1/3 h-full bg-white/10 skew-x-12 translate-x-12"></div>
           <div className="container text-center relative z-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 text-center">
               ¿Listo para tu segundo aire financiero?
             </h2>
-            <p className="text-white/90 mb-8 max-w-xl mx-auto">
+            <p className="text-white/90 mb-8 max-w-xl mx-auto text-center">
               Nuestros asesores están disponibles para ayudarte en cada paso del proceso con paciencia y calidez.
             </p>
             <Button

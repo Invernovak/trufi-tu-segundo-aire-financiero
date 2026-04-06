@@ -27,7 +27,7 @@ const BlogPreview = () => {
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Aprende con Nuestro Blog
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-center">
             Artículos, guías y consejos de nuestros expertos en finanzas para ayudarte
             a tomar mejores decisiones económicas.
           </p>

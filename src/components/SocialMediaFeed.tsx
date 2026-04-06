@@ -70,7 +70,7 @@ const SocialMediaFeed = () => {
                             cada plataforma
                         </span>
                     </h2>
-                    <p className="text-muted-foreground text-lg">
+                    <p className="text-muted-foreground text-lg text-center">
                         Conocerás tips financieros, noticias y soporte directo para pensionados, docentes y fuerza pública.
                     </p>
                 </div>

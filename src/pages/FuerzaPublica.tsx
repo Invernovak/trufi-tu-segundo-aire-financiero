@@ -46,7 +46,6 @@ const requirements = [
   "Tener asignación de retiro activa",
   "Cédula de ciudadanía",
   "Desprendible de pago de los últimos 3 meses (Asignación de retiro)",
-  "Sin codeudor",
 ];
 
 const institutions = [
@@ -107,14 +106,14 @@ const FuerzaPublica = () => {
 
       setErrors({});
       toast.success("¡Gracias! Hemos recibido tus datos con éxito.");
-      setFormData({ 
-        nombre: "", 
-        telefono: "", 
-        email: "", 
-        institucion: "", 
-        mensaje: "", 
-        aceptaTerminos: false, 
-        aceptaTratamientoDatos: false 
+      setFormData({
+        nombre: "",
+        telefono: "",
+        email: "",
+        institucion: "",
+        mensaje: "",
+        aceptaTerminos: false,
+        aceptaTratamientoDatos: false
       });
 
     } catch (error: any) {
@@ -173,9 +172,9 @@ const FuerzaPublica = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center flex-1">
-              <div className="space-y-6 max-w-xl">
+              <div className="space-y-6 max-w-xl text-center lg:text-left flex flex-col items-center lg:items-start">
                 {/* Badge con color distintivo */}
-                <div className={`inline-flex items-center gap-2 px-4 py-1.5 bg-[#5D6532]/20 backdrop-blur-md border border-[#5D6532]/30 rounded-full`}>
+                <div className={`inline-flex items-center gap-2 px-4 py-1.5 bg-[#5D6532]/20 backdrop-blur-md border border-[#5D6532]/30 rounded-full w-fit`}>
                   <Shield className={`w-4 h-4 text-white`} />
                   <span className={`text-white font-semibold text-sm tracking-wide`}>
                     Pensionados Fuerza Pública
@@ -187,13 +186,13 @@ const FuerzaPublica = () => {
                     Honor y Tranquilidad <br />
                     en tu Retiro
                   </h1>
-                  <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-lg">
+                  <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-lg mx-auto lg:mx-0">
                     Serviste a la patria con honor, ahora es nuestro turno de servirte a ti. Créditos exclusivos para veteranos y pensionados de la Fuerza Pública.
                   </p>
                 </div>
 
                 {/* Highlight: Convenio Especial */}
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 flex items-center gap-4 hover:bg-white/10 transition-colors cursor-default">
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 flex items-center gap-4 hover:bg-white/10 transition-colors cursor-default text-left">
                   <div className="bg-[#5D6532] rounded-full p-2.5 text-white shadow-lg">
                     <Award className="w-5 h-5" />
                   </div>
@@ -274,8 +273,15 @@ const FuerzaPublica = () => {
               <div className="absolute top-4 left-4 text-5xl text-[#5D6532]/20 font-serif opacity-50">"</div>
               <div className="flex flex-col md:flex-row gap-6 items-center">
                 <div className="shrink-0">
-                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-[#5D6532]/20 shadow-inner">
-                    <img src="/assets/segment-fuerza-publica.jpg" alt="Jorge R" className="w-full h-full object-cover" />
+                  <div className="w-20 h-20 rounded-full border-2 border-slate-200/60 relative overflow-visible bg-slate-50 shadow-sm
+                                  after:content-[''] after:absolute after:inset-[-2px] after:rounded-full after:border-2 
+                                  after:border-slate-200/60 after:z-20 after:[clip-path:polygon(0_50%,100%_50%,100%_100%,0_100%)] 
+                                  after:pointer-events-none">
+                    <img
+                      src="/lovable-uploads/testimonio-fuerzap.png"
+                      alt="Jorge R"
+                      className="absolute -top-5 left-1/2 -translate-x-1/2 w-[135%] h-auto max-w-none object-contain origin-bottom z-10"
+                    />
                   </div>
                 </div>
                 <div className="text-center md:text-left">
@@ -320,11 +326,25 @@ const FuerzaPublica = () => {
           <ProductShowcase
             accentColor="#5D6532"
             data={{
+              tranquilidad: {
+                title: "Tu Tranquilidad:",
+                highlight: "Unifica y Respira",
+                description: "Unifica todas tus deudas en una sola cuota cómoda con descuento directo de tu asignación.",
+                features: ["Unificación de deudas en una sola cuota", "Compra de cartera al 100%", "Reduce tu carga financiera mensual", "Descuento directo de asignación"],
+                image: "/lovable-uploads/Tu-tranquilidad-fuerzap.png",
+                badge: "SANEAMIENTO",
+                badgeColor: "bg-[#5D6532]/10 text-[#5D6532]",
+                badgeDotColor: "bg-[#5D6532]",
+                titleColor: "text-[#5D6532]",
+                checkColor: "text-[#5D6532] fill-[#5D6532]/10",
+                buttonColor: "bg-[#5D6532] hover:bg-[#5D6532]/90",
+                buttonShadow: "shadow-[#5D6532]/25 hover:shadow-[#5D6532]/40",
+              },
               credito: {
                 title: "Crédito para",
                 highlight: "Héroes",
                 description: "Tu legado merece seguir creciendo. Ya sea un negocio familiar, un proyecto propio o tus metas personales",
-                features: ["Sin codeudor", "Descuento directo de mesada", "Respuesta en tiempo récord", "Tasa preferencial por libranza"],
+                features: ["Sin codeudor", "Descuento directo de mesada", "Respuesta en tiempo récord"],
                 image: "/lovable-uploads/policia-libre-inversion.png",
                 imageClassName: "object-right-bottom",
                 badge: "Honor y Servicio",
@@ -336,8 +356,8 @@ const FuerzaPublica = () => {
                 buttonShadow: "shadow-[#5D6532]/25 hover:shadow-[#5D6532]/40",
               },
               vivienda: {
-                title: "Vivienda digna para",
-                highlight: "Ti y tu Familia",
+                title: "Mejora tu",
+                highlight: "Hogar",
                 description: "Dale un nuevo aire a tu hogar. Remodela tu vivienda, tu estabilidad y trayectoria son tu mejor garantía.",
                 features: ["Remodelación y adecuación", "Cocinas, baños y zonas sociales", "Instalaciones eléctricas y sanitarias", "Pintura, pisos y fachadas"],
                 image: "/lovable-uploads/vivienda-fuerzp.png",
@@ -364,20 +384,6 @@ const FuerzaPublica = () => {
                 buttonColor: "bg-[#5D6532] hover:bg-[#5D6532]/90",
                 buttonShadow: "shadow-[#5D6532]/25 hover:shadow-[#5D6532]/40",
               },
-              tranquilidad: {
-                title: "Tu Tranquilidad:",
-                highlight: "Unifica y Respira",
-                description: "Unifica todas tus deudas en una sola cuota cómoda con descuento directo de tu asignación.",
-                features: ["Unificación de deudas en una sola cuota", "Compra de cartera al 100%", "Reduce tu carga financiera mensual", "Descuento directo de asignación"],
-                image: "/lovable-uploads/Tu-tranquilidad-fuerzap.png",
-                badge: "SANEAMIENTO",
-                badgeColor: "bg-[#5D6532]/10 text-[#5D6532]",
-                badgeDotColor: "bg-[#5D6532]",
-                titleColor: "text-[#5D6532]",
-                checkColor: "text-[#5D6532] fill-[#5D6532]/10",
-                buttonColor: "bg-[#5D6532] hover:bg-[#5D6532]/90",
-                buttonShadow: "shadow-[#5D6532]/25 hover:shadow-[#5D6532]/40",
-              },
             }}
           />
         </div>
@@ -392,10 +398,10 @@ const FuerzaPublica = () => {
           <div className="container">
             <div className="max-w-xl mx-auto">
               <div className="text-center mb-6">
-                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2 text-center">
                   ¿Necesitas ayuda personalizada?
                 </h2>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-muted-foreground text-sm text-center">
                   Déjanos tus datos y un asesor especializado te contactará
                 </p>
               </div>
@@ -523,10 +529,10 @@ const FuerzaPublica = () => {
                   </div>
                 </div>
 
-                <Button 
-                  type="submit" 
-                  variant="outline" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  variant="outline"
+                  size="lg"
                   className="w-full gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                   disabled={isSubmitting || !formData.aceptaTerminos || !formData.aceptaTratamientoDatos}
                 >
@@ -551,10 +557,10 @@ const FuerzaPublica = () => {
         <section className="py-10 md:py-14 bg-[#5D6532] relative overflow-hidden">
           <div className="absolute top-0 right-0 w-1/3 h-full bg-white/10 skew-x-12 translate-x-12"></div>
           <div className="container text-center relative z-10">
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-3">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-3 text-center">
               Tu servicio a Colombia tiene recompensa
             </h2>
-            <p className="text-white/90 mb-6 max-w-lg mx-auto text-sm">
+            <p className="text-white/90 mb-6 max-w-lg mx-auto text-sm text-center">
               Miles de miembros de la Fuerza Pública ya confían en TRUFI.
             </p>
             <Button

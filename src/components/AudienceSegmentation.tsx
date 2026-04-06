@@ -88,10 +88,10 @@ const AudienceSegmentation = () => {
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/5 text-primary font-bold text-sm tracking-wide uppercase">
             Elige tu perfil
           </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground tracking-tight text-center">
             ¿A qué grupo perteneces?
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
+          <p className="text-muted-foreground text-lg leading-relaxed text-center">
             Hemos diseñado beneficios exclusivos pensando en las necesidades específicas de tu sector.
           </p>
         </div>

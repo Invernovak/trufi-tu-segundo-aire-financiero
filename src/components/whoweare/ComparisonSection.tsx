@@ -8,7 +8,7 @@ const ComparisonSection = () => {
           <h2 className="text-3xl md:text-5xl font-black text-primary mb-6 tracking-tight">
             ¿Por qué elegir <span className="text-secondary">TRUFI</span>?
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground text-center">
             No somos un banco, somos la alternativa humana para quienes el sistema olvidó.
           </p>
         </div>
