@@ -5,7 +5,7 @@ import BeneficiosTrufi from "@/components/BeneficiosTrufi";
 import FinancialAcademySection from "@/components/FinancialAcademySection";
 import SocialMediaFeed from "@/components/SocialMediaFeed";
 import TrufiAdelantaYGana from "@/components/TrufiAdelantaYGana";
-
+import { SEOHead } from "@/components/SEOHead";
 
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
@@ -14,7 +14,12 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Trufi - Tu Segundo Aire Financiero" 
+        description="Reincorporamos personas al sistema financiero con créditos de libranza seguros y transparentes para pensionados, docentes y fuerza pública." 
+      />
       <Header />
+
       <main>
         {/* 1. Hero Section - Impactante con imagen de fondo */}
         <HeroSection />

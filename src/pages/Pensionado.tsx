@@ -11,11 +11,12 @@ import { Link } from "react-router-dom";
 import { TermsDialog, PrivacyDialog } from "@/components/LegalDialogs";
 import { useState } from "react";
 import { toast } from "sonner";
-import { contactFormPensionadoSchema, type ContactFormPensionado } from "@/lib/validations";
+import { contactFormPensionadoSchema } from "@/lib/validations";
 import segmentImage from "@/assets/PensionadosPagina.jpg";
 import ProductShowcase from "@/components/ProductShowcase";
 import Pagadurias from "@/components/Pagadurias";
-import { supabase } from "@/lib/supabase";
+import { useLeadsForm } from "@/hooks/useLeadsForm";
+import { SEOHead } from "@/components/SEOHead";
 
 const benefits = [
   {
@@ -48,73 +49,24 @@ const requirements = [
 ];
 
 const Pensionado = () => {
-  const [formData, setFormData] = useState<ContactFormPensionado>({
-    nombre: "",
-    telefono: "",
-    email: "",
-    mensaje: "",
-    aceptaTerminos: false,
-    aceptaTratamientoDatos: false,
+  const {
+    formData,
+    handleInputChange,
+    handleSubmit,
+    isSubmitting,
+    errors,
+  } = useLeadsForm({
+    schema: contactFormPensionadoSchema,
+    initialValues: {
+      nombre: "",
+      telefono: "",
+      email: "",
+      mensaje: "",
+      aceptaTerminos: false,
+      aceptaTratamientoDatos: false,
+    },
+    segmento: "Pensionados",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errors, setErrors] = useState<Partial<Record<keyof ContactFormPensionado, string>>>({});
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const result = contactFormPensionadoSchema.safeParse(formData);
-
-    if (!result.success) {
-      const fieldErrors: Partial<Record<keyof ContactFormPensionado, string>> = {};
-      result.error.errors.forEach((error) => {
-        const field = error.path[0] as keyof ContactFormPensionado;
-        fieldErrors[field] = error.message;
-      });
-      setErrors(fieldErrors);
-      toast.error("Por favor corrige los errores en el formulario");
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      const { error } = await supabase
-        .from('leads_comerciales')
-        .insert([
-          {
-            nombre_completo: formData.nombre,
-            email: formData.email,
-            telefono: formData.telefono,
-            mensaje: formData.mensaje,
-            acepta_terminos: formData.aceptaTerminos,
-            acepta_tratamiento_datos: formData.aceptaTratamientoDatos,
-            monto_solicitado: 0,
-            origen: 'Pensionados'
-          }
-        ]);
-
-      if (error) throw error;
-
-      setErrors({});
-      toast.success("¡Gracias! Hemos recibido tus datos con éxito.");
-      setFormData({
-        nombre: "",
-        telefono: "",
-        email: "",
-        mensaje: "",
-        aceptaTerminos: false,
-        aceptaTratamientoDatos: false
-      });
-
-    } catch (error: any) {
-      console.error('Error en el envío:', error);
-      toast.error("Hubo un error al procesar tu solicitud", {
-        description: error.message || "Por favor intenta nuevamente más tarde.",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   // Color de acento para Pensionados: Naranja cálido
   const accentColor = "hsl(25, 90%, 55%)";
@@ -124,6 +76,10 @@ const Pensionado = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Créditos para Pensionados" 
+        description="Dedicaste tu vida a trabajar, ahora déjanos trabajar por ti. Te ofrecemos un Segundo Aire Financiero con trato preferencial y créditos de libranza ágiles." 
+      />
       <Header />
       <main className="pt-0"> {/* Removed pt-20 to allow hero to touch top */}
 
@@ -365,10 +321,7 @@ const Pensionado = () => {
                     <Input
                       placeholder="Tu nombre"
                       value={formData.nombre}
-                      onChange={(e) => {
-                        setFormData({ ...formData, nombre: e.target.value });
-                        if (errors.nombre) setErrors({ ...errors, nombre: undefined });
-                      }}
+                      onChange={(e) => handleInputChange("nombre", e.target.value)}
                       className={errors.nombre ? "border-destructive" : ""}
                       maxLength={100}
                     />
@@ -380,10 +333,7 @@ const Pensionado = () => {
                       placeholder="Tu teléfono"
                       type="tel"
                       value={formData.telefono}
-                      onChange={(e) => {
-                        setFormData({ ...formData, telefono: e.target.value });
-                        if (errors.telefono) setErrors({ ...errors, telefono: undefined });
-                      }}
+                      onChange={(e) => handleInputChange("telefono", e.target.value)}
                       className={errors.telefono ? "border-destructive" : ""}
                       maxLength={20}
                     />
@@ -396,10 +346,7 @@ const Pensionado = () => {
                     placeholder="tu@email.com"
                     type="email"
                     value={formData.email}
-                    onChange={(e) => {
-                      setFormData({ ...formData, email: e.target.value });
-                      if (errors.email) setErrors({ ...errors, email: undefined });
-                    }}
+                    onChange={(e) => handleInputChange("email", e.target.value)}
                     className={errors.email ? "border-destructive" : ""}
                     maxLength={255}
                   />
@@ -410,10 +357,7 @@ const Pensionado = () => {
                   <Textarea
                     placeholder="Cuéntanos cómo podemos ayudarte..."
                     value={formData.mensaje}
-                    onChange={(e) => {
-                      setFormData({ ...formData, mensaje: e.target.value });
-                      if (errors.mensaje) setErrors({ ...errors, mensaje: undefined });
-                    }}
+                    onChange={(e) => handleInputChange("mensaje", e.target.value)}
                     className={errors.mensaje ? "border-destructive" : ""}
                     rows={3}
                     maxLength={1000}
@@ -426,10 +370,7 @@ const Pensionado = () => {
                     <Checkbox
                       id="terminos"
                       checked={formData.aceptaTerminos}
-                      onCheckedChange={(checked) => {
-                        setFormData({ ...formData, aceptaTerminos: checked === true });
-                        if (errors.aceptaTerminos) setErrors({ ...errors, aceptaTerminos: undefined });
-                      }}
+                      onCheckedChange={(checked) => handleInputChange("aceptaTerminos", checked === true)}
                       className="mt-1"
                     />
                     <div className="grid gap-1.5 leading-none">
@@ -447,10 +388,7 @@ const Pensionado = () => {
                     <Checkbox
                       id="tratamiento"
                       checked={formData.aceptaTratamientoDatos}
-                      onCheckedChange={(checked) => {
-                        setFormData({ ...formData, aceptaTratamientoDatos: checked === true });
-                        if (errors.aceptaTratamientoDatos) setErrors({ ...errors, aceptaTratamientoDatos: undefined });
-                      }}
+                      onCheckedChange={(checked) => handleInputChange("aceptaTratamientoDatos", checked === true)}
                       className="mt-1"
                     />
                     <div className="grid gap-1.5 leading-none">
