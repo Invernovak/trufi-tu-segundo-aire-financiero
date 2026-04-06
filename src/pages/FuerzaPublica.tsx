@@ -172,9 +172,9 @@ const FuerzaPublica = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center flex-1">
-              <div className="space-y-6 max-w-xl">
+              <div className="space-y-6 max-w-xl text-center lg:text-left flex flex-col items-center lg:items-start">
                 {/* Badge con color distintivo */}
-                <div className={`inline-flex items-center gap-2 px-4 py-1.5 bg-[#5D6532]/20 backdrop-blur-md border border-[#5D6532]/30 rounded-full`}>
+                <div className={`inline-flex items-center gap-2 px-4 py-1.5 bg-[#5D6532]/20 backdrop-blur-md border border-[#5D6532]/30 rounded-full w-fit`}>
                   <Shield className={`w-4 h-4 text-white`} />
                   <span className={`text-white font-semibold text-sm tracking-wide`}>
                     Pensionados Fuerza Pública
@@ -186,13 +186,13 @@ const FuerzaPublica = () => {
                     Honor y Tranquilidad <br />
                     en tu Retiro
                   </h1>
-                  <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-lg">
+                  <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-lg mx-auto lg:mx-0">
                     Serviste a la patria con honor, ahora es nuestro turno de servirte a ti. Créditos exclusivos para veteranos y pensionados de la Fuerza Pública.
                   </p>
                 </div>
 
                 {/* Highlight: Convenio Especial */}
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 flex items-center gap-4 hover:bg-white/10 transition-colors cursor-default">
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 flex items-center gap-4 hover:bg-white/10 transition-colors cursor-default text-left">
                   <div className="bg-[#5D6532] rounded-full p-2.5 text-white shadow-lg">
                     <Award className="w-5 h-5" />
                   </div>
@@ -398,10 +398,10 @@ const FuerzaPublica = () => {
           <div className="container">
             <div className="max-w-xl mx-auto">
               <div className="text-center mb-6">
-                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2 text-center">
                   ¿Necesitas ayuda personalizada?
                 </h2>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-muted-foreground text-sm text-center">
                   Déjanos tus datos y un asesor especializado te contactará
                 </p>
               </div>
@@ -557,10 +557,10 @@ const FuerzaPublica = () => {
         <section className="py-10 md:py-14 bg-[#5D6532] relative overflow-hidden">
           <div className="absolute top-0 right-0 w-1/3 h-full bg-white/10 skew-x-12 translate-x-12"></div>
           <div className="container text-center relative z-10">
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-3">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-3 text-center">
               Tu servicio a Colombia tiene recompensa
             </h2>
-            <p className="text-white/90 mb-6 max-w-lg mx-auto text-sm">
+            <p className="text-white/90 mb-6 max-w-lg mx-auto text-sm text-center">
               Miles de miembros de la Fuerza Pública ya confían en TRUFI.
             </p>
             <Button

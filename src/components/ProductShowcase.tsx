@@ -113,7 +113,7 @@ const ProductShowcase = ({ defaultTab = "tranquilidad", data = defaultData, acce
                     <Badge variant="secondary" className="px-4 py-1.5 text-primary text-sm font-semibold tracking-wide uppercase bg-primary/10">
                         Tu Crédito de Libranza
                     </Badge>
-                    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
+                    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 text-center">
                         Un crédito, múltiples destinos
                     </h2>
                     <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto text-center">

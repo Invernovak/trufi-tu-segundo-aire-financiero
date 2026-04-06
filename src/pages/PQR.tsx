@@ -606,9 +606,9 @@ const PQR = () => {
                                     <div className="text-4xl font-black text-emerald-600 font-mono tracking-tight bg-white px-8 py-4 rounded-2xl border border-emerald-100 shadow-sm">
                                         {radicadoNumber}
                                     </div>
-                                    <div className="mt-6 flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-700 rounded-full text-sm font-bold border border-emerald-100">
-                                        <Mail className="w-4 h-4" />
-                                        Copia enviada a {formData.email}
+                                    <div className="mt-6 flex items-center gap-2 px-6 py-3 bg-emerald-50 text-emerald-700 rounded-2xl text-sm font-bold border border-emerald-100 max-w-md">
+                                        <Info className="w-5 h-5 shrink-0" />
+                                        <span>Recuerda guardar este número de radicado para el seguimiento de tu solicitud</span>
                                     </div>
                                 </div>
 

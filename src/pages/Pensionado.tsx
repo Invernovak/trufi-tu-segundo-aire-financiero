@@ -163,9 +163,9 @@ const Pensionado = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center flex-1">
-              <div className="space-y-6 max-w-xl">
+              <div className="space-y-6 max-w-xl text-center lg:text-left flex flex-col items-center lg:items-start">
                 {/* Badge con color distintivo */}
-                <div className={`inline-flex items-center gap-2 px-4 py-1.5 bg-orange-500/10 backdrop-blur-md border border-orange-500/20 rounded-full`}>
+                <div className={`inline-flex items-center gap-2 px-4 py-1.5 bg-orange-500/10 backdrop-blur-md border border-orange-500/20 rounded-full w-fit`}>
                   <Sun className={`w-4 h-4 text-orange-400`} />
                   <span className={`text-orange-100 font-semibold text-sm tracking-wide`}>
                     Pensionados
@@ -177,7 +177,7 @@ const Pensionado = () => {
                     Tranquilidad y <br />
                     Respaldo para ti
                   </h1>
-                  <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-lg">
+                  <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-lg mx-auto lg:mx-0">
                     Dedicaste tu vida a trabajar, ahora déjanos trabajar por ti. Te ofrecemos un "Segundo Aire Financiero" con trato preferencial.
                   </p>
 
@@ -350,11 +350,11 @@ const Pensionado = () => {
           <div className="container">
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-8">
-                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2 text-center">
                   ¿Necesitas ayuda personalizada?
                 </h2>
-                <p className="text-muted-foreground text-sm">
-                  Déjanos tus datos y un asesor humano te contactará a la brevedad.
+                <p className="text-muted-foreground text-sm text-center">
+                  Déjanos tus datos y un asesor especializado te contactará
                 </p>
               </div>
 
@@ -493,10 +493,10 @@ const Pensionado = () => {
         <section className="py-10 md:py-14 bg-gradient-to-br from-orange-500 to-orange-600 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-1/3 h-full bg-white/10 skew-x-12 translate-x-12"></div>
           <div className="container text-center relative z-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 text-center">
               ¿Listo para tu segundo aire financiero?
             </h2>
-            <p className="text-white/90 mb-8 max-w-xl mx-auto">
+            <p className="text-white/90 mb-8 max-w-xl mx-auto text-center">
               Nuestros asesores están disponibles para ayudarte en cada paso del proceso con paciencia y calidez.
             </p>
             <Button

@@ -164,9 +164,9 @@ const Docente = () => {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center flex-1">
-              <div className="space-y-6 max-w-xl">
+              <div className="space-y-6 max-w-xl text-center lg:text-left flex flex-col items-center lg:items-start">
                 {/* Badge con color distintivo */}
-                <div className={`inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/10 backdrop-blur-md border border-blue-500/20 rounded-full`}>
+                <div className={`inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/10 backdrop-blur-md border border-blue-500/20 rounded-full w-fit`}>
                   <GraduationCap className={`w-4 h-4 text-blue-300`} />
                   <span className={`text-blue-100 font-semibold text-sm tracking-wide`}>
                     Sector Educativo
@@ -178,13 +178,13 @@ const Docente = () => {
                     Progreso y <br />
                     Bienestar para ti
                   </h1>
-                  <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-lg">
+                  <p className="text-base md:text-lg text-white/80 leading-relaxed max-w-lg mx-auto lg:mx-0">
                     Transformas vidas en el aula, nosotros transformamos tus finanzas. Accede a crédito ágil sin descuidar ni un minuto de tu clase.
                   </p>
                 </div>
 
                 {/* Highlight: Proceso Digital */}
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 flex items-center gap-4 hover:bg-white/10 transition-colors cursor-default">
+                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 flex items-center gap-4 hover:bg-white/10 transition-colors cursor-default text-left">
                   <div className="bg-blue-600 rounded-full p-2.5 text-white shadow-lg">
                     <Laptop className="w-5 h-5" />
                   </div>
@@ -361,10 +361,10 @@ const Docente = () => {
           <div className="container">
             <div className="max-w-xl mx-auto">
               <div className="text-center mb-6">
-                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2 text-center">
                   ¿Necesitas ayuda personalizada?
                 </h2>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-muted-foreground text-sm text-center">
                   Déjanos tus datos y un asesor especializado te contactará
                 </p>
               </div>
@@ -520,10 +520,10 @@ const Docente = () => {
         <section className="py-10 md:py-14 bg-gradient-to-br from-blue-600 to-blue-700 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-1/3 h-full bg-white/10 -skew-x-12 -translate-x-12"></div>
           <div className="container text-center relative z-10">
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-3">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-3 text-center">
               Tu dedicación merece reconocimiento
             </h2>
-            <p className="text-white/90 mb-6 max-w-lg mx-auto text-sm">
+            <p className="text-white/90 mb-6 max-w-lg mx-auto text-sm text-center">
               Únete a miles de colegas que ya encontraron su solución financiera con TRUFI.
             </p>
             <Button
