@@ -1,0 +1,18 @@
+# AGENT EXECUTION ROUTING RULES
+
+You must automatically evaluate the user's prompt and select the most appropriate execution mode (Plan Mode vs. Fast Mode) based on the following criteria:
+
+## 1. Trigger PLAN MODE for Complex/Structural Tasks:
+- **Criteria:** Any request involving architectural changes, multi-file edits, backend integrations (e.g., Supabase, database schemas), state management, or new logical flows.
+- **Action:** Stop and generate a step-by-step implementation plan. Wait for user validation and approval before modifying any files. Never edit files directly for these tasks.
+- **Example Tasks:** "Conecta este formulario con Supabase", "Estructura el flujo de la landing", "Configura la autenticación".
+
+## 2. Trigger FAST MODE for Localized/Visual Tasks:
+- **Criteria:** Minor visual tweaks, CSS styling, text edits, simple mobile responsiveness adjustments, or isolated UI fixes that do not impact application state or core logic.
+- **Action:** Execute the change immediately and save the file directly.
+- **Example Tasks:** "Centra este título en pantallas móviles", "Cambia los bordes a neón con glassmorphism", "Cambia el color de este botón".
+
+## 3. UI Preservation Guardrails:
+- Always preserve the existing visual hierarchy and navigation structures.
+- Ensure all call-to-action (CTA) buttons remain fully visible and above the fold or in their correct layout positions.
+- When applying mobile responsiveness, guarantee headers and text are centered and never clipped/cut off on smaller viewports.

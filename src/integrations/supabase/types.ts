@@ -21,6 +21,7 @@ export type Database = {
           nombre: string
           email: string
           telefono: string
+          cedula: string | null
           mensaje: string | null
           segmento: string | null
           acepta_terminos: boolean
@@ -31,6 +32,7 @@ export type Database = {
           nombre: string
           email: string
           telefono: string
+          cedula?: string | null
           mensaje?: string | null
           segmento?: string | null
           acepta_terminos?: boolean
@@ -41,6 +43,7 @@ export type Database = {
           nombre?: string
           email?: string
           telefono?: string
+          cedula?: string | null
           mensaje?: string | null
           segmento?: string | null
           acepta_terminos?: boolean
@@ -54,6 +57,7 @@ export type Database = {
           nombre: string
           email: string
           telefono: string
+          cedula: string | null
           tipo: string
           mensaje: string
           estado: string
@@ -64,6 +68,7 @@ export type Database = {
           nombre: string
           email: string
           telefono: string
+          cedula?: string | null
           tipo: string
           mensaje: string
           estado?: string
@@ -74,6 +79,7 @@ export type Database = {
           nombre?: string
           email?: string
           telefono?: string
+          cedula?: string | null
           tipo?: string
           mensaje?: string
           estado?: string

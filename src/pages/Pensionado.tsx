@@ -17,6 +17,7 @@ import ProductShowcase from "@/components/ProductShowcase";
 import Pagadurias from "@/components/Pagadurias";
 import { useLeadsForm } from "@/hooks/useLeadsForm";
 import { SEOHead } from "@/components/SEOHead";
+import TestimonioCard from "@/components/TestimonioCard";
 
 const benefits = [
   {
@@ -61,6 +62,7 @@ const Pensionado = () => {
       nombre: "",
       telefono: "",
       email: "",
+      cedula: "",
       mensaje: "",
       aceptaTerminos: false,
       aceptaTratamientoDatos: false,
@@ -185,27 +187,14 @@ const Pensionado = () => {
         {/* Social Proof - Específico Pensionado */}
         <section className="py-10 md:py-14 bg-orange-50/50 relative overflow-hidden">
           {/* Decorative Elements */}
-          <div className="absolute top-0 left-0 w-64 h-64 bg-orange-200/20 rounded-fullblur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="container">
-            <div className="max-w-4xl mx-auto bg-card border border-orange-100 shadow-xl rounded-3xl p-8 md:p-12 relative">
-              <div className="absolute top-6 left-6 text-6xl text-orange-200 font-serif opacity-50">"</div>
-              <div className="flex flex-col md:flex-row gap-8 items-center">
-                <div className="shrink-0">
-                  <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-orange-100 shadow-inner">
-                    <img src="/assets/segment-pensionado.jpg" alt="Doña Cecilia" className="w-full h-full object-cover" />
-                  </div>
-                </div>
-                <div className="text-center md:text-left">
-                  <p className="text-lg md:text-xl text-foreground font-medium italic mb-4">
-                    Pensé que por estar reportada ya nadie me prestaría atención. En TRUFI no solo me escucharon, me trataron con un respeto y cariño que no encontré en ningún banco. Pude reformar mi casa y ver felices a mis nietos.
-                  </p>
-                  <div>
-                    <h4 className="font-bold text-orange-800">Cecilia R.</h4>
-                    <p className="text-sm text-muted-foreground">Pensionada Colpensiones - 72 años</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="absolute top-0 left-0 w-64 h-64 bg-orange-200/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="container px-4">
+            <TestimonioCard 
+              quoteText="Pensé que por estar reportada ya nadie me prestaría atención. En TRUFI no solo me escucharon, me trataron con un respeto y cariño que no encontré en ningún banco. Pude reformar mi casa y ver felices a mis nietos."
+              clientName="Cecilia R."
+              clientRole="Pensionada Colpensiones - 72 años"
+              imagePath="/assets/segment-pensionado.jpg"
+            />
           </div>
         </section>
 
@@ -328,6 +317,21 @@ const Pensionado = () => {
                     {errors.nombre && <p className="text-xs text-destructive">{errors.nombre}</p>}
                   </div>
                   <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground">Correo electrónico</label>
+                    <Input
+                      placeholder="tu@email.com"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => handleInputChange("email", e.target.value)}
+                      className={errors.email ? "border-destructive" : ""}
+                      maxLength={255}
+                    />
+                    {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div className="space-y-2">
                     <label className="text-sm font-medium text-foreground">Teléfono</label>
                     <Input
                       placeholder="Tu teléfono"
@@ -339,18 +343,18 @@ const Pensionado = () => {
                     />
                     {errors.telefono && <p className="text-xs text-destructive">{errors.telefono}</p>}
                   </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">Correo electrónico</label>
-                  <Input
-                    placeholder="tu@email.com"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => handleInputChange("email", e.target.value)}
-                    className={errors.email ? "border-destructive" : ""}
-                    maxLength={255}
-                  />
-                  {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground">Número de cédula</label>
+                    <Input
+                      placeholder="Número de cédula"
+                      type="text"
+                      value={formData.cedula}
+                      onChange={(e) => handleInputChange("cedula", e.target.value)}
+                      className={errors.cedula ? "border-destructive" : ""}
+                      maxLength={20}
+                    />
+                    {errors.cedula && <p className="text-xs text-destructive">{errors.cedula}</p>}
+                  </div>
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-foreground">Mensaje (opcional)</label>

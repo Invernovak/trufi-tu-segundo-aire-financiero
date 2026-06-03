@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { SEOHead } from "@/components/SEOHead";
 import BeneficiosTrufi from "@/components/BeneficiosTrufi";
 import TrufiAdelantaYGana from "@/components/TrufiAdelantaYGana";
 import CTASection from "@/components/CTASection";
@@ -8,6 +9,10 @@ import CTASection from "@/components/CTASection";
 const BeneficiosExclusivos = () => {
     return (
         <div className="min-h-screen bg-background">
+            <SEOHead 
+                title="Beneficios Exclusivos | Club de Privilegios Trufi" 
+                description="Descubre los beneficios exclusivos de ser cliente TRUFI. Accede a un ecosistema de bienestar, protección y recompensas diseñado para mejorar tu calidad de vida." 
+            />
             <Header />
             <main>
                 {/* Custom Hero Section for Benefits */}

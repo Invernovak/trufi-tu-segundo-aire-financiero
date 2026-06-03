@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { SEOHead } from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Copy, Check, MessageCircle, Phone, HelpCircle, CreditCard, ChevronDown } from "lucide-react";
 import { useState } from "react";
@@ -43,6 +44,10 @@ const ZonaPagos = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 relative overflow-hidden font-sans">
+      <SEOHead 
+        title="Zona de Pagos | Gestiona tus Cuotas Fácilmente" 
+        description="Paga tus cuotas de forma rápida y segura. Conoce nuestros canales de recaudo, activa el débito automático y mantén tu tranquilidad financiera al día." 
+      />
       <Header />
 
       {/* Peaceful Background */}

@@ -17,6 +17,7 @@ import ProductShowcase from "@/components/ProductShowcase";
 import Pagadurias from "@/components/Pagadurias";
 import { useLeadsForm } from "@/hooks/useLeadsForm";
 import { SEOHead } from "@/components/SEOHead";
+import TestimonioCard from "@/components/TestimonioCard";
 
 const benefits = [
   {
@@ -61,6 +62,7 @@ const Docente = () => {
       nombre: "",
       telefono: "",
       email: "",
+      cedula: "",
       institucion: "",
       mensaje: "",
       aceptaTerminos: false,
@@ -195,27 +197,14 @@ const Docente = () => {
         {/* Social Proof - Específico Docente */}
         <section className="py-10 md:py-14 bg-blue-50/50 relative overflow-hidden">
           {/* Decorative Elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-200/20 rounded-fullblur-3xl translate-x-1/2 -translate-y-1/2"></div>
-          <div className="container">
-            <div className="max-w-4xl mx-auto bg-card border border-blue-100 shadow-xl rounded-3xl p-6 md:p-10 relative">
-              <div className="absolute top-4 left-4 text-5xl text-blue-200 font-serif opacity-50">"</div>
-              <div className="flex flex-col md:flex-row gap-6 items-center">
-                <div className="shrink-0">
-                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-blue-100 shadow-inner">
-                    <img src="/assets/segment-docente.jpg" alt="Profesor Carlos" className="w-full h-full object-cover" />
-                  </div>
-                </div>
-                <div className="text-center md:text-left">
-                  <p className="text-base md:text-lg text-foreground font-medium italic mb-3">
-                    Mi meta era hacer la maestría, pero estaba reportado por ser fiador. TRUFI confió en mi estabilidad laboral y me aprobó el crédito en menos de 24 horas. Hoy soy Magíster gracias a esa segunda oportunidad.
-                  </p>
-                  <div>
-                    <h4 className="font-bold text-blue-800">Carlos M.</h4>
-                    <p className="text-xs text-muted-foreground">Docente Distrito Capital - 12 años de servicio</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-200/20 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+          <div className="container px-4">
+            <TestimonioCard 
+              quoteText="Mi meta era hacer la maestría, pero estaba reportado por ser fiador. TRUFI confió en mi estabilidad laboral y me aprobó el crédito en menos de 24 horas. Hoy soy Magíster gracias a esa segunda oportunidad."
+              clientName="Carlos M."
+              clientRole="Docente Distrito Capital - 12 años de servicio"
+              imagePath="/assets/segment-docente.jpg"
+            />
           </div>
         </section>
 
@@ -338,20 +327,6 @@ const Docente = () => {
                     {errors.nombre && <p className="text-xs text-destructive">{errors.nombre}</p>}
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-xs font-medium text-foreground">Teléfono</label>
-                    <Input
-                      placeholder="Tu teléfono"
-                      type="tel"
-                      value={formData.telefono}
-                      onChange={(e) => handleInputChange("telefono", e.target.value)}
-                      className={`h-9 ${errors.telefono ? "border-destructive" : ""}`}
-                      maxLength={20}
-                    />
-                    {errors.telefono && <p className="text-xs text-destructive">{errors.telefono}</p>}
-                  </div>
-                </div>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
                     <label className="text-xs font-medium text-foreground">Correo electrónico</label>
                     <Input
                       placeholder="tu@email.com"
@@ -363,17 +338,45 @@ const Docente = () => {
                     />
                     {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
                   </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-xs font-medium text-foreground">Institución educativa</label>
+                    <label className="text-xs font-medium text-foreground">Teléfono</label>
                     <Input
-                      placeholder="Nombre de tu institución"
-                      value={formData.institucion}
-                      onChange={(e) => handleInputChange("institucion", e.target.value)}
-                      className={`h-9 ${errors.institucion ? "border-destructive" : ""}`}
-                      maxLength={200}
+                      placeholder="Tu teléfono"
+                      type="tel"
+                      value={formData.telefono}
+                      onChange={(e) => handleInputChange("telefono", e.target.value)}
+                      className={`h-9 ${errors.telefono ? "border-destructive" : ""}`}
+                      maxLength={20}
                     />
-                    {errors.institucion && <p className="text-xs text-destructive">{errors.institucion}</p>}
+                    {errors.telefono && <p className="text-xs text-destructive">{errors.telefono}</p>}
                   </div>
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-medium text-foreground">Número de cédula</label>
+                    <Input
+                      placeholder="Número de cédula"
+                      type="text"
+                      value={formData.cedula}
+                      onChange={(e) => handleInputChange("cedula", e.target.value)}
+                      className={`h-9 ${errors.cedula ? "border-destructive" : ""}`}
+                      maxLength={20}
+                    />
+                    {errors.cedula && <p className="text-xs text-destructive">{errors.cedula}</p>}
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-xs font-medium text-foreground">Institución educativa</label>
+                  <Input
+                    placeholder="Nombre de tu institución"
+                    value={formData.institucion}
+                    onChange={(e) => handleInputChange("institucion", e.target.value)}
+                    className={`h-9 ${errors.institucion ? "border-destructive" : ""}`}
+                    maxLength={200}
+                  />
+                  {errors.institucion && <p className="text-xs text-destructive">{errors.institucion}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <label className="text-xs font-medium text-foreground">Mensaje (opcional)</label>

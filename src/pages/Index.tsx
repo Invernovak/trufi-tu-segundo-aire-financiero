@@ -15,8 +15,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead 
-        title="Trufi - Tu Segundo Aire Financiero" 
-        description="Reincorporamos personas al sistema financiero con créditos de libranza seguros y transparentes para pensionados, docentes y fuerza pública." 
+        title="Crédito de Libranza para Pensionados y Docentes en Colombia" 
+        description="Obtén tu crédito de libranza aunque estés reportado. En TRUFI ofrecemos soluciones financieras para pensionados, docentes y fuerza pública con respuesta en 24 horas y sin codeudor" 
       />
       <Header />
 
