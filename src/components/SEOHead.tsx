@@ -16,21 +16,25 @@ export const SEOHead = ({
   ogType = 'website'
 }: SEOHeadProps) => {
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
-  const siteName = 'Trufi - Tu Segundo Aire Financiero';
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
+  const siteName = 'TRUFI';
   const fullTitle = `${title} | ${siteName}`;
+  
+  // Si no se proporciona canonical, generamos uno basado en el dominio solicitado
+  const canonicalUrl = canonical || `https://trufi.com.co${pathname}`;
 
   return (
     <Helmet>
       {/* Basic Metadata */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      {canonical && <link rel="canonical" href={canonical} />}
+      <link rel="canonical" href={canonicalUrl} />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={ogType} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:url" content={currentUrl} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:site_name" content={siteName} />
       {ogImage && <meta property="og:image" content={ogImage} />}
 
@@ -47,7 +51,7 @@ export const SEOHead = ({
           "@type": "FinancialService",
           "name": siteName,
           "description": description,
-          "url": currentUrl,
+          "url": canonicalUrl,
           "logo": "https://oghwlhvbnegbghkcihos.supabase.co/storage/v1/object/public/public_assets/Logo-trufi-menu.png",
           "address": {
             "@type": "PostalAddress",

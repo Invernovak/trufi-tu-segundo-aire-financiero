@@ -43,6 +43,7 @@ export const useLeadsForm = <T extends Record<string, any>>({ schema, initialVal
         nombre: (formData as any).nombre,
         email: (formData as any).email,
         telefono: (formData as any).telefono,
+        cedula: (formData as any).cedula,
         mensaje: (formData as any).mensaje,
         acepta_terminos: (formData as any).aceptaTerminos,
         segmento: segmento,

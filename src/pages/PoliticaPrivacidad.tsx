@@ -37,9 +37,9 @@ const PoliticaPrivacidad = () => {
                             </h2>
                             <ul className="list-none space-y-2 bg-gray-50 p-6 rounded-xl border border-gray-100">
                                 <li><span className="font-bold text-gray-900">Nombre:</span> Trufi S.A.S.</li>
-                                <li><span className="font-bold text-gray-900">NIT:</span> 901.165.197-9</li>
+                                <li><span className="font-bold text-gray-900">NIT:</span>  902.003.299-0</li>
                                 <li><span className="font-bold text-gray-900">Domicilio:</span> Santiago de Cali – Colombia</li>
-                                <li><span className="font-bold text-gray-900">Dirección:</span> Calle 25 # 98-414 Piso 15 – Edificio Empresarial Jardín Central 2</li>
+                                <li><span className="font-bold text-gray-900">Dirección:</span> cra 100 16 – 321 oficina 608 / Edificio Jardin Central</li>
                                 <li><span className="font-bold text-gray-900">Correo Electrónico:</span> juridico@trufi.com.co</li>
                             </ul>
 

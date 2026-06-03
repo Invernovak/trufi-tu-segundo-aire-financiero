@@ -17,6 +17,7 @@ import ProductShowcase from "@/components/ProductShowcase";
 import Pagadurias from "@/components/Pagadurias";
 import { useLeadsForm } from "@/hooks/useLeadsForm";
 import { SEOHead } from "@/components/SEOHead";
+import TestimonioCard from "@/components/TestimonioCard";
 import segmentImage from "@/assets/segment-fuerza-publica.jpg";
 
 const benefits = [
@@ -69,6 +70,7 @@ const FuerzaPublica = () => {
       nombre: "",
       telefono: "",
       email: "",
+      cedula: "",
       institucion: "",
       mensaje: "",
       aceptaTerminos: false,
@@ -222,34 +224,14 @@ const FuerzaPublica = () => {
         {/* Social Proof - Específico Fuerza Pública */}
         <section className="py-10 md:py-14 bg-[#5D6532]/5 relative overflow-hidden">
           {/* Decorative Elements */}
-          <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#5D6532]/10 rounded-fullblur-3xl translate-x-1/2 translate-y-1/2"></div>
-          <div className="container">
-            <div className="max-w-4xl mx-auto bg-card border border-[#5D6532]/20 shadow-xl rounded-3xl p-6 md:p-10 relative">
-              <div className="absolute top-4 left-4 text-5xl text-[#5D6532]/20 font-serif opacity-50">"</div>
-              <div className="flex flex-col md:flex-row gap-6 items-center">
-                <div className="shrink-0">
-                  <div className="w-20 h-20 rounded-full border-2 border-slate-200/60 relative overflow-visible bg-slate-50 shadow-sm
-                                  after:content-[''] after:absolute after:inset-[-2px] after:rounded-full after:border-2 
-                                  after:border-slate-200/60 after:z-20 after:[clip-path:polygon(0_50%,100%_50%,100%_100%,0_100%)] 
-                                  after:pointer-events-none">
-                    <img
-                      src="/lovable-uploads/testimonio-fuerzap.png"
-                      alt="Jorge R"
-                      className="absolute -top-5 left-1/2 -translate-x-1/2 w-[135%] h-auto max-w-none object-contain origin-bottom z-10"
-                    />
-                  </div>
-                </div>
-                <div className="text-center md:text-left">
-                  <p className="text-base md:text-lg text-foreground font-medium italic mb-3">
-                    Serví 25 años a mi patria y cuando necesité apoyo, la banca tradicional me cerró las puertas. En TRUFI valoraron mi hoja de vida y me apoyaron para iniciar mi negocio de seguridad. ¡Firmeza y cumplimiento!
-                  </p>
-                  <div>
-                    <h4 className="font-bold text-[#5D6532]">Sargento Mayor (r) Jorge R.</h4>
-                    <p className="text-xs text-muted-foreground">Pensionado Ejército Nacional</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#5D6532]/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+          <div className="container px-4">
+            <TestimonioCard 
+              quoteText="Serví 25 años a mi patria y cuando necesité apoyo, la banca tradicional me cerró las puertas. En TRUFI valoraron mi hoja de vida y me apoyaron para iniciar mi negocio de seguridad. ¡Firmeza y cumplimiento!"
+              clientName="Sargento Mayor (r) Jorge R."
+              clientRole="Pensionado Ejército Nacional"
+              imagePath="/lovable-uploads/testimonio-fuerzap.png"
+            />
           </div>
         </section>
 
@@ -375,20 +357,6 @@ const FuerzaPublica = () => {
                     {errors.nombre && <p className="text-xs text-destructive">{errors.nombre}</p>}
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-xs font-medium text-foreground">Teléfono</label>
-                    <Input
-                      placeholder="Tu teléfono"
-                      type="tel"
-                      value={formData.telefono}
-                      onChange={(e) => handleInputChange("telefono", e.target.value)}
-                      className={`h-9 ${errors.telefono ? "border-destructive" : ""}`}
-                      maxLength={20}
-                    />
-                    {errors.telefono && <p className="text-xs text-destructive">{errors.telefono}</p>}
-                  </div>
-                </div>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
                     <label className="text-xs font-medium text-foreground">Correo electrónico</label>
                     <Input
                       placeholder="tu@email.com"
@@ -400,17 +368,45 @@ const FuerzaPublica = () => {
                     />
                     {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
                   </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-xs font-medium text-foreground">Institución que representas</label>
+                    <label className="text-xs font-medium text-foreground">Teléfono</label>
                     <Input
-                      placeholder="Ej: Ejército Nacional"
-                      value={formData.institucion}
-                      onChange={(e) => handleInputChange("institucion", e.target.value)}
-                      className={`h-9 ${errors.institucion ? "border-destructive" : ""}`}
-                      maxLength={200}
+                      placeholder="Tu teléfono"
+                      type="tel"
+                      value={formData.telefono}
+                      onChange={(e) => handleInputChange("telefono", e.target.value)}
+                      className={`h-9 ${errors.telefono ? "border-destructive" : ""}`}
+                      maxLength={20}
                     />
-                    {errors.institucion && <p className="text-xs text-destructive">{errors.institucion}</p>}
+                    {errors.telefono && <p className="text-xs text-destructive">{errors.telefono}</p>}
                   </div>
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-medium text-foreground">Número de cédula</label>
+                    <Input
+                      placeholder="Número de cédula"
+                      type="text"
+                      value={formData.cedula}
+                      onChange={(e) => handleInputChange("cedula", e.target.value)}
+                      className={`h-9 ${errors.cedula ? "border-destructive" : ""}`}
+                      maxLength={20}
+                    />
+                    {errors.cedula && <p className="text-xs text-destructive">{errors.cedula}</p>}
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-xs font-medium text-foreground">Institución que representas</label>
+                  <Input
+                    placeholder="Ej: Ejército Nacional"
+                    value={formData.institucion}
+                    onChange={(e) => handleInputChange("institucion", e.target.value)}
+                    className={`h-9 ${errors.institucion ? "border-destructive" : ""}`}
+                    maxLength={200}
+                  />
+                  {errors.institucion && <p className="text-xs text-destructive">{errors.institucion}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <label className="text-xs font-medium text-foreground">Mensaje (opcional)</label>

@@ -4,6 +4,7 @@ export interface LeadData {
   nombre: string;
   email: string;
   telefono: string;
+  cedula: string;
   mensaje?: string | null;
   acepta_terminos: boolean;
   segmento?: string | null;
@@ -18,6 +19,7 @@ export const leadService = {
           nombre: data.nombre,
           email: data.email,
           telefono: data.telefono,
+          cedula: data.cedula,
           mensaje: data.mensaje || '',
           segmento: data.segmento || 'General',
           acepta_terminos: data.acepta_terminos,

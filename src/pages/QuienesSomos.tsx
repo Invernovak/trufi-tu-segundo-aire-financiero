@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { SEOHead } from "@/components/SEOHead";
 import { Shield, Heart, Zap, Play, UserCheck, Target, Eye, Users, FileText, BarChart3, ChevronRight, Quote, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -13,6 +14,10 @@ import DocumentCostsTable from "@/components/whoweare/DocumentCostsTable";
 const QuienesSomos = () => {
   return (
     <div className="min-h-screen bg-background font-sans overflow-x-hidden">
+      <SEOHead 
+        title="Quiénes Somos | Nuestra Historia y Misión" 
+        description="Conoce a TRUFI, el equipo humano que trabaja para reincorporar a pensionados y docentes al sistema financiero con transparencia y calidez." 
+      />
       <Header />
       <main>
         {/* --- Hero Section: El Impacto --- */}

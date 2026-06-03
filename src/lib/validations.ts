@@ -13,6 +13,12 @@ const baseContactSchema = z.object({
     .min(1, { message: "El teléfono es requerido" })
     .max(20, { message: "El teléfono no puede exceder 20 caracteres" })
     .regex(/^[0-9+\-\s()]+$/, { message: "El teléfono solo puede contener números y caracteres válidos" }),
+  cedula: z
+    .string()
+    .trim()
+    .min(1, { message: "La cédula es requerida" })
+    .max(20, { message: "La cédula no puede exceder 20 caracteres" })
+    .regex(/^[0-9.\s]+$/, { message: "La cédula solo puede contener números" }),
   email: z
     .string()
     .trim()

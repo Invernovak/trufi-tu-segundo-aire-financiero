@@ -32,11 +32,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-2.5 text-xs text-primary-foreground/80">
                 <Phone className="w-3.5 h-3.5 text-trufi-cyan flex-shrink-0" />
-                <span>+57 300 123 4567</span>
+                <span>+57 313 813 0907</span>
               </div>
               <div className="flex items-center gap-2.5 text-xs text-primary-foreground/80">
                 <Mail className="w-3.5 h-3.5 text-trufi-cyan flex-shrink-0" />
-                <span>Notificaciones@trufi.com.co</span>
+                <span>Servicioalcliente@trufi.com.co</span>
               </div>
             </div>
 

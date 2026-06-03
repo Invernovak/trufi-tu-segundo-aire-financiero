@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { SEOHead } from "@/components/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Check, Star, Zap, Shield, Clock, Percent, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -45,6 +46,10 @@ const services = [
 const Servicios = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Nuestros Servicios Financieros | Trufi Plus y Flex" 
+        description="Explora nuestras soluciones de crédito Trufi Plus para grandes proyectos y Trufi Flex para necesidades inmediatas. Créditos de libranza a tu medida." 
+      />
       <Header />
       <main className="pt-20">
         {/* Hero Section */}
