@@ -231,6 +231,7 @@ const FuerzaPublica = () => {
               clientName="Sargento Mayor (r) Jorge R."
               clientRole="Pensionado Ejército Nacional"
               imagePath="/lovable-uploads/testimonio-fuerzap.png"
+              nameColorClass="text-[#5D6532]"
             />
           </div>
         </section>

@@ -78,9 +78,9 @@ const Pensionado = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead 
-        title="Créditos para Pensionados" 
-        description="Dedicaste tu vida a trabajar, ahora déjanos trabajar por ti. Te ofrecemos un Segundo Aire Financiero con trato preferencial y créditos de libranza ágiles." 
+      <SEOHead
+        title="Créditos para Pensionados"
+        description="Dedicaste tu vida a trabajar, ahora déjanos trabajar por ti. Te ofrecemos un Segundo Aire Financiero con trato preferencial y créditos de libranza ágiles."
       />
       <Header />
       <main className="pt-0"> {/* Removed pt-20 to allow hero to touch top */}
@@ -189,11 +189,13 @@ const Pensionado = () => {
           {/* Decorative Elements */}
           <div className="absolute top-0 left-0 w-64 h-64 bg-orange-200/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
           <div className="container px-4">
-            <TestimonioCard 
+            <TestimonioCard
               quoteText="Pensé que por estar reportada ya nadie me prestaría atención. En TRUFI no solo me escucharon, me trataron con un respeto y cariño que no encontré en ningún banco. Pude reformar mi casa y ver felices a mis nietos."
-              clientName="Cecilia R."
+              clientName="Carlos R."
               clientRole="Pensionada Colpensiones - 72 años"
-              imagePath="/assets/segment-pensionado.jpg"
+              imagePath="/lovable-uploads/SocialProofPensionado.webp"
+              imageClassName="w-[185%] -top-10"
+              nameColorClass="text-orange-600"
             />
           </div>
         </section>
