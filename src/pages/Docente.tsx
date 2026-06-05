@@ -78,9 +78,9 @@ const Docente = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead 
-        title="Créditos para Docentes" 
-        description="Transformas vidas en el aula, nosotros transformamos tus finanzas. Créditos de libranza ágiles para docentes del sector público." 
+      <SEOHead
+        title="Créditos para Docentes"
+        description="Transformas vidas en el aula, nosotros transformamos tus finanzas. Créditos de libranza ágiles para docentes del sector público."
       />
       <Header />
       <main className="pt-0">
@@ -199,11 +199,13 @@ const Docente = () => {
           {/* Decorative Elements */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-200/20 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
           <div className="container px-4">
-            <TestimonioCard 
+            <TestimonioCard
               quoteText="Mi meta era hacer la maestría, pero estaba reportado por ser fiador. TRUFI confió en mi estabilidad laboral y me aprobó el crédito en menos de 24 horas. Hoy soy Magíster gracias a esa segunda oportunidad."
-              clientName="Carlos M."
+              clientName="Martha C."
               clientRole="Docente Distrito Capital - 12 años de servicio"
-              imagePath="/assets/segment-docente.jpg"
+              imagePath="/lovable-uploads/SocialProofDocente.webp"
+              imageClassName="w-[175%] -top-8"
+              nameColorClass="text-blue-600"
             />
           </div>
         </section>
