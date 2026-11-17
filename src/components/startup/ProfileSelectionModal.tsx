@@ -56,9 +56,9 @@ const ProfileSelectionModal = () => {
 
           <DialogHeader className="relative z-10 text-center space-y-4 mb-8">
             <img
-              src="/lovable-uploads/Logo-trufi-menu.png"
+              src="/logos/trufi-marca-negativo.svg"
               alt="TRUFI"
-              className="h-12 w-auto object-contain mx-auto brightness-0 invert"
+              className="h-12 w-auto object-contain mx-auto"
             />
             <div className="space-y-1">
               <DialogTitle className="text-3xl font-black text-white tracking-tight leading-tight">

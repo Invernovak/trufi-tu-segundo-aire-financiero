@@ -51,9 +51,9 @@ const PageLoader = ({ onFinished }: { onFinished: () => void }) => {
                         }`}
                 >
                     <img
-                        src="/lovable-uploads/Logo-trufi-menu.png"
+                        src="/logos/trufi-marca-negativo.svg"
                         alt="Trufi Loading"
-                        className="w-48 md:w-64 object-contain brightness-0 invert"
+                        className="w-48 md:w-64 object-contain"
                     />
 
                     {/* Approval Checkmark Overlay */}

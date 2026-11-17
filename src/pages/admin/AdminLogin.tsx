@@ -8,7 +8,6 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, Lock, UserPlus } from 'lucide-react';
-import trufiLogo from '@/assets/trufi_logo.png';
 
 const AdminLogin = () => {
   const [email, setEmail] = useState('');
@@ -79,7 +78,7 @@ const AdminLogin = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/5 to-background p-4">
       <Card className="w-full max-w-md shadow-elevated">
         <CardHeader className="text-center">
-          <img src={trufiLogo} alt="TRUFI" className="h-16 mx-auto mb-4" />
+          <img src="/logos/trufi-marca-positivo.svg" alt="TRUFI" className="h-16 mx-auto mb-4" />
           <CardTitle className="text-2xl font-bold text-foreground flex items-center justify-center gap-2">
             <Lock className="w-5 h-5 text-primary" />
             Panel de Administración

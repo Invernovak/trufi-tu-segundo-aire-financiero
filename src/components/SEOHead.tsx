@@ -12,7 +12,7 @@ export const SEOHead = ({
   title, 
   description, 
   canonical, 
-  ogImage = '/lovable-uploads/Logo-trufi-menu.png',
+  ogImage = '/logos/trufi-marca-positivo.svg',
   ogType = 'website'
 }: SEOHeadProps) => {
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
@@ -52,7 +52,7 @@ export const SEOHead = ({
           "name": siteName,
           "description": description,
           "url": canonicalUrl,
-          "logo": "https://oghwlhvbnegbghkcihos.supabase.co/storage/v1/object/public/public_assets/Logo-trufi-menu.png",
+          "logo": "https://trufi.com.co/logos/trufi-marca-positivo.svg",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Cra 100 # 16 - 321, Oficina 608 Edificio Jardin Central",

@@ -16,8 +16,8 @@ const Footer = () => {
           <div className="lg:col-span-4 space-y-5">
             <img
               alt="TRUFI - Confianza Inmediata"
-              className="h-16 w-auto brightness-0 invert"
-              src="/lovable-uploads/Logo-trufi-menu.png"
+              className="h-16 w-auto"
+              src="/logos/trufi-marca-negativo.svg"
             />
             <p className="text-primary-foreground/70 leading-relaxed text-xs md:text-sm max-w-sm">
               Reincorporamos personas al sistema financiero con créditos de libranza seguros y transparentes.

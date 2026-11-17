@@ -7,7 +7,6 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, Shield, CheckCircle } from 'lucide-react';
-import trufiLogo from '@/assets/trufi_logo.png';
 
 const AdminSetup = () => {
   const [email, setEmail] = useState('');
@@ -145,7 +144,7 @@ const AdminSetup = () => {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/5 to-background p-4">
         <Card className="w-full max-w-md shadow-elevated text-center">
           <CardHeader>
-            <img src={trufiLogo} alt="TRUFI" className="h-16 mx-auto mb-4" />
+            <img src="/logos/trufi-marca-positivo.svg" alt="TRUFI" className="h-16 mx-auto mb-4" />
             <CheckCircle className="w-16 h-16 text-primary mx-auto mb-4" />
             <CardTitle className="text-2xl font-bold text-foreground">
               Administrador ya configurado
@@ -168,7 +167,7 @@ const AdminSetup = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/5 to-background p-4">
       <Card className="w-full max-w-md shadow-elevated">
         <CardHeader className="text-center">
-          <img src={trufiLogo} alt="TRUFI" className="h-16 mx-auto mb-4" />
+          <img src="/logos/trufi-marca-positivo.svg" alt="TRUFI" className="h-16 mx-auto mb-4" />
           <div className="flex items-center justify-center gap-2 mb-2">
             <Shield className="w-8 h-8 text-primary" />
           </div>

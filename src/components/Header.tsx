@@ -42,7 +42,7 @@ const Header = () => {
           <img
             alt="TRUFI - Confianza Inmediata"
             className="w-auto h-8 md:h-10 object-contain transition-transform hover:scale-105"
-            src="/lovable-uploads/Logo-trufi-menu.png"
+            src="/logos/trufi-marca-negativo.svg"
           />
         </Link>
 

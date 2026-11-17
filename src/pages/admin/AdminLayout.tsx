@@ -11,7 +11,6 @@ import {
   X,
   Users
 } from 'lucide-react';
-import trufiLogo from '@/assets/trufi_logo.png';
 import { useState } from 'react';
 
 const AdminLayout = () => {
@@ -44,7 +43,7 @@ const AdminLayout = () => {
       {/* Mobile header */}
       <header className="lg:hidden fixed top-0 left-0 right-0 bg-card border-b border-border z-50 px-4 py-3">
         <div className="flex items-center justify-between">
-          <img src={trufiLogo} alt="TRUFI" className="h-8" />
+          <img src="/logos/trufi-marca-positivo.svg" alt="TRUFI" className="h-8" />
           <Button
             variant="ghost"
             size="icon"
@@ -63,7 +62,7 @@ const AdminLayout = () => {
       >
         <div className="flex flex-col h-full">
           <div className="p-6 border-b border-border hidden lg:block">
-            <img src={trufiLogo} alt="TRUFI" className="h-10" />
+            <img src="/logos/trufi-marca-positivo.svg" alt="TRUFI" className="h-10" />
             <p className="text-xs text-muted-foreground mt-2">Panel de Administración</p>
           </div>
 
