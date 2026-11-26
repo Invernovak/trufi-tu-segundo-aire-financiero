@@ -65,9 +65,9 @@ const TrufiFlex = () => {
       <Header />
       <main className="pt-0">
         {/* Hero Section */}
-        <section className="relative min-h-screen pt-20 pb-12 md:pt-28 md:pb-20 flex items-center justify-center bg-gradient-to-br from-primary/10 to-background">
+        <section className="relative min-h-[75vh] pt-20 pb-12 md:pt-28 md:pb-20 flex items-center justify-center bg-gradient-to-br from-primary/10 to-background">
           <div className="container">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
                   <Zap className="w-4 h-4 text-primary" />
@@ -107,15 +107,15 @@ const TrufiFlex = () => {
             <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto">
               Un proceso simple diseñado para tu comodidad
             </p>
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 max-w-5xl mx-auto">
               {steps.map((step, index) => (
                 <div key={index} className="relative">
-                  <div className="bg-card border border-border rounded-2xl p-6 text-center h-full">
+                  <div className="bg-card border border-border rounded-2xl p-4 md:p-6 text-center h-full">
                     <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                       {step.number}
                     </div>
                     <h3 className="font-bold text-foreground mb-2">{step.title}</h3>
-                    <p className="text-sm text-muted-foreground">{step.description}</p>
+                    <p className="text-sm text-muted-foreground text-center">{step.description}</p>
                   </div>
                   {index < steps.length - 1 && (
                     <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-0.5 bg-border" />
@@ -132,17 +132,17 @@ const TrufiFlex = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">
               Ventajas de Trufi Flex
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
               {benefits.map((benefit, index) => (
                 <div
                   key={index}
-                  className="bg-card border border-border rounded-2xl p-6 text-center hover:shadow-elevated transition-shadow"
+                  className="bg-card border border-border rounded-2xl p-4 md:p-6 text-center hover:shadow-elevated transition-shadow"
                 >
                   <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                     <benefit.icon className="w-7 h-7 text-primary" />
                   </div>
                   <h3 className="font-bold text-foreground mb-2">{benefit.title}</h3>
-                  <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                  <p className="text-sm text-muted-foreground text-center">{benefit.description}</p>
                 </div>
               ))}
             </div>
@@ -155,7 +155,7 @@ const TrufiFlex = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
               Ideal para...
             </h2>
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-4xl mx-auto mt-6">
               {[
                 { emoji: "🏥", title: "Emergencias médicas" },
                 { emoji: "🔧", title: "Reparaciones del hogar" },
@@ -168,7 +168,7 @@ const TrufiFlex = () => {
               ].map((useCase, index) => (
                 <div key={index} className="bg-card border border-border rounded-xl p-4 text-center">
                   <span className="text-2xl mb-2 block">{useCase.emoji}</span>
-                  <p className="text-sm font-medium text-foreground">{useCase.title}</p>
+                  <p className="text-sm font-medium text-foreground text-center">{useCase.title}</p>
                 </div>
               ))}
             </div>

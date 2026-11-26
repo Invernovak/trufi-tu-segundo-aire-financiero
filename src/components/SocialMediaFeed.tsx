@@ -60,7 +60,7 @@ const SocialMediaFeed = () => {
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
             <div className="container relative z-10">
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-10">
                     <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-4">
                         Comunidad Digital
                     </span>
@@ -76,7 +76,7 @@ const SocialMediaFeed = () => {
                 </div>
 
                 {/* Social Icons Container */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                     {socialPlatforms.map((platform) => (
                         <a
                             key={platform.id}
@@ -85,12 +85,12 @@ const SocialMediaFeed = () => {
                             rel="noreferrer"
                             className="group block"
                         >
-                            <div className="bg-white rounded-[2.5rem] p-8 border border-border/40 shadow-card hover:shadow-elevated hover:-translate-y-2 transition-all duration-500 h-full flex flex-col items-center text-center">
-                                <div className={`w-20 h-20 ${platform.color} rounded-2xl flex items-center justify-center text-white shadow-xl group-hover:scale-110 transition-transform duration-500 mb-6`}>
-                                    <platform.icon className="w-10 h-10" />
+                            <div className="bg-white rounded-[2rem] p-4 md:p-6 border border-border/40 shadow-card hover:shadow-elevated hover:-translate-y-2 transition-all duration-500 h-full flex flex-col items-center text-center">
+                                <div className={`w-14 h-14 md:w-16 md:h-16 ${platform.color} rounded-2xl flex items-center justify-center text-white shadow-xl group-hover:scale-110 transition-transform duration-500 mb-3 md:mb-4`}>
+                                    <platform.icon className="w-7 h-7 md:w-8 md:h-8" />
                                 </div>
-                                <h3 className="text-xl font-bold text-foreground mb-2">{platform.name}</h3>
-                                <p className="text-sm text-muted-foreground mb-6">{platform.description}</p>
+                                <h3 className="text-lg md:text-xl font-bold text-foreground mb-1">{platform.name}</h3>
+                                <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4 text-center">{platform.description}</p>
                                 
                                 <div className="mt-auto flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-3 transition-all">
                                     Seguir ahora

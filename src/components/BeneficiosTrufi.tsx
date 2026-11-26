@@ -1,29 +1,31 @@
-import { Heart, Shield, Home, Wrench, Zap, Droplets, Snowflake, CheckCircle2, ChevronRight, Info } from "lucide-react";
+import { Heart, Shield, Home, Wrench, Zap, Droplets, Snowflake, ChevronRight, Info, Calculator } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
+// Coberturas de la póliza de seguro de vida deudores
 const amparos = [
   {
     icon: Heart,
     title: "Seguro de Vida",
-    description: "Tranquilidad total para tu familia. Cubrimos el saldo de la deuda en caso de fallecimiento.",
-    highlight: "Cobertura 100%"
+    description: "En caso de fallecimiento, el seguro cubre el saldo de tu crédito para que tu familia no herede la deuda.",
+    highlight: "Seguro de vida deudores"
   },
   {
     icon: Shield,
-    title: "Incapacidad Total",
-    description: "Si no puedes trabajar, nosotros te respaldamos. Cobertura ante eventos que afecten tu capacidad laboral.",
-    highlight: "Respaldo Total"
+    title: "Incapacidad Total y Permanente",
+    description: "Si sufres una incapacidad total y permanente, el seguro cubre el saldo de tu crédito.",
+    highlight: "Seguro de vida deudores"
   },
-  {
-    icon: Heart,
-    title: "Auxilio Exequial",
-    description: "Apoyo financiero inmediato para gastos funerarios del titular. Estamos contigo en los momentos difíciles.",
-    highlight: "Apoyo Inmediato"
-  },
+];
+
+// Valor del seguro por cada millón del crédito, según la edad
+const tarifasSeguro = [
+  { edad: "18 a 69 años", valor: "$1.216" },
+  { edad: "70 a 78 años", valor: "$2.560" },
+  { edad: "79 a 85 años", valor: "$5.000" },
 ];
 
 const asistenciasHogar = [
@@ -40,7 +42,7 @@ const BeneficiosTrufi = () => {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none translate-x-1/2 -translate-y-1/2" />
 
       <div className="container relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <Badge variant="outline" className="mb-4 px-4 py-1 border-primary/20 text-primary bg-primary/5 text-sm font-semibold uppercase tracking-wider">
             Beneficios Exclusivos
           </Badge>
@@ -57,13 +59,13 @@ const BeneficiosTrufi = () => {
           {/* Columna Izquierda: Amparos (Seguros) */}
           <div className="lg:col-span-2 grid md:grid-cols-2 gap-6">
             {amparos.map((item, index) => (
-              <Card key={index} className="group border-0 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 bg-white rounded-[2rem] p-8 overflow-hidden relative">
+              <Card key={index} className="group border-0 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 bg-white rounded-[2rem] p-6 md:p-8 overflow-hidden relative">
                 <div className="absolute top-0 right-0 p-4 opacity-50">
                   <item.icon className="w-24 h-24 text-secondary/5 -rotate-12" />
                 </div>
 
                 <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 md:mb-6 group-hover:bg-primary/20 transition-colors">
                     <item.icon className="w-7 h-7 text-primary" />
                   </div>
 
@@ -81,14 +83,45 @@ const BeneficiosTrufi = () => {
               </Card>
             ))}
 
-            {/* Tarjeta Resumen Asistencias */}
-            <Card className="group border-0 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 bg-white rounded-[2rem] p-8 overflow-hidden relative">
+            {/* Tarjeta Valor del Seguro */}
+            <Card className="group border-0 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 bg-white rounded-[2rem] p-6 md:p-8 overflow-hidden relative">
+              <div className="absolute top-0 right-0 p-4 opacity-50">
+                <Calculator className="w-24 h-24 text-secondary/5 -rotate-12" />
+              </div>
+
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 md:mb-6 group-hover:bg-primary/20 transition-colors">
+                  <Calculator className="w-7 h-7 text-primary" />
+                </div>
+
+                <Badge className="mb-4 bg-secondary/10 text-secondary-foreground hover:bg-secondary/20 border-0 font-medium">
+                  Tarifa según tu edad
+                </Badge>
+
+                <h3 className="text-2xl font-bold text-foreground mb-1">
+                  Valor del Seguro
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4">Por cada millón de tu crédito</p>
+
+                <div className="divide-y divide-border rounded-xl border border-border">
+                  {tarifasSeguro.map((tarifa) => (
+                    <div key={tarifa.edad} className="flex items-center justify-between px-4 py-2.5">
+                      <span className="text-sm text-muted-foreground">{tarifa.edad}</span>
+                      <span className="font-bold text-foreground">{tarifa.valor}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Card>
+
+            {/* Tarjeta Resumen Asistencias (en celular se ve la tarjeta grande) */}
+            <Card className="hidden lg:block group border-0 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 bg-white rounded-[2rem] p-6 md:p-8 overflow-hidden relative">
               <div className="absolute top-0 right-0 p-4 opacity-50">
                 <Home className="w-24 h-24 text-secondary/5 -rotate-12" />
               </div>
 
               <div className="relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 md:mb-6 group-hover:bg-primary/20 transition-colors">
                   <Home className="w-7 h-7 text-primary" />
                 </div>
 

@@ -21,7 +21,7 @@ const QuienesSomos = () => {
       <Header />
       <main>
         {/* --- Hero Section: El Impacto --- */}
-        <section className="relative h-[80vh] md:h-screen overflow-hidden">
+        <section className="relative h-[70vh] md:h-[80vh] overflow-hidden">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
             <video
@@ -64,20 +64,20 @@ const QuienesSomos = () => {
         <section className="py-24 bg-background relative overflow-hidden border-y border-gray-100">
           <div className="container px-4">
             <div className="max-w-4xl mx-auto text-center animate-in zoom-in-95 fade-in duration-1000 delay-200 viewport-trigger">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-5">
                 Nuestra Filosofía
               </div>
-              <h2 className="text-4xl md:text-5xl font-black font-archive text-primary mb-10 tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-black font-archive text-primary mb-6 tracking-tight">
                 La Tesis de la <span className="text-secondary">Reincorporación Financiera</span>
               </h2>
               <div className="relative group cursor-default">
                 {/* Accent line replacing the old Quote watermark */}
                 <div className="absolute -left-6 top-0 bottom-0 w-1.5 bg-gradient-to-b from-primary via-secondary to-transparent rounded-full shadow-sm" />
-                <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed font-archive italic pl-4">
+                <p className="text-xl md:text-2xl text-gray-700 leading-relaxed font-archive italic pl-4">
                   "Si la banca tradicional te cerró la puerta, nosotros te damos la mano.
                   Nacimos para combatir la exclusión, no solo para hacer negocios."
                 </p>
-                <div className="mt-8 text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto text-center">
+                <div className="mt-5 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto text-center">
                   Queremos llegar a ayudar a más colombianos a limpiar su historial crediticio y recuperar su lugar en el sistema.
                 </div>
               </div>
@@ -98,7 +98,7 @@ const QuienesSomos = () => {
         <section className="py-24 bg-gray-50/30">
           <div className="container px-4">
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-16">
+              <div className="text-center mb-10">
                 <h2 className="text-4xl md:text-5xl font-black font-archive text-foreground mb-4">
                   Lo que nos mueve
                 </h2>
@@ -108,7 +108,7 @@ const QuienesSomos = () => {
               </div>
 
               <Tabs defaultValue="proposito" className="w-full">
-                <TabsList className="grid w-full grid-cols-3 h-auto p-1.5 bg-gray-200/50 rounded-2xl mb-12">
+                <TabsList className="grid w-full grid-cols-3 h-auto p-1.5 bg-gray-200/50 rounded-2xl mb-8">
                   <TabsTrigger value="proposito" className="py-4 text-sm md:text-lg font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-lg rounded-xl transition-all">
                     Propósito
                   </TabsTrigger>

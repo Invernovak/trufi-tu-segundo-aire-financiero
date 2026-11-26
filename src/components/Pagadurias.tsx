@@ -16,7 +16,7 @@ interface PagaduriasProps {
 
 // Sub-componente de Cabecera (Presentación)
 const PagaduriasHeader = ({ title, description }: { title: string; description: string }) => (
-    <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+    <div className="text-center max-w-3xl mx-auto mb-6 space-y-3">
         <Badge variant="outline" className="px-4 py-1.5 border-emerald-500/20 text-emerald-600 text-sm font-bold tracking-wide uppercase bg-white">
             Convenios y Pagadurías
         </Badge>
@@ -38,7 +38,7 @@ const SearchBar = ({ searchTerm, setSearchTerm, placeholder }: { searchTerm: str
             <Input
                 type="text"
                 placeholder={placeholder}
-                className="pl-12 h-16 bg-white border-2 border-slate-100 rounded-2xl shadow-sm focus:border-emerald-500 focus:ring-emerald-500/20 text-lg font-medium transition-all"
+                className="pl-12 h-14 bg-white border-2 border-slate-100 rounded-2xl shadow-sm focus:border-emerald-500 focus:ring-emerald-500/20 text-lg font-medium transition-all"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -97,7 +97,7 @@ const Pagadurias = ({ segment }: PagaduriasProps) => {
                 
                 <PagaduriasHeader title={title} description={description} />
 
-                <div className="max-w-4xl mx-auto space-y-8">
+                <div className="max-w-4xl mx-auto space-y-5">
                     <SearchBar 
                         searchTerm={searchTerm} 
                         setSearchTerm={setSearchTerm} 
@@ -105,7 +105,7 @@ const Pagadurias = ({ segment }: PagaduriasProps) => {
                     />
 
                     {/* Orquestación de Secciones especializadas */}
-                    <div className="bg-white rounded-[2.5rem] p-6 md:p-10 shadow-2xl shadow-slate-200/50 border border-slate-100">
+                    <div className="bg-white rounded-[2rem] p-4 md:p-8 shadow-2xl shadow-slate-200/50 border border-slate-100">
                         <Accordion type="single" collapsible defaultValue={defaultAccordion} className="w-full">
                             {(segment === 'docente' || !segment) && (
                                 <PagaduriasDocentes data={filteredEducation} />
@@ -135,7 +135,7 @@ const Pagadurias = ({ segment }: PagaduriasProps) => {
                         )}
                     </div>
 
-                    <p className="text-center text-sm font-bold text-slate-400 uppercase tracking-widest pt-8">
+                    <p className="text-center text-sm font-bold text-slate-400 uppercase tracking-widest pt-2">
                         Respaldo garantizado por Trufi • Actualizado 2024
                     </p>
                 </div>

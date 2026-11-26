@@ -19,7 +19,7 @@ const PortalComercial = () => {
         <div className="min-h-screen bg-background flex flex-col">
             <Header />
             <main className="flex-1 pt-24 pb-12">
-                <section className="container max-w-4xl mx-auto space-y-12">
+                <section className="container max-w-4xl mx-auto space-y-8">
 
                     {/* Header Section */}
                     <div className="text-center space-y-4">

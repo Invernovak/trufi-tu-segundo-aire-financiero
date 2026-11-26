@@ -109,7 +109,7 @@ const ProductShowcase = ({ defaultTab = "tranquilidad", data = defaultData, acce
     return (
         <section className="py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
             <div className="container px-4 md:px-6">
-                <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div className="text-center max-w-3xl mx-auto mb-6 space-y-3">
                     <Badge variant="secondary" className="px-4 py-1.5 text-primary text-sm font-semibold tracking-wide uppercase bg-primary/10">
                         Tu Crédito de Libranza
                     </Badge>
@@ -122,7 +122,7 @@ const ProductShowcase = ({ defaultTab = "tranquilidad", data = defaultData, acce
                 </div>
 
                 <Tabs defaultValue={defaultTab} className="w-full max-w-6xl mx-auto">
-                    <div className="flex justify-center mb-12">
+                    <div className="flex justify-center mb-6">
                         <TabsList className="grid w-full max-w-3xl grid-cols-2 md:grid-cols-4 h-auto p-1.5 bg-gray-100/80 backdrop-blur-sm rounded-none md:rounded-full border border-gray-200 shadow-sm">
                             <TabsTrigger
                                 value="tranquilidad"
@@ -175,19 +175,19 @@ const ProductShowcase = ({ defaultTab = "tranquilidad", data = defaultData, acce
                                 <TabsContent key={key} value={key} className="focus-visible:outline-none focus-visible:ring-0 mt-0">
                                     <div className="bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden">
                                         <div className="grid md:grid-cols-2 gap-0">
-                                            <div className="p-8 md:p-12 lg:p-16 flex flex-col justify-center">
-                                                <div className={cn("inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-6 w-fit", item.badgeColor)}>
+                                            <div className="p-6 md:p-10 flex flex-col justify-center">
+                                                <div className={cn("inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 w-fit", item.badgeColor)}>
                                                     <span className={cn("w-2 h-2 rounded-full animate-pulse", item.badgeDotColor)} />
                                                     {item.badge}
                                                 </div>
-                                                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                                                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
                                                     {item.title} <span className={cn(item.titleColor)}>{item.highlight}</span>
                                                 </h3>
-                                                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                                                <p className="text-lg text-gray-600 mb-5 leading-relaxed">
                                                     {item.description}
                                                 </p>
 
-                                                <ul className="space-y-4 mb-10">
+                                                <ul className="space-y-2.5 mb-6">
                                                     {item.features.map((feature, i) => (
                                                         <li key={i} className="flex items-center gap-3 text-gray-700">
                                                             <CheckCircle2 className={cn("w-5 h-5 flex-shrink-0", item.checkColor)} />
@@ -222,7 +222,7 @@ const ProductShowcase = ({ defaultTab = "tranquilidad", data = defaultData, acce
                                                     </Button>
                                                 </div>
                                             </div>
-                                            <div className="relative h-80 md:h-auto overflow-hidden bg-gray-100">
+                                            <div className="relative h-56 md:h-auto overflow-hidden bg-gray-100">
                                                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent z-10" />
                                                 <img
                                                     src={item.image}

@@ -340,12 +340,12 @@ const PQR = () => {
             <main className="pt-28 pb-16 md:pt-36">
                 <div className="container px-4 md:px-6 max-w-4xl mx-auto">
 
-                    <div className="text-center mb-12 relative z-10">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full mb-6 border border-white/20">
+                    <div className="text-center mb-8 relative z-10">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full mb-4 border border-white/20">
                             <FileText className="w-4 h-4 text-emerald-400" />
                             <span className="text-emerald-100 font-semibold text-sm tracking-wide">Centro de Ayuda</span>
                         </div>
-                        <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-sm">
+                        <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 drop-shadow-sm">
                             Estamos aquí para escucharte
                         </h1>
                         <p className="text-lg text-slate-100 max-w-2xl mx-auto drop-shadow-sm font-medium text-center">
@@ -353,47 +353,49 @@ const PQR = () => {
                         </p>
                     </div>
 
-                    <div className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/60 border border-slate-100 p-8 md:p-12 relative z-10 overflow-hidden">
+                    <div className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/60 border border-slate-100 p-5 md:p-8 relative z-10 overflow-hidden">
                         {!isSubmitted ? (
                             <>
-                                {/* Support Avatar Decor */}
-                                <div className="absolute top-6 right-8 flex items-center gap-3 bg-slate-50 px-4 py-2 rounded-2xl border border-slate-100 shadow-sm animate-in fade-in slide-in-from-right-4 duration-700">
-                                    <div className="relative">
-                                        <img
-                                            src={supportAgent.avatar}
-                                            alt={`${supportAgent.name} de soporte`}
-                                            className="w-10 h-10 rounded-full bg-emerald-100 border-2 border-white shadow-sm"
-                                        />
-                                        <div className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></div>
-                                    </div>
-                                    <div className="text-left">
-                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider leading-none mb-1">En línea</p>
-                                        <p className="text-xs font-semibold text-slate-700">{supportAgent.name} de soporte recibirá tu mensaje</p>
-                                    </div>
-                                </div>
-
-                                <form onSubmit={handleSubmit} className="space-y-10 pt-8">
+                                <form onSubmit={handleSubmit} className="space-y-6">
                                     {/* Step 1: Group Selection */}
-                                    <div className="space-y-6">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-sm">1</div>
-                                            <h3 className="text-xl font-bold text-slate-800">¿Qué tipo de solicitud deseas realizar?</h3>
+                                    <div className="space-y-3">
+                                        <div className="flex flex-col-reverse items-start gap-3 md:flex-row md:items-center md:justify-between">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-7 h-7 shrink-0 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-sm">1</div>
+                                                <h3 className="text-lg font-bold text-slate-800">¿Qué tipo de solicitud deseas realizar?</h3>
+                                            </div>
+
+                                            {/* Support Avatar Decor */}
+                                            <div className="flex shrink-0 items-center gap-3 bg-slate-50 px-3 py-1.5 rounded-2xl border border-slate-100 shadow-sm animate-in fade-in slide-in-from-right-4 duration-700">
+                                                <div className="relative">
+                                                    <img
+                                                        src={supportAgent.avatar}
+                                                        alt={`${supportAgent.name} de soporte`}
+                                                        className="w-9 h-9 rounded-full bg-emerald-100 border-2 border-white shadow-sm"
+                                                    />
+                                                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></div>
+                                                </div>
+                                                <div className="text-left">
+                                                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider leading-none mb-1">En línea</p>
+                                                    <p className="text-xs font-semibold text-slate-700">{supportAgent.name} de soporte recibirá tu mensaje</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                                             {PQR_GROUPS.map((group) => (
                                                 <button
                                                     key={group.id}
                                                     type="button"
                                                     onClick={() => handleGroupSelect(group.id)}
-                                                    className={`flex items-start gap-4 p-5 rounded-2xl border-2 transition-all text-left group ${formData.grupo === group.id
+                                                    className={`flex items-center gap-3 p-3 rounded-2xl border-2 transition-all text-left group ${formData.grupo === group.id
                                                         ? "border-emerald-500 bg-emerald-50/50 shadow-md shadow-emerald-100"
                                                         : "border-slate-100 bg-slate-50/30 hover:border-emerald-200 hover:bg-white hover:shadow-lg"
                                                         }`}
                                                 >
-                                                    <div className={`p-3 rounded-xl transition-colors ${formData.grupo === group.id ? "bg-emerald-500 text-white" : "bg-white text-slate-400 group-hover:text-emerald-500 shadow-sm"}`}>
-                                                        <group.icon className="w-6 h-6" />
+                                                    <div className={`p-2 shrink-0 rounded-xl transition-colors ${formData.grupo === group.id ? "bg-emerald-500 text-white" : "bg-white text-slate-400 group-hover:text-emerald-500 shadow-sm"}`}>
+                                                        <group.icon className="w-5 h-5" />
                                                     </div>
-                                                    <span className={`text-sm font-bold leading-tight pt-1 ${formData.grupo === group.id ? "text-emerald-900" : "text-slate-600"}`}>
+                                                    <span className={`text-sm font-bold leading-tight ${formData.grupo === group.id ? "text-emerald-900" : "text-slate-600"}`}>
                                                         {group.label}
                                                     </span>
                                                 </button>
@@ -403,28 +405,28 @@ const PQR = () => {
 
                                     {/* Step 2: Sub-category Selection (Conditional) */}
                                     {formData.grupo && (
-                                        <div className="space-y-6 animate-in fade-in slide-in-from-top-4 duration-500">
+                                        <div className="space-y-3 animate-in fade-in slide-in-from-top-4 duration-500">
                                             <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-sm">2</div>
-                                                <h3 className="text-xl font-bold text-slate-800">
+                                                <div className="w-7 h-7 shrink-0 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-sm">2</div>
+                                                <h3 className="text-lg font-bold text-slate-800">
                                                     ¿Cuál de estas áreas describe mejor tu caso?
                                                 </h3>
                                             </div>
-                                            <div className="grid sm:grid-cols-2 gap-4">
+                                            <div className="grid sm:grid-cols-2 gap-3">
                                                 {PQR_GROUPS.find(g => g.id === formData.grupo)?.subcategories.map((sub) => (
                                                     <button
                                                         key={sub.id}
                                                         type="button"
                                                         onClick={() => handleSubgroupSelect(sub.label)}
-                                                        className={`flex items-start gap-4 p-5 rounded-2xl border-2 transition-all text-left group ${formData.subgrupo === sub.label
+                                                        className={`flex items-center gap-3 p-3 rounded-2xl border-2 transition-all text-left group ${formData.subgrupo === sub.label
                                                             ? "border-emerald-500 bg-emerald-50/50 shadow-md shadow-emerald-100"
                                                             : "border-slate-100 bg-slate-50/30 hover:border-emerald-200 hover:bg-white hover:shadow-lg"
                                                             }`}
                                                     >
-                                                        <div className={`p-3 rounded-xl transition-colors ${formData.subgrupo === sub.label ? "bg-emerald-500 text-white" : "bg-white text-slate-400 group-hover:text-emerald-500 shadow-sm"}`}>
-                                                            <sub.icon className="w-6 h-6" />
+                                                        <div className={`p-2 shrink-0 rounded-xl transition-colors ${formData.subgrupo === sub.label ? "bg-emerald-500 text-white" : "bg-white text-slate-400 group-hover:text-emerald-500 shadow-sm"}`}>
+                                                            <sub.icon className="w-5 h-5" />
                                                         </div>
-                                                        <span className={`text-sm font-bold leading-tight pt-1 ${formData.subgrupo === sub.label ? "text-emerald-900" : "text-slate-600"}`}>
+                                                        <span className={`text-sm font-bold leading-tight ${formData.subgrupo === sub.label ? "text-emerald-900" : "text-slate-600"}`}>
                                                             {sub.label}
                                                         </span>
                                                     </button>
@@ -435,14 +437,14 @@ const PQR = () => {
 
                                     {/* Step 3: Specific Topic Selection (Conditional) */}
                                     {formData.subgrupo && (
-                                        <div className="space-y-6 animate-in fade-in slide-in-from-top-4 duration-500">
+                                        <div className="space-y-3 animate-in fade-in slide-in-from-top-4 duration-500">
                                             <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-sm">3</div>
-                                                <h3 className="text-xl font-bold text-slate-800">
+                                                <div className="w-7 h-7 shrink-0 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-sm">3</div>
+                                                <h3 className="text-lg font-bold text-slate-800">
                                                     Selecciona el tema específico
                                                 </h3>
                                             </div>
-                                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                                                 {PQR_GROUPS.find(g => g.id === formData.grupo)
                                                     ?.subcategories.find(s => s.label === formData.subgrupo)
                                                     ?.topics.map((topic) => (
@@ -450,7 +452,7 @@ const PQR = () => {
                                                             key={topic}
                                                             type="button"
                                                             onClick={() => handleTypeSelect(topic)}
-                                                            className={`flex items-center gap-3 p-4 rounded-xl border transition-all text-left text-sm ${formData.tipo === topic
+                                                            className={`flex items-center gap-3 px-4 py-3 rounded-xl border transition-all text-left text-sm ${formData.tipo === topic
                                                                 ? "border-emerald-500 bg-emerald-50 text-emerald-700 font-bold shadow-sm"
                                                                 : "border-slate-100 bg-white hover:border-emerald-200 hover:shadow-md text-slate-600"
                                                                 }`}
@@ -468,14 +470,14 @@ const PQR = () => {
                                     )}
 
                                     {/* Step 4: Personal Data */}
-                                    <div className={`space-y-8 transition-opacity duration-300 ${formData.tipo ? 'opacity-100' : 'opacity-30 pointer-events-none'}`}>
+                                    <div className={`space-y-4 transition-opacity duration-300 ${formData.tipo ? 'opacity-100' : 'opacity-30 pointer-events-none'}`}>
                                         <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-sm">4</div>
-                                            <h3 className="text-xl font-bold text-slate-800">Casi terminamos... tu información</h3>
+                                            <div className="w-7 h-7 shrink-0 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold text-sm">4</div>
+                                            <h3 className="text-lg font-bold text-slate-800">Casi terminamos... tu información</h3>
                                         </div>
 
-                                        <div className="grid md:grid-cols-2 gap-8">
-                                            <div className="space-y-3">
+                                        <div className="grid md:grid-cols-2 gap-4">
+                                            <div className="space-y-1.5">
                                                 <Label htmlFor="nombre" className="text-slate-500 font-medium ml-1 italic">¿Cómo te llamas?</Label>
                                                 <Input
                                                     id="nombre"
@@ -484,11 +486,11 @@ const PQR = () => {
                                                     required
                                                     value={formData.nombre}
                                                     onChange={handleChange}
-                                                    className="h-14 rounded-xl border-slate-200 bg-slate-50/30 focus:bg-white focus:ring-4 focus:ring-emerald-100 transition-all text-lg font-medium px-6 placeholder:text-slate-300"
+                                                    className="h-12 rounded-xl border-slate-200 bg-slate-50/30 focus:bg-white focus:ring-4 focus:ring-emerald-100 transition-all text-base font-medium px-4 placeholder:text-slate-300"
                                                 />
                                             </div>
 
-                                            <div className="space-y-3">
+                                            <div className="space-y-1.5">
                                                 <Label htmlFor="email" className="text-slate-500 font-medium ml-1 italic flex justify-between items-center">
                                                     ¿A qué email podemos escribirte?
                                                     {isEmailValid && <CheckCircle2 className="w-5 h-5 text-emerald-500 animate-in zoom-in duration-300" />}
@@ -502,14 +504,14 @@ const PQR = () => {
                                                         required
                                                         value={formData.email}
                                                         onChange={handleChange}
-                                                        className={`h-14 rounded-xl border-slate-200 transition-all text-lg font-medium px-6 placeholder:text-slate-300 pr-12 ${isEmailValid ? 'bg-emerald-50/30 border-emerald-200 ring-4 ring-emerald-50/50' : 'bg-slate-50/30 focus:bg-white focus:ring-4 focus:ring-emerald-100'}`}
+                                                        className={`h-12 rounded-xl border-slate-200 transition-all text-base font-medium px-4 placeholder:text-slate-300 pr-12 ${isEmailValid ? 'bg-emerald-50/30 border-emerald-200 ring-4 ring-emerald-50/50' : 'bg-slate-50/30 focus:bg-white focus:ring-4 focus:ring-emerald-100'}`}
                                                     />
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div className="grid md:grid-cols-2 gap-8">
-                                            <div className="space-y-3">
+                                        <div className="grid md:grid-cols-2 gap-4">
+                                            <div className="space-y-1.5">
                                                 <Label htmlFor="telefono" className="text-slate-500 font-medium ml-1 italic">¿Un número de teléfono?</Label>
                                                 <Input
                                                     id="telefono"
@@ -519,11 +521,11 @@ const PQR = () => {
                                                     required
                                                     value={formData.telefono}
                                                     onChange={handleChange}
-                                                    className="h-14 rounded-xl border-slate-200 bg-slate-50/30 focus:bg-white focus:ring-4 focus:ring-emerald-100 transition-all text-lg font-medium px-6 placeholder:text-slate-300"
+                                                    className="h-12 rounded-xl border-slate-200 bg-slate-50/30 focus:bg-white focus:ring-4 focus:ring-emerald-100 transition-all text-base font-medium px-4 placeholder:text-slate-300"
                                                 />
                                             </div>
 
-                                            <div className="space-y-3">
+                                            <div className="space-y-1.5">
                                                 <Label htmlFor="cedula" className="text-slate-500 font-medium ml-1 italic">¿Número de cédula?</Label>
                                                 <Input
                                                     id="cedula"
@@ -533,18 +535,18 @@ const PQR = () => {
                                                     required
                                                     value={formData.cedula}
                                                     onChange={handleChange}
-                                                    className="h-14 rounded-xl border-slate-200 bg-slate-50/30 focus:bg-white focus:ring-4 focus:ring-emerald-100 transition-all text-lg font-medium px-6 placeholder:text-slate-300"
+                                                    className="h-12 rounded-xl border-slate-200 bg-slate-50/30 focus:bg-white focus:ring-4 focus:ring-emerald-100 transition-all text-base font-medium px-4 placeholder:text-slate-300"
                                                 />
                                             </div>
                                         </div>
 
-                                        <div className="space-y-3">
+                                        <div className="space-y-1.5">
                                             <Label htmlFor="mensaje" className="text-slate-500 font-medium ml-1 italic">Cuéntanos tu caso con confianza, estamos listos para ayudarte...</Label>
                                             <Textarea
                                                 id="mensaje"
                                                 name="mensaje"
                                                 placeholder="Describe detalladamente tu situación..."
-                                                className="min-h-[180px] rounded-2xl border-slate-200 bg-slate-50/30 focus:bg-white focus:ring-4 focus:ring-emerald-100 transition-all text-lg font-medium px-6 py-4 placeholder:text-slate-300 resize-none shadow-inner"
+                                                className="min-h-[120px] rounded-2xl border-slate-200 bg-slate-50/30 focus:bg-white focus:ring-4 focus:ring-emerald-100 transition-all text-base font-medium px-4 py-3 placeholder:text-slate-300 resize-none shadow-inner"
                                                 required
                                                 value={formData.mensaje}
                                                 onChange={handleChange}
@@ -552,7 +554,7 @@ const PQR = () => {
                                         </div>
                                     </div>
 
-                                    <div className="space-y-4 pt-2">
+                                    <div className="space-y-2">
                                         <div className="flex items-start gap-3">
                                             <Checkbox
                                                 id="aceptaTerminos"
@@ -600,7 +602,7 @@ const PQR = () => {
 
                                     <Button
                                         type="submit"
-                                        className="w-full h-16 text-lg font-black bg-emerald-500 hover:bg-emerald-600 text-white shadow-xl shadow-emerald-200/50 rounded-2xl transition-all hover:scale-[1.02] active:scale-95 group/submit disabled:opacity-50 disabled:grayscale disabled:scale-100 disabled:shadow-none disabled:cursor-not-allowed"
+                                        className="w-full h-14 text-lg font-black bg-emerald-500 hover:bg-emerald-600 text-white shadow-xl shadow-emerald-200/50 rounded-2xl transition-all hover:scale-[1.02] active:scale-95 group/submit disabled:opacity-50 disabled:grayscale disabled:scale-100 disabled:shadow-none disabled:cursor-not-allowed"
                                         disabled={loading || !formData.aceptaTerminos || !formData.aceptaTratamientoDatos}
                                     >
                                         {loading ? (

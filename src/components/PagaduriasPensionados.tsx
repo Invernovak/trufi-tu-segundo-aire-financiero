@@ -10,12 +10,12 @@ interface PagaduriasListProps {
 }
 
 const PagaduriasList = ({ items }: PagaduriasListProps) => (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+    <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-0 md:gap-2">
         {items.length > 0 ? (
             items.map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2 p-3 rounded-lg hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100 group">
+                <div key={idx} className="flex items-center gap-2 p-2 md:p-3 rounded-lg hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100 group">
                     <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 group-hover:scale-125 transition-transform" />
-                    <span className="text-sm font-medium text-slate-600 group-hover:text-slate-900 line-clamp-2 uppercase">
+                    <span className="text-xs md:text-sm font-medium text-slate-600 group-hover:text-slate-900 line-clamp-2 uppercase">
                         {item.name}
                     </span>
                 </div>

@@ -4,7 +4,7 @@ const ComparisonSection = () => {
   return (
     <section className="py-24 bg-gray-50/50 relative">
       <div className="container px-4">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-3xl mx-auto text-center mb-10">
           <h2 className="text-3xl md:text-5xl font-black text-primary mb-6 tracking-tight">
             ¿Por qué elegir <span className="text-secondary">TRUFI</span>?
           </h2>

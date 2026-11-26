@@ -13,7 +13,7 @@ const TrufiAdelantaYGana = () => {
             <div className="container relative z-10 px-4 md:px-6">
 
                 {/* Header Content */}
-                <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10">
                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary/10 text-secondary-foreground rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-secondary/20">
                         <Trophy className="w-3.5 h-3.5" />
                         Nueva Zona de Beneficios
@@ -27,7 +27,7 @@ const TrufiAdelantaYGana = () => {
                 </div>
 
                 {/* Main Content Grid */}
-                <div className="grid lg:grid-cols-2 gap-8 items-center max-w-6xl mx-auto mb-16">
+                <div className="grid lg:grid-cols-2 gap-8 items-center max-w-6xl mx-auto mb-10">
 
                     {/* Left Column: Visual Hero */}
                     <div className="relative order-2 lg:order-1">

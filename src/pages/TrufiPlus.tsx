@@ -42,9 +42,9 @@ const TrufiPlus = () => {
       <Header />
       <main className="pt-0">
         {/* Hero Section */}
-        <section className="relative min-h-screen pt-20 pb-12 md:pt-28 md:pb-20 flex items-center justify-center bg-gradient-to-br from-secondary/10 to-background">
+        <section className="relative min-h-[75vh] pt-20 pb-12 md:pt-28 md:pb-20 flex items-center justify-center bg-gradient-to-br from-secondary/10 to-background">
           <div className="container">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/20 rounded-full">
                   <Star className="w-4 h-4 text-secondary-foreground" />
@@ -81,17 +81,17 @@ const TrufiPlus = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">
               Beneficios Exclusivos Trufi Plus
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
               {benefits.map((benefit, index) => (
                 <div
                   key={index}
-                  className="bg-card border border-border rounded-2xl p-6 text-center hover:shadow-elevated transition-shadow"
+                  className="bg-card border border-border rounded-2xl p-4 md:p-6 text-center hover:shadow-elevated transition-shadow"
                 >
                   <div className="w-14 h-14 bg-gradient-to-br from-secondary to-amber-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                     <benefit.icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="font-bold text-foreground mb-2">{benefit.title}</h3>
-                  <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                  <p className="text-sm text-muted-foreground text-center">{benefit.description}</p>
                 </div>
               ))}
             </div>
@@ -107,7 +107,7 @@ const TrufiPlus = () => {
             <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto">
               Diseñado para financiar los proyectos que transforman tu vida
             </p>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 max-w-4xl mx-auto">
               {[
                 { emoji: "🏠", title: "Compra de Vivienda", desc: "Tu casa propia o de inversión" },
                 { emoji: "🚗", title: "Vehículo", desc: "Nuevo o usado, el que necesites" },
@@ -116,10 +116,10 @@ const TrufiPlus = () => {
                 { emoji: "🏥", title: "Salud", desc: "Procedimientos médicos" },
                 { emoji: "✨", title: "Libre Inversión", desc: "Lo que tú decidas" },
               ].map((useCase, index) => (
-                <div key={index} className="bg-card border border-border rounded-xl p-5 text-center">
+                <div key={index} className="bg-card border border-border rounded-xl p-4 md:p-5 text-center">
                   <span className="text-3xl mb-3 block">{useCase.emoji}</span>
                   <h3 className="font-bold text-foreground mb-1">{useCase.title}</h3>
-                  <p className="text-sm text-muted-foreground">{useCase.desc}</p>
+                  <p className="text-sm text-muted-foreground text-center">{useCase.desc}</p>
                 </div>
               ))}
             </div>

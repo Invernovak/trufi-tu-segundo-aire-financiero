@@ -5,7 +5,7 @@ import CreditSimulator from "@/components/CreditSimulator";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[100vh] flex items-center pt-32 pb-20 overflow-hidden bg-gradient-hero">
+    <section className="relative min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden bg-gradient-hero">
       {/* Abstract Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-secondary/10 rounded-full blur-3xl animate-pulse-soft" />
@@ -31,7 +31,7 @@ const HeroSection = () => {
       </div>
 
       <div className="container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
 
           {/* LEFT COLUMN: Text Content */}
           <div className="max-w-xl space-y-8 text-center lg:text-left">

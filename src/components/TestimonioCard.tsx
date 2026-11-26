@@ -20,7 +20,7 @@ const TestimonioCard = ({
          <Quote className="w-16 h-16 text-primary rotate-180" />
       </div>
 
-      <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center relative z-10">
+      <div className="flex flex-col md:flex-row gap-8 md:gap-8 items-center relative z-10">
         {/* Enmascaramiento Quirúrgico (Avatar Pop-out) */}
         <div className="shrink-0">
           <div className="w-32 h-32 md:w-36 md:h-36 rounded-full border-[6px] border-white shadow-lg relative overflow-visible bg-gradient-to-tr from-slate-50 to-white

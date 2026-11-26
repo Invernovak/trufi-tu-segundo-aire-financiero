@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Briefcase, User, CreditCard } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,8 +12,6 @@ import {
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
-  const forceSolidHeader = location.pathname === "/blog";
 
   // Handle scroll effect for transparency
   useEffect(() => {
@@ -31,7 +29,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || forceSolidHeader
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
         ? "bg-primary/95 backdrop-blur-md shadow-md py-2"
         : "bg-transparent py-4"
         }`}
@@ -95,25 +93,10 @@ const Header = () => {
           </Link>
 
           <Link
-            to="/blog"
-            className="text-white/90 hover:text-emerald-400 transition-colors font-medium lg:text-[13px] xl:text-[14px] text-shadow-sm whitespace-nowrap"
-          >
-            Aprende con Trufi
-          </Link>
-
-          {/* Nuevo Item: Ponte al día */}
-          <Link
-            to="/zona-pagos"
-            className="text-white/90 hover:text-emerald-400 transition-colors font-medium lg:text-[13px] xl:text-[14px] flex items-center gap-1 text-shadow-sm whitespace-nowrap"
-          >
-            Ponte Al Día
-          </Link>
-
-          <Link
             to="/pqr"
             className="text-white/90 hover:text-emerald-400 transition-colors font-medium lg:text-[13px] xl:text-[14px] flex items-center gap-1 text-shadow-sm whitespace-nowrap"
           >
-            PQRs
+            PQRS
           </Link>
         </nav>
 
@@ -206,27 +189,11 @@ const Header = () => {
             </div>
 
             <Link
-              to="/blog"
-              className="text-white text-sm font-medium py-3 border-b border-white/10"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Aprende con Trufi
-            </Link>
-
-            <Link
-              to="/zona-pagos"
-              className="text-white text-sm font-medium py-3 border-b border-white/10"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Ponte Al Día
-            </Link>
-
-            <Link
               to="/pqr"
               className="text-white text-sm font-medium py-3 border-b border-white/10"
               onClick={() => setIsMenuOpen(false)}
             >
-              PQRs
+              PQRS
             </Link>
 
             <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-white/20">

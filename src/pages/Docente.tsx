@@ -86,7 +86,7 @@ const Docente = () => {
       <main className="pt-0">
 
         {/* Hero Section - Docentes */}
-        <section className="relative min-h-screen pt-20 md:pt-28 pb-8 md:pb-12 overflow-hidden flex flex-col justify-center">
+        <section className="relative min-h-[80vh] pt-20 md:pt-28 pb-8 md:pb-12 overflow-hidden flex flex-col justify-center">
           {/* Background con imagen del segmento */}
           <div className="absolute inset-0 z-0">
             <img
@@ -177,17 +177,17 @@ const Docente = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
               Facilidades para ti
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
               {benefits.map((benefit, index) => (
                 <div
                   key={index}
-                  className={`bg-card border ${accentBorder} rounded-2xl p-5 text-center hover:shadow-elevated transition-all duration-300 group`}
+                  className={`bg-card border ${accentBorder} rounded-2xl p-4 md:p-5 text-center hover:shadow-elevated transition-all duration-300 group`}
                 >
-                  <div className={`w-16 h-16 ${accentBg} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
-                    <benefit.icon className={`w-8 h-8 ${accentText}`} />
+                  <div className={`w-12 h-12 md:w-16 md:h-16 ${accentBg} rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:scale-110 transition-transform`}>
+                    <benefit.icon className={`w-6 h-6 md:w-8 md:h-8 ${accentText}`} />
                   </div>
                   <h3 className="font-bold text-foreground mb-2 text-base">{benefit.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed text-center">{benefit.description}</p>
                 </div>
               ))}
             </div>

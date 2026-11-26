@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import PageLoader from "@/components/PageLoader";
@@ -16,9 +16,7 @@ import QuienesSomos from "./pages/QuienesSomos";
 import Servicios from "./pages/Servicios";
 import TrufiPlus from "./pages/TrufiPlus";
 import TrufiFlex from "./pages/TrufiFlex";
-import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
-import ZonaPagos from "./pages/ZonaPagos";
 import PortalComercial from "./pages/PortalComercial";
 import BeneficiosExclusivos from "./pages/BeneficiosExclusivos";
 import PQR from "./pages/PQR";
@@ -63,9 +61,9 @@ const App = () => {
               <Route path="/servicios/trufi-plus" element={<TrufiPlus />} />
               <Route path="/servicios/trufi-flex" element={<TrufiFlex />} />
               <Route path="/beneficios" element={<BeneficiosExclusivos />} />
-              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog" element={<Navigate to="/" replace />} />
               <Route path="/blog/:id" element={<BlogPost />} />
-              <Route path="/zona-pagos" element={<ZonaPagos />} />
+              <Route path="/zona-pagos" element={<Navigate to="/" replace />} />
               <Route path="/portal-comercial" element={<PortalComercial />} />
               <Route path="/pqr" element={<PQR />} />
               <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />

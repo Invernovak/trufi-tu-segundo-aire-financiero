@@ -9,14 +9,14 @@ const Footer = () => {
       <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-trufi-cyan via-white to-trufi-cyan opacity-20" />
       <div className="absolute -top-24 -right-24 w-64 h-64 bg-trufi-cyan/5 rounded-full blur-3xl opacity-20 pointer-events-none" />
 
-      <div className="container py-8 md:py-10 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+      <div className="container py-6 md:py-8 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
 
           {/* Left Column: Brand & Description (Compact) */}
-          <div className="lg:col-span-4 space-y-5">
+          <div className="lg:col-span-4 space-y-3">
             <img
               alt="TRUFI - Confianza Inmediata"
-              className="h-16 w-auto"
+              className="h-12 md:h-14 w-auto"
               src="/logos/trufi-marca-negativo.svg"
             />
             <p className="text-primary-foreground/70 leading-relaxed text-xs md:text-sm max-w-sm">
@@ -25,7 +25,7 @@ const Footer = () => {
             </p>
 
             {/* Contact Info - Compact Vertical List */}
-            <div className="space-y-2 py-2">
+            <div className="space-y-1.5">
               <div className="flex items-center gap-2.5 text-xs text-primary-foreground/80">
                 <MapPin className="w-3.5 h-3.5 text-trufi-cyan flex-shrink-0" />
                 <span>Cra 100 # 16 - 321, Oficina 608 Edificio Jardin Central, Cali - Colombia</span>
@@ -57,8 +57,8 @@ const Footer = () => {
           {/* Middle Column: Unified Links Grid */}
           <div className="lg:col-span-4 flex justify-center lg:justify-start">
             <div>
-              <h4 className="font-semibold text-white mb-3">Legal</h4>
-              <ul className="space-y-2 text-primary-foreground/60 text-xs md:text-sm">
+              <h4 className="font-semibold text-white mb-2">Legal</h4>
+              <ul className="space-y-1.5 text-primary-foreground/60 text-xs md:text-sm">
                 <li><a href="#" className="hover:text-trufi-cyan transition-colors">Términos y Condiciones</a></li>
                 <li><Link to="/politica-privacidad" className="hover:text-trufi-cyan transition-colors">Política de Privacidad</Link></li>
                 <li><Link to="/politica-privacidad" className="hover:text-trufi-cyan transition-colors">Tratamiento de Datos</Link></li>
@@ -76,10 +76,10 @@ const Footer = () => {
         </div>
 
         {/* Separator - Removed Content */}
-        <div className="mt-8"></div>
+        <div className="mt-4"></div>
 
         {/* Copyright & Disclaimer - Mini */}
-        <div className="border-t border-white/5 pt-6 text-[10px] md:text-xs text-primary-foreground/40 text-justify md:text-center leading-relaxed">
+        <div className="border-t border-white/5 pt-4 text-[10px] md:text-xs text-primary-foreground/40 text-justify md:text-center leading-relaxed">
           <p className="mb-2">
             TRUFI S.A.S. cumple con la Ley 1527 de 2012. Tasas y condiciones sujetas a estudio.
             Nunca solicitamos dinero por adelantado.

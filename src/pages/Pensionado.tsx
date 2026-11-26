@@ -86,7 +86,7 @@ const Pensionado = () => {
       <main className="pt-0"> {/* Removed pt-20 to allow hero to touch top */}
 
         {/* Hero Section - Pensionados */}
-        <section className="relative min-h-screen pt-20 md:pt-28 pb-8 md:pb-12 overflow-hidden flex flex-col justify-center">
+        <section className="relative min-h-[80vh] pt-20 md:pt-28 pb-8 md:pb-12 overflow-hidden flex flex-col justify-center">
           {/* Background con imagen del segmento covering everything */}
           <div className="absolute inset-0 z-0">
             <img
@@ -100,7 +100,7 @@ const Pensionado = () => {
 
           <div className="container relative z-10 h-full flex flex-col">
             {/* Navegación rápida - inside Hero */}
-            <div className="mb-8 md:mb-12">
+            <div className="mb-8 md:mb-8">
               <div className="flex items-center gap-4 flex-wrap">
                 <Link to="/">
                   <Button variant="ghost" size="sm" className="gap-2 text-white/90 hover:text-white hover:bg-white/10 transition-colors">
@@ -167,17 +167,17 @@ const Pensionado = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
               ¿Por Qué Los Pensionados Eligen TRUFI?
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
               {benefits.map((benefit, index) => (
                 <div
                   key={index}
-                  className={`bg-card border ${accentBorder} rounded-2xl p-7 text-center hover:shadow-elevated transition-all duration-300 group`}
+                  className={`bg-card border ${accentBorder} rounded-2xl p-4 md:p-7 text-center hover:shadow-elevated transition-all duration-300 group`}
                 >
-                  <div className={`w-20 h-20 ${accentBg} rounded-full flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform`}>
-                    <benefit.icon className={`w-10 h-10 ${accentText}`} />
+                  <div className={`w-14 h-14 md:w-20 md:h-20 ${accentBg} rounded-full flex items-center justify-center mx-auto mb-3 md:mb-5 group-hover:scale-110 transition-transform`}>
+                    <benefit.icon className={`w-7 h-7 md:w-10 md:h-10 ${accentText}`} />
                   </div>
-                  <h3 className="font-bold text-foreground mb-3 text-lg">{benefit.title}</h3>
-                  <p className="text-base text-muted-foreground leading-relaxed">{benefit.description}</p>
+                  <h3 className="font-bold text-foreground mb-2 md:mb-3 text-base md:text-lg">{benefit.title}</h3>
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed text-center">{benefit.description}</p>
                 </div>
               ))}
             </div>

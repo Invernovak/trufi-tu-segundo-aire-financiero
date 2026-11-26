@@ -84,7 +84,7 @@ const AudienceSegmentation = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/5 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       <div className="container">
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+        <div className="text-center max-w-2xl mx-auto mb-10 space-y-4">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/5 text-primary font-bold text-sm tracking-wide uppercase">
             Elige tu perfil
           </span>
@@ -122,7 +122,7 @@ const AudienceSegmentation = () => {
               <Link key={item.id} to={item.enlace} className="block group h-full">
                 <Card className={`h-full border border-border/50 shadow-card hover:-translate-y-2 transition-all duration-500 bg-card overflow-hidden rounded-[2rem] flex flex-col ${config.shadowClass} transform-gpu isolation-isolate`}>
                   {/* Image Container */}
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative h-44 md:h-64 overflow-hidden">
                     <img
                       src={getFallbackImage(item.titulo)}
                       alt={title}

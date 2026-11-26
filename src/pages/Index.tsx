@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import AudienceSegmentation from "@/components/AudienceSegmentation";
 import BeneficiosTrufi from "@/components/BeneficiosTrufi";
-import FinancialAcademySection from "@/components/FinancialAcademySection";
 import SocialMediaFeed from "@/components/SocialMediaFeed";
 import TrufiAdelantaYGana from "@/components/TrufiAdelantaYGana";
 import { SEOHead } from "@/components/SEOHead";
@@ -29,9 +28,6 @@ const Index = () => {
 
         {/* 3. Beneficios Trufi - Nueva sección de seguros */}
         <BeneficiosTrufi />
-
-        {/* 5. Zona de Aprendizaje Financiero */}
-        <FinancialAcademySection />
 
         {/* 5. Banner de Cierre (CTA) - Ahora tipo Listón */}
         <CTASection />

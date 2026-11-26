@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { SEOHead } from "@/components/SEOHead";
+import BeneficiosCredito from "@/components/BeneficiosCredito";
 import BeneficiosTrufi from "@/components/BeneficiosTrufi";
 import TrufiAdelantaYGana from "@/components/TrufiAdelantaYGana";
 import CTASection from "@/components/CTASection";
@@ -16,7 +17,7 @@ const BeneficiosExclusivos = () => {
             <Header />
             <main>
                 {/* Custom Hero Section for Benefits */}
-                <section className="relative h-[400px] md:h-[500px] flex items-center justify-center overflow-hidden">
+                <section className="relative min-h-[320px] md:min-h-[380px] flex items-center justify-center overflow-hidden">
                     {/* Background Image - using a generic happy/lifestyle image */}
                     <div className="absolute inset-0 z-0">
                         <img
@@ -40,6 +41,9 @@ const BeneficiosExclusivos = () => {
                         </p>
                     </div>
                 </section>
+
+                {/* Beneficios reales del crédito */}
+                <BeneficiosCredito />
 
                 {/* Reusing existing benefits components */}
                 <BeneficiosTrufi />

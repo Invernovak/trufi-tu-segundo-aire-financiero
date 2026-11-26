@@ -32,7 +32,7 @@ const BlogPost = () => {
             <Header />
             <main className="pt-24 pb-20">
                 {/* Article Header */}
-                <div className="container max-w-4xl px-4 md:px-6 mb-12">
+                <div className="container max-w-4xl px-4 md:px-6 mb-8">
                     <Link
                         to="/blog"
                         className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary mb-8 transition-colors group"
@@ -62,7 +62,7 @@ const BlogPost = () => {
                     </h1>
 
                     {/* Featured Image */}
-                    <div className="rounded-3xl overflow-hidden shadow-2xl mb-12 aspect-video relative">
+                    <div className="rounded-3xl overflow-hidden shadow-2xl mb-8 aspect-video relative">
                         <img
                             src={post.cover_image_url}
                             alt={post.title}
@@ -78,7 +78,7 @@ const BlogPost = () => {
                 </article>
 
                 {/* Footer of Article */}
-                <div className="container max-w-3xl px-4 md:px-6 mt-16 pt-8 border-t border-gray-100 flex justify-between items-center">
+                <div className="container max-w-3xl px-4 md:px-6 mt-10 pt-8 border-t border-gray-100 flex justify-between items-center">
                     <div className="flex items-center gap-2">
                         <Tag className="w-5 h-5 text-gray-400" />
                         <span className="text-sm text-gray-500 font-medium">Temas: {post.category}, Finanzas, TRUFI</span>

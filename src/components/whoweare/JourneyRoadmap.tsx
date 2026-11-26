@@ -25,7 +25,7 @@ const JourneyRoadmap = () => {
   return (
     <section className="py-24 bg-white relative">
       <div className="container px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-3xl md:text-5xl font-black text-primary mb-4">
             Tu Camino a la <span className="text-secondary">Libertad</span>
           </h2>
