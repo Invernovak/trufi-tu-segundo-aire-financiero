@@ -55,7 +55,7 @@ const Servicios = () => {
         {/* Hero Section */}
         <section className="py-12 md:py-20 bg-gradient-to-br from-primary/5 to-background">
           <div className="container text-center max-w-4xl">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               Nuestros <span className="text-primary">Servicios</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground">
@@ -68,7 +68,7 @@ const Servicios = () => {
         {/* Services Grid */}
         <section className="py-12 md:py-16">
           <div className="container">
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-5 max-w-5xl mx-auto">
               {services.map((service) => (
                 <div
                   key={service.id}
@@ -91,7 +91,7 @@ const Servicios = () => {
 
                   {/* Features */}
                   <div className="p-6 md:p-8">
-                    <ul className="space-y-3 mb-6">
+                    <ul className="space-y-3 mb-4">
                       {service.features.map((feature, index) => (
                         <li key={index} className="flex items-start gap-3">
                           <div className="w-5 h-5 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -102,7 +102,7 @@ const Servicios = () => {
                       ))}
                     </ul>
 
-                    <p className="text-sm text-muted-foreground bg-muted/50 rounded-lg p-3 mb-6">
+                    <p className="text-sm text-muted-foreground bg-muted/50 rounded-lg p-3 mb-4">
                       {service.ideal}
                     </p>
 
@@ -122,7 +122,7 @@ const Servicios = () => {
         {/* Comparison Section */}
         <section className="py-12 md:py-16 bg-muted/30">
           <div className="container">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
               Comparativa de Productos
             </h2>
             <div className="overflow-x-auto">
@@ -161,7 +161,7 @@ const Servicios = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
               ¿No sabes cuál elegir?
             </h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
+            <p className="text-primary-foreground/80 mb-5 max-w-xl mx-auto">
               Nuestros asesores te ayudarán a encontrar el producto perfecto para tus necesidades.
             </p>
             <Button variant="secondary" size="xl">

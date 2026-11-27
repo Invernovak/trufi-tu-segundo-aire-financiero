@@ -19,7 +19,7 @@ const PortalComercial = () => {
         <div className="min-h-screen bg-background flex flex-col">
             <Header />
             <main className="flex-1 pt-24 pb-12">
-                <section className="container max-w-4xl mx-auto space-y-8">
+                <section className="container max-w-4xl mx-auto space-y-5">
 
                     {/* Header Section */}
                     <div className="text-center space-y-4">
@@ -27,7 +27,7 @@ const PortalComercial = () => {
                             <Briefcase className="w-4 h-4" />
                             Portal Comercial
                         </div>
-                        <h1 className="text-4xl md:text-5xl font-extrabold text-foreground">
+                        <h1 className="text-3xl md:text-4xl font-extrabold text-foreground">
                             Simula tu gestión comercial
                         </h1>
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -37,7 +37,7 @@ const PortalComercial = () => {
 
                     {/* Placeholder Simulator Area */}
                     <Card className="border-2 border-dashed border-primary/20 bg-muted/30 shadow-none">
-                        <CardContent className="p-12 flex flex-col items-center justify-center text-center space-y-6">
+                        <CardContent className="p-6 md:p-8 flex flex-col items-center justify-center text-center space-y-4">
                             <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg">
                                 <Calculator className="w-10 h-10 text-primary" />
                             </div>
@@ -63,8 +63,8 @@ const PortalComercial = () => {
 
                     {/* Protected CTA Section */}
                     <div className={`transition-all duration-700 ease-in-out ${simulationDone ? 'opacity-100 translate-y-0' : 'opacity-50 translate-y-4 grayscale blur-[2px] pointer-events-none'}`}>
-                        <div className="bg-primary text-primary-foreground rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
-                            <div className="relative z-10 space-y-6">
+                        <div className="bg-primary text-primary-foreground rounded-3xl p-5 md:p-8 text-center relative overflow-hidden">
+                            <div className="relative z-10 space-y-4">
                                 <h2 className="text-2xl md:text-3xl font-bold">
                                     Resultados listos
                                 </h2>

@@ -34,9 +34,9 @@ const InvestorsSection = () => {
       </div>
 
       <div className="container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div className="grid lg:grid-cols-2 gap-5 items-center">
           {/* Content */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/20 text-primary-foreground/80 text-sm font-medium">
               Para Inversionistas Institucionales
             </span>

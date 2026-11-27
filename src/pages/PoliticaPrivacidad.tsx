@@ -12,18 +12,18 @@ const PoliticaPrivacidad = () => {
             <main className="flex-grow py-24">
                 <div className="container max-w-4xl mx-auto px-4">
                     <Link to="/">
-                        <Button variant="ghost" size="sm" className="mb-8 gap-2 hover:bg-white">
+                        <Button variant="ghost" size="sm" className="mb-5 gap-2 hover:bg-white">
                             <ArrowLeft className="w-4 h-4" />
                             Volver al inicio
                         </Button>
                     </Link>
 
-                    <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 md:p-12">
-                        <h1 className="text-3xl font-bold text-gray-900 mb-8 border-b pb-6">
+                    <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-5 md:p-8">
+                        <h1 className="text-3xl font-bold text-gray-900 mb-5 border-b pb-6">
                             POLÍTICA DE PROTECCIÓN DE DATOS PERSONALES
                         </h1>
 
-                        <div className="prose prose-blue max-w-none text-gray-600 space-y-6">
+                        <div className="prose prose-blue max-w-none text-gray-600 space-y-4">
                             <p>
                                 La presente política se aplicará a todos los datos personales, bases de datos y/o archivos que
                                 contengan datos personales que sean objeto de tratamiento por parte de Trufi S.A.S. (en adelante
@@ -32,7 +32,7 @@ const PoliticaPrivacidad = () => {
                                 llegue a surgir en virtud de sus actividades conexas o propias de su actividad empresarial.
                             </p>
 
-                            <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">
+                            <h2 className="text-xl font-bold text-gray-900 mt-5 mb-4">
                                 1. RESPONSABLE DEL TRATAMIENTO DE DATOS PERSONALES
                             </h2>
                             <ul className="list-none space-y-2 bg-gray-50 p-6 rounded-xl border border-gray-100">
@@ -43,7 +43,7 @@ const PoliticaPrivacidad = () => {
                                 <li><span className="font-bold text-gray-900">Correo Electrónico:</span> juridico@trufi.com.co</li>
                             </ul>
 
-                            <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">
+                            <h2 className="text-xl font-bold text-gray-900 mt-5 mb-4">
                                 2. TRATAMIENTO Y FINALIDAD
                             </h2>
                             <h3 className="text-lg font-bold text-gray-800 mt-6 mb-3">

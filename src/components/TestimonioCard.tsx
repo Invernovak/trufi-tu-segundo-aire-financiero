@@ -14,13 +14,13 @@ const TestimonioCard = ({
   imagePath 
 }: TestimonioCardProps) => {
   return (
-    <div className="max-w-4xl mx-auto bg-card border border-border shadow-md rounded-[2.5rem] p-8 md:p-12 relative group hover:shadow-xl transition-all duration-500 overflow-hidden">
+    <div className="max-w-4xl mx-auto bg-card border border-border shadow-md rounded-[2.5rem] p-5 md:p-8 relative group hover:shadow-xl transition-all duration-500 overflow-hidden">
       {/* Comilla decorativa */}
       <div className="absolute top-6 left-10 transition-transform group-hover:scale-110 duration-500 opacity-20 pointer-events-none">
          <Quote className="w-16 h-16 text-primary rotate-180" />
       </div>
 
-      <div className="flex flex-col md:flex-row gap-8 md:gap-8 items-center relative z-10">
+      <div className="flex flex-col md:flex-row gap-5 md:gap-8 items-center relative z-10">
         {/* Enmascaramiento Quirúrgico (Avatar Pop-out) */}
         <div className="shrink-0">
           <div className="w-32 h-32 md:w-36 md:h-36 rounded-full border-[6px] border-white shadow-lg relative overflow-visible bg-gradient-to-tr from-slate-50 to-white
@@ -37,7 +37,7 @@ const TestimonioCard = ({
 
         {/* Texto del Testimonio */}
         <div className="text-center md:text-left flex-1">
-          <p className="text-lg md:text-xl text-foreground font-medium italic mb-6 leading-relaxed relative">
+          <p className="text-lg md:text-xl text-foreground font-medium italic mb-4 leading-relaxed relative">
             "{quoteText}"
           </p>
           <div className="space-y-1">

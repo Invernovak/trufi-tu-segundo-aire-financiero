@@ -10,8 +10,8 @@ const documents = [
 
 const DocumentCostsTable = () => {
   return (
-    <div className="mt-8 space-y-6">
-      <div className="flex items-center gap-3 mb-6">
+    <div className="mt-5 space-y-4">
+      <div className="flex items-center gap-3 mb-4">
         <div className="w-1.5 h-8 bg-secondary rounded-full" />
         <h3 className="text-2xl font-black text-primary">Certificaciones sin Costo</h3>
       </div>

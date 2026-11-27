@@ -68,7 +68,7 @@ const PageLoader = ({ onFinished }: { onFinished: () => void }) => {
                 </div>
 
                 {/* Loading Text (Optional, good for UX) */}
-                <div className={`mt-8 text-white/70 font-medium text-lg transition-opacity duration-300 ${stage === "approve" ? "opacity-0" : "opacity-100"}`}>
+                <div className={`mt-5 text-white/70 font-medium text-lg transition-opacity duration-300 ${stage === "approve" ? "opacity-0" : "opacity-100"}`}>
                     Cargando...
                 </div>
             </div>

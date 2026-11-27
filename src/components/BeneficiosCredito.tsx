@@ -40,11 +40,11 @@ const BeneficiosCredito = () => {
   return (
     <section className="py-16 md:py-24 bg-background" id="beneficios-credito">
       <div className="container">
-        <div className="text-center max-w-3xl mx-auto mb-8">
+        <div className="text-center max-w-3xl mx-auto mb-5">
           <Badge variant="outline" className="mb-4 px-4 py-1 border-primary/20 text-primary bg-primary/5 text-sm font-semibold uppercase tracking-wider">
             Tu crédito TRUFI
           </Badge>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight">
             Beneficios de tu crédito
           </h2>
         </div>
@@ -53,7 +53,7 @@ const BeneficiosCredito = () => {
           {beneficiosCredito.map((item) => (
             <Card
               key={item.title}
-              className="group border-0 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 bg-white rounded-[2rem] p-8"
+              className="group border-0 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 bg-white rounded-[2rem] p-5 md:p-6"
             >
               <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
                 <item.icon className="w-7 h-7 text-primary" />
@@ -64,7 +64,7 @@ const BeneficiosCredito = () => {
           ))}
         </div>
 
-        <p className="text-sm text-muted-foreground text-center mt-8">
+        <p className="text-sm text-muted-foreground text-center mt-5">
           Tasas y condiciones sujetas a estudio de crédito.
         </p>
       </div>

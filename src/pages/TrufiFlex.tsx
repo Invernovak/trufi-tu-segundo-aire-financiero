@@ -65,10 +65,10 @@ const TrufiFlex = () => {
       <Header />
       <main className="pt-0">
         {/* Hero Section */}
-        <section className="relative min-h-[75vh] pt-20 pb-12 md:pt-28 md:pb-20 flex items-center justify-center bg-gradient-to-br from-primary/10 to-background">
+        <section className="relative min-h-[65vh] pt-20 pb-12 md:pt-28 md:pb-20 flex items-center justify-center bg-gradient-to-br from-primary/10 to-background">
           <div className="container">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 items-center">
-              <div className="space-y-6">
+            <div className="grid lg:grid-cols-2 gap-5 lg:gap-8 items-center">
+              <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
                   <Zap className="w-4 h-4 text-primary" />
                   <span className="text-primary font-semibold text-sm">
@@ -104,7 +104,7 @@ const TrufiFlex = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
               Así de fácil es obtener tu crédito
             </h2>
-            <p className="text-muted-foreground text-center mb-10 max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-center mb-6 max-w-2xl mx-auto">
               Un proceso simple diseñado para tu comodidad
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 max-w-5xl mx-auto">
@@ -129,7 +129,7 @@ const TrufiFlex = () => {
         {/* Benefits Section */}
         <section className="py-12 md:py-16">
           <div className="container">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
               Ventajas de Trufi Flex
             </h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
@@ -179,7 +179,7 @@ const TrufiFlex = () => {
         <section className="py-12 md:py-16">
           <div className="container">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-center mb-5">
                 Requisitos Mínimos
               </h2>
               <div className="bg-card border border-border rounded-2xl p-6 md:p-8">
@@ -204,7 +204,7 @@ const TrufiFlex = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
               Tu solución financiera a un clic
             </h2>
-            <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
+            <p className="text-primary-foreground/80 mb-5 max-w-xl mx-auto">
               Comienza ahora y recibe respuesta en menos de 24 horas.
             </p>
             <Button variant="secondary" size="xl">

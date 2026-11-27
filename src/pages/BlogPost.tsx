@@ -17,7 +17,7 @@ const BlogPost = () => {
                 <Header />
                 <main className="flex-1 flex flex-col items-center justify-center p-4">
                     <h1 className="text-3xl font-bold text-gray-900 mb-4">Artículo no encontrado</h1>
-                    <p className="text-gray-600 mb-8">Lo sentimos, el artículo que buscas no existe o ha sido movido.</p>
+                    <p className="text-gray-600 mb-5">Lo sentimos, el artículo que buscas no existe o ha sido movido.</p>
                     <Link to="/blog">
                         <Button>Volver a la Zona de Aprendizaje</Button>
                     </Link>
@@ -32,16 +32,16 @@ const BlogPost = () => {
             <Header />
             <main className="pt-24 pb-20">
                 {/* Article Header */}
-                <div className="container max-w-4xl px-4 md:px-6 mb-8">
+                <div className="container max-w-4xl px-4 md:px-6 mb-5">
                     <Link
                         to="/blog"
-                        className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary mb-8 transition-colors group"
+                        className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary mb-5 transition-colors group"
                     >
                         <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
                         Volver a artículos
                     </Link>
 
-                    <div className="flex items-center gap-3 mb-6">
+                    <div className="flex items-center gap-3 mb-4">
                         <span className="px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-wider">
                             {post.category}
                         </span>
@@ -57,12 +57,12 @@ const BlogPost = () => {
                         </div>
                     </div>
 
-                    <h1 className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight mb-8">
+                    <h1 className="text-3xl md:text-4xl font-extrabold text-foreground leading-tight mb-5">
                         {post.title}
                     </h1>
 
                     {/* Featured Image */}
-                    <div className="rounded-3xl overflow-hidden shadow-2xl mb-8 aspect-video relative">
+                    <div className="rounded-3xl overflow-hidden shadow-2xl mb-5 aspect-video relative">
                         <img
                             src={post.cover_image_url}
                             alt={post.title}
@@ -78,7 +78,7 @@ const BlogPost = () => {
                 </article>
 
                 {/* Footer of Article */}
-                <div className="container max-w-3xl px-4 md:px-6 mt-10 pt-8 border-t border-gray-100 flex justify-between items-center">
+                <div className="container max-w-3xl px-4 md:px-6 mt-6 pt-5 border-t border-gray-100 flex justify-between items-center">
                     <div className="flex items-center gap-2">
                         <Tag className="w-5 h-5 text-gray-400" />
                         <span className="text-sm text-gray-500 font-medium">Temas: {post.category}, Finanzas, TRUFI</span>

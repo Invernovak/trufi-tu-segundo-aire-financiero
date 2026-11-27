@@ -13,12 +13,12 @@ const TrufiAdelantaYGana = () => {
             <div className="container relative z-10 px-4 md:px-6">
 
                 {/* Header Content */}
-                <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10">
+                <div className="text-center max-w-3xl mx-auto mb-5 md:mb-10">
                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-secondary/10 text-secondary-foreground rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-secondary/20">
                         <Trophy className="w-3.5 h-3.5" />
                         Nueva Zona de Beneficios
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4 tracking-tight">
+                    <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-4 tracking-tight">
                         Trufi <span className="text-primary">Adelanta y Gana</span>
                     </h2>
                     <p className="text-lg text-muted-foreground/90 leading-relaxed text-center">
@@ -27,7 +27,7 @@ const TrufiAdelantaYGana = () => {
                 </div>
 
                 {/* Main Content Grid */}
-                <div className="grid lg:grid-cols-2 gap-8 items-center max-w-6xl mx-auto mb-10">
+                <div className="grid lg:grid-cols-2 gap-5 items-center max-w-6xl mx-auto mb-6">
 
                     {/* Left Column: Visual Hero */}
                     <div className="relative order-2 lg:order-1">
@@ -58,9 +58,9 @@ const TrufiAdelantaYGana = () => {
                     </div>
 
                     {/* Right Column: Gamification Module */}
-                    <div className="order-1 lg:order-2 bg-white rounded-3xl p-6 md:p-10 shadow-xl border border-primary/10 relative overflow-hidden">
+                    <div className="order-1 lg:order-2 bg-white rounded-3xl p-6 md:p-7 shadow-xl border border-primary/10 relative overflow-hidden">
 
-                        <div className="flex items-center justify-between mb-8">
+                        <div className="flex items-center justify-between mb-5">
                             <div>
                                 <span className="text-sm font-medium text-muted-foreground">Tu reputación en Trufi</span>
                                 <div className="flex items-center gap-2 mt-1">
@@ -75,7 +75,7 @@ const TrufiAdelantaYGana = () => {
                         </div>
 
                         {/* Progress Bar Area */}
-                        <div className="space-y-4 mb-8">
+                        <div className="space-y-4 mb-5">
                             <div className="flex justify-between text-sm font-medium">
                                 <span className="text-primary font-bold">Nivel Actual</span>
                                 <span className="text-muted-foreground">Próximo Nivel: Renovación VIP</span>

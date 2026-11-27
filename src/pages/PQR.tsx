@@ -340,12 +340,12 @@ const PQR = () => {
             <main className="pt-28 pb-16 md:pt-36">
                 <div className="container px-4 md:px-6 max-w-4xl mx-auto">
 
-                    <div className="text-center mb-8 relative z-10">
+                    <div className="text-center mb-5 relative z-10">
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full mb-4 border border-white/20">
                             <FileText className="w-4 h-4 text-emerald-400" />
                             <span className="text-emerald-100 font-semibold text-sm tracking-wide">Centro de Ayuda</span>
                         </div>
-                        <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 drop-shadow-sm">
+                        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-sm">
                             Estamos aquí para escucharte
                         </h1>
                         <p className="text-lg text-slate-100 max-w-2xl mx-auto drop-shadow-sm font-medium text-center">
@@ -356,7 +356,7 @@ const PQR = () => {
                     <div className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/60 border border-slate-100 p-5 md:p-8 relative z-10 overflow-hidden">
                         {!isSubmitted ? (
                             <>
-                                <form onSubmit={handleSubmit} className="space-y-6">
+                                <form onSubmit={handleSubmit} className="space-y-4">
                                     {/* Step 1: Group Selection */}
                                     <div className="space-y-3">
                                         <div className="flex flex-col-reverse items-start gap-3 md:flex-row md:items-center md:justify-between">
@@ -622,17 +622,17 @@ const PQR = () => {
                             </>
                         ) : (
                             <div className="py-12 flex flex-col items-center text-center animate-in fade-in zoom-in duration-700">
-                                <div className="w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center mb-8 relative">
+                                <div className="w-24 h-24 bg-emerald-100 rounded-full flex items-center justify-center mb-5 relative">
                                     <CheckCircle className="w-12 h-12 text-emerald-500" />
                                     <div className="absolute inset-0 rounded-full border-4 border-emerald-500 border-t-transparent animate-spin duration-[3000ms]" />
                                 </div>
                                 
                                 <h2 className="text-3xl font-black text-slate-800 mb-4">¡Solicitud Radicada!</h2>
-                                <p className="text-lg text-slate-500 mb-10 max-w-md">
+                                <p className="text-lg text-slate-500 mb-6 max-w-md">
                                     Hemos recibido tu solicitud correctamente. El equipo de Trufi te dará una respuesta en el menor tiempo posible.
                                 </p>
 
-                                <div className="bg-slate-50 w-full rounded-3xl p-8 border border-slate-100 mb-10 flex flex-col items-center">
+                                <div className="bg-slate-50 w-full rounded-3xl p-5 md:p-6 border border-slate-100 mb-6 flex flex-col items-center">
                                     <p className="text-sm font-bold text-slate-400 uppercase tracking-[0.2em] mb-2">Tu número de radicado</p>
                                     <div className="text-4xl font-black text-emerald-600 font-mono tracking-tight bg-white px-8 py-4 rounded-2xl border border-emerald-100 shadow-sm">
                                         {radicadoNumber}

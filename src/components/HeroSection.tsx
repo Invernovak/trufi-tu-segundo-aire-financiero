@@ -5,7 +5,7 @@ import CreditSimulator from "@/components/CreditSimulator";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden bg-gradient-hero">
+    <section className="relative min-h-[80vh] flex items-center pt-32 pb-20 overflow-hidden bg-gradient-hero">
       {/* Abstract Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-secondary/10 rounded-full blur-3xl animate-pulse-soft" />
@@ -31,10 +31,10 @@ const HeroSection = () => {
       </div>
 
       <div className="container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div className="grid lg:grid-cols-2 gap-5 items-center">
 
           {/* LEFT COLUMN: Text Content */}
-          <div className="max-w-xl space-y-8 text-center lg:text-left">
+          <div className="max-w-xl space-y-5 text-center lg:text-left">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
               <Shield className="w-4 h-4 text-emerald-400" />
@@ -44,7 +44,7 @@ const HeroSection = () => {
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-white drop-shadow-lg">
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold leading-tight text-white drop-shadow-lg">
               Tu segundo aire <br />
               <span className="text-emerald-400">financiero</span> comienza aquí
             </h1>
@@ -87,7 +87,7 @@ const HeroSection = () => {
           </div>
 
           {/* RIGHT COLUMN: Simulator (Floating over background) */}
-          <div className="relative space-y-6 flex flex-col items-center lg:items-end">
+          <div className="relative space-y-4 flex flex-col items-center lg:items-end">
 
             {/* Embedded Simulator */}
             <div className="relative z-20 w-full max-w-md">

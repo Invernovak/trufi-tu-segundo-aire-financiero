@@ -37,16 +37,16 @@ const asistenciasHogar = [
 
 const BeneficiosTrufi = () => {
   return (
-    <section className="pt-10 pb-20 md:pt-16 md:pb-32 bg-secondary/5 relative overflow-hidden" id="beneficios-trufi">
+    <section className="pt-6 pb-20 md:pt-16 md:pb-32 bg-secondary/5 relative overflow-hidden" id="beneficios-trufi">
       {/* Decorative blobs */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none translate-x-1/2 -translate-y-1/2" />
 
       <div className="container relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-6">
           <Badge variant="outline" className="mb-4 px-4 py-1 border-primary/20 text-primary bg-primary/5 text-sm font-semibold uppercase tracking-wider">
             Beneficios Exclusivos
           </Badge>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-4 leading-tight">
             Más que un crédito, <br />
             <span className="text-primary">una protección completa</span>
           </h2>
@@ -55,7 +55,7 @@ const BeneficiosTrufi = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 items-start">
+        <div className="grid lg:grid-cols-3 gap-5 items-start">
           {/* Columna Izquierda: Amparos (Seguros) */}
           <div className="lg:col-span-2 grid md:grid-cols-2 gap-6">
             {amparos.map((item, index) => (
@@ -83,8 +83,8 @@ const BeneficiosTrufi = () => {
               </Card>
             ))}
 
-            {/* Tarjeta Valor del Seguro */}
-            <Card className="group border-0 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 bg-white rounded-[2rem] p-6 md:p-8 overflow-hidden relative">
+            {/* Tarjeta Valor del Seguro (en tablet ocupa el ancho completo) */}
+            <Card className="md:col-span-2 lg:col-span-1 group border-0 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 bg-white rounded-[2rem] p-6 md:p-8 overflow-hidden relative">
               <div className="absolute top-0 right-0 p-4 opacity-50">
                 <Calculator className="w-24 h-24 text-secondary/5 -rotate-12" />
               </div>
@@ -129,7 +129,7 @@ const BeneficiosTrufi = () => {
                   Cobertura 24/7
                 </Badge>
 
-                <div className="flex items-center gap-2 mb-6">
+                <div className="flex items-center gap-2 mb-4">
                   <h3 className="text-2xl font-bold text-foreground">
                     Asistencias Hogar
                   </h3>
@@ -153,17 +153,17 @@ const BeneficiosTrufi = () => {
 
           {/* Columna Derecha: Asistencias Hogar (Featured) */}
           <div className="lg:col-span-1 h-full">
-            <Card className="h-full bg-primary text-primary-foreground rounded-[2rem] p-8 md:p-10 shadow-xl relative overflow-hidden group border-0">
+            <Card className="h-full bg-primary text-primary-foreground rounded-[2rem] p-5 md:p-7 shadow-xl relative overflow-hidden group border-0">
               {/* Decorative background pattern */}
               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
               <Home className="absolute -bottom-6 -right-6 w-48 h-48 text-white/10 rotate-12" />
 
               <div className="relative z-10 h-full flex flex-col">
-                <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center mb-4">
                   <Home className="w-7 h-7 text-white" />
                 </div>
 
-                <div className="flex items-center gap-3 mb-10">
+                <div className="flex items-center gap-3 mb-6">
                   <h3 className="text-3xl font-bold">Asistencias Hogar</h3>
                   <Tooltip delayDuration={300}>
                     <TooltipTrigger asChild>
@@ -174,7 +174,7 @@ const BeneficiosTrufi = () => {
                     </TooltipContent>
                   </Tooltip>
                 </div>
-                <Link to="/beneficios" className="mb-10">
+                <Link to="/beneficios" className="mb-6">
                   <Button className="bg-white text-primary rounded-full px-8 font-bold hover:bg-white/90 transition-all duration-300 group/btn shadow-lg">
                     Conocer más <ChevronRight className="w-4 h-4 ml-1 transition-transform group-hover/btn:translate-x-1" />
                   </Button>
@@ -194,7 +194,7 @@ const BeneficiosTrufi = () => {
                   ))}
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-white/20">
+                <div className="mt-5 pt-6 border-t border-white/20">
                   <p className="text-sm text-white/80 font-medium text-center">
                     Disponible 24/7 para emergencias
                   </p>

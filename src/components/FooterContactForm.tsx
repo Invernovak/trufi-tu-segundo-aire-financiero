@@ -11,15 +11,19 @@ import { Send, Loader2 } from "lucide-react";
 import { supabase } from "@/lib/supabase"; // RUTA CORREGIDA
 import { Link } from "react-router-dom";
 import { TermsDialog, PrivacyDialog } from "@/components/LegalDialogs";
+import PhoneCountryInput from "@/components/PhoneCountryInput";
+import { isValidPhoneNumber, parsePhoneNumber, type CountryCode } from "libphonenumber-js";
 
 const FooterContactForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [pais, setPais] = useState<CountryCode>("CO");
 
     const {
         register,
         handleSubmit,
         reset,
         setValue,
+        setError,
         watch,
         formState: { errors },
     } = useForm<FooterContactForm>({
@@ -35,6 +39,14 @@ const FooterContactForm = () => {
     });
 
     const onSubmit = async (data: FooterContactForm) => {
+        // Validar el número según el país elegido
+        if (!isValidPhoneNumber(data.telefono, pais)) {
+            setError("telefono", { message: "Número no válido para el país seleccionado" });
+            return;
+        }
+        // Se guarda con indicativo, por ejemplo "+57 300 1234567"
+        const telefonoCompleto = parsePhoneNumber(data.telefono, pais).formatInternational();
+
         setIsSubmitting(true);
 
         try {
@@ -44,7 +56,7 @@ const FooterContactForm = () => {
                     {
                         nombre_completo: data.nombre,
                         email: data.email,
-                        telefono: data.telefono,
+                        telefono: telefonoCompleto,
                         mensaje: data.mensaje,
                         acepta_terminos: data.aceptaTerminos,
                         acepta_tratamiento_datos: data.aceptaTratamientoDatos,
@@ -60,6 +72,7 @@ const FooterContactForm = () => {
             });
 
             reset();
+            setPais("CO");
         } catch (error: any) {
             console.error('Error submitting form:', error);
             toast.error("Hubo un error al enviar tus datos", {
@@ -92,30 +105,30 @@ const FooterContactForm = () => {
                     )}
                 </div>
 
-                <div className="grid grid-cols-2 gap-2">
-                    <div className="space-y-0.5">
-                        <Input
-                            {...register("telefono")}
-                            placeholder="Teléfono"
-                            className={`h-8 text-xs bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:bg-white/20 focus:border-white/40 ${errors.telefono ? "border-red-400 focus:border-red-400" : ""
-                                }`}
-                        />
-                        {errors.telefono && (
-                            <p className="text-[10px] text-red-300 ml-1">{errors.telefono.message}</p>
-                        )}
-                    </div>
-                    <div className="space-y-0.5">
-                        <Input
-                            {...register("email")}
-                            placeholder="Email"
-                            type="email"
-                            className={`h-8 text-xs bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:bg-white/20 focus:border-white/40 ${errors.email ? "border-red-400 focus:border-red-400" : ""
-                                }`}
-                        />
-                        {errors.email && (
-                            <p className="text-[10px] text-red-300 ml-1">{errors.email.message}</p>
-                        )}
-                    </div>
+                <div className="space-y-0.5">
+                    <Input
+                        {...register("email")}
+                        placeholder="Email"
+                        type="email"
+                        className={`h-8 text-xs bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:bg-white/20 focus:border-white/40 ${errors.email ? "border-red-400 focus:border-red-400" : ""
+                            }`}
+                    />
+                    {errors.email && (
+                        <p className="text-[10px] text-red-300 ml-1">{errors.email.message}</p>
+                    )}
+                </div>
+
+                <div className="space-y-0.5">
+                    <PhoneCountryInput
+                        {...register("telefono")}
+                        country={pais}
+                        onCountryChange={setPais}
+                        placeholder="WhatsApp"
+                        hasError={!!errors.telefono}
+                    />
+                    {errors.telefono && (
+                        <p className="text-[10px] text-red-300 ml-1">{errors.telefono.message}</p>
+                    )}
                 </div>
 
                 <div className="space-y-0.5">

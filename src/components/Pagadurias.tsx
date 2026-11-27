@@ -16,11 +16,11 @@ interface PagaduriasProps {
 
 // Sub-componente de Cabecera (Presentación)
 const PagaduriasHeader = ({ title, description }: { title: string; description: string }) => (
-    <div className="text-center max-w-3xl mx-auto mb-6 space-y-3">
+    <div className="text-center max-w-3xl mx-auto mb-4 space-y-3">
         <Badge variant="outline" className="px-4 py-1.5 border-emerald-500/20 text-emerald-600 text-sm font-bold tracking-wide uppercase bg-white">
             Convenios y Pagadurías
         </Badge>
-        <h2 className="text-4xl md:text-5xl font-black tracking-tight text-slate-900 text-center">
+        <h2 className="text-3xl md:text-4xl font-black tracking-tight text-slate-900 text-center">
             {title}
         </h2>
         <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto font-medium text-center">

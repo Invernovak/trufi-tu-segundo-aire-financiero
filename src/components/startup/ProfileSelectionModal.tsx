@@ -48,13 +48,13 @@ const ProfileSelectionModal = () => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="sm:max-w-md p-0 overflow-visible border-0 bg-transparent shadow-none [&>button]:hidden">
-        <div className="bg-[#1A0B3B] p-8 md:p-10 rounded-[2rem] border border-white/10 relative shadow-2xl">
+        <div className="bg-[#1A0B3B] p-5 md:p-7 rounded-[2rem] border border-white/10 relative shadow-2xl">
           {/* Custom Close Button */}
           <DialogClose className="absolute right-5 top-5 rounded-full p-2 hover:bg-white/10 transition-colors z-20">
             <X className="w-5 h-5 text-white/60 hover:text-white" />
           </DialogClose>
 
-          <DialogHeader className="relative z-10 text-center space-y-4 mb-8">
+          <DialogHeader className="relative z-10 text-center space-y-4 mb-5">
             <img
               src="/logos/trufi-marca-negativo.svg"
               alt="TRUFI"
@@ -87,7 +87,7 @@ const ProfileSelectionModal = () => {
             ))}
           </div>
 
-          <p className="mt-8 text-center text-white/30 text-xs font-medium tracking-tight">
+          <p className="mt-5 text-center text-white/30 text-xs font-medium tracking-tight">
             TRUFI S.A.S. | Tu Segundo Aire Financiero
           </p>
         </div>

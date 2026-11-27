@@ -19,6 +19,7 @@ import { useLeadsForm } from "@/hooks/useLeadsForm";
 import { SEOHead } from "@/components/SEOHead";
 import TestimonioCard from "@/components/TestimonioCard";
 
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 const benefits = [
   {
     icon: MessageCircle,
@@ -86,7 +87,7 @@ const Pensionado = () => {
       <main className="pt-0"> {/* Removed pt-20 to allow hero to touch top */}
 
         {/* Hero Section - Pensionados */}
-        <section className="relative min-h-[80vh] pt-20 md:pt-28 pb-8 md:pb-12 overflow-hidden flex flex-col justify-center">
+        <section className="relative min-h-[70vh] pt-20 md:pt-28 pb-8 md:pb-12 overflow-hidden flex flex-col justify-center">
           {/* Background con imagen del segmento covering everything */}
           <div className="absolute inset-0 z-0">
             <img
@@ -100,7 +101,7 @@ const Pensionado = () => {
 
           <div className="container relative z-10 h-full flex flex-col">
             {/* Navegación rápida - inside Hero */}
-            <div className="mb-8 md:mb-8">
+            <div className="mb-5 md:mb-8">
               <div className="flex items-center gap-4 flex-wrap">
                 <Link to="/">
                   <Button variant="ghost" size="sm" className="gap-2 text-white/90 hover:text-white hover:bg-white/10 transition-colors">
@@ -120,8 +121,8 @@ const Pensionado = () => {
               </div>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center flex-1">
-              <div className="space-y-6 max-w-xl text-center lg:text-left flex flex-col items-center lg:items-start">
+            <div className="grid lg:grid-cols-2 gap-5 lg:gap-6 items-center flex-1">
+              <div className="space-y-4 max-w-xl text-center lg:text-left flex flex-col items-center lg:items-start">
                 {/* Badge con color distintivo */}
                 <div className={`inline-flex items-center gap-2 px-4 py-1.5 bg-orange-500/10 backdrop-blur-md border border-orange-500/20 rounded-full w-fit`}>
                   <Sun className={`w-4 h-4 text-orange-400`} />
@@ -131,7 +132,7 @@ const Pensionado = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
+                  <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
                     Tranquilidad y <br />
                     Respaldo para ti
                   </h1>
@@ -144,7 +145,7 @@ const Pensionado = () => {
                       className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-6 px-10 rounded-2xl text-lg shadow-xl shadow-orange-500/20 group"
                       asChild
                     >
-                      <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+                      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
                         <MessageCircle className="w-6 h-6 fill-current group-hover:scale-110 transition-transform" />
                         Habla con un asesor
                       </a>
@@ -164,7 +165,7 @@ const Pensionado = () => {
         {/* Benefits Section - Facilidades para ti */}
         <section className="py-10 md:py-14">
           <div className="container">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-5">
               ¿Por Qué Los Pensionados Eligen TRUFI?
             </h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
@@ -202,7 +203,7 @@ const Pensionado = () => {
         <section className="py-10 md:py-14">
           <div className="container">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-center mb-5">
                 Lo que necesitas para iniciar
               </h2>
               <div className={`bg-card border ${accentBorder} rounded-2xl p-6 md:p-8`}>
@@ -294,7 +295,7 @@ const Pensionado = () => {
         <section className="py-10 md:py-14 bg-muted/40">
           <div className="container">
             <div className="max-w-2xl mx-auto">
-              <div className="text-center mb-8">
+              <div className="text-center mb-5">
                 <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2 text-center">
                   ¿Necesitas ayuda personalizada?
                 </h2>
@@ -438,7 +439,7 @@ const Pensionado = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 text-center">
               ¿Listo para tu segundo aire financiero?
             </h2>
-            <p className="text-white/90 mb-8 max-w-xl mx-auto text-center">
+            <p className="text-white/90 mb-5 max-w-xl mx-auto text-center">
               Nuestros asesores están disponibles para ayudarte en cada paso del proceso con paciencia y calidez.
             </p>
             <Button
@@ -446,7 +447,7 @@ const Pensionado = () => {
               className="bg-white text-orange-600 hover:bg-white/90 font-bold shadow-2xl"
               asChild
             >
-              <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                 <Sparkles className="w-4 h-4 mr-2" />
                 Habla con un asesor ahora
               </a>

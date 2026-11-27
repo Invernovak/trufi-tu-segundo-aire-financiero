@@ -29,10 +29,10 @@ const BeneficiosExclusivos = () => {
                     </div>
 
                     <div className="container relative z-10 text-center max-w-4xl px-4">
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30 text-sm font-semibold mb-6 animate-fade-in">
+                        <span className="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30 text-sm font-semibold mb-4 animate-fade-in">
                             Club de Privilegios Trufi
                         </span>
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight animate-slide-up">
+                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight animate-slide-up">
                             Más que un crédito, <br />
                             <span className="text-secondary">un estilo de vida</span>
                         </h1>

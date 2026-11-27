@@ -20,7 +20,7 @@ const ValueProposition = () => {
   return <section id="beneficios" className="py-20 md:py-28 bg-[#413659] text-white">
       <div className="container">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
+        <div className="text-center max-w-2xl mx-auto mb-6">
           <span className="inline-block px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium mb-4">
             ¿Por qué elegirnos?
           </span>
@@ -50,7 +50,7 @@ const ValueProposition = () => {
         </div>
 
         {/* Trust Statement */}
-        <div className="mt-10 text-center">
+        <div className="mt-6 text-center">
           <p className="text-muted-foreground">
             Más de <span className="font-bold text-foreground">5,000 colombianos</span> han 
             recuperado su segundo aire financiero con TRUFI

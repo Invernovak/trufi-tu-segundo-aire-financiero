@@ -84,11 +84,11 @@ const AudienceSegmentation = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/5 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       <div className="container">
-        <div className="text-center max-w-2xl mx-auto mb-10 space-y-4">
+        <div className="text-center max-w-2xl mx-auto mb-6 space-y-4">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary/5 text-primary font-bold text-sm tracking-wide uppercase">
             Elige tu perfil
           </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground tracking-tight text-center">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-foreground tracking-tight text-center">
             ¿A qué grupo perteneces?
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed text-center">
@@ -96,7 +96,7 @@ const AudienceSegmentation = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-5 max-w-7xl mx-auto">
           {segmentos.map((item) => {
             const config = getSegmentConfig(item.enlace);
             const Icon = config.icon;
@@ -122,7 +122,7 @@ const AudienceSegmentation = () => {
               <Link key={item.id} to={item.enlace} className="block group h-full">
                 <Card className={`h-full border border-border/50 shadow-card hover:-translate-y-2 transition-all duration-500 bg-card overflow-hidden rounded-[2rem] flex flex-col ${config.shadowClass} transform-gpu isolation-isolate`}>
                   {/* Image Container */}
-                  <div className="relative h-44 md:h-64 overflow-hidden">
+                  <div className="relative h-44 md:h-52 lg:h-60 overflow-hidden">
                     <img
                       src={getFallbackImage(item.titulo)}
                       alt={title}
@@ -136,24 +136,24 @@ const AudienceSegmentation = () => {
                       <div className={`mb-3 w-12 h-12 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white`}>
                         <Icon className="w-6 h-6 stroke-[2.5]" />
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-bold text-white leading-none">
+                      <h3 className="text-2xl lg:text-3xl font-bold text-white leading-none">
                         {title}
                       </h3>
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-8 flex flex-col flex-grow">
-                    <p className="text-muted-foreground mb-8 leading-relaxed text-base flex-grow">
+                  <div className="p-4 lg:p-6 flex flex-col flex-grow">
+                    <p className="text-muted-foreground mb-4 leading-relaxed text-sm lg:text-base flex-grow text-left">
                       {description}
                     </p>
 
                     <Button
                       variant="ghost"
-                      className={`w-full justify-between font-bold text-base py-6 rounded-xl transition-colors ${config.colorClass} bg-secondary/10 group-hover:bg-secondary/20`}
+                      className={`w-full justify-between font-bold text-sm lg:text-base py-5 lg:py-6 px-4 md:px-3 lg:px-4 rounded-xl transition-colors ${config.colorClass} bg-secondary/10 group-hover:bg-secondary/20`}
                     >
                       {buttonText}
-                      <ChevronRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+                      <ChevronRight className="w-5 h-5 ml-2 shrink-0 md:hidden lg:block transition-transform group-hover:translate-x-1" />
                     </Button>
                   </div>
                 </Card>

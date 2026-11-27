@@ -115,8 +115,8 @@
 
   /* Reduce section padding globally to minimize excessive scrolling */
   main section {
-    padding-top: clamp(1.75rem, 3.5vw, 2.75rem) !important;
-    padding-bottom: clamp(1.75rem, 3.5vw, 2.75rem) !important;
+    padding-top: clamp(1.25rem, 2.75vw, 2.25rem) !important;
+    padding-bottom: clamp(1.25rem, 2.75vw, 2.25rem) !important;
   }
 
   /* El encabezado de cada página conserva su espacio bajo el menú fijo */

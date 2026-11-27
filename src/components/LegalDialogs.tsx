@@ -26,7 +26,7 @@ export const TermsDialog = ({ children }: LegalDialogProps) => {
                     </DialogDescription>
                 </DialogHeader>
                 <div className="flex-1 overflow-y-auto px-6 py-4">
-                    <div className="space-y-6 text-slate-600 text-sm md:text-base leading-relaxed text-justify pb-6">
+                    <div className="space-y-4 text-slate-600 text-sm md:text-base leading-relaxed text-justify pb-6">
                         <section>
                             <h3 className="text-lg font-semibold text-slate-800 mb-2">1. Generalidades del Servicio</h3>
                             <p>Al acceder o utilizar los servicios de TRUFI S.A.S., el usuario acepta de manera expresa, voluntaria e inequívoca las políticas, restricciones y condiciones establecidas por la compañía en el presente documento. Entendiendo que toda solicitud de producto está sujeta a etapas de estudio, capacidad de endeudamiento y verificación de viabilidad por parte de nuestro comité crediticio.</p>
@@ -88,7 +88,7 @@ export const PrivacyDialog = ({ children }: LegalDialogProps) => {
                     </DialogDescription>
                 </DialogHeader>
                 <div className="flex-1 overflow-y-auto px-6 py-4">
-                    <div className="space-y-6 text-slate-600 text-sm md:text-base leading-relaxed text-justify pb-6">
+                    <div className="space-y-4 text-slate-600 text-sm md:text-base leading-relaxed text-justify pb-6">
                         <section>
                             <h3 className="text-lg font-semibold text-slate-800 mb-2">1. Objetivo y Alcance</h3>
                             <p>TRUFI S.A.S. (en adelante "La Empresa"), con el fin de proteger la privacidad de la información personal de sus clientes, prospectos, proveedores y colaboradores, establece el presente manual de políticas que regula la recolección, almacenamiento, tratamiento, administración, transferencia y transmisión de dichos datos.</p>

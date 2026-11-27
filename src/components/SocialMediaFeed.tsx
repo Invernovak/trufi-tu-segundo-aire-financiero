@@ -60,11 +60,11 @@ const SocialMediaFeed = () => {
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
             <div className="container relative z-10">
-                <div className="text-center max-w-3xl mx-auto mb-10">
+                <div className="text-center max-w-3xl mx-auto mb-6">
                     <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-4">
                         Comunidad Digital
                     </span>
-                    <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+                    <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                         Conectamos contigo en <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600">
                             cada plataforma

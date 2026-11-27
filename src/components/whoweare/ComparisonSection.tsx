@@ -4,8 +4,8 @@ const ComparisonSection = () => {
   return (
     <section className="py-24 bg-gray-50/50 relative">
       <div className="container px-4">
-        <div className="max-w-3xl mx-auto text-center mb-10">
-          <h2 className="text-3xl md:text-5xl font-black text-primary mb-6 tracking-tight">
+        <div className="max-w-3xl mx-auto text-center mb-6">
+          <h2 className="text-3xl md:text-4xl font-black text-primary mb-4 tracking-tight">
             ¿Por qué elegir <span className="text-secondary">TRUFI</span>?
           </h2>
           <p className="text-lg text-muted-foreground text-center">
@@ -13,13 +13,13 @@ const ComparisonSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-5 max-w-5xl mx-auto">
           {/* Traditional Banking */}
-          <div className="bg-white rounded-[3rem] p-8 md:p-12 border border-gray-100 shadow-sm opacity-80 scale-95 grayscale hover:grayscale-0 transition-all duration-700">
-            <h3 className="text-2xl font-bold text-gray-400 mb-8 flex items-center gap-3">
+          <div className="bg-white rounded-[3rem] p-5 md:p-8 border border-gray-100 shadow-sm opacity-80 scale-95 grayscale hover:grayscale-0 transition-all duration-700">
+            <h3 className="text-2xl font-bold text-gray-400 mb-5 flex items-center gap-3">
               Banca Tradicional
             </h3>
-            <ul className="space-y-6">
+            <ul className="space-y-4">
               {[
                 "Análisis automático por algoritmos fríos.",
                 "Rechazo inmediato por reportes negativos.",
@@ -35,13 +35,13 @@ const ComparisonSection = () => {
           </div>
 
           {/* TRUFI Way */}
-          <div className="bg-primary rounded-[3rem] p-8 md:p-12 border border-primary shadow-2xl shadow-primary/20 relative overflow-hidden group">
+          <div className="bg-primary rounded-[3rem] p-5 md:p-8 border border-primary shadow-2xl shadow-primary/20 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-[4rem] group-hover:bg-secondary/20 transition-all duration-500" />
             
-            <h3 className="text-3xl font-black text-white mb-8 flex items-center gap-3">
+            <h3 className="text-3xl font-black text-white mb-5 flex items-center gap-3">
               El Efecto <span className="text-secondary">TRUFI</span>
             </h3>
-            <ul className="space-y-6">
+            <ul className="space-y-4">
               {[
                 "Análisis humano de tu capacidad real.",
                 "Te damos la mano pese a reportes negativos.",

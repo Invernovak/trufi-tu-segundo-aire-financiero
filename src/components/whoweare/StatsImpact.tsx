@@ -31,13 +31,13 @@ const StatsImpact = () => {
   return (
     <div className="relative overflow-hidden w-full">
       <div className="container px-4">
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-5">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center p-8 rounded-[2.5rem] bg-gray-50 border border-gray-100 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-2 group"
+              className="flex flex-col items-center text-center p-5 md:p-6 rounded-[2.5rem] bg-gray-50 border border-gray-100 transition-all duration-500 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-2 group"
             >
-              <div className={`w-16 h-16 rounded-2xl ${stat.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
+              <div className={`w-16 h-16 rounded-2xl ${stat.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500`}>
                 <stat.icon className={`w-8 h-8 ${stat.color}`} />
               </div>
               <p className="text-5xl font-black text-primary mb-2 tracking-tighter">

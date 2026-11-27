@@ -4,6 +4,7 @@ import { Slider } from "@/components/ui/slider";
 import { Card, CardContent } from "@/components/ui/card";
 import { Shield, Eye, ArrowRight, Sparkles } from "lucide-react";
 
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 const CreditSimulator = () => {
     const [amount, setAmount] = useState([30000000]);
     const [term, setTerm] = useState([60]);
@@ -115,7 +116,7 @@ const CreditSimulator = () => {
                     className="w-full text-base py-6 font-bold group bg-[#78c0b3] hover:bg-[#78c0b3]/90 text-white shadow-lg hover:shadow-xl icon-thumbs-up"
                     asChild
                 >
-                    <a href="https://portal.trufi.com.co/credits" target="_blank" rel="noopener noreferrer">
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                         <Sparkles className="w-4 h-4 mr-2" />
                         ¡Lo quiero!
                         <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />

@@ -1,6 +1,9 @@
+import { lazy, Suspense } from "react";
 import { MapPin, Phone, Mail, Instagram, Facebook, Linkedin } from "lucide-react";
-import FooterContactForm from "./FooterContactForm";
 import { Link } from "react-router-dom";
+
+// El formulario (con el selector de país) se carga aparte para no pesar en la carga inicial
+const FooterContactForm = lazy(() => import("./FooterContactForm"));
 
 const Footer = () => {
   return (
@@ -69,7 +72,9 @@ const Footer = () => {
           {/* Right Column: Contact Form (Compact Wrapper) */}
           <div className="lg:col-span-4">
             <div className="transform scale-95 origin-top-right">
-              <FooterContactForm />
+              <Suspense fallback={<div className="h-[300px] rounded-xl border border-white/10 bg-white/5" />}>
+                <FooterContactForm />
+              </Suspense>
             </div>
           </div>
 

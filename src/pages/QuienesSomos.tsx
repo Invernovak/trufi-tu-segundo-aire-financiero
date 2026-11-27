@@ -21,7 +21,7 @@ const QuienesSomos = () => {
       <Header />
       <main>
         {/* --- Hero Section: El Impacto --- */}
-        <section className="relative h-[70vh] md:h-[80vh] overflow-hidden">
+        <section className="relative h-[55vh] md:h-[65vh] overflow-hidden">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0 z-0">
             <video
@@ -40,7 +40,7 @@ const QuienesSomos = () => {
 
           {/* Marquee Footer */}
           <div className="absolute bottom-0 left-0 right-0 bg-primary/90 backdrop-blur-md py-4 z-20 overflow-hidden border-t border-white/10">
-            <div className="animate-marquee whitespace-nowrap flex gap-8 items-center">
+            <div className="animate-marquee whitespace-nowrap flex gap-5 items-center">
               <span className="text-lg md:text-xl text-white font-bold px-4">
                 Bienvenido a <span className="text-secondary">TRUFI</span>
               </span>
@@ -67,7 +67,7 @@ const QuienesSomos = () => {
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-5">
                 Nuestra Filosofía
               </div>
-              <h2 className="text-4xl md:text-5xl font-black font-archive text-primary mb-6 tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-black font-archive text-primary mb-4 tracking-tight">
                 La Tesis de la <span className="text-secondary">Reincorporación Financiera</span>
               </h2>
               <div className="relative group cursor-default">
@@ -98,8 +98,8 @@ const QuienesSomos = () => {
         <section className="py-24 bg-gray-50/30">
           <div className="container px-4">
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-10">
-                <h2 className="text-4xl md:text-5xl font-black font-archive text-foreground mb-4">
+              <div className="text-center mb-6">
+                <h2 className="text-3xl md:text-4xl font-black font-archive text-foreground mb-4">
                   Lo que nos mueve
                 </h2>
                 <p className="text-xl text-muted-foreground text-center">
@@ -108,7 +108,7 @@ const QuienesSomos = () => {
               </div>
 
               <Tabs defaultValue="proposito" className="w-full">
-                <TabsList className="grid w-full grid-cols-3 h-auto p-1.5 bg-gray-200/50 rounded-2xl mb-8">
+                <TabsList className="grid w-full grid-cols-3 h-auto p-1.5 bg-gray-200/50 rounded-2xl mb-5">
                   <TabsTrigger value="proposito" className="py-4 text-sm md:text-lg font-bold data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-lg rounded-xl transition-all">
                     Propósito
                   </TabsTrigger>
@@ -120,12 +120,12 @@ const QuienesSomos = () => {
                   </TabsTrigger>
                 </TabsList>
 
-                <div className="bg-white rounded-[2.5rem] p-8 md:p-12 border border-gray-100 shadow-xl shadow-gray-200/50">
+                <div className="bg-white rounded-[2.5rem] p-5 md:p-8 border border-gray-100 shadow-xl shadow-gray-200/50">
                   {/* Tab: Propósito */}
-                  <TabsContent value="proposito" className="space-y-8 animate-in fade-in-50 slide-in-from-bottom-2 duration-300">
-                    <div className="grid md:grid-cols-2 gap-10">
+                  <TabsContent value="proposito" className="space-y-5 animate-in fade-in-50 slide-in-from-bottom-2 duration-300">
+                    <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-4">
-                        <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                        <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
                           <Target className="w-7 h-7 text-primary" />
                         </div>
                         <h3 className="text-2xl font-black text-gray-900">Más que una Misión</h3>
@@ -134,7 +134,7 @@ const QuienesSomos = () => {
                         </p>
                       </div>
                       <div className="space-y-4">
-                        <div className="w-14 h-14 bg-secondary/20 rounded-2xl flex items-center justify-center mb-6">
+                        <div className="w-14 h-14 bg-secondary/20 rounded-2xl flex items-center justify-center mb-4">
                           <Eye className="w-7 h-7 text-secondary-foreground" />
                         </div>
                         <h3 className="text-2xl font-black text-gray-900">Nuestra Visión</h3>
@@ -146,8 +146,8 @@ const QuienesSomos = () => {
                   </TabsContent>
 
                   {/* Tab: Equipo */}
-                  <TabsContent value="equipo" className="space-y-8 animate-in fade-in-50 slide-in-from-bottom-2 duration-300">
-                    <div className="flex flex-col md:flex-row items-center gap-10 mb-10">
+                  <TabsContent value="equipo" className="space-y-5 animate-in fade-in-50 slide-in-from-bottom-2 duration-300">
+                    <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
                       <div className="w-20 h-20 bg-blue-100 rounded-3xl flex items-center justify-center shrink-0">
                         <Users className="w-10 h-10 text-blue-600" />
                       </div>
@@ -174,7 +174,7 @@ const QuienesSomos = () => {
                   </TabsContent>
 
                   {/* Tab: Reglas */}
-                  <TabsContent value="reglas" className="space-y-8 animate-in fade-in-50 slide-in-from-bottom-2 duration-300">
+                  <TabsContent value="reglas" className="space-y-5 animate-in fade-in-50 slide-in-from-bottom-2 duration-300">
                     <div className="grid gap-6">
                       {[
                         { title: "Tus Datos son Sagrados", desc: "Cumplimos con la Ley 1581 y 1266." },

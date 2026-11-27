@@ -19,6 +19,7 @@ import { useLeadsForm } from "@/hooks/useLeadsForm";
 import { SEOHead } from "@/components/SEOHead";
 import TestimonioCard from "@/components/TestimonioCard";
 
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 const benefits = [
   {
     icon: Laptop,
@@ -86,7 +87,7 @@ const Docente = () => {
       <main className="pt-0">
 
         {/* Hero Section - Docentes */}
-        <section className="relative min-h-[80vh] pt-20 md:pt-28 pb-8 md:pb-12 overflow-hidden flex flex-col justify-center">
+        <section className="relative min-h-[70vh] pt-20 md:pt-28 pb-8 md:pb-12 overflow-hidden flex flex-col justify-center">
           {/* Background con imagen del segmento */}
           <div className="absolute inset-0 z-0">
             <img
@@ -100,7 +101,7 @@ const Docente = () => {
 
           <div className="container relative z-10 h-full flex flex-col">
             {/* Navegación rápida - Inside Hero */}
-            <div className="mb-6 md:mb-8">
+            <div className="mb-4 md:mb-8">
               <div className="flex items-center gap-4 flex-wrap">
                 <Link to="/">
                   <Button variant="ghost" size="sm" className="gap-2 text-white/90 hover:text-white hover:bg-white/10 transition-colors">
@@ -120,8 +121,8 @@ const Docente = () => {
               </div>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center flex-1">
-              <div className="space-y-6 max-w-xl text-center lg:text-left flex flex-col items-center lg:items-start">
+            <div className="grid lg:grid-cols-2 gap-5 lg:gap-6 items-center flex-1">
+              <div className="space-y-4 max-w-xl text-center lg:text-left flex flex-col items-center lg:items-start">
                 {/* Badge con color distintivo */}
                 <div className={`inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/10 backdrop-blur-md border border-blue-500/20 rounded-full w-fit`}>
                   <GraduationCap className={`w-4 h-4 text-blue-300`} />
@@ -131,7 +132,7 @@ const Docente = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
+                  <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight">
                     Progreso y <br />
                     Bienestar para ti
                   </h1>
@@ -156,7 +157,7 @@ const Docente = () => {
                     className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-6 px-10 rounded-2xl text-lg shadow-xl shadow-blue-500/20 group"
                     asChild
                   >
-                    <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
                       <MessageCircle className="w-6 h-6 fill-current group-hover:scale-110 transition-transform" />
                       Habla con un asesor
                     </a>
@@ -174,7 +175,7 @@ const Docente = () => {
         {/* Benefits Section - Facilidades para ti */}
         <section className="py-10 md:py-14">
           <div className="container">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-5">
               Facilidades para ti
             </h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
@@ -212,7 +213,7 @@ const Docente = () => {
         <section className="py-10 md:py-14">
           <div className="container">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-center mb-5">
                 Requisitos para Docentes
               </h2>
               <div className={`bg-card border ${accentBorder} rounded-2xl p-6 md:p-8`}>
@@ -304,7 +305,7 @@ const Docente = () => {
         <section className="py-10 md:py-14 bg-muted/40">
           <div className="container">
             <div className="max-w-xl mx-auto">
-              <div className="text-center mb-6">
+              <div className="text-center mb-4">
                 <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2 text-center">
                   ¿Necesitas ayuda personalizada?
                 </h2>
@@ -460,7 +461,7 @@ const Docente = () => {
             <h2 className="text-xl md:text-2xl font-bold text-white mb-3 text-center">
               Tu dedicación merece reconocimiento
             </h2>
-            <p className="text-white/90 mb-6 max-w-lg mx-auto text-sm text-center">
+            <p className="text-white/90 mb-4 max-w-lg mx-auto text-sm text-center">
               Únete a miles de colegas que ya encontraron su solución financiera con TRUFI.
             </p>
             <Button
@@ -468,7 +469,7 @@ const Docente = () => {
               className="bg-white text-blue-600 hover:bg-white/90 font-bold shadow-xl"
               asChild
             >
-              <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                 Habla con un asesor
               </a>
             </Button>

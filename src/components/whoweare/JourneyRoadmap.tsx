@@ -25,8 +25,8 @@ const JourneyRoadmap = () => {
   return (
     <section className="py-24 bg-white relative">
       <div className="container px-4">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-5xl font-black text-primary mb-4">
+        <div className="text-center mb-6">
+          <h2 className="text-3xl md:text-4xl font-black text-primary mb-4">
             Tu Camino a la <span className="text-secondary">Libertad</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-center">
@@ -34,18 +34,18 @@ const JourneyRoadmap = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto relative">
+        <div className="grid md:grid-cols-3 gap-5 max-w-6xl mx-auto relative">
           {/* Connection Line (Desktop) */}
           <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gray-100 -translate-y-20 z-0" />
           
           {steps.map((item, index) => (
             <div key={index} className="relative z-10 group">
-              <div className="bg-white p-8 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-xl hover:border-secondary/30 transition-all duration-500 h-full flex flex-col items-center text-center">
+              <div className="bg-white p-5 md:p-6 rounded-[2.5rem] border border-gray-100 shadow-sm hover:shadow-xl hover:border-secondary/30 transition-all duration-500 h-full flex flex-col items-center text-center">
                 <div className="absolute top-4 right-8 text-6xl font-black text-gray-50 select-none group-hover:text-secondary/5 transition-colors">
                   {item.step}
                 </div>
                 
-                <div className="w-20 h-20 rounded-3xl bg-primary flex items-center justify-center mb-8 shadow-lg shadow-primary/20 transform group-hover:rotate-6 transition-transform">
+                <div className="w-20 h-20 rounded-3xl bg-primary flex items-center justify-center mb-5 shadow-lg shadow-primary/20 transform group-hover:rotate-6 transition-transform">
                   <item.icon className="w-10 h-10 text-white" />
                 </div>
                 

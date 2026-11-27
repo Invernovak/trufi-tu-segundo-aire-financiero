@@ -25,7 +25,7 @@ const HowItWorks = () => {
       
       <div className="container relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-10">
+        <div className="text-center max-w-2xl mx-auto mb-5 md:mb-10">
           <span className="inline-block px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm md:text-base font-medium mb-4">
             Modelo Seguro
           </span>
@@ -48,7 +48,7 @@ const HowItWorks = () => {
             
             {steps.map((step, index) => <div key={index} className="relative flex flex-col items-center text-center w-1/3 px-4">
                 {/* Icon Circle */}
-                <div className="relative z-10 w-32 h-32 rounded-full bg-gradient-hero flex items-center justify-center shadow-elevated mb-6 group hover:scale-105 transition-transform duration-300">
+                <div className="relative z-10 w-32 h-32 rounded-full bg-gradient-hero flex items-center justify-center shadow-elevated mb-4 group hover:scale-105 transition-transform duration-300">
                   <step.icon className="w-14 h-14 text-primary-foreground" />
                   
                   {/* Step number badge */}
@@ -80,7 +80,7 @@ const HowItWorks = () => {
           </div>
 
           {/* Mobile: Vertical Flow */}
-          <div className="md:hidden space-y-6">
+          <div className="md:hidden space-y-4">
             {steps.map((step, index) => <div key={index} className="relative">
                 <div className="flex items-start gap-4 bg-card rounded-2xl p-6 border border-border shadow-trufi">
                   {/* Icon */}
@@ -113,7 +113,7 @@ const HowItWorks = () => {
         </div>
 
         {/* Trust Badge */}
-        <div className="text-center mt-8">
+        <div className="text-center mt-5">
           <div className="inline-flex items-center gap-3 px-6 py-3 bg-card rounded-full border border-border shadow-trufi">
             <Building2 className="w-5 h-5 text-primary" />
             <span className="text-sm md:text-base font-medium text-foreground">

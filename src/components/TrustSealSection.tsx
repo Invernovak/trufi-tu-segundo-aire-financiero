@@ -28,11 +28,11 @@ const TrustSealSection = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="container relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-10 space-y-4">
+        <div className="text-center max-w-3xl mx-auto mb-6 space-y-4">
           <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-secondary text-sm font-bold tracking-widest uppercase">
             Sello TRUFI
           </span>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-black tracking-tight">
             Nuestro Sello de <span className="text-secondary">Confianza</span>
           </h2>
           <p className="text-white/60 text-lg md:text-xl font-light text-center">
@@ -40,13 +40,13 @@ const TrustSealSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-5">
           {pillars.map((pillar, index) => (
             <div 
               key={index} 
-              className="group p-6 md:p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 relative"
+              className="group p-6 md:p-7 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 relative"
             >
-              <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+              <div className="absolute top-0 right-0 p-5 md:p-6 opacity-10 group-hover:opacity-20 transition-opacity">
                 <pillar.icon className="w-24 h-24" />
               </div>
               

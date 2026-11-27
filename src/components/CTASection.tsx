@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, MessageCircle } from "lucide-react";
 
+import { WHATSAPP_URL } from "@/lib/whatsapp";
 const CTASection = () => {
   return (
     <section className="py-20 md:py-24 bg-white">
@@ -12,7 +13,7 @@ const CTASection = () => {
           <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
           {/* Main Content - Centered Vertical Stack */}
-          <div className="relative z-10 px-8 pt-8 pb-6 md:px-12 lg:px-16 flex flex-col items-center text-center gap-4">
+          <div className="relative z-10 px-8 pt-5 pb-6 md:px-12 lg:px-16 flex flex-col items-center text-center gap-4">
 
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-sm whitespace-nowrap">
@@ -34,7 +35,7 @@ const CTASection = () => {
               className="bg-secondary hover:bg-secondary/90 text-primary-foreground font-bold text-base px-8 py-4 h-auto rounded-full shadow-lg hover:shadow-secondary/20 hover:-translate-y-1 transition-all duration-300 group whitespace-nowrap"
               asChild
             >
-              <a href="https://portal.trufi.com.co/credits" target="_blank" rel="noopener noreferrer">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
                 Solicitar mi Crédito Ahora
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
               </a>
@@ -57,7 +58,9 @@ const CTASection = () => {
                 <div className="flex gap-4">
 
                   <a
-                    href="#"
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm font-semibold transition-colors text-white hover:text-secondary group"
                   >
                     <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors">
